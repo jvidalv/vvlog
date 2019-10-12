@@ -61,7 +61,7 @@ function App() {
                 </div>
               </Card.Body>
             </Card>
-            <Card>
+            <Card className="mt-2">
               <Card.Body className="p-0 text-left d-md-flex">
                 <Card.Img
                   className="d-none d-lg-block"
@@ -150,6 +150,7 @@ function App() {
           Learn Reactssadssad
         </a>
       </header>
+      <footer></footer>
     </div>
   );
 }
