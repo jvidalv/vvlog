@@ -1,27 +1,54 @@
 import React from "react";
+import { useGlobals } from "../contexts/Globals";
 import { Navbar, Nav, FormControl, Form } from "react-bootstrap";
-
-import { ContainerHeader, LogoHeader } from "./HeaderStyle";
-import logo from "../assets/images/logo-vidalv.png";
+import { Link } from "./HeaderStyle.js";
 
 export default function Header() {
+  const [{ theme }, dispatch] = useGlobals();
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand href="#home">VBLOGV</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-2 mr-auto">
-          <Nav.Link className="px-4" href="#home">
-            Home
+          <Nav.Link className="text-white px-4" href="#home">
+            Explore
           </Nav.Link>
-          <Nav.Link className="px-4" href="#link">
-            Link
+          <Nav.Link className="text-white px-4" href="#link">
+            React
           </Nav.Link>
-          <Nav.Link className="px-4" href="#link">
-            Link
+          <Nav.Link className="text-white px-4" href="#link">
+            Contact
           </Nav.Link>
-          <Nav.Link className="px-4" href="#link">
-            Link
+          <Nav.Link className="text-white px-4" href="#link">
+            About
+          </Nav.Link>
+        </Nav>
+        <Nav className="mr-4">
+          <Nav.Link
+            className="text-white"
+            href="#home"
+            onClick={() =>
+              dispatch({
+                type: "changeTheme",
+                newTheme: "dark"
+              })
+            }
+          >
+            Dark
+          </Nav.Link>
+          <Nav.Link
+            className="text-white"
+            href="#home"
+            onClick={() =>
+              dispatch({
+                type: "changeTheme",
+                newTheme: "white"
+              })
+            }
+          >
+            Light
           </Nav.Link>
         </Nav>
         <Form inline>
