@@ -1,18 +1,25 @@
 import React from "react";
 import { Jumbotron, Button } from "react-bootstrap";
+import {
+  HeroSectionStyled,
+  HeroImage,
+  HeroH1,
+  HeroP
+} from "./HeroSectionStyle";
+import { H1, P } from "../styles/GenericStyles";
+import logoBig from "../assets/images/logo-big.png";
 
 function HeroSection() {
   return (
-    <Jumbotron>
-      <h1>Hello, world!</h1>
-      <p>
-        This is a simple hero unit, a simple jumbotron-style component for
-        calling extra attention to featured content or information.
-      </p>
-      <p>
-        <Button variant="primary">Learn more</Button>
-      </p>
-    </Jumbotron>
+    <HeroSectionStyled>
+      <HeroImage src={logoBig} />
+      <HeroH1 className="my-3 px-2">Fullstack development on point</HeroH1>
+      <HeroP className="mb-3 px-2">
+        React, Native, PHP,
+        <br></br>
+        JavaScript, CSS...
+      </HeroP>
+    </HeroSectionStyled>
   );
 }
 

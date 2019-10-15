@@ -30,23 +30,21 @@ const snipperts = [
 ];
 function Home() {
   return (
-    <Container className="py-4">
-      <Row className="no-gutters">
-        <Col>
-          <HeroSecction />
-        </Col>
-      </Row>
-      <Row>
-        <Col sm={8}>
-          {snipperts.map(snipet => (
-            <ArticleSnippet {...snipet} />
-          ))}
-        </Col>
-        <Col sm={4}>
-          <Sidebar />
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <HeroSecction />
+      <Container className="py-4">
+        <Row>
+          <Col sm={8}>
+            {snipperts.map(snipet => (
+              <ArticleSnippet {...snipet} />
+            ))}
+          </Col>
+          <Col sm={4}>
+            <Sidebar />
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 

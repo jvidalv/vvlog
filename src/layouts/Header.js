@@ -1,13 +1,13 @@
 import React from "react";
 import { useGlobals } from "../contexts/Globals";
 import { Navbar, Nav, FormControl, Form } from "react-bootstrap";
-import { Link } from "./HeaderStyle.js";
+import { NavStyled } from "./HeaderStyle.js";
 
 export default function Header() {
   const [{ theme }, dispatch] = useGlobals();
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <NavStyled expand="lg">
       <Navbar.Brand href="#home">VBLOGV</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -44,7 +44,7 @@ export default function Header() {
             onClick={() =>
               dispatch({
                 type: "changeTheme",
-                newTheme: "white"
+                newTheme: "light"
               })
             }
           >
@@ -55,6 +55,6 @@ export default function Header() {
           <FormControl type="text" placeholder="🔎" className="mr-sm-2" />
         </Form>
       </Navbar.Collapse>
-    </Navbar>
+    </NavStyled>
   );
 }

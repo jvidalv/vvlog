@@ -34,7 +34,7 @@ function App() {
 
 WebFont.load({
   google: {
-    families: ["IBM Plex Mono:400,700"]
+    families: ["IBM Plex Mono:200"]
   }
 });
 
