@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { keyframes } from "styled-components";
 import { THEMES } from "../constants/Colors";
 import { Nav, Jumbotron } from "react-bootstrap";
 
@@ -18,8 +19,18 @@ export const HeroSectionStyled = styled.div`
   clip-path: polygon(50% 0%, 100% 0, 100% 65%, 50% 100%, 0 65%, 0 0);
 `;
 
+const rotateColors = keyframes`
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        filter: hue-rotate(360deg);
+    }
+`;
+
 export const HeroImage = styled.img`
   width: 25%;
+  animation: ${rotateColors} 15s linear infinite;
 `;
 
 export const HeroH1 = styled.h1`

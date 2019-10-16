@@ -15,6 +15,7 @@ import Main from "../styles/MainStyle";
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
 import Home from "../pages/Home";
+import Category from "../pages/Category";
 
 function Index() {
   const [{ theme }, dispatch] = useGlobals();
@@ -25,6 +26,9 @@ function Index() {
         <Router>
           <Header />
           <Switch>
+            <Route path="/react">
+              <Category />
+            </Route>
             <Route path="/">
               <Home />
             </Route>

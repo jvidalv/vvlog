@@ -28,6 +28,7 @@ const snipperts = [
     date: ""
   }
 ];
+
 function Home() {
   return (
     <>

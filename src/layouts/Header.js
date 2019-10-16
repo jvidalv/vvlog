@@ -1,21 +1,29 @@
 import React from "react";
 import { useGlobals } from "../contexts/Globals";
 import { Navbar, Nav, FormControl, Form } from "react-bootstrap";
-import { NavStyled } from "./HeaderStyle.js";
+import { NavStyled, Logo } from "./HeaderStyle.js";
+import { withRouter } from "react-router-dom";
 
-export default function Header() {
+import logo from "../assets/images/logo-vblogv-small.png";
+
+export function Header(props) {
+  const { pathname } = props.location;
   const [{ theme }, dispatch] = useGlobals();
 
   return (
     <NavStyled expand="lg">
-      <Navbar.Brand href="#home">VBLOGV</Navbar.Brand>
+      {pathname !== "/" ? (
+        <Navbar.Brand href="/" className="mr-0">
+          <Logo src={logo} />
+        </Navbar.Brand>
+      ) : null}
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-2 mr-auto">
-          <Nav.Link className="text-white px-4" href="#home">
+          <Nav.Link className="text-white px-4" href="/">
             Explore
           </Nav.Link>
-          <Nav.Link className="text-white px-4" href="#link">
+          <Nav.Link className="text-white px-4" href="/react">
             React
           </Nav.Link>
           <Nav.Link className="text-white px-4" href="#link">
@@ -58,3 +66,5 @@ export default function Header() {
     </NavStyled>
   );
 }
+
+export default withRouter(Header);

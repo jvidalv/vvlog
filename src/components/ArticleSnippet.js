@@ -1,9 +1,9 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import { CardStyled, ImageSnippet } from "./ArticleSnippetStyle";
+import { ImageSnippet } from "./ArticleSnippetStyle";
 
 import squarePlaceholder from "../assets/images/square-placeholder.png";
-import { P, H3, H5 } from "../styles/GenericStyles";
+import { P, H3, H5, CardStyled } from "../styles/GenericStyles";
 
 function ArticleSnippet(props) {
   const { title, subtitle, category, date, resume } = props;
