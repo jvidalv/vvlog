@@ -1,7 +1,7 @@
 import React from "react";
 import { useGlobals } from "../contexts/Globals";
 import { Navbar, Nav, FormControl, Form } from "react-bootstrap";
-import { NavStyled, Logo } from "./HeaderStyle.js";
+import { NavStyled, Logo, Link } from "./HeaderStyle.js";
 import { withRouter } from "react-router-dom";
 
 import logo from "../assets/images/logo-vblogv-small.png";
@@ -20,18 +20,18 @@ export function Header(props) {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-2 mr-auto">
-          <Nav.Link className="text-white px-4" href="/">
+          <Link className="px-4" href="/">
             Explore
-          </Nav.Link>
-          <Nav.Link className="text-white px-4" href="/react">
+          </Link>
+          <Link className="px-4" href="/react">
             React
-          </Nav.Link>
-          <Nav.Link className="text-white px-4" href="#link">
+          </Link>
+          <Link className="px-4" href="#link">
             Contact
-          </Nav.Link>
-          <Nav.Link className="text-white px-4" href="#link">
+          </Link>
+          <Link className="px-4" href="#link">
             About
-          </Nav.Link>
+          </Link>
         </Nav>
         <Nav className="mr-4">
           <Nav.Link

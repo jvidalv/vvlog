@@ -19,7 +19,10 @@ export const Logo = styled.img`
 `;
 
 export const Link = styled(Nav.Link)`
-  color: white;
+  color: white !important;
+  &:hover {
+    color: gray !important;
+  }
 `;
 
 export const NavStyled = styled(Navbar)`

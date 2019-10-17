@@ -36,7 +36,7 @@ export const CardStyled = styled(Card)`
   box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15);
   cursor: pointer;
   border: none;
-  &:hover {
+  & > a:hover {
     transform: translateY(-10px);
   }
   &:not(: first-child) {

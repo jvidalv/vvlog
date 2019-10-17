@@ -15,9 +15,9 @@ function HeroSection() {
       <HeroImage src={logoBig} />
       <HeroH1 className="my-3 px-2">Fullstack development on point</HeroH1>
       <HeroP className="mb-3 px-2">
-        React, Native, PHP
-        <br></br>
-        JavaScript, CSS and a slice to my life
+        React, JavaScript, PHP
+        <br />
+        Yii2, CSS ... and a glimpse into my life
       </HeroP>
     </HeroSectionStyled>
   );
