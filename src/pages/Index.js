@@ -19,19 +19,15 @@ import Category from "../pages/Category";
 
 function Index() {
   const [{ theme }, dispatch] = useGlobals();
-
+  console.log(theme);
   return (
     <ThemeProvider theme={{ style: theme }}>
       <Main>
         <Router>
           <Header />
           <Switch>
-            <Route path="/react">
-              <Category />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
+            <Route exact path="/" component={Home} />
+            <Route path="/react" component={Category} />
           </Switch>
           <Footer />
         </Router>

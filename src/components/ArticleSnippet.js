@@ -8,7 +8,7 @@ import { P, H3, H5, CardStyled } from "../styles/GenericStyles";
 function ArticleSnippet(props) {
   const { title, subtitle, category, date, resume } = props;
   return (
-    <CardStyled>
+    <CardStyled className="move-up">
       <a href="#">
         <Card.Body className="p-0 text-left d-md-flex">
           <ImageSnippet
