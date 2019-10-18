@@ -1,5 +1,5 @@
 import React from "react";
-import { useGlobals } from "../contexts/Globals";
+import { useGlobals } from "../contexts/Global";
 import { ThemeProvider } from "styled-components";
 
 import {

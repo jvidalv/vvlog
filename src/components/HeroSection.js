@@ -17,7 +17,7 @@ function HeroSection() {
       <HeroP className="mb-3 px-2">
         React, JavaScript, PHP
         <br />
-        Yii2, CSS ... and a glimpse into my life
+        Yii2, CSS and a glimpse into my life
       </HeroP>
     </HeroSectionStyled>
   );

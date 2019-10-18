@@ -1,6 +1,5 @@
 import React from "react";
-import { useGlobals } from "../contexts/Globals";
-import { Link } from "react-router-dom";
+import { useGlobals } from "../contexts/Global";
 import { Navbar, Nav, FormControl, Form } from "react-bootstrap";
 import { NavStyled, Logo, LinkStyled } from "./HeaderStyle.js";
 import { withRouter } from "react-router-dom";

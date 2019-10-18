@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { keyframes } from "styled-components";
 import { THEMES } from "../constants/Colors";
-import { Nav, Navbar } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 
 const rotateColors = keyframes`
     0% {

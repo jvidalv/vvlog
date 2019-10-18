@@ -23,9 +23,9 @@ export const H5 = styled.h5`
 `;
 export const P = styled.p`
   color: ${props => THEMES[props.theme.style].onSurface};
-`;
-export const PoB = styled.p`
-  color: ${props => THEMES[props.theme.style].onBackground};
+  & .on-background {
+    color: ${props => THEMES[props.theme.style].onBackground};
+  }
 `;
 
 /**
@@ -55,7 +55,7 @@ export const CardStyled = styled(Card)`
     border-radius: 50%;
     align-items: center;
     top: -0.8rem;
-      transition: 1s;
-
+    transition: 1s;
+    box-shadow: 0px 0px 10px rgba(67, 38, 100, 0.15);
   }
 `;
