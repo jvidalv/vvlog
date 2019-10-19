@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useGlobals } from "../contexts/Global";
 import { ThemeProvider } from "styled-components";
 
@@ -10,7 +10,7 @@ import {
   useRouteMatch,
   useParams
 } from "react-router-dom";
-import Main from "../styles/MainStyle";
+import { Main } from "../styles/GenericStyles";
 
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
@@ -19,10 +19,10 @@ import Category from "../pages/Category";
 
 function Index() {
   const [{ theme }, dispatch] = useGlobals();
-  console.log(theme);
+
   return (
     <ThemeProvider theme={{ style: theme }}>
-      <Main>
+      <Main onScroll={e => console.log(e)}>
         <Router>
           <Header />
           <Switch>

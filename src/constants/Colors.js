@@ -25,7 +25,7 @@ export const THEMES = {
     background: "#FFFFFF",
     surface: {
       level1: "#fcfcfc",
-      level2: "#cecece",
+      level2: "#fcfcfc",
       level3: "#c3c3c3"
     },
     primary: "#008f68",

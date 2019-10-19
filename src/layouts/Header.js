@@ -10,6 +10,13 @@ export function Header(props) {
   const { pathname } = props.location;
   const [{ theme }, dispatch] = useGlobals();
 
+  const changeTheme = () => {
+    dispatch({
+      type: "changeTheme",
+      newTheme: theme === "dark" ? "light" : "dark"
+    });
+  };
+
   return (
     <NavStyled expand="lg">
       {pathname !== "/" ? (
@@ -20,42 +27,24 @@ export function Header(props) {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-2 mr-auto">
-          <LinkStyled className="px-4" to="/">
+          <LinkStyled className="px-4" to="/explore">
             Explore
           </LinkStyled>
-          <LinkStyled className="px-4" to="/react">
+          <LinkStyled className="px-4" to="/category/react">
             React
           </LinkStyled>
-          <LinkStyled className="px-4" to="#link">
+          <LinkStyled className="px-4" to="/contact">
             Contact
           </LinkStyled>
-          <LinkStyled className="px-4" to="#link">
+          <LinkStyled className="px-4" to="/about">
             About
           </LinkStyled>
         </Nav>
         <Nav className="mr-4">
-          <Nav.Link
-            className="text-white"
-            href="#home"
-            onClick={() =>
-              dispatch({
-                type: "changeTheme",
-                newTheme: "dark"
-              })
-            }
-          >
+          <Nav.Link className="text-white" href="#home" onClick={changeTheme}>
             Dark
           </Nav.Link>
-          <Nav.Link
-            className="text-white"
-            href="#home"
-            onClick={() =>
-              dispatch({
-                type: "changeTheme",
-                newTheme: "light"
-              })
-            }
-          >
+          <Nav.Link className="text-white" href="#home" onClick={changeTheme}>
             Light
           </Nav.Link>
         </Nav>

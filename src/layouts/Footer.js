@@ -1,17 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { P } from "../styles/GenericStyles";
+import { useScrollPosition } from "../hooks/Scroll";
+import { FloatingButton } from "./FooterStyle.js";
+
+const ButtonToTop = props => {
+  return (
+    <FloatingButton
+      onClick={() => window.scrollTo(0, 0)}
+      className={props.className}
+    >
+      {" "}
+      ↑{" "}
+    </FloatingButton>
+  );
+};
 
 function Footer() {
+  const [showToTop, setShowToTop] = useState(false);
+
+  const hasToShow = (prevPos, currPos) => {
+    if (currPos.y < -500) {
+      setShowToTop(true);
+    } else if (currPos.y > -500) {
+      setShowToTop(false);
+    }
+  };
+
+  useScrollPosition(
+    ({ prevPos, currPos }) => hasToShow(prevPos, currPos),
+    [],
+    null,
+    false,
+    300
+  );
+
   return (
-    <footer>
-      <Container className="text-center py-5">
-        <P className="on-background mb-0">
-          Code snippets licensed under MIT, unless otherwise noted. Content &
-          Graphics © 2019 VBLOGV Josep Vidal
-        </P>
-      </Container>
-    </footer>
+    <>
+      <ButtonToTop className={showToTop ? "active" : null} />
+      <footer>
+        <Container className="text-center py-5">
+          <P className="on-background mb-0">
+            Code snippets licensed under MIT, unless otherwise noted. Content &
+            Graphics © 2019 VBLOGV Josep Vidal
+          </P>
+        </Container>
+      </footer>
+    </>
   );
 }
 

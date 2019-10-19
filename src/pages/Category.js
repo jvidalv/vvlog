@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Jumbotron, Button } from "react-bootstrap";
 
-import ArticleSnippet from "../components/ArticleSnippet";
+import { ArticleSnippetWithImage } from "../components/ArticleSnippet";
 import Sidebar from "../layouts/Sidebar";
 import HeroSecction from "../components/HeroSection";
 import { H1 } from "../styles/GenericStyles";
@@ -60,7 +60,7 @@ function Category() {
         <Row>
           <Col sm={8}>
             {snipperts.map(snipet => (
-              <ArticleSnippet {...snipet} />
+              <ArticleSnippetWithImage {...snipet} className="move-up mb-2" />
             ))}
           </Col>
           <Col sm={4}>

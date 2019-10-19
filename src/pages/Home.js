@@ -1,50 +1,130 @@
 import React from "react";
-import { Container, Row, Col, Jumbotron, Button } from "react-bootstrap";
+import { Container, Row, Col, Jumbotron, Button, Form } from "react-bootstrap";
 
-import ArticleSnippet from "../components/ArticleSnippet";
+import {
+  ArticleSnippetWithImage,
+  ArticleSnippet
+} from "../components/ArticleSnippet";
+
 import Sidebar from "../layouts/Sidebar";
 import HeroSecction from "../components/HeroSection";
+import {
+  H3,
+  ButtonStyled,
+  InputStyled,
+  DiagonalContainer
+} from "../styles/GenericStyles";
 
 const snipperts = [
   {
-    category: "ReactJS",
+    category: "React",
+    title:
+      "Lorem ipsum dolor sit amet, consectetur. consectetur adipiscing elit.",
+    resume:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+    date: ""
+  },
+  {
+    category: "React",
     title: "Lorem ipsum dolor sit amet, consectetur.",
     resume:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
     date: ""
   },
   {
-    category: "ReactJS",
-    title: "Lorem ipsum dolor sit amet, consectetur.",
+    category: "React",
+    title:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur. consectetur adipiscing elit.",
     resume:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
-    date: ""
-  },
-  {
-    category: "ReactJS",
-    title: "Lorem ipsum dolor sit amet, consectetur.",
-    resume:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
     date: ""
   }
 ];
+
+const FeaturedSection = () => {
+  return (
+    <Row>
+      <Col md={8}>
+        {snipperts.map(snipet => (
+          <ArticleSnippetWithImage {...snipet} className="move-up" />
+        ))}
+      </Col>
+      <Col md={4}>
+        <Sidebar />
+      </Col>
+    </Row>
+  );
+};
+
+const SubscribeSection = () => {
+  return (
+    <Row className="mt-5 justify-content-md-center">
+      <Col className="text-center" xs md={8} lg={6}>
+        <H3>
+          <span role="img" aria-label="train">
+            🚇
+          </span>{" "}
+          Subscribe and stay in touch
+        </H3>
+        <Form className="my-4">
+          <InputStyled className="text-center" placeholder="your email" />
+        </Form>
+        <ButtonStyled>Subscribe</ButtonStyled>
+      </Col>
+    </Row>
+  );
+};
+
+const AllArticlesSection = () => {
+  return (
+    <>
+      <H3 className="mb-5 text-center">
+        <span role="img" aria-label="rocket">
+          🚀
+        </span>{" "}
+        Check them all
+      </H3>
+      <Row className="px-2">
+        {snipperts.map(snipet => (
+          <>
+            <Col className="d-flex px-1" sm={6} md={4}>
+              <ArticleSnippet
+                {...snipet}
+                className="justify-content-center move-up mb-2"
+              />
+            </Col>
+            <Col className="d-flex px-1" sm={6} md={4}>
+              <ArticleSnippet
+                {...snipet}
+                className="justify-content-center move-up mb-2"
+              />
+            </Col>
+            <Col className="d-flex px-1" sm={6} md={4}>
+              <ArticleSnippet
+                {...snipet}
+                className="justify-content-center move-up mb-2"
+              />
+            </Col>
+          </>
+        ))}
+      </Row>
+    </>
+  );
+};
 
 function Home() {
   return (
     <>
       <HeroSecction />
-      <Container className="py-4">
-        <Row>
-          <Col sm={8}>
-            {snipperts.map(snipet => (
-              <ArticleSnippet {...snipet} />
-            ))}
-          </Col>
-          <Col sm={4}>
-            <Sidebar />
-          </Col>
-        </Row>
+      <Container className="pt-4 pb-2">
+        <FeaturedSection />
       </Container>
+      <Container className="pt-2 pb-2">
+        <SubscribeSection />
+      </Container>
+      <DiagonalContainer className=" my-5 pt-2 pb-4">
+        <AllArticlesSection />
+      </DiagonalContainer>
     </>
   );
 }
