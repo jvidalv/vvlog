@@ -1,18 +1,19 @@
 import React from "react";
-import { Jumbotron, Button } from "react-bootstrap";
 import {
   HeroSectionStyled,
   HeroImage,
   HeroH1,
-  HeroP
+  HeroP,
+  HeroCategoryH1
 } from "./HeroSectionStyle";
+import { Container, Row, Col } from "react-bootstrap";
 import { H1, P } from "../styles/GenericStyles";
-import logoBig from "../assets/images/logo-vblogv.png";
+import initials from "../assets/images/logo-initials.png";
 
-function HeroSection() {
+export function HeroSectionHome() {
   return (
     <HeroSectionStyled>
-      <HeroImage src={logoBig} />
+      <HeroImage src={initials} />
       <HeroH1 className="my-3 px-2">Fullstack development on point</HeroH1>
       <HeroP className="mb-3 px-2">
         React, JavaScript, PHP
@@ -23,4 +24,17 @@ function HeroSection() {
   );
 }
 
-export default HeroSection;
+export function HeroSectionSimple(props) {
+  const { title } = props;
+  return (
+    <>
+      <Container className="pt-4 text-center">
+        <Row>
+          <Col>
+            <HeroCategoryH1 className="my-3 px-2">{title}</HeroCategoryH1>
+          </Col>
+        </Row>
+      </Container>
+    </>
+  );
+}

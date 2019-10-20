@@ -7,6 +7,15 @@ body * {
   font-weight: 300 !important;
 }
 
+img,
+svg {
+  height: auto;
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+  border: 0;
+}
+
 a:hover {
   text-decoration: none;
 }

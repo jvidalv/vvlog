@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { THEMES } from "../constants/Colors";
+import { THEMES } from "../constants/Themes";
 
 /**
  * -------

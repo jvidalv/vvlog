@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { THEMES } from "../constants/Colors";
+import { THEMES } from "../constants/Themes";
 import { Card, Button, Form, Container } from "react-bootstrap";
 import { fontsDefaults, afterBottomBar } from "./DefaultsStyles";
 
@@ -18,11 +18,6 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
   color: ${props => THEMES[props.theme.style].primary};
   ${props => fontsDefaults(props)}
-  &.limit-height {
-    max-height: 92px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 `;
 export const H4 = styled.h4`
   color: ${props => THEMES[props.theme.style].primary};
@@ -37,11 +32,6 @@ export const P = styled.p`
   ${props => fontsDefaults(props)}
   &.on-background {
     color: ${props => THEMES[props.theme.style].onBackground};
-  }
-  &.limit-height {
-    max-height: 72px;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 `;
 export const A = styled.a`
@@ -146,6 +136,9 @@ export const InputStyled = styled(Form.Control)`
     border-color: ${props => THEMES[props.theme.style].primary2};
     box-shadow: none;
     background: ${props => THEMES[props.theme.style].surface.level2};
+  }
+  &::after {
+    content: " ";
   }
 `;
 

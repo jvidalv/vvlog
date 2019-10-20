@@ -21,6 +21,7 @@ export const THEMES = {
     onSecondary: "#000000",
     onError: "#000000"
   },
+
   light: {
     background: "#FFFFFF",
     surface: {
@@ -28,12 +29,12 @@ export const THEMES = {
       level2: "#fcfcfc",
       level3: "#c3c3c3"
     },
-    primary: "#008f68",
+    primary: "#0096ff",
     primary2: "#3700B3",
     secondary: "#ff6a00",
     secondary2: "#018786",
     error: "#B00020",
-    header: { 1: "#6bb756f2", 2: "#008f68f2" },
+    header: { 1: "#365cad", 2: "#00e4ff" },
     onBackground: "#000000",
     onSurface: "#000000",
     onPrimary: "#FFFFFF",

@@ -3,9 +3,7 @@ import { Container, Row, Col, Jumbotron, Button } from "react-bootstrap";
 
 import { ArticleSnippetWithImage } from "../components/ArticleSnippet";
 import Sidebar from "../layouts/Sidebar";
-import HeroSecction from "../components/HeroSection";
-import { H1 } from "../styles/GenericStyles";
-import HeroCategorySection from "../components/HeroCategorySection";
+import { HeroSectionSimple } from "../components/HeroSection";
 
 const snipperts = [
   {
@@ -55,7 +53,7 @@ const snipperts = [
 function Category() {
   return (
     <>
-      <HeroCategorySection />
+      <HeroSectionSimple title="Posts about React" />
       <Container className="py-4">
         <Row>
           <Col sm={8}>

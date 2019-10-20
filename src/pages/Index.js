@@ -1,24 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { useGlobals } from "../contexts/Global";
 import { ThemeProvider } from "styled-components";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom";
 import { Main } from "../styles/GenericStyles";
 
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
-import Home from "../pages/Home";
-import Category from "../pages/Category";
+
+import Home from "./Home";
+import Category from "./Category";
+import Explore from "./Explore";
 
 function Index() {
-  const [{ theme }, dispatch] = useGlobals();
+  const [{ theme, query }] = useGlobals();
 
   return (
     <ThemeProvider theme={{ style: theme }}>
@@ -27,7 +22,8 @@ function Index() {
           <Header />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/react" component={Category} />
+            <Route path="/explore" component={Explore} />
+            <Route path="/category" component={Category} />
           </Switch>
           <Footer />
         </Router>

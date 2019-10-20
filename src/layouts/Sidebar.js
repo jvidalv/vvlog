@@ -49,9 +49,9 @@ function MoreOfMe(props) {
         more of me
       </H4>
       <Project name="Fem Poble" url="https://fempoble.app" />
-      <Project name="ReactNews" url="#" />
-      <Project name="ColorShop" url="#" />
-      <Project name="Emojindex" url="#" />
+      <Project name="ReactNews" url="https://jvidalv.github.io/reactnews/" />
+      <Project name="ColorShop" url="https://jvidalv.github.io/colorshop/" />
+      <Project name="Emojindex" url="https://jvidalv.github.io/emojindex/" />
     </>
   );
 }

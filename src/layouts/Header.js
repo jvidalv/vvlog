@@ -1,57 +1,177 @@
-import React from "react";
+import React, { useState } from "react";
 import { useGlobals } from "../contexts/Global";
-import { Navbar, Nav, FormControl, Form } from "react-bootstrap";
-import { NavStyled, Logo, LinkStyled } from "./HeaderStyle.js";
-import { withRouter } from "react-router-dom";
+import { Navbar, Nav, NavDropdown, FormControl, Form } from "react-bootstrap";
+import {
+  NavStyled,
+  Logo,
+  LinkStyled,
+  NavbarToggleStyled,
+  NavbarCollapseStyled,
+  FormControlStyled,
+  NavDropdownStyled
+} from "./HeaderStyle.js";
+import { withRouter, useHistory } from "react-router-dom";
 
-import logo from "../assets/images/logo-vblogv-small.png";
+import logo from "../assets/images/logo-app.png";
 
+/**
+ * Returns true if we are in homepage
+ * @param {string} pathname
+ */
+const isHome = pathname => {
+  return pathname === "/";
+};
+
+/**
+ * Returns true if we are in explorepage
+ * @param {string} pathname
+ */
+const isExplore = pathname => {
+  return pathname === "/explore";
+};
+
+/**
+ * Returns the input bar that querys de page for blog entries
+ * @param {*} props
+ */
+function Searcher(props) {
+  const [q, setQ] = useState(null);
+  let history = useHistory();
+
+  const navigateToExplore = (e, q) => {
+    e.preventDefault();
+    if (q && q.length > 2) {
+      history.push("/explore", { q });
+    }
+  };
+
+  return (
+    <Form
+      inline
+      action="/explore"
+      onSubmit={e => navigateToExplore(e, q)}
+      className={props.className}
+    >
+      <FormControlStyled
+        name="q"
+        onBlur={e => navigateToExplore(e, q)}
+        onChange={t => setQ(t.target.value)}
+        value={q}
+        type="text"
+        placeholder="🔎"
+        className="mr-sm-2"
+      />
+    </Form>
+  );
+}
+
+/**
+ * Button that switches the themes
+ * @param {*} props
+ */
+const ThemeSwitcher = props => {
+  return (
+    <Nav className={props.className}>
+      <Nav.Link className="text-white" href="#home" onClick={props.changeTheme}>
+        {props.theme === "dark" ? "🌓" : "🌗"}
+      </Nav.Link>
+    </Nav>
+  );
+};
+
+/**
+ * Button that switches the language
+ * @param {*} props
+ */
+const LanguageSwitcher = props => {
+  return (
+    <Nav className={props.className}>
+      <NavDropdownStyled title="👅 Lang">
+        <NavDropdown.Item
+          onClick={() => props.changeLanguage("ca")}
+          className={props.language === "ca" ? "active" : null}
+        >
+          Catalan
+        </NavDropdown.Item>
+        <NavDropdown.Item
+          onClick={() => props.changeLanguage("es")}
+          className={props.language === "es" ? "active" : null}
+        >
+          Spanish
+        </NavDropdown.Item>
+        <NavDropdown.Item
+          onClick={() => props.changeLanguage("en")}
+          className={props.language === "en" ? "active" : null}
+        >
+          English
+        </NavDropdown.Item>
+      </NavDropdownStyled>
+    </Nav>
+  );
+};
+
+/**
+ * Main functional function that returns the navigation bar
+ * @param {*} props
+ */
 export function Header(props) {
   const { pathname } = props.location;
-  const [{ theme }, dispatch] = useGlobals();
+  const [{ theme, language }, dispatch] = useGlobals();
 
   const changeTheme = () => {
     dispatch({
       type: "changeTheme",
-      newTheme: theme === "dark" ? "light" : "dark"
+      changeTheme: theme === "dark" ? "light" : "dark"
+    });
+  };
+
+  const changeLanguage = lang => {
+    dispatch({
+      type: "changeLanguage",
+      changeLanguage: lang
     });
   };
 
   return (
-    <NavStyled expand="lg">
-      {pathname !== "/" ? (
-        <LinkStyled to="/" className="mr-0">
-          <Logo src={logo} />
-        </LinkStyled>
-      ) : null}
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ml-2 mr-auto">
-          <LinkStyled className="px-4" to="/explore">
+    <NavStyled expand="lg" sticky="top" shadow={!isHome(pathname)}>
+      <LinkStyled to="/" className={isHome(pathname) ? "d-none" : "pr-3 mr-5"}>
+        <Logo src={logo} />
+      </LinkStyled>
+      <ThemeSwitcher
+        changeTheme={changeTheme}
+        theme={theme}
+        className="ml-auto mr-3 d-flex d-lg-none"
+      />
+      <Searcher
+        className={isExplore(pathname) ? "d-none" : "mr-3 d-flex d-lg-none"}
+      />
+      <NavbarToggleStyled aria-controls="basic-navbar-nav" />
+      <NavbarCollapseStyled>
+        <Nav className="mr-auto text-center text-lg-left pt-5 pt-lg-0 ">
+          <LinkStyled className="my-2 my-lg-0 px-lg-4" to="/explore" icon="💡">
             Explore
           </LinkStyled>
-          <LinkStyled className="px-4" to="/category/react">
-            React
-          </LinkStyled>
-          <LinkStyled className="px-4" to="/contact">
+          <LinkStyled className="my-2 my-lg-0 px-lg-4" to="/contact">
             Contact
           </LinkStyled>
-          <LinkStyled className="px-4" to="/about">
+          <LinkStyled className="my-2 my-lg-0 px-lg-4" to="/about">
             About
           </LinkStyled>
         </Nav>
-        <Nav className="mr-4">
-          <Nav.Link className="text-white" href="#home" onClick={changeTheme}>
-            Dark
-          </Nav.Link>
-          <Nav.Link className="text-white" href="#home" onClick={changeTheme}>
-            Light
-          </Nav.Link>
-        </Nav>
-        <Form inline>
-          <FormControl type="text" placeholder="🔎" className="mr-sm-2" />
-        </Form>
-      </Navbar.Collapse>
+        <LanguageSwitcher
+          changeLanguage={changeLanguage}
+          language={language}
+          className="text-center"
+        />
+        <ThemeSwitcher
+          changeTheme={changeTheme}
+          theme={theme}
+          className="mr-3 d-none d-lg-flex"
+        />
+        <Searcher
+          className={isExplore(pathname) ? "d-none" : "mr-2 d-none d-lg-flex"}
+        />
+      </NavbarCollapseStyled>
     </NavStyled>
   );
 }

@@ -11,12 +11,8 @@ export function ArticleSnippetWithImage(props) {
   return (
     <CardStyled className={props.className} icon={props.icon}>
       <Link to="#">
-        <Card.Body className="p-0 text-left d-md-flex">
-          <ImageSnippet
-            className="d-none d-lg-block"
-            style={{ width: "25%" }}
-            src={squarePlaceholder}
-          />
+        <Card.Body className="p-0 text-left d-md-flex align-items-center">
+          <ImageSnippet className="d-none d-lg-block" src={squarePlaceholder} />
           <div className="p-4">
             <H5>{category}</H5>
             <H3>{title.substring(0, 80)}</H3>

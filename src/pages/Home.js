@@ -7,7 +7,7 @@ import {
 } from "../components/ArticleSnippet";
 
 import Sidebar from "../layouts/Sidebar";
-import HeroSecction from "../components/HeroSection";
+import { HeroSectionHome } from "../components/HeroSection";
 import {
   H3,
   ButtonStyled,
@@ -115,7 +115,7 @@ const AllArticlesSection = () => {
 function Home() {
   return (
     <>
-      <HeroSecction />
+      <HeroSectionHome />
       <Container className="pt-4 pb-2">
         <FeaturedSection />
       </Container>
