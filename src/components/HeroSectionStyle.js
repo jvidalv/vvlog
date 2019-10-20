@@ -17,6 +17,9 @@ export const HeroSectionStyled = styled.div`
   padding-bottom: 6.5em;
   -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 65%, 50% 100%, 0 65%, 0 0);
   clip-path: polygon(50% 0%, 100% 0, 100% 65%, 50% 100%, 0 65%, 0 0);
+  @media (max-width: 600px) {
+    padding-bottom: 9.5em;
+  }
 `;
 
 const rotateColors = keyframes`
@@ -49,10 +52,13 @@ export const HeroCategoryH1 = styled.h1`
   color: ${props => THEMES[props.theme.style].primary};
   font-family: "IBM Plex Mono";
   font-style: italic;
-  font-size: 3.6rem;
+  font-size: 3rem;
 `;
 
 export const HeroP = styled.p`
   color: #fff;
   font-size: 1.2em;
+  @media (max-width: 600px) {
+    font-size: 1em;
+  }
 `;

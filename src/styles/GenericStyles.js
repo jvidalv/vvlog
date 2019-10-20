@@ -1,8 +1,28 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { THEMES } from "../constants/Themes";
 import { Card, Button, Form, Container } from "react-bootstrap";
 import { fontsDefaults, afterBottomBar } from "./DefaultsStyles";
+
+/**
+ * ----- Animations
+ */
+const pulse = keyframes`
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 ${props => THEMES[props.theme.style].secondary};
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+`;
 
 /**
  * ----- Overrides defaults
@@ -130,6 +150,11 @@ export const InputStyled = styled(Form.Control)`
   border: 2px solid ${props => THEMES[props.theme.style].secondary};
   background: ${props => THEMES[props.theme.style].surface.level1};
   color: ${props => THEMES[props.theme.style].onSurface};
+  &.pulse {
+    box-shadow: 0 0 0 0 ${props => THEMES[props.theme.style].secondary};
+    transform: scale(1);
+    animation: ${pulse} 2s forwards;
+  }
   &:active,
   &:focus {
     color: ${props => THEMES[props.theme.style].onSurface};
@@ -137,9 +162,7 @@ export const InputStyled = styled(Form.Control)`
     box-shadow: none;
     background: ${props => THEMES[props.theme.style].surface.level2};
   }
-  &::after {
-    content: " ";
-  }
+  ${props => ("big" in props ? "font-size: 1.6rem" : "")};
 `;
 
 export const DiagonalContainer = styled(Container)`

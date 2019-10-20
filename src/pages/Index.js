@@ -1,10 +1,9 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useGlobals } from "../contexts/Global";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import { Main } from "../styles/GenericStyles";
-
+import ScrollToTop from "../hooks/ScrollToTop";
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
 
@@ -17,8 +16,9 @@ function Index() {
 
   return (
     <ThemeProvider theme={{ style: theme }}>
-      <Main onScroll={e => console.log(e)}>
+      <Main>
         <Router>
+          <ScrollToTop />
           <Header />
           <Switch>
             <Route exact path="/" component={Home} />

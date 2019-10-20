@@ -1,6 +1,7 @@
 import React from "react";
 import { initialState, reducer } from "./reducers/Global";
 import { StateProvider } from "./contexts/Global";
+import { Router } from "react-router-dom";
 import WebFont from "webfontloader";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/#generic.css";

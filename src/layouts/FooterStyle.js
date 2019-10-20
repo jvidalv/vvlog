@@ -4,13 +4,14 @@ import { keyframes } from "styled-components";
 import { THEMES } from "../constants/Themes";
 
 export const FloatingButton = styled.div`
-  right: 3.5rem;
   color: ${props => THEMES[props.theme.style].secondary};
   border: 2px solid ${props => THEMES[props.theme.style].secondary};
+  background: ${props => THEMES[props.theme.style].surface.level2};
   width: 50px;
   font-weight: 700;
   position: fixed;
-  bottom: 4.5rem;
+  bottom: 4rem;
+  right: 4rem;
   border-radius: 6px;
   padding: 0.3rem 0.75rem;
   font-size: 1.4rem;
@@ -27,5 +28,9 @@ export const FloatingButton = styled.div`
   &.active {
     opacity: 0.6;
     transform: translateY(0);
+  }
+  @media (max-width: 700px) {
+    bottom: 2.5rem;
+    right: 2.5rem;
   }
 `;

@@ -42,6 +42,7 @@ function Searcher(props) {
     e.preventDefault();
     if (q && q.length > 2) {
       history.push("/explore", { q });
+      window.scrollTo(0, 0);
     }
   };
 

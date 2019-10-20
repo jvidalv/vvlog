@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { P } from "../styles/GenericStyles";
-import { useScrollPosition } from "../hooks/Scroll";
+import { useScrollPosition } from "../hooks/useScrollPosition";
 import { FloatingButton } from "./FooterStyle.js";
 
 const ButtonToTop = props => {

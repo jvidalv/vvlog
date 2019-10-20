@@ -11,15 +11,16 @@ function Explore(props) {
   const { state } = props.history.location;
   return (
     <>
-      <HeroSectionSimple title="Explore the content at your wish" />
+      <HeroSectionSimple title="Explore, but don't get lost 😜" />
       <Container className="my-5">
         <Row className="justify-content-md-center">
           <Col className="text-center" xs md={8} lg={6}>
             <Form className="my-4">
               <InputStyled
-                className="text-center"
+                className="text-center pulse"
                 placeholder="write the query"
                 value={state && state.q ? state.q : null}
+                big
               />
             </Form>
           </Col>
