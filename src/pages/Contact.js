@@ -22,7 +22,7 @@ function Contact(props) {
       />
       <Container className="my-5">
         <Row className="justify-content-md-center">
-          <Col xs md={8} lg={8}>
+          <Col xs md={10} lg={8}>
             <CardStyled>
               <CardStyled.Body className="p-4">
                 <P big>
@@ -35,7 +35,7 @@ function Contact(props) {
           </Col>
         </Row>
         <Row className="justify-content-md-center">
-          <Col xs md={8} lg={8}>
+          <Col xs md={10} lg={8}>
             <CardStyled>
               <CardStyled.Body className="p-4">
                 <FormStyled>

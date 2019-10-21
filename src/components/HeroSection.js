@@ -30,7 +30,7 @@ export function HeroSectionSimple(props) {
   const { title, subtitle } = props;
   return (
     <>
-      <Container className="pt-4 text-center">
+      <Container className="pt-5 text-center">
         <Row>
           <Col>
             <HeroH1 className="my-3 px-2">{title}</HeroH1>

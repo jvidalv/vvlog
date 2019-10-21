@@ -18,14 +18,6 @@ import {
 const snipperts = [
   {
     category: "React",
-    title:
-      "Lorem ipsum dolor sit amet, consectetur. consectetur adipiscing elit.",
-    resume:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
-    date: ""
-  },
-  {
-    category: "React",
     title: "Lorem ipsum dolor sit amet, consectetur.",
     resume:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
@@ -33,10 +25,16 @@ const snipperts = [
   },
   {
     category: "React",
+    title: "Lorem ipsum dolor sit amet, consectetur.",
+    resume: "Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt",
+    date: ""
+  },
+  {
+    category: "React",
     title:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur. consectetur adipiscing elit.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur. ",
     resume:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ",
     date: ""
   }
 ];

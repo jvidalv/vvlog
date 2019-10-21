@@ -2,7 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { THEMES } from "../constants/Themes";
 import { Card, Button, Form, Container } from "react-bootstrap";
-import { fontsDefaults, afterBottomBar } from "./DefaultsStyles";
+import { fontsDefaults, afterBottomBar, borderLeft } from "./DefaultsStyles";
 
 /**
  * ----- Animations
@@ -36,7 +36,6 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
   color: ${props => THEMES[props.theme.style].primary};
   font-weight: 300;
-
   ${props => fontsDefaults(props)}
 `;
 
@@ -64,7 +63,8 @@ export const H5 = styled.h5`
 export const P = styled.p`
   color: ${props => THEMES[props.theme.style].onSurface};
   font-weight: 300;
-  ${props => fontsDefaults(props)}
+    ${props => fontsDefaults(props)}
+  ${props => borderLeft(props)}
   ${props => ("big" in props ? "font-size:1.3rem" : "")}
   &.on-background {
     color: ${props => THEMES[props.theme.style].onBackground};

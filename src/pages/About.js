@@ -10,7 +10,8 @@ import {
   CardStyled,
   P,
   FormStyled,
-  S
+  S,
+  H2
 } from "../styles/GenericStyles";
 
 function About(props) {
@@ -22,47 +23,26 @@ function About(props) {
       />
       <Container className="my-5">
         <Row className="justify-content-md-center">
-          <Col xs md={8} lg={8}>
-            <CardStyled>
-              <CardStyled.Body className="p-4">
-                <P big>
-                  Do you have any <S>suggestions</S>? Any topic you need help
-                  with, or code you'd like to see together. 🙌
-                </P>
-                <P big>Contact me, I will try to answer as soon as possible.</P>
-              </CardStyled.Body>
-            </CardStyled>
+          <Col xs md={10} lg={8}>
+            <P big borderLeft="primary">
+              vblogv is born out of the passion for the creation of things from
+              the absolute void. What greater art is there than the appearance
+              of things where there was nothing before?
+            </P>
+            <P big borderLeft="secondary">
+              And in the meantime, I will try to explain them as best I can, so
+              that I can learn from them. And someone who reads me, too. ♥
+            </P>
+            <P big color="primary">
+              I really hope you like it.
+            </P>
           </Col>
         </Row>
+      </Container>
+      <Container className="pt-3">
         <Row className="justify-content-md-center">
-          <Col xs md={8} lg={8}>
-            <CardStyled>
-              <CardStyled.Body className="p-4">
-                <FormStyled>
-                  <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Your Name</Form.Label>
-                    <Form.Control type="name" placeholder="" required />
-                  </Form.Group>
-                  <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Your Email</Form.Label>
-                    <Form.Control type="email" placeholder="" required />
-                  </Form.Group>
-                  <Form.Group controlId="formBasicMessage">
-                    <Form.Label>Message</Form.Label>
-                    <Form.Control as="textarea" rows="3" required />
-                  </Form.Group>
-                  <div className="text-center mt-3">
-                    <ButtonStyled
-                      background="primary2"
-                      color="onPrimary2"
-                      type="submit"
-                    >
-                      Send 📮
-                    </ButtonStyled>
-                  </div>
-                </FormStyled>
-              </CardStyled.Body>
-            </CardStyled>
+          <Col xs md={10} lg={8}>
+            <H2>Josep Vidal Vidal</H2>
           </Col>
         </Row>
       </Container>
