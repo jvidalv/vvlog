@@ -4,7 +4,6 @@ body {
 
 body * {
   transition: 0.75s;
-  font-weight: 300 !important;
 }
 
 img,

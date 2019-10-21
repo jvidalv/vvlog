@@ -1,5 +1,4 @@
 import React from "react";
-import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ImageSnippet } from "./ArticleSnippetStyle";
 
@@ -11,14 +10,14 @@ export function ArticleSnippetWithImage(props) {
   return (
     <CardStyled className={props.className} icon={props.icon}>
       <Link to="#">
-        <Card.Body className="p-0 text-left d-md-flex align-items-center">
+        <CardStyled.Body className="p-0 text-left d-md-flex align-items-center">
           <ImageSnippet className="d-none d-lg-block" src={squarePlaceholder} />
           <div className="p-4">
             <H5>{category}</H5>
             <H3>{title.substring(0, 80)}</H3>
             <P className="mb-0">{resume.substring(0, 200)}</P>
           </div>
-        </Card.Body>
+        </CardStyled.Body>
       </Link>
     </CardStyled>
   );
@@ -29,10 +28,10 @@ export function ArticleSnippet(props) {
   return (
     <CardStyled className={props.className} icon={props.icon}>
       <Link to="#">
-        <Card.Body className="p-4 text-center">
+        <CardStyled.Body className="p-4 text-center">
           <H5>{category}</H5>
           <H3>{title}</H3>
-        </Card.Body>
+        </CardStyled.Body>
       </Link>
     </CardStyled>
   );

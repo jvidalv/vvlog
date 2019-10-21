@@ -39,25 +39,30 @@ export const HeroImage = styled.img`
 `;
 
 export const HeroH1 = styled.h1`
-  color: #fff;
-  font-family: "IBM Plex Mono";
-  font-style: italic;
-  text-shadow: 0 0 14px rgba(0, 0, 0, 0.28);
-  @media (max-width: 600px) {
-    font-size: 1.6rem;
-  }
-`;
+         color: ${props => THEMES[props.theme.style].primary};
+         font-family: "IBM Plex Mono";
+         font-style: italic;
+         font-weight: 300;
 
-export const HeroCategoryH1 = styled.h1`
-  color: ${props => THEMES[props.theme.style].primary};
-  font-family: "IBM Plex Mono";
-  font-style: italic;
-  font-size: 3rem;
+         &.extra {
+           color: #fff;
+           text-shadow: 0 0 14px rgba(0, 0, 0, 0.28);
+           @media (max-width: 600px) {
+             font-size: 1.6rem;
+           }
+         }
+       `;
+
+export const HeroH4 = styled.h4`
+  color: ${props => THEMES[props.theme.style].onBackground};
+  font-weight: 300;
 `;
 
 export const HeroP = styled.p`
   color: #fff;
   font-size: 1.2em;
+  font-weight: 300;
+
   @media (max-width: 600px) {
     font-size: 1em;
   }

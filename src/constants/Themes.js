@@ -4,6 +4,7 @@
 export const THEMES = {
   dark: {
     background: "#222831",
+
     surface: {
       level1: "#1A1D24",
       level2: "#272727",
@@ -18,6 +19,7 @@ export const THEMES = {
     onBackground: "#FFFFFF",
     onSurface: "#FFFFFF",
     onPrimary: "#000000",
+    onPrimary2: "#FFFFFF",
     onSecondary: "#000000",
     onError: "#000000"
   },
@@ -26,7 +28,7 @@ export const THEMES = {
     background: "#FFFFFF",
     surface: {
       level1: "#fcfcfc",
-      level2: "#fcfcfc",
+      level2: "#f6f5f5",
       level3: "#c3c3c3"
     },
     primary: "#0096ff",
@@ -38,6 +40,7 @@ export const THEMES = {
     onBackground: "#000000",
     onSurface: "#000000",
     onPrimary: "#FFFFFF",
+    onPrimary2: "#FFFFFF",
     onSecondary: "#000000",
     onError: "#FFFFFF"
   }

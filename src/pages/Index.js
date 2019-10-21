@@ -10,6 +10,8 @@ import Footer from "../layouts/Footer";
 import Home from "./Home";
 import Category from "./Category";
 import Explore from "./Explore";
+import Contact from "./Contact";
+import About from "./About";
 
 function Index() {
   const [{ theme, query }] = useGlobals();
@@ -23,6 +25,8 @@ function Index() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/explore" component={Explore} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/about" component={About} />
             <Route path="/category" component={Category} />
           </Switch>
           <Footer />

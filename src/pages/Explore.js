@@ -6,12 +6,15 @@ import { ArticleSnippet } from "../components/ArticleSnippet";
 import { Form } from "react-bootstrap";
 
 import { InputStyled } from "../styles/GenericStyles";
+import { useLocation } from "react-router";
 
 function Explore(props) {
-  const { state } = props.history.location;
+  let location = useLocation();
+  const { state } = location;
+
   return (
     <>
-      <HeroSectionSimple title="Explore, but don't get lost 😜" />
+      <HeroSectionSimple title="Explore" subtitle="...But don't get lost 😜" />
       <Container className="my-5">
         <Row className="justify-content-md-center">
           <Col className="text-center" xs md={8} lg={6}>

@@ -37,6 +37,8 @@ export const LinkStyled = styled(Link)`
 `;
 
 export const NavStyled = styled(Navbar)`
+  font-weight: 300 !important;
+
   ${props =>
     props.shadow === true ? "box-shadow: 0 2px 20px 0 #0000001a" : ""};
   background: linear-gradient(

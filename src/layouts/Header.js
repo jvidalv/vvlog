@@ -57,7 +57,7 @@ function Searcher(props) {
         name="q"
         onBlur={e => navigateToExplore(e, q)}
         onChange={t => setQ(t.target.value)}
-        value={q}
+        defaultValue={q}
         type="text"
         placeholder="🔎"
         className="mr-sm-2"

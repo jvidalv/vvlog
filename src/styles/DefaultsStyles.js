@@ -10,6 +10,10 @@ import { THEMES } from "../constants/Themes";
 
 export const fontsDefaults = props => {
   let stylesString = "";
+  stylesString +=
+    "color" in props
+      ? "color : " + THEMES[props.theme.style][props.color] + ";"
+      : "";
   stylesString += "italic" in props ? "font-style : italic;" : "";
   stylesString += "fontPlex" in props ? "font-family : 'IBM Plex Mono';" : "";
   stylesString +=

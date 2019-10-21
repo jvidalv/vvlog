@@ -29,33 +29,54 @@ const pulse = keyframes`
  */
 export const H1 = styled.h1`
   color: ${props => THEMES[props.theme.style].primary};
+  font-weight: 300;
   ${props => fontsDefaults(props)}
 `;
+
 export const H2 = styled.h2`
   color: ${props => THEMES[props.theme.style].primary};
+  font-weight: 300;
+
   ${props => fontsDefaults(props)}
 `;
+
 export const H3 = styled.h3`
   color: ${props => THEMES[props.theme.style].primary};
+  font-weight: 300;
+
   ${props => fontsDefaults(props)}
 `;
+
 export const H4 = styled.h4`
   color: ${props => THEMES[props.theme.style].primary};
+  font-weight: 300;
+
   ${props => fontsDefaults(props)}
 `;
+
 export const H5 = styled.h5`
   color: ${props => THEMES[props.theme.style].secondary};
+  font-weight: 300;
+
   ${props => fontsDefaults(props)}
 `;
+
 export const P = styled.p`
   color: ${props => THEMES[props.theme.style].onSurface};
+  font-weight: 300;
   ${props => fontsDefaults(props)}
+  ${props => ("big" in props ? "font-size:1.3rem" : "")}
   &.on-background {
     color: ${props => THEMES[props.theme.style].onBackground};
   }
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
+
 export const A = styled.a`
   color: ${props => THEMES[props.theme.style].primary};
+  font-weight: 300;
   ${props => fontsDefaults(props)}
   &:hover {
     color: ${props => THEMES[props.theme.style].secondary};
@@ -65,9 +86,15 @@ export const A = styled.a`
   }
 `;
 
+export const S = styled.strong`
+  color: ${props => THEMES[props.theme.style].onSurface};
+  ${props => fontsDefaults(props)}
+`;
+
 /**
  * ----- Used on multiple components
  */
+
 export const CardStyled = styled(Card)`
   background: ${props => THEMES[props.theme.style].surface.level1};
   box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15);
@@ -143,6 +170,12 @@ export const ButtonStyled = styled(Button)`
     border-color: #ffffff00 !important;
     background: ${props => THEMES[props.theme.style].surface.level3} !important;
   }
+  ${props =>
+    "background" in props
+      ? "background: " + THEMES[props.theme.style][props.background]
+      : ""};
+  ${props =>
+    "color" in props ? "color: " + THEMES[props.theme.style][props.color] : ""};
 `;
 
 export const InputStyled = styled(Form.Control)`
@@ -175,6 +208,28 @@ export const DiagonalContainer = styled(Container)`
   transform: skewY(6deg);
   & > * {
     transform: skewY(-6deg);
+  }
+`;
+
+export const FormStyled = styled(Form)`
+  .form-label {
+    color: ${props => THEMES[props.theme.style].onSurface};
+    font-weight: 300;
+    font-size: 1.3rem;
+  }
+  input,
+  textarea {
+    transition: 0.5s;
+    border: 2px solid ${props => THEMES[props.theme.style].secondary};
+    background: ${props => THEMES[props.theme.style].surface.level1};
+    color: ${props => THEMES[props.theme.style].onSurface};
+    &:active,
+    &:focus {
+      color: ${props => THEMES[props.theme.style].onSurface};
+      border-color: ${props => THEMES[props.theme.style].primary2};
+      box-shadow: none;
+      background: ${props => THEMES[props.theme.style].surface.level2};
+    }
   }
 `;
 

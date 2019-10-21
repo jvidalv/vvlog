@@ -3,8 +3,8 @@ import {
   HeroSectionStyled,
   HeroImage,
   HeroH1,
-  HeroP,
-  HeroCategoryH1
+  HeroH4,
+  HeroP
 } from "./HeroSectionStyle";
 import { Container, Row, Col } from "react-bootstrap";
 import { H1, P } from "../styles/GenericStyles";
@@ -14,7 +14,9 @@ export function HeroSectionHome() {
   return (
     <HeroSectionStyled>
       <HeroImage src={initials} />
-      <HeroH1 className="my-3 px-2">Fullstack development on point</HeroH1>
+      <HeroH1 className="my-3 px-2 extra">
+        Fullstack development on point
+      </HeroH1>
       <HeroP className="mb-3 px-2">
         React, JavaScript, PHP
         <br />
@@ -25,13 +27,14 @@ export function HeroSectionHome() {
 }
 
 export function HeroSectionSimple(props) {
-  const { title } = props;
+  const { title, subtitle } = props;
   return (
     <>
       <Container className="pt-4 text-center">
         <Row>
           <Col>
-            <HeroCategoryH1 className="my-3 px-2">{title}</HeroCategoryH1>
+            <HeroH1 className="my-3 px-2">{title}</HeroH1>
+            <HeroH4 className="my-3 px-2">{subtitle}</HeroH4>
           </Col>
         </Row>
       </Container>
