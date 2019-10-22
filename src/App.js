@@ -18,7 +18,7 @@ function App() {
 
 WebFont.load({
   google: {
-    families: ["IBM Plex Mono:200"]
+    families: ["IBM Plex Mono:200", "Satisfy:400"]
   }
 });
 

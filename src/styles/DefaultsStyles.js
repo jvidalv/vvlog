@@ -43,7 +43,7 @@ export const borderLeft = props => {
   let stylesString = "";
   if ("borderLeft" in props) {
     stylesString += `margin-bottom: 1em;
-    margin-top: 1.9em;
+    margin-top: 1.2em;
     border-left: 4px solid ${THEMES[props.theme.style][props.borderLeft]};
     padding-left: .8em;
     text-align: justify;`;

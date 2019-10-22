@@ -39,18 +39,6 @@ function Explore(props) {
                   className="justify-content-center move-up mb-2"
                 />
               </Col>
-              <Col className="d-flex px-1" sm={6} md={4}>
-                <ArticleSnippet
-                  {...snipet}
-                  className="justify-content-center move-up mb-2"
-                />
-              </Col>
-              <Col className="d-flex px-1" sm={6} md={4}>
-                <ArticleSnippet
-                  {...snipet}
-                  className="justify-content-center move-up mb-2"
-                />
-              </Col>
             </>
           ))}
         </Row>
@@ -63,45 +51,120 @@ export default Explore;
 
 const snipperts = [
   {
-    category: "ReactJS",
+    id: 1,
+    category: "React",
     title: "Lorem ipsum dolor sit amet, consectetur.",
+    slug: "lorem-ipsum-dolor-sir-amet",
     resume:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
     date: ""
   },
   {
-    category: "ReactJS",
+    id: 2,
+
+    category: "React",
     title: "Lorem ipsum dolor sit amet, consectetur.",
+    resume: "Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt",
+    slug: "lorem-ipsum-dolor-sir-amet",
+    date: ""
+  },
+  {
+    id: 3,
+
+    category: "React",
+    title:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur. ",
+    resume:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ",
+    date: "",
+    slug: "lorem-ipsum-dolor-sir-amet"
+  },
+  {
+    id: 4,
+    category: "React",
+    title: "Lorem ipsum dolor sit amet, consectetur.",
+    slug: "lorem-ipsum-dolor-sir-amet",
     resume:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
     date: ""
   },
   {
-    category: "ReactJS",
+    id: 5,
+
+    category: "React",
     title: "Lorem ipsum dolor sit amet, consectetur.",
+    resume: "Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt",
+    slug: "lorem-ipsum-dolor-sir-amet",
+    date: ""
+  },
+  {
+    id: 11,
+
+    category: "React",
+    title: "Lorem ipsum dolor sit amet, consectetur.",
+    resume: "Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt",
+    slug: "lorem-ipsum-dolor-sir-amet",
+    date: ""
+  },
+  {
+    id: 6,
+
+    category: "React",
+    title:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur. ",
+    resume:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ",
+    date: "",
+    slug: "lorem-ipsum-dolor-sir-amet"
+  },
+  {
+    id: 7,
+    category: "React",
+    title: "Lorem ipsum dolor sit amet, consectetur.",
+    slug: "lorem-ipsum-dolor-sir-amet",
     resume:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
     date: ""
   },
   {
-    category: "ReactJS",
+    id: 8,
+
+    category: "React",
     title: "Lorem ipsum dolor sit amet, consectetur.",
+    resume: "Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt",
+    slug: "lorem-ipsum-dolor-sir-amet",
+    date: ""
+  },
+  {
+    id: 9,
+
+    category: "React",
+    title:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur. ",
+    resume:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ",
+    date: "",
+    slug: "lorem-ipsum-dolor-sir-amet"
+  },
+  {
+    id: 10,
+    category: "React",
+    title: "Lorem ipsum dolor sit amet, consectetur.",
+    slug: "lorem-ipsum-dolor-sir-amet",
     resume:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
     date: ""
   },
+
   {
-    category: "ReactJS",
-    title: "Lorem ipsum dolor sit amet, consectetur.",
+    id: 12,
+
+    category: "React",
+    title:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur. ",
     resume:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
-    date: ""
-  },
-  {
-    category: "ReactJS",
-    title: "Lorem ipsum dolor sit amet, consectetur.",
-    resume:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
-    date: ""
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ",
+    date: "",
+    slug: "lorem-ipsum-dolor-sir-amet"
   }
 ];

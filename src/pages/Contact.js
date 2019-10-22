@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Jumbotron, Button, Form } from "react-bootstrap";
-
+import ReCAPTCHA from "react-google-recaptcha";
 import { HeroSectionSimple } from "../components/HeroSection";
 import { ArticleSnippet } from "../components/ArticleSnippet";
 import { useLocation } from "react-router-dom";
@@ -41,7 +41,12 @@ function Contact(props) {
                 <FormStyled>
                   <Form.Group controlId="formBasicEmail">
                     <Form.Label>Your Name</Form.Label>
-                    <Form.Control type="name" placeholder="" required />
+                    <Form.Control
+                      type="text"
+                      placeholder=""
+                      autoComplete="off"
+                      required
+                    />
                   </Form.Group>
                   <Form.Group controlId="formBasicPassword">
                     <Form.Label>Your Email</Form.Label>
@@ -51,6 +56,11 @@ function Contact(props) {
                     <Form.Label>Message</Form.Label>
                     <Form.Control as="textarea" rows="3" required />
                   </Form.Group>
+                  <ReCAPTCHA
+                    sitekey="6Lci-L4UAAAAAP_EjffvxvugrVRgraSA_5LHBFXD"
+                    size="invisible"
+                    onChange={() => false}
+                  />
                   <div className="text-center mt-3">
                     <ButtonStyled
                       background="primary2"

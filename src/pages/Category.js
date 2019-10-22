@@ -7,53 +7,81 @@ import { HeroSectionSimple } from "../components/HeroSection";
 
 const snipperts = [
   {
-    category: "ReactJS",
+    id: 1,
+    category: "React",
     title: "Lorem ipsum dolor sit amet, consectetur.",
+    slug: "lorem-ipsum-dolor-sir-amet",
     resume:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
     date: ""
   },
   {
-    category: "ReactJS",
+    id: 2,
+
+    category: "React",
     title: "Lorem ipsum dolor sit amet, consectetur.",
+    resume: "Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt",
+    slug: "lorem-ipsum-dolor-sir-amet",
+    date: ""
+  },
+  {
+    id: 3,
+
+    category: "React",
+    title:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur. ",
+    resume:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ",
+    date: "",
+    slug: "lorem-ipsum-dolor-sir-amet"
+  },
+  {
+    id: 4,
+    category: "React",
+    title: "Lorem ipsum dolor sit amet, consectetur.",
+    slug: "lorem-ipsum-dolor-sir-amet",
     resume:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
     date: ""
   },
   {
-    category: "ReactJS",
+    id: 5,
+
+    category: "React",
     title: "Lorem ipsum dolor sit amet, consectetur.",
-    resume:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+    resume: "Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt",
+    slug: "lorem-ipsum-dolor-sir-amet",
     date: ""
   },
   {
-    category: "ReactJS",
-    title: "Lorem ipsum dolor sit amet, consectetur.",
+    id: 6,
+
+    category: "React",
+    title:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur. ",
     resume:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
-    date: ""
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ",
+    date: "",
+    slug: "lorem-ipsum-dolor-sir-amet"
   },
   {
-    category: "ReactJS",
+    id: 7,
+    category: "React",
     title: "Lorem ipsum dolor sit amet, consectetur.",
-    resume:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
-    date: ""
-  },
-  {
-    category: "ReactJS",
-    title: "Lorem ipsum dolor sit amet, consectetur.",
+    slug: "lorem-ipsum-dolor-sir-amet",
     resume:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
     date: ""
   }
 ];
 
-function Category() {
+function Category(props) {
   return (
     <>
-      <HeroSectionSimple title="Posts about React" />
+      <HeroSectionSimple
+        title="Posts about React"
+        subtitle="One Library to Rule Them All 👑"
+      />
       <Container className="py-4">
         <Row>
           <Col sm={8}>

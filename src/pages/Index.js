@@ -12,6 +12,7 @@ import Category from "./Category";
 import Explore from "./Explore";
 import Contact from "./Contact";
 import About from "./About";
+import Article from "./Article";
 
 function Index() {
   const [{ theme, query }] = useGlobals();
@@ -27,7 +28,8 @@ function Index() {
             <Route path="/explore" component={Explore} />
             <Route path="/contact" component={Contact} />
             <Route path="/about" component={About} />
-            <Route path="/category" component={Category} />
+            <Route path="/:category/:slug" component={Article} />
+            <Route path="/:category" component={Category} />
           </Switch>
           <Footer />
         </Router>

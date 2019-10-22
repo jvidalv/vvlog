@@ -36,7 +36,29 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
   color: ${props => THEMES[props.theme.style].primary};
   font-weight: 300;
+
   ${props => fontsDefaults(props)}
+  &.separator {
+    display: flex;
+  }
+  &.separator::after {
+    content: " ";
+    background: linear-gradient(
+      to right,
+      ${props => THEMES[props.theme.style].primary},
+      ${props => THEMES[props.theme.style].secondary}
+    );
+    height: 3px;
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    margin: 0.75em 2px 0 3px;
+    flex-grow: 1;
+    border-radius: 2px;
+  }
 `;
 
 export const H3 = styled.h3`
@@ -63,7 +85,7 @@ export const H5 = styled.h5`
 export const P = styled.p`
   color: ${props => THEMES[props.theme.style].onSurface};
   font-weight: 300;
-    ${props => fontsDefaults(props)}
+  ${props => fontsDefaults(props)}
   ${props => borderLeft(props)}
   ${props => ("big" in props ? "font-size:1.3rem" : "")}
   &.on-background {
@@ -240,4 +262,40 @@ export const FormStyled = styled(Form)`
 export const Main = styled.div`
   min-height: 100vh;
   background-color: ${props => THEMES[props.theme.style].background};
+`;
+
+export const Me = styled.div`
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  position: relative;
+  transition: 0.5s;
+  & > img {
+    transform: scale(1.1);
+    box-shadow: 5px 5px 0px ${props => THEMES[props.theme.style].secondary};
+    @media (max-width: 650px) {
+      transform: scale(1);
+    }
+  }
+  &:hover img {
+    filter: none;
+  }
+  &:hover::before {
+    opacity: 0;
+  }
+  ::before {
+    content: "An instant of Rovaniemi, Finland ❄";
+    z-index: 25;
+    position: absolute;
+    font-family: "Satisfy", cursive;
+    font-size: 1.6rem;
+    bottom: -15px;
+    right: -15px;
+    color: white;
+    transition: 0.75s;
+    @media (max-width: 650px) {
+      font-size: 1.2rem;
+      bottom: 5px;
+      right: 10px;
+    }
+  }
 `;

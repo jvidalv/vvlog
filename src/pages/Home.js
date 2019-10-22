@@ -17,25 +17,33 @@ import {
 
 const snipperts = [
   {
+    id: 1,
     category: "React",
     title: "Lorem ipsum dolor sit amet, consectetur.",
+    slug: "lorem-ipsum-dolor-sir-amet",
     resume:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
     date: ""
   },
   {
+    id: 2,
+
     category: "React",
     title: "Lorem ipsum dolor sit amet, consectetur.",
     resume: "Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt",
+    slug: "lorem-ipsum-dolor-sir-amet",
     date: ""
   },
   {
+    id: 3,
+
     category: "React",
     title:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur. ",
     resume:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ",
-    date: ""
+    date: "",
+    slug: "lorem-ipsum-dolor-sir-amet"
   }
 ];
 

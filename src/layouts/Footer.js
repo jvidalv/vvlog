@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import { P } from "../styles/GenericStyles";
 import { useScrollPosition } from "../hooks/useScrollPosition";
 import { FloatingButton } from "./FooterStyle.js";
+import { MyNetworks } from "../components/MyContents";
 
 const ButtonToTop = props => {
   return (
@@ -39,6 +40,7 @@ function Footer() {
     <>
       <ButtonToTop className={showToTop ? "active" : null} />
       <footer>
+        <MyNetworks />
         <Container className="text-center py-5">
           <P className="on-background mb-0">
             Code snippets licensed under MIT, unless otherwise noted. Content &

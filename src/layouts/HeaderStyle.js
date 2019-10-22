@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { keyframes } from "styled-components";
 import { THEMES } from "../constants/Themes";
 import { Navbar, FormControl, NavDropdown } from "react-bootstrap";
@@ -26,8 +26,9 @@ export const Logo = styled.img`
   }
 `;
 
-export const LinkStyled = styled(Link)`
+export const LinkStyled = styled(NavLink)`
   color: white !important;
+  transition: 0.25s;
   &:hover {
     color: gray !important;
   }

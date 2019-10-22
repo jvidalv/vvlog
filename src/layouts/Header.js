@@ -61,6 +61,7 @@ function Searcher(props) {
         type="text"
         placeholder="🔎"
         className="mr-sm-2"
+        autoComplete="off"
       />
     </Form>
   );
@@ -149,13 +150,26 @@ export function Header(props) {
       <NavbarToggleStyled aria-controls="basic-navbar-nav" />
       <NavbarCollapseStyled>
         <Nav className="mr-auto text-center text-lg-left pt-5 pt-lg-0 ">
-          <LinkStyled className="my-2 my-lg-0 px-lg-4" to="/explore" icon="💡">
+          <LinkStyled
+            activeStyle={{ fontWeight: "bold" }}
+            className="my-2 my-lg-0 px-lg-4"
+            to="/explore"
+            icon="💡"
+          >
             Explore
           </LinkStyled>
-          <LinkStyled className="my-2 my-lg-0 px-lg-4" to="/contact">
+          <LinkStyled
+            activeStyle={{ fontWeight: "bold" }}
+            className="my-2 my-lg-0 px-lg-4"
+            to="/contact"
+          >
             Contact
           </LinkStyled>
-          <LinkStyled className="my-2 my-lg-0 px-lg-4" to="/about">
+          <LinkStyled
+            activeStyle={{ fontWeight: "bold" }}
+            className="my-2 my-lg-0 px-lg-4"
+            to="/about"
+          >
             About
           </LinkStyled>
         </Nav>
