@@ -21,14 +21,19 @@ export const Logo = styled.img`
   left: 25px;
   transition: transform 0.1s cubic-bezier(0, 1.8, 1, 1.8);
   transform: translateY(-1em);
+
   &:hover {
     transform: translateY(-0.5em) rotate(-2deg) scale(1.25);
+  }
+  @media (max-width: 700px) {
+    left: 10px;
   }
 `;
 
 export const LinkStyled = styled(NavLink)`
   color: white !important;
   transition: 0.25s;
+  opacity: 0.7;
   &:hover {
     color: gray !important;
   }
@@ -82,6 +87,9 @@ export const FormControlStyled = styled(FormControl)`
     background: ${props => THEMES[props.theme.style].surface.level1};
     box-shadow: none;
     border-color: ${props => THEMES[props.theme.style].primary2};
+    @media (max-width: 700px) {
+      width: 100px !important;
+    }
   }
 `;
 

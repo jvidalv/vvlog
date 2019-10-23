@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { useParams } from "react-router";
 import {
   FaBeer,
   FaInstagram,
@@ -10,9 +11,14 @@ import {
   FaStackOverflow,
   FaPersonBooth,
   FaGlobe,
-  FaLinkedinIn
+  FaLinkedinIn,
+  FaFacebook,
+  FaReddit,
+  FaWhatsapp,
+  FaTwitter
 } from "react-icons/fa";
-import { IconA } from "./MyContentsStyle";
+import { IconA, ShareA, ColStyled } from "./MyContentsStyle";
+import { P } from "../styles/GenericStyles";
 
 const Network = props => {
   const { url, title, icon, iconColor } = props;
@@ -29,7 +35,7 @@ const Network = props => {
  */
 export function MyNetworks() {
   return (
-    <Container className="py-4 mt-3">
+    <Container className="py-1 mt-5">
       <Row>
         <Col className="text-center">
           <Network
@@ -63,6 +69,76 @@ export function MyNetworks() {
             icon={<FaGlobe />}
           />
         </Col>
+      </Row>
+    </Container>
+  );
+}
+
+const ShareOption = props => {
+  const { url, title, icon, iconColor, className } = props;
+  return (
+    <ShareA
+      href={url}
+      className={className}
+      title={title}
+      iconColor={iconColor}
+      target="_blank"
+    >
+      {icon}
+    </ShareA>
+  );
+};
+
+export function Sharer(props) {
+  const { title } = props;
+  let location = window.location.href;
+
+  return (
+    <Container className="py-5">
+      <Row className="justify-content-center">
+        <ColStyled className="text-center" xs md lg={10}>
+          <ShareOption
+            url={"https://www.facebook.com/sharer/sharer.php?u=" + location}
+            icon={<FaFacebook />}
+            title="Share on Facebook! 💖"
+            className="left-bar"
+          />
+          <ShareOption
+            url={
+              "https://www.reddit.com/submit?url=" +
+              location +
+              "&title=" +
+              title
+            }
+            icon={<FaReddit />}
+            title="Share on Reddit! 💖"
+          />
+          <ShareOption
+            url={"https://web.whatsapp.com/send?text=" + location}
+            icon={<FaWhatsapp />}
+            title="Share on Whatsapp! 💖"
+          />
+          <ShareOption
+            url={
+              "https://twitter.com/intent/tweet?url=" +
+              location +
+              "&text=" +
+              title +
+              "&original_referer=" +
+              location
+            }
+            icon={<FaTwitter />}
+            title="Share on Twitter! 💖"
+          />
+          <ShareOption
+            url={
+              "https://www.linkedin.com/sharing/share-offsite/?url=" + location
+            }
+            icon={<FaLinkedinIn />}
+            className="right-bar"
+            title="Share on LinkedIn! 💖"
+          />
+        </ColStyled>
       </Row>
     </Container>
   );

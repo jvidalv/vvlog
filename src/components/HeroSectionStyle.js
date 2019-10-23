@@ -39,23 +39,58 @@ export const HeroImage = styled.img`
 `;
 
 export const HeroH1 = styled.h1`
-         color: ${props => THEMES[props.theme.style].primary};
-         font-family: "IBM Plex Mono";
-         font-style: italic;
-         font-weight: 300;
+  color: ${props => THEMES[props.theme.style].primary};
+  font-family: "IBM Plex Mono";
+  font-style: italic;
+  font-weight: 300;
 
-         &.extra {
-           color: #fff;
-           text-shadow: 0 0 14px rgba(0, 0, 0, 0.28);
-           @media (max-width: 600px) {
-             font-size: 1.6rem;
-           }
-         }
-       `;
+  &.extra {
+    color: #fff;
+    text-shadow: 0 0 14px rgba(0, 0, 0, 0.28);
+    @media (max-width: 600px) {
+      font-size: 1.6rem;
+    }
+  }
+`;
+
+const backArrows = keyframes`
+    0% {
+        content : ''
+    }
+     17% {
+        content : '<'
+    }
+     35% {
+        content : '<<'
+    }
+    50% {
+        content : '<<<'
+    }
+    67% {
+      content : '<<'
+    }
+    85% {
+      content : '<'
+    }
+    100% {
+      content : ''
+    }
+`;
 
 export const HeroH4 = styled.h4`
   color: ${props => THEMES[props.theme.style].onBackground};
   font-weight: 300;
+  & > a {
+    color: ${props => THEMES[props.theme.style].secondary};
+    position: relative;
+    transition: all 2s ease-in-out;
+  }
+  & > a:hover::before {
+    animation: ${backArrows} 2s infinite;
+    content: "<<<";
+    position: absolute;
+    left: -55px;
+  }
 `;
 
 export const HeroP = styled.p`

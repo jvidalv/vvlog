@@ -5,7 +5,7 @@ import { HeroSectionSimple } from "../components/HeroSection";
 import { ArticleSnippet } from "../components/ArticleSnippet";
 import { Form } from "react-bootstrap";
 
-import { InputStyled } from "../styles/GenericStyles";
+import { InputStyled, DiagonalContainer } from "../styles/GenericStyles";
 import { useLocation } from "react-router";
 
 function Explore(props) {
@@ -29,7 +29,7 @@ function Explore(props) {
           </Col>
         </Row>
       </Container>
-      <Container>
+      <DiagonalContainer>
         <Row className="px-2">
           {snipperts.map(snipet => (
             <>
@@ -42,7 +42,7 @@ function Explore(props) {
             </>
           ))}
         </Row>
-      </Container>
+      </DiagonalContainer>
     </>
   );
 }

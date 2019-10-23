@@ -82,7 +82,7 @@ function Category(props) {
         title="Posts about React"
         subtitle="One Library to Rule Them All 👑"
       />
-      <Container className="py-4">
+      <Container className="py-5">
         <Row>
           <Col sm={8}>
             {snipperts.map(snipet => (

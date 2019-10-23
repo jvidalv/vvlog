@@ -119,7 +119,7 @@ const LanguageSwitcher = props => {
 export function Header(props) {
   const { pathname } = props.location;
   const [{ theme, language }, dispatch] = useGlobals();
-
+  const [expanded, setExpanded] = useState(false);
   const changeTheme = () => {
     dispatch({
       type: "changeTheme",
@@ -135,8 +135,20 @@ export function Header(props) {
   };
 
   return (
-    <NavStyled expand="lg" sticky="top" shadow={!isHome(pathname)}>
-      <LinkStyled to="/" className={isHome(pathname) ? "d-none" : "pr-3 mr-5"}>
+    <NavStyled
+      expand="lg"
+      sticky="top"
+      shadow={!isHome(pathname)}
+      onSelect={() => console.log("hii")}
+      expanded={expanded}
+    >
+      <LinkStyled
+        to="/"
+        className={isHome(pathname) ? "d-none" : "pr-3 mr-5"}
+        style={{ opacity: 1 }}
+        data-toggle="collapse"
+        data-target="#navbarMobile"
+      >
         <Logo src={logo} />
       </LinkStyled>
       <ThemeSwitcher
@@ -147,11 +159,15 @@ export function Header(props) {
       <Searcher
         className={isExplore(pathname) ? "d-none" : "mr-3 d-flex d-lg-none"}
       />
-      <NavbarToggleStyled aria-controls="basic-navbar-nav" />
-      <NavbarCollapseStyled>
-        <Nav className="mr-auto text-center text-lg-left pt-5 pt-lg-0 ">
+      <NavbarToggleStyled
+        aria-controls="responsive-navbar-nav"
+        onClick={() => setExpanded(expanded ? false : "expanded")}
+      />
+      <NavbarCollapseStyled id="responsive-navbar-nav">
+        <Nav className="mr-auto text-center text-lg-left pt-5 pt-lg-0">
           <LinkStyled
-            activeStyle={{ fontWeight: "bold" }}
+            onClick={() => setExpanded(false)}
+            activeStyle={{ opacity: "1" }}
             className="my-2 my-lg-0 px-lg-4"
             to="/explore"
             icon="💡"
@@ -159,16 +175,20 @@ export function Header(props) {
             Explore
           </LinkStyled>
           <LinkStyled
-            activeStyle={{ fontWeight: "bold" }}
+            onClick={() => setExpanded(false)}
+            activeStyle={{ opacity: "1" }}
             className="my-2 my-lg-0 px-lg-4"
             to="/contact"
+            eventKey="2"
           >
             Contact
           </LinkStyled>
           <LinkStyled
-            activeStyle={{ fontWeight: "bold" }}
+            onClick={() => setExpanded(false)}
+            activeStyle={{ opacity: "1" }}
             className="my-2 my-lg-0 px-lg-4"
             to="/about"
+            eventKey="3"
           >
             About
           </LinkStyled>
