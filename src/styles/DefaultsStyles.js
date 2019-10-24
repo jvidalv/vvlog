@@ -16,6 +16,8 @@ export const fontsDefaults = props => {
       : "";
   stylesString += "italic" in props ? "font-style : italic;" : "";
   stylesString += "fontPlex" in props ? "font-family : 'IBM Plex Mono';" : "";
+  stylesString += "muted" in props ? "opacity: 0.7;" : "";
+
   stylesString +=
     "fontSize" in props ? "font-size : " + props.fontSize + ";" : "";
 

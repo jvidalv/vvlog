@@ -94,7 +94,7 @@ export function Sharer(props) {
   let location = window.location.href;
 
   return (
-    <Container className="py-5">
+    <Container>
       <Row className="justify-content-center">
         <ColStyled className="text-center" xs md lg={10}>
           <ShareOption

@@ -51,6 +51,9 @@ export const HeroH1 = styled.h1`
       font-size: 1.6rem;
     }
   }
+  @media (max-width: 650px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const backArrows = keyframes`

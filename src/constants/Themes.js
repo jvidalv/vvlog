@@ -13,7 +13,7 @@ export const THEMES = {
     primary: "#efbb35",
     primary2: "#3700B3",
     secondary: "#03DAC6",
-    secondary2: "#03DAC6",
+    secondary2: "#d8ff00",
     error: "#CF6679",
     header: { 1: "#302E24", 2: "#28313E" },
     onBackground: "#FFFFFF",

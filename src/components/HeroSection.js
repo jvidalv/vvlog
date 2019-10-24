@@ -28,17 +28,17 @@ export function HeroSectionHome() {
 }
 
 export function HeroSectionSimple(props) {
-  const { title, subtitle, overtitle } = props;
+  const { title, subtitle, overtitle, urlOvertitle } = props;
   return (
     <>
       <Container className="pt-5 text-center">
         <Row>
           <Col>
             <HeroH4 className="my-3 mb-4">
-              <Link>{overtitle}</Link>
+              <Link to={urlOvertitle}>{overtitle}</Link>
             </HeroH4>
-            <HeroH1 className="my-3 px-2">{title}</HeroH1>
-            <HeroH4 className="my-3 px-2">{subtitle}</HeroH4>
+            <HeroH1 className="my-3">{title}</HeroH1>
+            <HeroH4 className="my-3">{subtitle}</HeroH4>
           </Col>
         </Row>
       </Container>

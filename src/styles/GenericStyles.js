@@ -64,7 +64,6 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
   color: ${props => THEMES[props.theme.style].primary};
   font-weight: 300;
-
   ${props => fontsDefaults(props)}
 `;
 

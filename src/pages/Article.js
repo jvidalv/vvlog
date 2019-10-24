@@ -10,31 +10,28 @@ import {
 
 import { HeroSectionSimple } from "../components/HeroSection";
 import { Sharer } from "../components/MyContents";
-import { P, CardStyled } from "../styles/GenericStyles";
+import { P, CardStyled, SidebarElement } from "../styles/GenericStyles";
+import { AuthorWithImage } from "../components/AuthorSection";
+import { ArticleContent } from "../components/ArticleContents";
+import Sidebar from "../layouts/Sidebar";
 
 function Article(props) {
   const { title, resume, category, content } = article;
-
   return (
     <>
-      <HeroSectionSimple title={title} overtitle={category} />
-      <Container className="py-4">
-        <Row>
-          <Col>
-            <CardStyled className="p-3">
-              <P>holaa</P>
-            </CardStyled>
-          </Col>
-        </Row>
-      </Container>
-      <Sharer title={title} />
+      <HeroSectionSimple
+        title={title}
+        overtitle={category}
+        urlOvertitle={"/" + category.toLocaleLowerCase()}
+      />
+      <AuthorWithImage />
       <Container className="py-4">
         <Row>
           <Col xs={12} md={12} lg={8}>
-            <P>holaaa</P>
+            <ArticleContent />
           </Col>
-          <Col xs={12} md={12} lg={4}>
-            <P>holaaa</P>
+          <Col>
+            <Sidebar />
           </Col>
         </Row>
       </Container>
