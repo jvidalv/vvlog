@@ -3,7 +3,7 @@ import { Container, Row, Col, Jumbotron, Button } from "react-bootstrap";
 
 import { ArticleSnippetWithImage } from "../components/ArticleSnippet";
 import Sidebar from "../layouts/Sidebar";
-import { HeroSectionSimple } from "../components/HeroSection";
+import { HeroSimple } from "../components/HeroSection";
 
 const snipperts = [
   {
@@ -78,10 +78,16 @@ const snipperts = [
 function Category(props) {
   return (
     <>
-      <HeroSectionSimple
-        title="Posts about React"
-        subtitle="One Library to Rule Them All 👑"
-      />
+      <Container className="pt-5 text-center">
+        <Row>
+          <Col>
+            <HeroSimple
+              title="Posts about React"
+              subtitle="One Library to Rule Them All 👑"
+            />
+          </Col>
+        </Row>
+      </Container>
       <Container className="py-5">
         <Row>
           <Col sm={8}>

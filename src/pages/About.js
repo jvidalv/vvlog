@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col, Jumbotron, Button, Form } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 
-import { HeroSectionSimple } from "../components/HeroSection";
+import { HeroSimple } from "../components/HeroSection";
 import { ArticleSnippet } from "../components/ArticleSnippet";
 import { MyNetworks } from "../components/MyContents";
 import {
@@ -20,10 +20,16 @@ import me from "../assets/images/me-finland.jpg";
 function About(props) {
   return (
     <>
-      <HeroSectionSimple
-        title="About"
-        subtitle="An introduction to me and vblogv's philosophy ⚖"
-      />
+      <Container className="pt-5 text-center">
+        <Row>
+          <Col>
+            <HeroSimple
+              title="About"
+              subtitle="An introduction to me and vblogv's philosophy ⚖"
+            />
+          </Col>
+        </Row>
+      </Container>
       <Container className="my-5">
         <Row className="justify-content-md-center">
           <Col xs md={10} lg={8}>

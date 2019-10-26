@@ -58,22 +58,22 @@ function MoreOfMe(props) {
 
 const CategorySidebar = () => {
   return (
-    <>
+    <aside>
       <div className="mt-3 d-md-none"></div>
       <Element content={<MoreOfMe />} icon="📚" />
       <Element content={<MoreOfMe />} icon="📚" />
       <Element content={<AboutMe />} icon="🚀" />
-    </>
+    </aside>
   );
 };
 
 const HomeSidebar = () => {
   return (
-    <>
+    <aside>
       <div className="mt-3 d-md-none"></div>
       <Element content={<MoreOfMe />} icon="📚" />
       <Element content={<AboutMe />} icon="🚀" />
-    </>
+    </aside>
   );
 };
 

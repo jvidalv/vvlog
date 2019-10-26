@@ -137,7 +137,6 @@ export function Header(props) {
   return (
     <NavStyled
       expand="lg"
-      sticky="top"
       shadow={!isHome(pathname)}
       onSelect={() => console.log("hii")}
       expanded={expanded}

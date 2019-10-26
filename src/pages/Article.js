@@ -8,34 +8,58 @@ import {
   Breadcrumb
 } from "react-bootstrap";
 
-import { HeroSectionSimple } from "../components/HeroSection";
+import { HeroSimple } from "../components/HeroSection";
 import { Sharer } from "../components/MyContents";
 import { P, CardStyled, SidebarElement } from "../styles/GenericStyles";
 import { AuthorWithImage } from "../components/AuthorSection";
-import { ArticleContent } from "../components/ArticleContents";
+import {
+  ArticleContent,
+  ReadingTopBar,
+  Tags
+} from "../components/ArticleContents";
 import Sidebar from "../layouts/Sidebar";
 
 function Article(props) {
   const { title, resume, category, content } = article;
   return (
-    <>
-      <HeroSectionSimple
-        title={title}
-        overtitle={category}
-        urlOvertitle={"/" + category.toLocaleLowerCase()}
-      />
-      <AuthorWithImage />
+    <article>
+      <Container className="pt-5 text-center">
+        <Row>
+          <Col>
+            <HeroSimple
+              title={title}
+              overtitle={category}
+              urlOvertitle={"/" + category.toLocaleLowerCase()}
+            />
+          </Col>
+        </Row>
+      </Container>
+      <Container className="py-3">
+        <Row noGutters className="justify-content-center align-items-center">
+          <Col
+            className="d-flex align-items-center justify-content-center"
+            xs
+            md={10}
+            lg={8}
+          >
+            <AuthorWithImage />
+          </Col>
+        </Row>
+      </Container>
       <Container className="py-4">
         <Row>
-          <Col xs={12} md={12} lg={8}>
+          <Col xs={12} md={12} lg={9}>
             <ArticleContent />
+            <Tags />
+            <Sharer />
           </Col>
           <Col>
             <Sidebar />
           </Col>
         </Row>
       </Container>
-    </>
+      <ReadingTopBar />
+    </article>
   );
 }
 

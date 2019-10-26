@@ -11,7 +11,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { H1, P } from "../styles/GenericStyles";
 import initials from "../assets/images/logo-initials.png";
 
-export function HeroSectionHome() {
+export function HeroHome() {
   return (
     <HeroSectionStyled>
       <HeroImage src={initials} />
@@ -27,21 +27,15 @@ export function HeroSectionHome() {
   );
 }
 
-export function HeroSectionSimple(props) {
+export function HeroSimple(props) {
   const { title, subtitle, overtitle, urlOvertitle } = props;
   return (
     <>
-      <Container className="pt-5 text-center">
-        <Row>
-          <Col>
-            <HeroH4 className="my-3 mb-4">
-              <Link to={urlOvertitle}>{overtitle}</Link>
-            </HeroH4>
-            <HeroH1 className="my-3">{title}</HeroH1>
-            <HeroH4 className="my-3">{subtitle}</HeroH4>
-          </Col>
-        </Row>
-      </Container>
+      <HeroH4 className="my-3 mb-4">
+        <Link to={urlOvertitle}>{overtitle}</Link>
+      </HeroH4>
+      <HeroH1 className="my-3">{title}</HeroH1>
+      <HeroH4 className="my-3">{subtitle}</HeroH4>
     </>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Jumbotron, Button } from "react-bootstrap";
 
-import { HeroSectionSimple } from "../components/HeroSection";
+import { HeroSimple } from "../components/HeroSection";
 import { ArticleSnippet } from "../components/ArticleSnippet";
 import { Form } from "react-bootstrap";
 
@@ -14,7 +14,13 @@ function Explore(props) {
 
   return (
     <>
-      <HeroSectionSimple title="Explore" subtitle="...But don't get lost 😜" />
+      <Container className="pt-5 text-center">
+        <Row>
+          <Col>
+            <HeroSimple title="Explore" subtitle="...But don't get lost 😜" />
+          </Col>
+        </Row>
+      </Container>
       <Container className="my-5">
         <Row className="justify-content-md-center">
           <Col className="text-center" xs md={8} lg={6}>

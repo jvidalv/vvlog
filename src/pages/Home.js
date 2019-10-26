@@ -7,7 +7,7 @@ import {
 } from "../components/ArticleSnippet";
 
 import Sidebar from "../layouts/Sidebar";
-import { HeroSectionHome } from "../components/HeroSection";
+import { HeroHome } from "../components/HeroSection";
 import {
   H3,
   ButtonStyled,
@@ -49,35 +49,28 @@ const snipperts = [
 
 const FeaturedSection = () => {
   return (
-    <Row>
-      <Col md={8}>
-        {snipperts.map(snipet => (
-          <ArticleSnippetWithImage {...snipet} className="move-up" />
-        ))}
-      </Col>
-      <Col md={4}>
-        <Sidebar />
-      </Col>
-    </Row>
+    <>
+      {snipperts.map(snipet => (
+        <ArticleSnippetWithImage {...snipet} className="move-up" />
+      ))}
+    </>
   );
 };
 
 const SubscribeSection = () => {
   return (
-    <Row className="mt-5 justify-content-md-center">
-      <Col className="text-center" xs md={8} lg={6}>
-        <H3>
-          <span role="img" aria-label="train">
-            🚇
-          </span>{" "}
-          Subscribe and stay in touch
-        </H3>
-        <Form className="my-4">
-          <InputStyled className="text-center" placeholder="your email" />
-        </Form>
-        <ButtonStyled>Subscribe</ButtonStyled>
-      </Col>
-    </Row>
+    <>
+      <H3>
+        <span role="img" aria-label="train">
+          🚇
+        </span>{" "}
+        Subscribe and stay in touch
+      </H3>
+      <Form className="my-4">
+        <InputStyled className="text-center" placeholder="your email" />
+      </Form>
+      <ButtonStyled>Subscribe</ButtonStyled>
+    </>
   );
 };
 
@@ -121,12 +114,23 @@ const AllArticlesSection = () => {
 function Home() {
   return (
     <>
-      <HeroSectionHome />
+      <HeroHome />
       <Container className="pt-4 pb-2">
-        <FeaturedSection />
+        <Row>
+          <Col md={8}>
+            <FeaturedSection />
+          </Col>
+          <Col md={4}>
+            <Sidebar />
+          </Col>
+        </Row>
       </Container>
       <Container className="pt-2 pb-2">
-        <SubscribeSection />
+        <Row className="mt-5 justify-content-md-center">
+          <Col className="text-center" xs md={8} lg={6}>
+            <SubscribeSection />
+          </Col>
+        </Row>
       </Container>
       <DiagonalContainer className=" my-5 pt-2 pb-4">
         <AllArticlesSection />

@@ -21,7 +21,7 @@ export const IconA = styled.a`
   }
 `;
 
-export const ColStyled = styled(Col)`
+export const SharerStyled = styled.div`
   &:hover .left-bar::before {
     content: " S H A R E ";
     -webkit-background-clip: text;

@@ -5,6 +5,10 @@ import { useScrollPosition } from "../hooks/useScrollPosition";
 import { FloatingButton } from "./FooterStyle.js";
 import { MyNetworks } from "../components/MyContents";
 
+/**
+ * Shows the floating button  that brings you to the top
+ * @param {*} props
+ */
 const ButtonToTop = props => {
   return (
     <FloatingButton

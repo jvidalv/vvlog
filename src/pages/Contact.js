@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Jumbotron, Button, Form } from "react-bootstrap";
 import ReCAPTCHA from "react-google-recaptcha";
-import { HeroSectionSimple } from "../components/HeroSection";
+import { HeroSimple } from "../components/HeroSection";
 import { ArticleSnippet } from "../components/ArticleSnippet";
 import { useLocation } from "react-router-dom";
 import {
@@ -16,10 +16,16 @@ import {
 function Contact(props) {
   return (
     <>
-      <HeroSectionSimple
-        title="Contact"
-        subtitle="If you are not a 🤖 i'll check you back ♥"
-      />
+      <Container className="pt-5 text-center">
+        <Row>
+          <Col>
+            <HeroSimple
+              title="Contact"
+              subtitle="If you are not a 🤖 i'll check you back ♥"
+            />
+          </Col>
+        </Row>
+      </Container>
       <Container className="my-5">
         <Row className="justify-content-md-center">
           <Col xs md={10} lg={8}>

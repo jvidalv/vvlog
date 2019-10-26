@@ -17,7 +17,7 @@ import {
   FaWhatsapp,
   FaTwitter
 } from "react-icons/fa";
-import { IconA, ShareA, ColStyled } from "./MyContentsStyle";
+import { IconA, ShareA, SharerStyled } from "./MyContentsStyle";
 import { P } from "../styles/GenericStyles";
 
 const Network = props => {
@@ -35,42 +35,38 @@ const Network = props => {
  */
 export function MyNetworks() {
   return (
-    <Container className="py-1 mt-5">
-      <Row>
-        <Col className="text-center">
-          <Network
-            url="mailto:josepvidalvidal@gmail.com"
-            title="Send me an email"
-            icon={<FaEnvelopeOpen />}
-          />
-          <Network
-            url="https://github.com/jvidalv"
-            title="My GitHub!"
-            icon={<FaGithub />}
-          />
-          <Network
-            url="https://www.instagram.com/jvidalv/"
-            title="Its my Insta"
-            icon={<FaInstagram />}
-          />
-          <Network
-            url="https://stackoverflow.com/users/9724551/josep-vidal?tab=profile"
-            title="I also participate on SO!"
-            icon={<FaStackOverflow />}
-          />
-          <Network
-            url="https://www.linkedin.com/in/josepvidalvidal/"
-            title="My profesional profesion pro profile"
-            icon={<FaLinkedinIn />}
-          />
-          <Network
-            url="http://www.vidal.fun"
-            title="My personal page!"
-            icon={<FaGlobe />}
-          />
-        </Col>
-      </Row>
-    </Container>
+    <div className="text-center">
+      <Network
+        url="mailto:josepvidalvidal@gmail.com"
+        title="Send me an email"
+        icon={<FaEnvelopeOpen />}
+      />
+      <Network
+        url="https://github.com/jvidalv"
+        title="My GitHub!"
+        icon={<FaGithub />}
+      />
+      <Network
+        url="https://www.instagram.com/jvidalv/"
+        title="Its my Insta"
+        icon={<FaInstagram />}
+      />
+      <Network
+        url="https://stackoverflow.com/users/9724551/josep-vidal?tab=profile"
+        title="I also participate on SO!"
+        icon={<FaStackOverflow />}
+      />
+      <Network
+        url="https://www.linkedin.com/in/josepvidalvidal/"
+        title="My profesional profesion pro profile"
+        icon={<FaLinkedinIn />}
+      />
+      <Network
+        url="http://www.vidal.fun"
+        title="My personal page!"
+        icon={<FaGlobe />}
+      />
+    </div>
   );
 }
 
@@ -94,52 +90,47 @@ export function Sharer(props) {
   let location = window.location.href;
 
   return (
-    <Container>
-      <Row className="justify-content-center">
-        <ColStyled className="text-center" xs md lg={10}>
-          <ShareOption
-            url={"https://www.facebook.com/sharer/sharer.php?u=" + location}
-            icon={<FaFacebook />}
-            title="Share on Facebook! 💖"
-            className="left-bar"
-          />
-          <ShareOption
-            url={
-              "https://www.reddit.com/submit?url=" +
-              location +
-              "&title=" +
-              title
-            }
-            icon={<FaReddit />}
-            title="Share on Reddit! 💖"
-          />
-          <ShareOption
-            url={"https://web.whatsapp.com/send?text=" + location}
-            icon={<FaWhatsapp />}
-            title="Share on Whatsapp! 💖"
-          />
-          <ShareOption
-            url={
-              "https://twitter.com/intent/tweet?url=" +
-              location +
-              "&text=" +
-              title +
-              "&original_referer=" +
-              location
-            }
-            icon={<FaTwitter />}
-            title="Share on Twitter! 💖"
-          />
-          <ShareOption
-            url={
-              "https://www.linkedin.com/sharing/share-offsite/?url=" + location
-            }
-            icon={<FaLinkedinIn />}
-            className="right-bar"
-            title="Share on LinkedIn! 💖"
-          />
-        </ColStyled>
-      </Row>
-    </Container>
+    <>
+      <SharerStyled>
+        <ShareOption
+          url={"https://www.facebook.com/sharer/sharer.php?u=" + location}
+          icon={<FaFacebook />}
+          title="Share on Facebook! 💖"
+          className="left-bar"
+        />
+        <ShareOption
+          url={
+            "https://www.reddit.com/submit?url=" + location + "&title=" + title
+          }
+          icon={<FaReddit />}
+          title="Share on Reddit! 💖"
+        />
+        <ShareOption
+          url={"https://web.whatsapp.com/send?text=" + location}
+          icon={<FaWhatsapp />}
+          title="Share on Whatsapp! 💖"
+        />
+        <ShareOption
+          url={
+            "https://twitter.com/intent/tweet?url=" +
+            location +
+            "&text=" +
+            title +
+            "&original_referer=" +
+            location
+          }
+          icon={<FaTwitter />}
+          title="Share on Twitter! 💖"
+        />
+        <ShareOption
+          url={
+            "https://www.linkedin.com/sharing/share-offsite/?url=" + location
+          }
+          icon={<FaLinkedinIn />}
+          className="right-bar"
+          title="Share on LinkedIn! 💖"
+        />
+      </SharerStyled>
+    </>
   );
 }
