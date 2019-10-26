@@ -14,6 +14,7 @@ import {
   InputStyled,
   DiagonalContainer
 } from "../styles/GenericStyles";
+import { Subscribe } from "../components/MyContents";
 
 const snipperts = [
   {
@@ -53,23 +54,6 @@ const FeaturedSection = () => {
       {snipperts.map(snipet => (
         <ArticleSnippetWithImage {...snipet} className="move-up" />
       ))}
-    </>
-  );
-};
-
-const SubscribeSection = () => {
-  return (
-    <>
-      <H3>
-        <span role="img" aria-label="train">
-          🚇
-        </span>{" "}
-        Subscribe and stay in touch
-      </H3>
-      <Form className="my-4">
-        <InputStyled className="text-center" placeholder="your email" />
-      </Form>
-      <ButtonStyled>Subscribe</ButtonStyled>
     </>
   );
 };
@@ -128,11 +112,11 @@ function Home() {
       <Container className="pt-2 pb-2">
         <Row className="mt-5 justify-content-md-center">
           <Col className="text-center" xs md={8} lg={6}>
-            <SubscribeSection />
+            <Subscribe />
           </Col>
         </Row>
       </Container>
-      <DiagonalContainer className=" my-5 pt-2 pb-4">
+      <DiagonalContainer className="my-5 pt-2 pb-4">
         <AllArticlesSection />
       </DiagonalContainer>
     </>

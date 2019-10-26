@@ -1,15 +1,11 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-
 import author from "../assets/images/me-roman.png";
 import { P } from "../styles/GenericStyles";
 import { AuthorPhoto } from "./AuthorSectionStyle";
 
 export function AuthorWithImage(props) {
-  const {} = props;
-
   return (
-    <>
+    <div className="d-flex align-items-center justify-content-center">
       <AuthorPhoto src={author} width="75" height="75" />
       <div className="ml-3">
         <P className="mb-0" big>
@@ -19,6 +15,31 @@ export function AuthorWithImage(props) {
           Aug 1, 2019 · 11 min read
         </P>
       </div>
-    </>
+    </div>
+  );
+}
+
+export function AuthorWithImageExtended(props) {
+  return (
+    <div className="d-flex my-5">
+      <AuthorPhoto
+        className="align-self-baseline"
+        src={author}
+        width="95"
+        height="95"
+      />
+      <div className="ml-3">
+        <P className="my-0 text-uppercase" color="onBackground" muted>
+          Written by
+        </P>
+        <P className="mb-0" big>
+          Josep Vidal Vidal
+        </P>
+        <P className="mb-0 mt-2" color="onBackground" muted>
+          Fullstack developer at Factor Energía by day — React developer by
+          night
+        </P>
+      </div>
+    </div>
   );
 }

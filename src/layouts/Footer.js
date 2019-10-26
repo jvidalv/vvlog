@@ -44,8 +44,8 @@ function Footer() {
     <>
       <ButtonToTop className={showToTop ? "active" : null} />
       <footer>
-        <MyNetworks />
         <Container className="text-center py-5">
+          <MyNetworks className="mb-4" />
           <P className="on-background mb-0">
             Code snippets licensed under MIT, unless otherwise noted. Content &
             Graphics © 2019 VBLOGV Josep Vidal

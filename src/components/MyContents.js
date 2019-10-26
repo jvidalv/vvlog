@@ -1,15 +1,9 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { useParams } from "react-router";
 import {
-  FaBeer,
   FaInstagram,
   FaGithub,
-  FaGoogle,
-  FaEnvelope,
   FaEnvelopeOpen,
   FaStackOverflow,
-  FaPersonBooth,
   FaGlobe,
   FaLinkedinIn,
   FaFacebook,
@@ -17,10 +11,11 @@ import {
   FaWhatsapp,
   FaTwitter
 } from "react-icons/fa";
+import { Form } from "react-bootstrap";
 import { IconA, ShareA, SharerStyled } from "./MyContentsStyle";
-import { P } from "../styles/GenericStyles";
+import { H3, InputStyled, ButtonStyled } from "../styles/GenericStyles";
 
-const Network = props => {
+export const Network = props => {
   const { url, title, icon, iconColor } = props;
   return (
     <IconA href={url} title={title} target="_blank">
@@ -33,9 +28,10 @@ const Network = props => {
  * Returns an inline element with all my social networks
  * Ready to use everywhere as it contains until the container component
  */
-export function MyNetworks() {
+export function MyNetworks(props) {
+  const { className } = props;
   return (
-    <div className="text-center">
+    <div className={"text-center " + className}>
       <Network
         url="mailto:josepvidalvidal@gmail.com"
         title="Send me an email"
@@ -91,7 +87,7 @@ export function Sharer(props) {
 
   return (
     <>
-      <SharerStyled>
+      <SharerStyled className={props.className}>
         <ShareOption
           url={"https://www.facebook.com/sharer/sharer.php?u=" + location}
           icon={<FaFacebook />}
@@ -131,6 +127,27 @@ export function Sharer(props) {
           title="Share on LinkedIn! 💖"
         />
       </SharerStyled>
+    </>
+  );
+}
+
+/**
+ *
+ * @param {*} props
+ */
+export function Subscribe(props) {
+  return (
+    <>
+      <H3>
+        <span role="img" aria-label="train">
+          🚇
+        </span>{" "}
+        Subscribe and stay in touch
+      </H3>
+      <Form className="my-4">
+        <InputStyled className="text-center" placeholder="your email" />
+      </Form>
+      <ButtonStyled>Subscribe</ButtonStyled>
     </>
   );
 }

@@ -18,3 +18,9 @@ svg {
 a:hover {
   text-decoration: none;
 }
+
+.is-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+}

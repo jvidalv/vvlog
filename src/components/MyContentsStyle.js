@@ -1,7 +1,5 @@
-import React from "react";
 import styled from "styled-components";
 import { THEMES } from "../constants/Themes";
-import { Col } from "react-bootstrap";
 
 export const IconA = styled.a`
   color: ${props => THEMES[props.theme.style].primary};

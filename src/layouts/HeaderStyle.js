@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { keyframes } from "styled-components";
@@ -35,7 +34,8 @@ export const LinkStyled = styled(NavLink)`
   transition: 0.25s;
   opacity: 0.7;
   &:hover {
-    color: gray !important;
+      opacity: 1;
+
   }
   &::before {
     content: "${props => ("icon" in props ? props.icon + " " : "")}";
@@ -46,7 +46,7 @@ export const NavStyled = styled(Navbar)`
   font-weight: 300 !important;
 
   ${props =>
-    props.shadow === true ? "box-shadow: 0 2px 20px 0 #0000001a" : ""};
+    props.shadow === true ? "box-shadow: 0 2px 20px 0 #0000005c" : ""};
   background: linear-gradient(
     to right,
     ${props => THEMES[props.theme.style].header["1"]},
@@ -57,6 +57,7 @@ export const NavStyled = styled(Navbar)`
 export const NavbarToggleStyled = styled(Navbar.Toggle)`
   color: white !important;
   border-color: rgba(255, 255, 255, 0.5);
+  background-color: ${props => THEMES[props.theme.style].primary};
 `;
 
 export const NavbarCollapseStyled = styled(Navbar.Collapse)`

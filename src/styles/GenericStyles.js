@@ -1,4 +1,3 @@
-import React from "react";
 import styled, { keyframes } from "styled-components";
 import { THEMES } from "../constants/Themes";
 import { Card, Button, Form, Container } from "react-bootstrap";
@@ -122,7 +121,7 @@ export const CardStyled = styled(Card)`
   cursor: pointer;
   border: none;
   margin-bottom: 10px;
-  &.move-up > a:hover {
+  & a:hover {
     transform: translateY(-10px);
   }
   &.with-icon::before {

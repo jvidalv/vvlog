@@ -7,8 +7,6 @@ import {
   HeroP
 } from "./HeroSectionStyle";
 import { Link } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
-import { H1, P } from "../styles/GenericStyles";
 import initials from "../assets/images/logo-initials.png";
 
 export function HeroHome() {

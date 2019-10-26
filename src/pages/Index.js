@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { useGlobals } from "../contexts/Global";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -15,7 +15,7 @@ import About from "./About";
 import Article from "./Article";
 
 function Index() {
-  const [{ theme, query }] = useGlobals();
+  const [{ theme }] = useGlobals();
 
   return (
     <ThemeProvider theme={{ style: theme }}>

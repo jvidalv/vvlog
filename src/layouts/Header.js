@@ -137,7 +137,7 @@ export function Header(props) {
   return (
     <NavStyled
       expand="lg"
-      shadow={!isHome(pathname)}
+      shadow={isHome(pathname) ? undefined : true}
       onSelect={() => console.log("hii")}
       expanded={expanded}
     >
@@ -178,7 +178,6 @@ export function Header(props) {
             activeStyle={{ opacity: "1" }}
             className="my-2 my-lg-0 px-lg-4"
             to="/contact"
-            eventKey="2"
           >
             Contact
           </LinkStyled>
@@ -187,7 +186,6 @@ export function Header(props) {
             activeStyle={{ opacity: "1" }}
             className="my-2 my-lg-0 px-lg-4"
             to="/about"
-            eventKey="3"
           >
             About
           </LinkStyled>

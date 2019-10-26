@@ -1,6 +1,4 @@
-import React from "react";
 import styled from "styled-components";
-import { keyframes } from "styled-components";
 import { THEMES } from "../constants/Themes";
 
 export const FloatingButton = styled.div`

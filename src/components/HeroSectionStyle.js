@@ -1,8 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 import { keyframes } from "styled-components";
 import { THEMES } from "../constants/Themes";
-import { Nav, Jumbotron } from "react-bootstrap";
 
 export const HeroSectionStyled = styled.div`
   text-align: center;

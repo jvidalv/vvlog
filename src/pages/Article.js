@@ -1,23 +1,20 @@
 import React from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Jumbotron,
-  Button,
-  Breadcrumb
-} from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 import { HeroSimple } from "../components/HeroSection";
-import { Sharer } from "../components/MyContents";
-import { P, CardStyled, SidebarElement } from "../styles/GenericStyles";
-import { AuthorWithImage } from "../components/AuthorSection";
+import { Sharer, Subscribe, Network } from "../components/MyContents";
+import { DiagonalContainer } from "../styles/GenericStyles";
+import {
+  AuthorWithImage,
+  AuthorWithImageExtended
+} from "../components/AuthorSection";
 import {
   ArticleContent,
   ReadingTopBar,
   Tags
 } from "../components/ArticleContents";
-import Sidebar from "../layouts/Sidebar";
+import { ArticleSidebar } from "../layouts/Sidebar";
+import { ArticleSnippet } from "../components/ArticleSnippet";
 
 function Article(props) {
   const { title, resume, category, content } = article;
@@ -36,12 +33,7 @@ function Article(props) {
       </Container>
       <Container className="py-3">
         <Row noGutters className="justify-content-center align-items-center">
-          <Col
-            className="d-flex align-items-center justify-content-center"
-            xs
-            md={10}
-            lg={8}
-          >
+          <Col xs md={10} lg={8}>
             <AuthorWithImage />
           </Col>
         </Row>
@@ -51,10 +43,35 @@ function Article(props) {
           <Col xs={12} md={12} lg={9}>
             <ArticleContent />
             <Tags />
-            <Sharer />
+            <AuthorWithImageExtended />
+            <Sharer className="my-5 text-center justify-content-center" />
           </Col>
           <Col>
-            <Sidebar />
+            <ArticleSidebar />
+          </Col>
+        </Row>
+      </Container>
+      <DiagonalContainer>
+        <Row className="justify-content-center my-5 py-2">
+          <Col className="text-center"></Col>
+        </Row>
+        <Row>
+          <Col className="text-center">
+            <HeroSimple title="More of vblogv 👀" />
+          </Col>
+        </Row>
+        <Row className="justify-content-center my-5">
+          {snipperts.map(article => (
+            <Col className="d-flex">
+              <ArticleSnippet className="justify-content-center" {...article} />
+            </Col>
+          ))}
+        </Row>
+      </DiagonalContainer>
+      <Container>
+        <Row className="justify-content-center my-5 py-5">
+          <Col className="text-center" xs md={8} lg={6}>
+            <Subscribe />
           </Col>
         </Row>
       </Container>
@@ -74,3 +91,35 @@ const article = {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
   date: ""
 };
+
+const snipperts = [
+  {
+    id: 1,
+    category: "React",
+    title: "Lorem ipsum dolor sit amet, consectetur.",
+    slug: "lorem-ipsum-dolor-sir-amet",
+    resume:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+    date: ""
+  },
+  {
+    id: 2,
+
+    category: "React",
+    title: "Lorem ipsum dolor sit amet, consectetur.",
+    resume: "Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt",
+    slug: "lorem-ipsum-dolor-sir-amet",
+    date: ""
+  },
+  {
+    id: 3,
+
+    category: "React",
+    title:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur. ",
+    resume:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ",
+    date: "",
+    slug: "lorem-ipsum-dolor-sir-amet"
+  }
+];

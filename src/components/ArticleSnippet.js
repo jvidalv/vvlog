@@ -23,18 +23,18 @@ export function ArticleSnippetWithImage(props) {
   const { id, title, subtitle, slug, category, date, resume } = props;
   return (
     <CardStyled className={props.className} icon={props.icon} key={id}>
-      <Link to={generateLink(category, slug)}>
-        <CardStyled.Body className="p-0 text-left d-md-flex align-items-center">
-          <ImageSnippet className="d-none d-lg-block" src={squarePlaceholder} />
-          <div className="p-4">
-            <Link to={generateLink(category)}>
-              <H5>{category}</H5>
-            </Link>
+      <CardStyled.Body className="p-0 text-left d-md-flex align-items-center">
+        <ImageSnippet className="d-none d-lg-block" src={squarePlaceholder} />
+        <div className="p-4">
+          <Link to={generateLink(category)}>
+            <H5>{category}</H5>
+          </Link>
+          <Link to={generateLink(category, slug)}>
             <H3>{title.substring(0, 80)}</H3>
             <P className="mb-0">{resume.substring(0, 200)}</P>
-          </div>
-        </CardStyled.Body>
-      </Link>
+          </Link>
+        </div>
+      </CardStyled.Body>
     </CardStyled>
   );
 }
@@ -48,14 +48,14 @@ export function ArticleSnippet(props) {
   const { id, title, subtitle, slug, category, date, resume } = props;
   return (
     <CardStyled className={props.className} icon={props.icon} key={id}>
-      <Link to={generateLink(category, slug)}>
-        <CardStyled.Body className="p-4 text-center">
-          <Link to={generateLink(category)}>
-            <H5>{category}</H5>
-          </Link>
+      <CardStyled.Body className="p-4 text-center">
+        <Link to={generateLink(category)}>
+          <H5>{category}</H5>
+        </Link>
+        <Link to={generateLink(category, slug)}>
           <H3>{title}</H3>
-        </CardStyled.Body>
-      </Link>
+        </Link>
+      </CardStyled.Body>
     </CardStyled>
   );
 }

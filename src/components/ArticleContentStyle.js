@@ -7,13 +7,14 @@ export const Content = styled.div`
   span {
     color: ${props => THEMES[props.theme.style].onBackground};
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto !important;
-    font-size: 24px !important;
+    font-size: 20px !important;
     font-weight: 300 !important;
     @media only screen and (max-width: 40em) {
       font-size: 1.25em !important;
     }
   }
   & a,
+  a > span,
   strong {
     color: ${props => THEMES[props.theme.style].error};
   }
@@ -36,12 +37,15 @@ export const Content = styled.div`
   h2 {
     font-weight: 300;
     display: flex;
+    margin: 30px 0px;
     @media only screen and (max-width: 40em) {
       font-size: 1.5em !important;
       display: block;
     }
   }
-
+  & blockquote {
+    margin: 30px 0px;
+  }
   & blockquote > p {
     text-align: center;
     border-left: 4px solid ${props => THEMES.default.primary};
@@ -55,6 +59,7 @@ export const Content = styled.div`
     background: ${props => THEMES[props.theme.style].surface.level1};
     padding: 10px 10px;
     border: 2px solid #0000000d;
+    margin: 30px 0px;
   }
   & pre > code {
     font-size: 1rem;
