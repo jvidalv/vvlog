@@ -41,7 +41,7 @@ export function ArticleContent(props) {
 <p>Some documents I can't get the height of the document (to position something absolutely at the very bottom). Additionally, a padding-bottom on seems to do nothing on these pages, but do on the pages where height will return. Case(s) in point.</p>
 `
       }}
-    ></Content>
+    />
   );
 }
 

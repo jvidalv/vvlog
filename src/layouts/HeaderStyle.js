@@ -44,7 +44,6 @@ export const LinkStyled = styled(NavLink)`
 
 export const NavStyled = styled(Navbar)`
   font-weight: 300 !important;
-
   ${props =>
     props.shadow === true ? "box-shadow: 0 2px 20px 0 #0000005c" : ""};
   background: linear-gradient(
@@ -58,6 +57,9 @@ export const NavbarToggleStyled = styled(Navbar.Toggle)`
   color: white !important;
   border-color: rgba(255, 255, 255, 0.5);
   background-color: ${props => THEMES[props.theme.style].primary};
+  &:focus {
+    outline: none !important;
+  }
 `;
 
 export const NavbarCollapseStyled = styled(Navbar.Collapse)`
