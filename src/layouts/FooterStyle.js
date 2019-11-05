@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { THEMES } from "../constants/Themes";
+import {THEMES} from "../constants/Themes";
 
 export const FloatingButton = styled.div`
   color: ${props => THEMES[props.theme.style].secondary};

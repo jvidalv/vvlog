@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { THEMES } from "../constants/Themes";
-import { Card } from "react-bootstrap";
+import {THEMES} from "../constants/Themes";
 
 export const Content = styled.div`
   & p,

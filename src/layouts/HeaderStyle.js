@@ -1,8 +1,7 @@
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import { keyframes } from "styled-components";
-import { THEMES } from "../constants/Themes";
-import { Navbar, FormControl, NavDropdown } from "react-bootstrap";
+import styled, {keyframes} from "styled-components";
+import {NavLink} from "react-router-dom";
+import {THEMES} from "../constants/Themes";
+import {FormControl, Navbar, NavDropdown} from "react-bootstrap";
 
 const rotateColors = keyframes`
     0% {

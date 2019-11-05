@@ -1,7 +1,7 @@
-import styled, { keyframes } from "styled-components";
-import { THEMES } from "../constants/Themes";
-import { Card, Button, Form, Container } from "react-bootstrap";
-import { fontsDefaults, afterBottomBar, borderLeft } from "./DefaultsStyles";
+import styled, {keyframes} from "styled-components";
+import {THEMES} from "../constants/Themes";
+import {Button, Card, Container, Form} from "react-bootstrap";
+import {afterBottomBar, borderLeft, fontsDefaults} from "./DefaultsStyles";
 
 /**
  * ----- Animations
@@ -192,8 +192,8 @@ export const ButtonStyled = styled(Button)`
   }
   ${props =>
     "background" in props
-      ? "background: " + THEMES[props.theme.style][props.background]
-      : ""};
+        ? "background: " + THEMES[props.theme.style][props.background]
+        : ""};
   ${props =>
     "color" in props ? "color: " + THEMES[props.theme.style][props.color] : ""};
 `;

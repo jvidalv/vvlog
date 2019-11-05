@@ -4,8 +4,8 @@ const _THEMES = ["dark", "light"];
 const _LANGUAGES = ["ca", "es", "en"];
 
 export const initialState = {
-  theme: "dark",
-  language: "ca"
+    theme: "dark",
+    language: "ca"
 };
 
 /**
@@ -14,24 +14,24 @@ export const initialState = {
  * @param {*} action
  */
 export const reducer = (state, action) => {
-  switch (action.type) {
-    case "changeTheme":
-      return {
-        ...state,
-        theme: checkValue(action.changeTheme, _THEMES)
-          ? action.changeTheme
-          : _THEMES[0]
-      };
-    case "changeLanguage":
-      return {
-        ...state,
-        language: checkValue(action.changeLanguage, _LANGUAGES)
-          ? action.changeLanguage
-          : _LANGUAGES[0]
-      };
-    default:
-      return state;
-  }
+    switch (action.type) {
+        case "changeTheme":
+            return {
+                ...state,
+                theme: checkValue(action.changeTheme, _THEMES)
+                    ? action.changeTheme
+                    : _THEMES[0]
+            };
+        case "changeLanguage":
+            return {
+                ...state,
+                language: checkValue(action.changeLanguage, _LANGUAGES)
+                    ? action.changeLanguage
+                    : _LANGUAGES[0]
+            };
+        default:
+            return state;
+    }
 };
 
 /**
@@ -40,5 +40,5 @@ export const reducer = (state, action) => {
  * @param {*} values
  */
 const checkValue = (value, values) => {
-  return values.includes(value);
+    return values.includes(value);
 };

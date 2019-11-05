@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { THEMES } from "../constants/Themes";
+import {THEMES} from "../constants/Themes";
 
 export const IconA = styled.a`
   color: ${props => THEMES[props.theme.style].primary};

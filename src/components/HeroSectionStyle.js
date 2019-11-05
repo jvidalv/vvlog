@@ -1,6 +1,5 @@
-import styled from "styled-components";
-import { keyframes } from "styled-components";
-import { THEMES } from "../constants/Themes";
+import styled, {keyframes} from "styled-components";
+import {THEMES} from "../constants/Themes";
 
 export const HeroSectionStyled = styled.div`
   text-align: center;

@@ -1,13 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import {
-  ImageSnippet,
-  SnippetContainer,
-  H5Category
-} from "./ArticleSnippetStyle";
+import {Link} from "react-router-dom";
+import {H5Category, ImageSnippet, SnippetContainer} from "./ArticleSnippetStyle";
 
 import squarePlaceholder from "../assets/images/square-placeholder.png";
-import { P, H3, H5, CardStyled } from "../styles/GenericStyles";
+import {H3, P} from "../styles/GenericStyles";
 
 /**
  * Returns the url ready to be consumed by react-router
@@ -15,7 +11,7 @@ import { P, H3, H5, CardStyled } from "../styles/GenericStyles";
  * @param {string} slug
  */
 const generateLink = (category, slug = "") => {
-  return ("/" + category + "/" + slug).toLocaleLowerCase();
+    return ("/" + category + "/" + slug).toLocaleLowerCase();
 };
 
 /**
@@ -24,27 +20,27 @@ const generateLink = (category, slug = "") => {
  * @param {*} props
  */
 export function ArticleSnippetWithImage(props) {
-  const { id, title, subtitle, slug, category, date, resume } = props;
-  return (
-    <SnippetContainer
-      className={"mb-3 " + props.className}
-      icon={props.icon}
-      key={id}
-    >
-      <div className="d-flex">
-        <ImageSnippet className="d-none d-lg-block" url={squarePlaceholder} />
-        <div className="p-4">
-          <H5Category>
-            <Link to={generateLink(category)}>{category}</Link>
-          </H5Category>
-          <Link to={generateLink(category, slug)}>
-            <H3>{title.substring(0, 80)}</H3>
-            <P className="mb-0">{resume.substring(0, 200)}</P>
-          </Link>
-        </div>
-      </div>
-    </SnippetContainer>
-  );
+    const {id, title, subtitle, slug, category, date, resume} = props;
+    return (
+        <SnippetContainer
+            className={"mb-3 " + props.className}
+            icon={props.icon}
+            key={id}
+        >
+            <div className="d-flex">
+                <ImageSnippet className="d-none d-lg-block" url={squarePlaceholder}/>
+                <div className="p-4">
+                    <H5Category>
+                        <Link to={generateLink(category)}>{category}</Link>
+                    </H5Category>
+                    <Link to={generateLink(category, slug)}>
+                        <H3>{title.substring(0, 80)}</H3>
+                        <P className="mb-0">{resume.substring(0, 200)}</P>
+                    </Link>
+                </div>
+            </div>
+        </SnippetContainer>
+    );
 }
 
 /**
@@ -53,17 +49,17 @@ export function ArticleSnippetWithImage(props) {
  * @param {*} props
  */
 export function ArticleSnippet(props) {
-  const { id, title, subtitle, slug, category, date, resume } = props;
-  return (
-    <SnippetContainer className={props.className} icon={props.icon} key={id}>
-      <div className="p-4 text-center">
-        <H5Category>
-          <Link to={generateLink(category)}>{category}</Link>
-        </H5Category>
-        <Link to={generateLink(category, slug)}>
-          <H3>{title}</H3>
-        </Link>
-      </div>
-    </SnippetContainer>
-  );
+    const {id, title, subtitle, slug, category, date, resume} = props;
+    return (
+        <SnippetContainer className={props.className} icon={props.icon} key={id}>
+            <div className="p-4 text-center">
+                <H5Category>
+                    <Link to={generateLink(category)}>{category}</Link>
+                </H5Category>
+                <Link to={generateLink(category, slug)}>
+                    <H3>{title}</H3>
+                </Link>
+            </div>
+        </SnippetContainer>
+    );
 }

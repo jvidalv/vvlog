@@ -1,8 +1,5 @@
-import styled from "styled-components";
-import { THEMES } from "../constants/Themes";
-import { keyframes } from "styled-components";
-
-import { Card } from "react-bootstrap";
+import styled, {keyframes} from "styled-components";
+import {THEMES} from "../constants/Themes";
 
 const backArrows = keyframes`
     0% {
