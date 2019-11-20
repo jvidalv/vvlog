@@ -3,15 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/react": "^16.9.11",
     "bootstrap": "^4.3.1",
     "react": "^16.10.2",
     "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.10.2",
     "react-google-recaptcha": "^2.0.1",
     "react-icons": "^3.7.0",
+    "react-router": "latest",
     "react-router-dom": "^5.1.2",
     "react-router-transition": "^1.4.0",
     "react-scripts": "3.1.2",
+    "react-snap": "^1.23.0",
     "styled-components": "^4.4.0",
     "webfontloader": "^1.6.28"
   },
@@ -19,7 +22,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postbuild": "react-snap"
   },
   "eslintConfig": {
     "extends": "react-app"

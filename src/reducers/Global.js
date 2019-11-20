@@ -4,8 +4,9 @@ const _THEMES = ["dark", "light"];
 const _LANGUAGES = ["ca", "es", "en"];
 
 export const initialState = {
+    mainLoading: true,
     theme: "dark",
-    language: "ca"
+    language: "ca",
 };
 
 /**
@@ -15,6 +16,11 @@ export const initialState = {
  */
 export const reducer = (state, action) => {
     switch (action.type) {
+        case "changeMainLoading" :
+            return {
+                ...state,
+                mainLoading : action.mainLoading
+            };
         case "changeTheme":
             return {
                 ...state,
