@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/vblogv/static/css/main.b129782f.chunk.css",
-    "main.js": "/vblogv/static/js/main.7abc0f47.chunk.js",
-    "main.js.map": "/vblogv/static/js/main.7abc0f47.chunk.js.map",
+    "main.js": "/vblogv/static/js/main.e5d3afee.chunk.js",
+    "main.js.map": "/vblogv/static/js/main.e5d3afee.chunk.js.map",
     "runtime-main.js": "/vblogv/static/js/runtime-main.c14aed14.js",
     "runtime-main.js.map": "/vblogv/static/js/runtime-main.c14aed14.js.map",
     "static/css/2.0624914a.chunk.css": "/vblogv/static/css/2.0624914a.chunk.css",
     "static/js/2.1ccba288.chunk.js": "/vblogv/static/js/2.1ccba288.chunk.js",
     "static/js/2.1ccba288.chunk.js.map": "/vblogv/static/js/2.1ccba288.chunk.js.map",
     "index.html": "/vblogv/index.html",
-    "precache-manifest.c4d2461dc7337e2e29c7481c2132effd.js": "/vblogv/precache-manifest.c4d2461dc7337e2e29c7481c2132effd.js",
+    "precache-manifest.ddad7d1b40ba52b37788e1d629b04c0d.js": "/vblogv/precache-manifest.ddad7d1b40ba52b37788e1d629b04c0d.js",
     "service-worker.js": "/vblogv/service-worker.js",
     "static/css/2.0624914a.chunk.css.map": "/vblogv/static/css/2.0624914a.chunk.css.map",
     "static/css/main.b129782f.chunk.css.map": "/vblogv/static/css/main.b129782f.chunk.css.map",
