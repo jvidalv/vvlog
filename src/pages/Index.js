@@ -14,10 +14,11 @@ import Explore from "./Explore";
 import Contact from "./Contact";
 import About from "./About";
 import Article from "./Article";
+import {useFetcher} from "../hooks/useFetcher";
 
 function Index() {
     const [{theme}] = useGlobals();
-
+    const {articles, loading, error} = useFetcher('http://763525c5.ngrok.io/api/article/all');
     return (
         <ThemeProvider theme={{style: theme}}>
             <Main>
