@@ -2,7 +2,7 @@
   "name": "vblogv",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://jvidalv.github.io/vblogv/",
+  "homepage" : "https://jvidalv.github.io/vblogv",
   "dependencies": {
     "@types/react": "^16.9.11",
     "bootstrap": "^4.3.1",
