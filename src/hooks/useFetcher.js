@@ -10,16 +10,15 @@ export const useFetcher = (url, params) => {
 
     useEffect(() => {
         setLoading(true);
-        setError(null);
+        setError(false);
 
         let apiUrl = urlBuilder(url, params);
-        apiUrl = 'http://localhost:8080/api/article/all';
+
         fetch(apiUrl)
-            .then(res =>  res.json())
+            .then(res => res.json())
             .then(res => console.log(res))
             .catch(err => {
-                console.log(err);
-                setError(err);
+                setError(true);
                 setLoading(false);
             })
 

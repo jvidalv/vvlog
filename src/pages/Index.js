@@ -15,10 +15,12 @@ import Contact from "./Contact";
 import About from "./About";
 import Article from "./Article";
 import {useFetcher} from "../hooks/useFetcher";
+import api_calls from "../constants/Api";
 
 function Index() {
     const [{theme}] = useGlobals();
-    const {articles, loading, error} = useFetcher('http://763525c5.ngrok.io/api/article/all');
+    console.log(process.env.NODE_ENV === 'development')
+    const {articles, loading, error} = useFetcher(api_calls.articles.all);
     return (
         <ThemeProvider theme={{style: theme}}>
             <Main>
