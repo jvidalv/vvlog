@@ -48,7 +48,7 @@ function Footer() {
                     <MyNetworks className="mb-4"/>
                     <P className="on-background mb-0">
                         Code snippets licensed under MIT, unless otherwise noted. Content &
-                        Graphics © 2019 VBLOGV Josep Vidal
+                        Graphics © 2019 vvlog Josep Vidal
                     </P>
                 </Container>
             </footer>

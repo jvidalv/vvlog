@@ -2,7 +2,7 @@
  * Check for enviorment to pick a base
  * @type {string}
  */
-const BASE_PATH = process.env.NODE_ENV === 'development' ? 'http://localhost:8080/api/' : 'https://vblogv.io/admin/api/';
+const BASE_PATH = process.env.NODE_ENV === 'development' ? 'http://localhost:8080/api/' : 'https://vvlog.io/admin/api/';
 
 /**
  * Array with all the calls to the api

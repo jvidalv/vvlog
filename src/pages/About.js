@@ -13,7 +13,7 @@ function About(props) {
                     <Col>
                         <HeroSimple
                             title="About"
-                            subtitle="An introduction to me and vblogv's philosophy ⚖"
+                            subtitle="An introduction to me and vvlog's philosophy ⚖"
                         />
                     </Col>
                 </Row>
@@ -22,7 +22,7 @@ function About(props) {
                 <Row className="justify-content-md-center">
                     <Col xs md={10} lg={8}>
                         <P big borderLeft="primary">
-                            vblogv is born out of the passion for the creation of things from
+                            vvlog is born out of the passion for the creation of things from
                             the absolute void. What greater art is there than the appearance
                             of things where there was nothing before?
                         </P>
@@ -52,7 +52,7 @@ function About(props) {
                 <Row className="justify-content-md-center">
                     <Col xs md={10} lg={8}>
                         <P big>
-                            As you might have guessed, <S>vblogv's name</S> comes from my
+                            As you might have guessed, <S>vvlog's name</S> comes from my
                             repeated surnames 👀.
                         </P>
                         <P big>

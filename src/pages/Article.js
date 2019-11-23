@@ -50,7 +50,7 @@ function Article(props) {
                 </Row>
                 <Row>
                     <Col className="text-center">
-                        <HeroSimple title="More of vblogv 👀"/>
+                        <HeroSimple title="More of vvlog 👀"/>
                     </Col>
                 </Row>
                 <Row className="justify-content-center my-5">
