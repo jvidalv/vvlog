@@ -16,6 +16,7 @@ class CLibrarian {
      */
     response;
     data;
+    older;
 
     /**
      * Expects at least url property set
@@ -29,38 +30,50 @@ class CLibrarian {
     }
 
     /**
-     * End point of every function in the class is always the resolver
+     * Endpoint of all methods
      * @returns {CLibrarian}
-     * @param _promise
      */
-    async resolver(_promise) {
-       this.response = await _promise;
-       return this;
+    resolver() {
+        return this;
     }
 
     /**
      * It exists?
      * @returns {CLibrarian}
      */
-    finder() {
-        return this.resolver(localStorage.getItem(this.url));
+    async finder() {
+        this.response = await localStorage.getItem(this.url).then(res => res ? JSON.parse(res) : null);
+        return this.resolver()
     }
 
     /**
      * Store it
      * @returns {CLibrarian}
      */
-    cacher() {
-        return this.resolver(localStorage.setItem(this.url, this.data));
+    async cacher() {
+        await localStorage.setItem(this.url, this.data);
+        return this.resolver();
     }
 
     /**
      * Remove it
      * @returns {CLibrarian}
      */
-    burner() {
-        return this.resolver(localStorage.removeItem(this.url));
+    async burner() {
+        await localStorage.removeItem(this.url);
+        return this.resolver();
     }
+
+    /**
+     * Checks how old is the data stored
+     * @param miliseconds
+     * @returns {Promise<CLibrarian>}
+     */
+    async isOlder(miliseconds = 86400000) {
+        this.older = this.response && (this.response.date > miliseconds);
+        return this.resolver();
+    }
+
 }
 
 export const Librarian = (url, _properties) => new CLibrarian(url, _properties);
