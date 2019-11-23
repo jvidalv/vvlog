@@ -5,6 +5,6 @@
  * @returns {*}
  */
 export function urlBuilder(url, params) {
-    return url;
+    return url + ( params ? "?" + JSON.stringify(params) : '');
 }
 

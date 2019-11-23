@@ -7,5 +7,4 @@ class Diskette {
     const TYPE_CATEGORY = 'category';
     const TYPE_TAG = 'tag';
 
-
 }

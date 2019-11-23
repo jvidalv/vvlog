@@ -16,11 +16,14 @@ import About from "./About";
 import Article from "./Article";
 import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
+import {Librarian} from "../helpers/Librarian";
 
 function Index() {
     const [{theme}] = useGlobals();
-    console.log(process.env.NODE_ENV === 'development')
-    const {articles, loading, error} = useFetcher(api_calls.articles.all);
+    //const {articles, loading, error} = useFetcher(api_calls.articles.all);
+
+    Librarian(api_calls.articles.all, {data : 'helloooo'}).finder().then(res => console.log(res));
+
     return (
         <ThemeProvider theme={{style: theme}}>
             <Main>
