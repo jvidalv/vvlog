@@ -7,50 +7,21 @@ import Sidebar from "../layouts/Sidebar";
 import {HeroHome} from "../components/HeroSection";
 import {DiagonalContainer, H3} from "../styles/GenericStyles";
 import {Subscribe} from "../components/MyContents";
-
-const snipperts = [
-    {
-        id: 1,
-        category: "React",
-        title: "Lorem ipsum dolor sit amet, consectetur.",
-        slug: "lorem-ipsum-dolor-sir-amet",
-        resume:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
-        date: ""
-    },
-    {
-        id: 2,
-
-        category: "React",
-        title: "Lorem ipsum dolor sit amet, consectetur.",
-        resume: "Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt",
-        slug: "lorem-ipsum-dolor-sir-amet",
-        date: ""
-    },
-    {
-        id: 3,
-
-        category: "React",
-        title:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur. ",
-        resume:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ",
-        date: "",
-        slug: "lorem-ipsum-dolor-sir-amet"
-    }
-];
+import {useGlobals} from "../contexts/Global";
 
 const FeaturedSection = () => {
+    const [{articles, language}] = useGlobals();
     return (
         <>
-            {snipperts.map(snipet => (
-                <ArticleSnippetWithImage {...snipet} className="move-up"/>
+            {articles.map(snippet => (
+                <ArticleSnippetWithImage {...snippet[language]} categorySlug={snippet.category} className="move-up"/>
             ))}
         </>
     );
 };
 
 const AllArticlesSection = () => {
+    const [{articles, language}] = useGlobals();
     return (
         <>
             <H3 className="mb-5 text-center">
@@ -60,27 +31,14 @@ const AllArticlesSection = () => {
                 Check them all
             </H3>
             <Row className="px-2">
-                {snipperts.map(snipet => (
-                    <>
-                        <Col className="d-flex px-1" sm={6} md={4}>
-                            <ArticleSnippet
-                                {...snipet}
-                                className="justify-content-center move-up mb-2"
-                            />
-                        </Col>
-                        <Col className="d-flex px-1" sm={6} md={4}>
-                            <ArticleSnippet
-                                {...snipet}
-                                className="justify-content-center move-up mb-2"
-                            />
-                        </Col>
-                        <Col className="d-flex px-1" sm={6} md={4}>
-                            <ArticleSnippet
-                                {...snipet}
-                                className="justify-content-center move-up mb-2"
-                            />
-                        </Col>
-                    </>
+                {articles.map(snipet => (
+                    <Col className="d-flex px-1" sm={6} md={4}>
+                        <ArticleSnippet
+                            {...snipet[language]}
+                            categorySlug={articles.category}
+                            className="justify-content-center move-up mb-2"
+                        />
+                    </Col>
                 ))}
             </Row>
         </>

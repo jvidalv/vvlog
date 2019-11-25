@@ -7,6 +7,8 @@ export const initialState = {
     mainLoading: true,
     theme: "dark",
     language: "ca",
+    articles: [{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false}],
+    errors : false,
 };
 
 /**
@@ -19,7 +21,7 @@ export const reducer = (state, action) => {
         case "changeMainLoading" :
             return {
                 ...state,
-                mainLoading : action.mainLoading
+                mainLoading: action.mainLoading
             };
         case "changeTheme":
             return {
@@ -34,6 +36,16 @@ export const reducer = (state, action) => {
                 language: checkValue(action.changeLanguage, _LANGUAGES)
                     ? action.changeLanguage
                     : _LANGUAGES[0]
+            };
+        case "setArticles":
+            return {
+                ...state,
+                articles: action.setArticles
+            };
+        case "setErrors":
+            return {
+                ...state,
+                errors: action.setErrors
             };
         default:
             return state;

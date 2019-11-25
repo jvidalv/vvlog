@@ -5,26 +5,26 @@ import {urlBuilder} from "../helpers/Generics";
 // this will be used to search the api for specific books
 export const useFetcher = (url, params) => {
     const [articles, setArticles] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
-        setLoading(true);
-        setError(false);
-
         let apiUrl = urlBuilder(url, params);
 
         fetch(apiUrl)
-            .then(res => res.json())
-            .then(res => console.log(res))
-            .catch(err => {
-                setError(true);
-                setLoading(false);
+            .then(res => {
+                if(res.ok){
+                    return res.json();
+                }
+                throw "Error with the api"
             })
+            .then(res => setArticles(res))
+            .then(res => setLoading(false))
+            .catch(err => {
+                setError(err);
+                setLoading(false);
+            });
 
-        // This is important. We pass the new search parameter into
-        // the empty array we had before. This means, the effect
-        // will run again if this parameter changes
     }, []);
 
     return {articles, loading, error}

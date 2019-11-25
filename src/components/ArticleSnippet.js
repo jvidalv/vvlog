@@ -20,7 +20,7 @@ const generateLink = (category, slug = "") => {
  * @param {*} props
  */
 export function ArticleSnippetWithImage(props) {
-    const {id, title, subtitle, slug, category, date, resume} = props;
+    const {id, title, slug, category, resume, categorySlug} = props;
     return (
         <SnippetContainer
             className={"mb-3 " + props.className}
@@ -31,9 +31,9 @@ export function ArticleSnippetWithImage(props) {
                 <ImageSnippet className="d-none d-lg-block" url={squarePlaceholder}/>
                 <div className="p-4">
                     <H5Category>
-                        <Link to={generateLink(category)}>{category}</Link>
+                        <Link to={generateLink(categorySlug)}>{category}</Link>
                     </H5Category>
-                    <Link to={generateLink(category, slug)}>
+                    <Link to={generateLink(categorySlug, slug)}>
                         <H3>{title.substring(0, 80)}</H3>
                         <P className="mb-0">{resume.substring(0, 200)}</P>
                     </Link>

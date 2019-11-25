@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {useGlobals} from "../contexts/Global";
 import {ThemeProvider} from "styled-components";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
@@ -16,14 +16,25 @@ import About from "./About";
 import Article from "./Article";
 import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
-import {Librarian} from "../helpers/Librarian";
 
 function Index() {
-    const [{theme}] = useGlobals();
-    //const {articles, loading, error} = useFetcher(api_calls.articles.all);
+    const [{theme}, dispatch] = useGlobals();
+    const {articles, loading, error} = useFetcher(api_calls.articles.all);
+    const setArticles = (articles) => {
+        dispatch({
+            type: "setArticles",
+            setArticles: articles
+        });
+    };
 
-    Librarian(api_calls.articles.all, {data : 'helloooo'}).finder().then(res => console.log(res));
+    useEffect(() => {
+        if (articles.length) {
+            setArticles(articles)
+        }
+    }, [articles]);
 
+    console.log(articles, loading, error)
+    if (loading) return <div>loading</div>;
     return (
         <ThemeProvider theme={{style: theme}}>
             <Main>
