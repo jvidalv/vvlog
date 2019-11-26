@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useGlobals} from "../contexts/Global";
-import {ThemeProvider} from "styled-components";
+import {ThemeContext, ThemeProvider} from "styled-components";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {Main} from "../styles/GenericStyles";
 import UseScrollToTop from "../hooks/useScrollToTop";
@@ -26,13 +26,11 @@ function Index() {
             setArticles: articles
         });
     };
-
     useEffect(() => {
         if (articles.length) {
             setArticles(articles)
         }
     }, [articles]);
-
     console.log(articles, loading, error)
     if (loading) return <div>loading</div>;
     return (

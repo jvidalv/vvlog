@@ -13,6 +13,7 @@ import {
 import {useHistory, withRouter} from "react-router-dom";
 
 import logo from "../assets/images/logo-app.png";
+import useT from "../helpers/Translator";
 
 /**
  * Returns true if we are in homepage
@@ -88,24 +89,24 @@ const ThemeSwitcher = props => {
 const LanguageSwitcher = props => {
     return (
         <Nav className={props.className}>
-            <NavDropdownStyled title="👅 Lang">
+            <NavDropdownStyled title={useT("lang", ['👅'])}>
                 <NavDropdown.Item
                     onClick={() => props.changeLanguage("ca")}
                     className={props.language === "ca" ? "active" : null}
                 >
-                    Catalan
+                    {useT('catalan')}
                 </NavDropdown.Item>
                 <NavDropdown.Item
                     onClick={() => props.changeLanguage("es")}
                     className={props.language === "es" ? "active" : null}
                 >
-                    Spanish
+                    {useT('spanish')}
                 </NavDropdown.Item>
                 <NavDropdown.Item
                     onClick={() => props.changeLanguage("en")}
                     className={props.language === "en" ? "active" : null}
                 >
-                    English
+                    {useT('english')}
                 </NavDropdown.Item>
             </NavDropdownStyled>
         </Nav>
@@ -171,7 +172,7 @@ export function Header(props) {
                         to="/explore"
                         icon="💡"
                     >
-                        Explore
+                        {useT('explore')}
                     </LinkStyled>
                     <LinkStyled
                         onClick={() => setExpanded(false)}
@@ -179,7 +180,7 @@ export function Header(props) {
                         className="my-2 my-lg-0 px-lg-4"
                         to="/contact"
                     >
-                        Contact
+                        {useT('contact')}
                     </LinkStyled>
                     <LinkStyled
                         onClick={() => setExpanded(false)}
@@ -187,7 +188,7 @@ export function Header(props) {
                         className="my-2 my-lg-0 px-lg-4"
                         to="/about"
                     >
-                        About
+                        {useT('about')}
                     </LinkStyled>
                 </Nav>
                 <LanguageSwitcher

@@ -6,6 +6,7 @@ import {ArticleSnippet} from "../components/ArticleSnippet";
 
 import {DiagonalContainer, InputStyled} from "../styles/GenericStyles";
 import {useLocation} from "react-router";
+import useT from "../helpers/Translator";
 
 function Explore(props) {
     let location = useLocation();
@@ -16,7 +17,7 @@ function Explore(props) {
             <Container className="pt-5 text-center">
                 <Row>
                     <Col>
-                        <HeroSimple title="Explore" subtitle="...But don't get lost 😜"/>
+                        <HeroSimple title={useT("explore")} subtitle={useT("but_dont_get_lost", ['😜'])}/>
                     </Col>
                 </Row>
             </Container>
@@ -26,7 +27,7 @@ function Explore(props) {
                         <Form className="my-4">
                             <InputStyled
                                 className="text-center pulse"
-                                placeholder="write the query"
+                                placeholder={useT("write_the_query")}
                                 value={state && state.q ? state.q : null}
                                 big
                             />
