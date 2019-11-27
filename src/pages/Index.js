@@ -17,22 +17,66 @@ import Article from "./Article";
 import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
 
-function Index() {
-    const [{theme}, dispatch] = useGlobals();
-    const {articles, loading, error} = useFetcher(api_calls.articles.all);
+/**
+ * Retrieve articles and set them in global context
+ * @returns {{loading: *, error: *, articles: *}}
+ */
+const useArticles = () => {
+    const [{articles}, dispatch] = useGlobals();
+    const {data, loading, error} = useFetcher(api_calls.articles.all);
+
     const setArticles = (articles) => {
         dispatch({
             type: "setArticles",
             setArticles: articles
         });
     };
+
     useEffect(() => {
-        if (articles.length) {
-            setArticles(articles)
+        if (data.length) {
+            setArticles(data)
         }
-    }, [articles]);
-    console.log(articles, loading, error)
-    if (loading) return <div>loading</div>;
+    }, [data]);
+
+    return {articles : data, loading, error}
+};
+
+/**
+ * Retrieve categrories and set them in global context
+ * @returns {{loading: *, error: *, articles: *}}
+ */
+const useCategories = () => {
+    const [{categories}, dispatch] = useGlobals();
+    const {data, loading, error} = useFetcher(api_calls.categories.all);
+
+    const setArticles = (categories) => {
+        dispatch({
+            type: "setCategories",
+            setCategories: categories
+        });
+    };
+
+    useEffect(() => {
+        if (data.length) {
+            setArticles(data)
+        }
+    }, [data]);
+
+    return {categories : data, loading, error}
+};
+
+/**
+ * Core of the app
+ * @returns {*}
+ * @constructor
+ */
+function Index() {
+    const [{theme, articles, categories}] = useGlobals();
+    const {} = useCategories();
+    const {loading, error} = useArticles();
+
+    console.log(categories, articles)
+    //if (loading) return <div>loading</div>;
     return (
         <ThemeProvider theme={{style: theme}}>
             <Main>

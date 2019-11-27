@@ -8,6 +8,7 @@ export const initialState = {
     theme: "dark",
     language: "ca",
     articles: [{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false}],
+    categories: [],
     errors : false,
 };
 
@@ -41,6 +42,11 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 articles: action.setArticles
+            };
+        case "setCategories":
+            return {
+                ...state,
+                categories: action.setCategories
             };
         case "setErrors":
             return {

@@ -4,7 +4,7 @@ import {urlBuilder} from "../helpers/Generics";
 // Note here the new parameter we pass into the hook called "search"
 // this will be used to search the api for specific books
 export const useFetcher = (url, params) => {
-    const [articles, setArticles] = useState([]);
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
@@ -18,7 +18,7 @@ export const useFetcher = (url, params) => {
                 }
                 throw "Error with the api"
             })
-            .then(res => setArticles(res))
+            .then(res => setData(res))
             .then(res => setLoading(false))
             .catch(err => {
                 setError(err);
@@ -27,5 +27,5 @@ export const useFetcher = (url, params) => {
 
     }, []);
 
-    return {articles, loading, error}
+    return {data, loading, error}
 }

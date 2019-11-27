@@ -46,17 +46,17 @@ function useT(translation, params = []) {
 
 /**
  * Replaces {param} in string with the elements, it replaces by order of array
- * @param fullString
- * @param newElements
+ * @param fs
+ * @param arr
  * @returns {*}
  */
-function multiReplace(fullString, newElements) {
+function multiReplace(fs, arr) {
 
-    for (let element of newElements) {
-        fullString = fullString.replace('{param}', element)
+    for (let element of arr) {
+        fs = fs.replace('{param}', element)
     }
 
-    return fullString;
+    return fs;
 }
 
 export default useT;

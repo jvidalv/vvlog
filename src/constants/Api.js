@@ -11,6 +11,9 @@ const BASE_PATH = process.env.NODE_ENV === 'development' ? 'http://localhost:808
 const api_calls = {
     articles : {
         all: `${BASE_PATH}article/all`,
+    },
+    categories : {
+        all: `${BASE_PATH}category/all`,
     }
 };
 

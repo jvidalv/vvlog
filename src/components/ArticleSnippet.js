@@ -34,8 +34,8 @@ export function ArticleSnippetWithImage(props) {
                         <Link to={generateLink(categorySlug)}>{category}</Link>
                     </H5Category>
                     <Link to={generateLink(categorySlug, slug)}>
-                        <H3>{title.substring(0, 80)}</H3>
-                        <P className="mb-0">{resume.substring(0, 200)}</P>
+                        <H3>{title}</H3>
+                        <P className="mb-0">{resume}</P>
                     </Link>
                 </div>
             </div>
