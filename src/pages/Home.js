@@ -8,12 +8,13 @@ import {HeroHome} from "../components/HeroSection";
 import {DiagonalContainer, H3} from "../styles/GenericStyles";
 import {Subscribe} from "../components/MyContents";
 import {useGlobals} from "../contexts/Global";
+import {limiter} from "../helpers/Generics";
 
 const FeaturedSection = () => {
     const [{articles, language}] = useGlobals();
     return (
         <>
-            {articles.map(snippet => (
+            {limiter(articles, 3).map(snippet => (
                 <ArticleSnippetWithImage {...snippet[language]} categorySlug={snippet.category} className="move-up"/>
             ))}
         </>
@@ -31,7 +32,7 @@ const AllArticlesSection = () => {
                 Check them all
             </H3>
             <Row className="px-2">
-                {articles.map(snipet => (
+                {limiter(articles, 12).map(snipet => (
                     <Col className="d-flex px-1" sm={6} md={4}>
                         <ArticleSnippet
                             {...snipet[language]}

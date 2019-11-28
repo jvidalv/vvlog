@@ -23,13 +23,13 @@ export function ArticleSnippetWithImage(props) {
     const {id, title, slug, category, resume, categorySlug} = props;
     return (
         <SnippetContainer
-            className={"mb-3 " + props.className}
+            className={"mb-3 " + props.className +  (!id ? " empty" : null)}
             icon={props.icon}
             key={id}
         >
             <div className="d-flex">
-                <ImageSnippet className="d-none d-lg-block" url={squarePlaceholder}/>
-                <div className="p-4">
+                <ImageSnippet className="d-none d-lg-block image-snippet" url={squarePlaceholder}/>
+                <div className="p-4 snippet-content">
                     <H5Category>
                         <Link to={generateLink(categorySlug)}>{category}</Link>
                     </H5Category>
@@ -49,10 +49,10 @@ export function ArticleSnippetWithImage(props) {
  * @param {*} props
  */
 export function ArticleSnippet(props) {
-    const {id, title, subtitle, slug, category, date, resume} = props;
+    const {id, title, slug, category} = props;
     return (
-        <SnippetContainer className={props.className} icon={props.icon} key={id}>
-            <div className="p-4 text-center">
+        <SnippetContainer className={props.className  +  (!id ? " empty" : null)} icon={props.icon} key={id}>
+            <div className="text-center p-4 snippet-content">
                 <H5Category>
                     <Link to={generateLink(category)}>{category}</Link>
                 </H5Category>

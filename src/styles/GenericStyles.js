@@ -2,26 +2,7 @@ import styled, {keyframes} from "styled-components";
 import {THEMES} from "../constants/Themes";
 import {Button, Card, Container, Form} from "react-bootstrap";
 import {afterBottomBar, borderLeft, fontsDefaults} from "./DefaultsStyles";
-
-/**
- * ----- Animations
- */
-const pulse = keyframes`
-    0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 ${props => THEMES[props.theme.style].secondary};
-    }
-
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-    }
-
-    100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    }
-`;
+import {pulse} from "./AnimationsStyles";
 
 /**
  * ----- Overrides defaults

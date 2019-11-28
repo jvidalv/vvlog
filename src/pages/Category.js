@@ -6,20 +6,21 @@ import Sidebar from "../layouts/Sidebar";
 import {HeroSimple} from "../components/HeroSection";
 import {useGlobals} from "../contexts/Global";
 import {useParams} from "react-router";
+import {checker} from "../helpers/Generics";
+import useT from "../helpers/Translator";
 
 
-function Category(props) {
-    const [{articles, language}] = useGlobals();
+function Category() {
+    const [{articles, categories, language}] = useGlobals();
     const params = useParams();
-    console.log(params)
     return (
         <>
             <Container className="pt-5 text-center">
                 <Row>
                     <Col>
                         <HeroSimple
-                            title={`Posts about ${params.category}`}
-                            subtitle="One Library to Rule Them All 👑"
+                            title={`Posts about ${checker(categories, [params.category, language, 'name'], params.category)}`}
+                            subtitle={checker(categories, [params.category, language, 'description'], useT('still_loading_categories'))}
                         />
                     </Col>
                 </Row>
@@ -27,8 +28,8 @@ function Category(props) {
             <Container className="py-5">
                 <Row>
                     <Col sm={8}>
-                        {articles.map(snipet => (
-                            <ArticleSnippetWithImage {...snipet[language]} categorySlug={articles.category} className="move-up mb-2"/>
+                        {articles.map(snippet => (
+                            <ArticleSnippetWithImage {...snippet[language]} categorySlug={snippet.category} className="move-up mb-2"/>
                         ))}
                     </Col>
                     <Col sm={4}>

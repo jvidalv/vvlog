@@ -1,13 +1,12 @@
 import React, {useEffect} from "react";
 import {useGlobals} from "../contexts/Global";
-import {ThemeContext, ThemeProvider} from "styled-components";
+import {ThemeProvider} from "styled-components";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {Main} from "../styles/GenericStyles";
 import UseScrollToTop from "../hooks/useScrollToTop";
 
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
-
 import Home from "./Home";
 import Category from "./Category";
 import Explore from "./Explore";
@@ -49,7 +48,7 @@ const useCategories = () => {
     const [{categories}, dispatch] = useGlobals();
     const {data, loading, error} = useFetcher(api_calls.categories.all);
 
-    const setArticles = (categories) => {
+    const setCategories = (categories) => {
         dispatch({
             type: "setCategories",
             setCategories: categories
@@ -58,7 +57,7 @@ const useCategories = () => {
 
     useEffect(() => {
         if (data.length) {
-            setArticles(data)
+            setCategories(data)
         }
     }, [data]);
 
@@ -75,7 +74,7 @@ function Index() {
     const {} = useCategories();
     const {loading, error} = useArticles();
 
-    console.log(categories, articles)
+    //console.log(articles, categories)
     //if (loading) return <div>loading</div>;
     return (
         <ThemeProvider theme={{style: theme}}>

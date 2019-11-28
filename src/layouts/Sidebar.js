@@ -29,6 +29,7 @@ const AboutMe = props => {
 };
 
 function MoreOfMe(props) {
+
     const Project = props => {
         return (
             <A

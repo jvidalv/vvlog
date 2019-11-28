@@ -1,4 +1,5 @@
 import React from "react";
+import {reindexer} from "../helpers/Generics";
 
 const _THEMES = ["dark", "light"];
 const _LANGUAGES = ["ca", "es", "en"];
@@ -46,7 +47,7 @@ export const reducer = (state, action) => {
         case "setCategories":
             return {
                 ...state,
-                categories: action.setCategories
+                categories: reindexer(action.setCategories, 'code')
             };
         case "setErrors":
             return {
