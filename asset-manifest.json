@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/vblogv/static/css/main.b129782f.chunk.css",
-    "main.js": "/vblogv/static/js/main.e5d3afee.chunk.js",
-    "main.js.map": "/vblogv/static/js/main.e5d3afee.chunk.js.map",
-    "runtime-main.js": "/vblogv/static/js/runtime-main.c14aed14.js",
-    "runtime-main.js.map": "/vblogv/static/js/runtime-main.c14aed14.js.map",
-    "static/css/2.0624914a.chunk.css": "/vblogv/static/css/2.0624914a.chunk.css",
-    "static/js/2.1ccba288.chunk.js": "/vblogv/static/js/2.1ccba288.chunk.js",
-    "static/js/2.1ccba288.chunk.js.map": "/vblogv/static/js/2.1ccba288.chunk.js.map",
-    "index.html": "/vblogv/index.html",
-    "precache-manifest.ddad7d1b40ba52b37788e1d629b04c0d.js": "/vblogv/precache-manifest.ddad7d1b40ba52b37788e1d629b04c0d.js",
-    "service-worker.js": "/vblogv/service-worker.js",
-    "static/css/2.0624914a.chunk.css.map": "/vblogv/static/css/2.0624914a.chunk.css.map",
-    "static/css/main.b129782f.chunk.css.map": "/vblogv/static/css/main.b129782f.chunk.css.map",
-    "static/media/me-finland.jpg": "/vblogv/static/media/me-finland.c958a80d.jpg",
-    "static/media/me-roman.png": "/vblogv/static/media/me-roman.19d9e0dd.png",
-    "static/media/square-placeholder.png": "/vblogv/static/media/square-placeholder.98a84962.png"
+    "main.css": "/vvlog/static/css/main.b129782f.chunk.css",
+    "main.js": "/vvlog/static/js/main.69fd1a4c.chunk.js",
+    "main.js.map": "/vvlog/static/js/main.69fd1a4c.chunk.js.map",
+    "runtime-main.js": "/vvlog/static/js/runtime-main.9aaee20e.js",
+    "runtime-main.js.map": "/vvlog/static/js/runtime-main.9aaee20e.js.map",
+    "static/css/2.83ace7dd.chunk.css": "/vvlog/static/css/2.83ace7dd.chunk.css",
+    "static/js/2.f717e94c.chunk.js": "/vvlog/static/js/2.f717e94c.chunk.js",
+    "static/js/2.f717e94c.chunk.js.map": "/vvlog/static/js/2.f717e94c.chunk.js.map",
+    "index.html": "/vvlog/index.html",
+    "precache-manifest.27077467d9dc5bf412ed6b7534f0cbea.js": "/vvlog/precache-manifest.27077467d9dc5bf412ed6b7534f0cbea.js",
+    "service-worker.js": "/vvlog/service-worker.js",
+    "static/css/2.83ace7dd.chunk.css.map": "/vvlog/static/css/2.83ace7dd.chunk.css.map",
+    "static/css/main.b129782f.chunk.css.map": "/vvlog/static/css/main.b129782f.chunk.css.map",
+    "static/media/me-finland.jpg": "/vvlog/static/media/me-finland.c958a80d.jpg",
+    "static/media/me-roman.png": "/vvlog/static/media/me-roman.19d9e0dd.png",
+    "static/media/square-placeholder.png": "/vvlog/static/media/square-placeholder.98a84962.png"
   }
 }
