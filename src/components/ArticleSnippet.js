@@ -51,7 +51,7 @@ export function ArticleSnippetWithImage(props) {
 export function ArticleSnippet(props) {
     const {id, title, slug, category} = props;
     return (
-        <SnippetContainer className={props.className  +  (!id ? " empty" : null)} icon={props.icon} key={id}>
+        <SnippetContainer className={props.className  +  (!id ? " empty" : "")} icon={props.icon} key={id}>
             <div className="text-center p-4 snippet-content">
                 <H5Category>
                     <Link to={generateLink(category)}>{category}</Link>
