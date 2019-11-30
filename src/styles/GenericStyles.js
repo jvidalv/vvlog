@@ -2,7 +2,7 @@ import styled, {keyframes} from "styled-components";
 import {THEMES} from "../constants/Themes";
 import {Button, Card, Container, Form} from "react-bootstrap";
 import {afterBottomBar, borderLeft, fontsDefaults} from "./DefaultsStyles";
-import {pulse} from "./AnimationsStyles";
+import {gradient, pulse} from "./AnimationsStyles";
 
 /**
  * ----- Overrides defaults
@@ -232,6 +232,14 @@ export const FormStyled = styled(Form)`
       background: ${props => THEMES[props.theme.style].surface.level2};
     }
   }
+`;
+
+export const LoadingPlaceholder = styled.div`
+   background: linear-gradient(90deg,  ${props => THEMES[props.theme.style].header[2]} , ${props => THEMES[props.theme.style].surface.level1}, ${props => THEMES[props.theme.style].surface.level2}, ${props => THEMES[props.theme.style].surface.level3}, ${props => THEMES[props.theme.style].header[2]});
+   background-size: 300% 300%;
+   animation: ${gradient} 5s ease-in-out infinite;
+   width: ${props => props.width ? props.width : '150px'};
+   height: ${props => props.height ? props.height : '40px'};
 `;
 
 /**

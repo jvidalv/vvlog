@@ -31,6 +31,13 @@ export const SnippetContainer = styled.div`
   box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15);
   position: relative;
   transition: 0.25s ease-in;
+  &.simple{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+        flex-grow: 1;
+  }
   &::before {
     content: '${props => (props.icon ? props.icon : null)}';
     width: ${props => (props.icon ? "45px" : null)};
@@ -46,21 +53,34 @@ export const SnippetContainer = styled.div`
     top: -0.8rem;
     box-shadow: 0 0 10px rgba(67, 38, 100, 0.15);
   }
+  
   & h3:hover {
     text-decoration:underline !important;
     opacity: 0.7;
   }
-  &.empty{  
+  &.empty {  
     min-height:180px;
-    background: linear-gradient(90deg, ${props => THEMES[props.theme.style].surface.level1}, ${props => THEMES[props.theme.style].surface.level2}, ${props => THEMES[props.theme.style].surface.level3}, ${props => THEMES[props.theme.style].header[2]});
-    background-size: 300% 300%;
-    animation: ${gradient} 5s ease-in-out infinite;
     display: flex;
     flex-grow: 1;
     
+    & h5, .image-snippet, h3, p {
+        background: linear-gradient(90deg,  ${props => THEMES[props.theme.style].header[2]} , ${props => THEMES[props.theme.style].surface.level1}, ${props => THEMES[props.theme.style].surface.level2}, ${props => THEMES[props.theme.style].surface.level3}, ${props => THEMES[props.theme.style].header[2]});
+        background-size: 300% 300%;
+        animation: ${gradient} 5s ease-in-out infinite;
+    }
+    & h5{
+        width: 100px;
+        height:25px;
+    }
+    & h3 {
+      width: 250px;
+      height:40px;
+    }
+     & p {
+      width: 350px;
+      height:45px;
+    }
     & .image-snippet{
-       background: linear-gradient(180deg, ${props => THEMES[props.theme.style].header[2]}, ${props => THEMES[props.theme.style].surface.level2}, ${props => THEMES[props.theme.style].surface.level3}, ${props => THEMES[props.theme.style].surface.level1});
-       background-size: 300% 300%;
        margin: 10px;
        height: 160px;
     }

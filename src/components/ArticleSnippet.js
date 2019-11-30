@@ -23,21 +23,19 @@ export function ArticleSnippetWithImage(props) {
     const {id, title, slug, category, resume, categorySlug} = props;
     return (
         <SnippetContainer
-            className={"mb-3 " + props.className +  (!id ? " empty" : null)}
+            className={"d-flex mb-3 " + props.className + (!id ? " empty" : null)}
             icon={props.icon}
             key={id}
         >
-            <div className="d-flex">
-                <ImageSnippet className="d-none d-lg-block image-snippet" url={squarePlaceholder}/>
-                <div className="p-4 snippet-content">
-                    <H5Category>
-                        <Link to={generateLink(categorySlug)}>{category}</Link>
-                    </H5Category>
-                    <Link to={generateLink(categorySlug, slug)}>
-                        <H3>{title}</H3>
-                        <P className="mb-0">{resume}</P>
-                    </Link>
-                </div>
+            <ImageSnippet className="d-none d-lg-block image-snippet" url={squarePlaceholder}/>
+            <div className="p-4">
+                <H5Category>
+                    <Link to={generateLink(categorySlug)}>{category}</Link>
+                </H5Category>
+                <Link to={generateLink(categorySlug, slug)}>
+                    <H3>{title}</H3>
+                    <P className="mb-0">{resume}</P>
+                </Link>
             </div>
         </SnippetContainer>
     );
@@ -51,15 +49,14 @@ export function ArticleSnippetWithImage(props) {
 export function ArticleSnippet(props) {
     const {id, title, slug, category} = props;
     return (
-        <SnippetContainer className={props.className  +  (!id ? " empty" : "")} icon={props.icon} key={id}>
-            <div className="text-center p-4 snippet-content">
-                <H5Category>
-                    <Link to={generateLink(category)}>{category}</Link>
-                </H5Category>
-                <Link to={generateLink(category, slug)}>
-                    <H3>{title}</H3>
-                </Link>
-            </div>
+        <SnippetContainer className={props.className + (!id ? " empty" : "") + " simple text-center p-4"} icon={props.icon}
+                          key={id}>
+            <H5Category>
+                <Link to={generateLink(category)}>{category}</Link>
+            </H5Category>
+            <Link to={generateLink(category, slug)}>
+                <H3>{title}</H3>
+            </Link>
         </SnippetContainer>
     );
 }

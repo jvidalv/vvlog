@@ -1,17 +1,32 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Col, Container, Form, Row} from "react-bootstrap";
 
 import {HeroSimple} from "../components/HeroSection";
 import {ArticleSnippet} from "../components/ArticleSnippet";
 
-import {DiagonalContainer, InputStyled} from "../styles/GenericStyles";
+import {DiagonalContainer, H1, InputStyled} from "../styles/GenericStyles";
 import {useLocation} from "react-router";
 import useT from "../helpers/Translator";
+import {useGlobals} from "../contexts/Global";
+import {limiter, multiFilter} from "../helpers/Generics";
 
-function Explore(props) {
-    let location = useLocation();
+const useFilterArticles = (q) => {
+    const [{articles, language}] = useGlobals();
+    const [fArticles, setFArticles] = useState(articles);
+
+    useEffect(() => {
+        setFArticles(q && articles && articles[0].id ? multiFilter(articles, ['title', 'resume', 'category'], q, language) : articles);
+    }, [articles, q]);
+
+    return [fArticles];
+};
+
+function Explore() {
+    const [{language}] = useGlobals();
+    const location = useLocation();
     const {state} = location;
-
+    const [q, setQ] = useState(state ? state.q : null);
+    const [fArticles] = useFilterArticles(q ? q : (state ? state.q : null));
     return (
         <>
             <Container className="pt-5 text-center">
@@ -28,7 +43,8 @@ function Explore(props) {
                             <InputStyled
                                 className="text-center pulse"
                                 placeholder={useT("write_the_query")}
-                                value={state && state.q ? state.q : null}
+                                value={q}
+                                onChange={e => setQ(e.target.value)}
                                 big
                             />
                         </Form>
@@ -37,16 +53,18 @@ function Explore(props) {
             </Container>
             <DiagonalContainer>
                 <Row className="px-2">
-                    {snipperts.map(snipet => (
-                        <>
-                            <Col className="d-flex px-1" sm={6} md={4}>
-                                <ArticleSnippet
-                                    {...snipet}
-                                    className="justify-content-center move-up mb-2"
-                                />
-                            </Col>
-                        </>
-                    ))}
+                    {fArticles && fArticles.length ? (
+                        limiter(fArticles, 12).map(snippet => (
+                            <>
+                                <Col className="d-flex px-1" sm={6} md={4}>
+                                    <ArticleSnippet
+                                        {...snippet[language]}
+                                        categorySlug={fArticles.category}
+                                        className="justify-content-center move-up mb-2"
+                                    />
+                                </Col>
+                            </>
+                        ))) : <H1>hola</H1>}
                 </Row>
             </DiagonalContainer>
         </>

@@ -22,12 +22,12 @@ export function HeroHome() {
 export function HeroSimple(props) {
     const {title, subtitle, overtitle, urlOvertitle} = props;
     return (
-        <>
+        <div className="d-flex flex-column justify-content-center align-items-center">
             <HeroH4 className="my-3 mb-4">
                 <Link to={urlOvertitle}>{overtitle}</Link>
             </HeroH4>
             <HeroH1 className="my-3">{title}</HeroH1>
             <HeroH4 className="my-3">{subtitle}</HeroH4>
-        </>
+        </div>
     );
 }

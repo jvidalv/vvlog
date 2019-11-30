@@ -33,7 +33,7 @@ const AllArticlesSection = () => {
             </H3>
             <Row className="px-2">
                 {limiter(articles, 12).map(snipet => (
-                    <Col className="d-flex px-1" sm={6} md={4}>
+                    <Col className="d-flex px-1" md={6} lg={4}>
                         <ArticleSnippet
                             {...snipet[language]}
                             categorySlug={articles.category}
@@ -52,10 +52,10 @@ function Home() {
             <HeroHome/>
             <Container className="pt-4 pb-2">
                 <Row>
-                    <Col md={8}>
+                    <Col md={8} lg={9}>
                         <FeaturedSection/>
                     </Col>
-                    <Col md={4}>
+                    <Col md={4} lg={3}>
                         <Sidebar/>
                     </Col>
                 </Row>

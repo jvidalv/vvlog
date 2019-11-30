@@ -51,26 +51,39 @@ export function reindexer(array, index) {
 }
 
 /**
- * Recursive dynamic function that checks for setted properties in objects o arrays
- * You must give and object or array, and all the properties in nested level you wanna check
- * Fallback that will be returned in case the prop is not setted
- * So example, we wanna print the description of an item that is inside categories.react.ca.name
- *  => checker(categories, ['react', 'ca', 'name], 'name_in_case_is_not_found')
- *
- * @param array
+ * Recursive dynamic function that checks for setted properties in objects
+ * You must pass and object and all the properties that you want to check IN ORDER 💡
+ * ------- EXAMPLE ---------- |
+ * We want to print the description of an item that is inside { Categories } => react.ca.name
+ *  => areSet(categories, ['react', 'ca', 'name], <ReactComponent />)
+ *  ------------------------ |
+ * @param object
  * @param properties
- * @param fallback
+ * @param fallback => It could be an string, a function or a React.Component
  * @returns {*}
  */
-export function checker(array, properties, fallback) {
+export function areSet(object, properties, fallback = null) {
 
-        if (!array[properties[0]]) return fallback;
+        if (!object.hasOwnProperty(properties[0])) return fallback;
         else if (properties.length > 1) {
-            let n = array[properties[0]];
+            let n = object[properties[0]];
             properties.splice(0, 1);
-            return checker(n, properties, fallback)
+            return areSet(n, properties, fallback)
         }
 
-        return array[properties[0]];
+        return object[properties[0]];
+}
+
+export function multiFilter(array, properties, filter = '', nest = false){
+
+    return array.filter(obj => {
+
+        let fobj = nest ? obj[nest] : obj;
+        for(let prop of properties){
+            if(fobj[prop].toLowerCase().search(filter.toLowerCase()) !== -1) return true
+        }
+
+        return false;
+    })
 }
 

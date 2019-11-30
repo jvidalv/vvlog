@@ -6,8 +6,8 @@ import Sidebar from "../layouts/Sidebar";
 import {HeroSimple} from "../components/HeroSection";
 import {useGlobals} from "../contexts/Global";
 import {useParams} from "react-router";
-import {checker} from "../helpers/Generics";
-import useT from "../helpers/Translator";
+import {areSet} from "../helpers/Generics";
+import {LoadingPlaceholder} from "../styles/GenericStyles";
 
 
 function Category() {
@@ -19,8 +19,8 @@ function Category() {
                 <Row>
                     <Col>
                         <HeroSimple
-                            title={`Posts about ${checker(categories, [params.category, language, 'name'], params.category)}`}
-                            subtitle={checker(categories, [params.category, language, 'description'], useT('still_loading_categories'))}
+                            title={areSet(categories, [params.category, language, 'name'], <LoadingPlaceholder width="250px" height="40px"/>)}
+                            subtitle={areSet(categories, [params.category, language, 'description'], <LoadingPlaceholder width="400px" height="35px"/>)}
                         />
                     </Col>
                 </Row>
