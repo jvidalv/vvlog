@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import {H5Category, ImageSnippet, SnippetContainer} from "./ArticleSnippetStyle";
 
@@ -47,14 +47,31 @@ export function ArticleSnippetWithImage(props) {
  * @param {*} props
  */
 export function ArticleSnippet(props) {
-    const {id, title, slug, category} = props;
+    const {id, title, slug, category, categorySlug} = props;
+    const myRef = React.createRef();
+
+    useEffect(() => {
+        /**
+         * Highlights texts inside content of articles when you search for them
+         */
+        if (props.q && props.q.length > 1) {
+            const element = myRef.current.getElementsByTagName("h3")[0];
+            let content = element.textContent;
+            let position = content.toLowerCase().search(props.q.toLowerCase());
+            if (position !== -1) {
+                element.innerHTML = [content.slice(0, position), `<span class="highlight">${content.slice(position, position + props.q.length)}</span>`, content.slice(position + props.q.length) ].join('');
+            }
+        }
+
+    }, [id, props.q]);
+
     return (
-        <SnippetContainer className={props.className + (!id ? " empty" : "") + " simple text-center p-4"} icon={props.icon}
-                          key={id}>
+        <SnippetContainer ref={myRef} className={props.className + (!id ? " empty" : "") + " simple text-center p-4"}
+                          icon={props.icon} key={id}>
             <H5Category>
-                <Link to={generateLink(category)}>{category}</Link>
+                <Link to={generateLink(categorySlug)}>{category}</Link>
             </H5Category>
-            <Link to={generateLink(category, slug)}>
+            <Link to={generateLink(categorySlug, slug)}>
                 <H3>{title}</H3>
             </Link>
         </SnippetContainer>

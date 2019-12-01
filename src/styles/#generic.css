@@ -20,6 +20,12 @@ a:hover {
     text-decoration: none;
 }
 
+/** Custom CSS */
+.highlight{
+    background: #e0b0343b;
+    border: 1px solid;
+    border-radius: 5px;
+}
 .is-sticky {
     position: -webkit-sticky;
     position: sticky;

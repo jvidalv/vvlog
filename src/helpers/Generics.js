@@ -74,6 +74,14 @@ export function areSet(object, properties, fallback = null) {
         return object[properties[0]];
 }
 
+/**
+ * Filters an array of objects
+ * @param array of objects
+ * @param properties that you want to filter e: ['name', 'description]
+ * @param filter string
+ * @param nest if the propertis are nested in a level below, you can set this property, exemple, obj.language.name, you would pass language
+ * @returns {*}
+ */
 export function multiFilter(array, properties, filter = '', nest = false){
 
     return array.filter(obj => {

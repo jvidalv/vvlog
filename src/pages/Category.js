@@ -8,11 +8,14 @@ import {useGlobals} from "../contexts/Global";
 import {useParams} from "react-router";
 import {areSet} from "../helpers/Generics";
 import {LoadingPlaceholder} from "../styles/GenericStyles";
+import {useFilterArticles} from "../hooks/useFilterArticles";
 
 
 function Category() {
-    const [{articles, categories, language}] = useGlobals();
+    const [{categories, language}] = useGlobals();
     const params = useParams();
+    const [fArticles] = useFilterArticles(['category'], params.category);
+
     return (
         <>
             <Container className="pt-5 text-center">
@@ -28,7 +31,7 @@ function Category() {
             <Container className="py-5">
                 <Row>
                     <Col sm={8}>
-                        {articles.map(snippet => (
+                        {fArticles.map(snippet => (
                             <ArticleSnippetWithImage {...snippet[language]} categorySlug={snippet.category} className="move-up mb-2"/>
                         ))}
                     </Col>

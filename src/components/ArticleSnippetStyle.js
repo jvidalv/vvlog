@@ -62,7 +62,7 @@ export const SnippetContainer = styled.div`
     min-height:180px;
     display: flex;
     flex-grow: 1;
-    
+    pointer-events: none;
     & h5, .image-snippet, h3, p {
         background: linear-gradient(90deg,  ${props => THEMES[props.theme.style].header[2]} , ${props => THEMES[props.theme.style].surface.level1}, ${props => THEMES[props.theme.style].surface.level2}, ${props => THEMES[props.theme.style].surface.level3}, ${props => THEMES[props.theme.style].header[2]});
         background-size: 300% 300%;
@@ -86,4 +86,8 @@ export const SnippetContainer = styled.div`
     }
     
   }
+`;
+
+export const HighlightSpan = styled.span`
+    background: ${props => THEMES[props.theme.style].secondary}
 `;

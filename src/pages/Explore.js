@@ -9,24 +9,15 @@ import {useLocation} from "react-router";
 import useT from "../helpers/Translator";
 import {useGlobals} from "../contexts/Global";
 import {limiter, multiFilter} from "../helpers/Generics";
-
-const useFilterArticles = (q) => {
-    const [{articles, language}] = useGlobals();
-    const [fArticles, setFArticles] = useState(articles);
-
-    useEffect(() => {
-        setFArticles(q && articles && articles[0].id ? multiFilter(articles, ['title', 'resume', 'category'], q, language) : articles);
-    }, [articles, q]);
-
-    return [fArticles];
-};
+import {useFilterArticles} from "../hooks/useFilterArticles";
 
 function Explore() {
     const [{language}] = useGlobals();
     const location = useLocation();
     const {state} = location;
     const [q, setQ] = useState(state ? state.q : null);
-    const [fArticles] = useFilterArticles(q ? q : (state ? state.q : null));
+    const [fArticles] = useFilterArticles(['title', 'category'], q ? q : (state ? state.q : null), language);
+
     return (
         <>
             <Container className="pt-5 text-center">
@@ -59,12 +50,13 @@ function Explore() {
                                 <Col className="d-flex px-1" sm={6} md={4}>
                                     <ArticleSnippet
                                         {...snippet[language]}
-                                        categorySlug={fArticles.category}
+                                        categorySlug={snippet.category}
                                         className="justify-content-center move-up mb-2"
+                                        q={q}
                                     />
                                 </Col>
                             </>
-                        ))) : <H1>hola</H1>}
+                        ))) : <Col sm={12}><ArticleSnippet title="" category=""  q={q}/></Col>}
                 </Row>
             </DiagonalContainer>
         </>
