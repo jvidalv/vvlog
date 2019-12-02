@@ -12,7 +12,7 @@ import {LoadingPlaceholder} from "../styles/GenericStyles";
 export function ArticleContent(props) {
     const {content, loading} = props;
     return (
-        loading && !content ?
+        loading || !content ?
             <>
                 <LoadingPlaceholder className="mb-4" width="100%" height="200px"/>
                 <LoadingPlaceholder className="mb-4" width="100%" height="75px"/>
