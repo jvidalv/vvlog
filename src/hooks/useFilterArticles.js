@@ -12,7 +12,6 @@ import {multiFilter} from "../helpers/Generics";
 export const useFilterArticles = (properties, q, nested) => {
     const [{articles}] = useGlobals();
     const [fArticles, setFArticles] = useState(articles);
-
     useEffect(() => {
         setFArticles(q && articles && articles[0].id ? multiFilter(articles, properties, q, nested) : articles);
     }, [articles, q]);

@@ -32,11 +32,11 @@ const AllArticlesSection = () => {
                 Check them all
             </H3>
             <Row className="px-2">
-                {limiter(articles, 12).map(snipet => (
+                {limiter(articles, 12).map(snippet => (
                     <Col className="d-flex px-1" md={6} lg={4}>
                         <ArticleSnippet
-                            {...snipet[language]}
-                            categorySlug={articles.category}
+                            {...snippet[language]}
+                            categorySlug={snippet.category}
                             className="justify-content-center move-up mb-2"
                         />
                     </Col>

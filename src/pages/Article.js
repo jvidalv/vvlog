@@ -1,25 +1,64 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Col, Container, Row} from "react-bootstrap";
 
 import {HeroSimple} from "../components/HeroSection";
 import {Sharer, Subscribe} from "../components/MyContents";
-import {DiagonalContainer} from "../styles/GenericStyles";
+import {DiagonalContainer, LoadingPlaceholder} from "../styles/GenericStyles";
 import {AuthorWithImage, AuthorWithImageExtended} from "../components/AuthorSection";
 import {ArticleContent, ReadingTopBar, Tags} from "../components/ArticleContents";
 import {ArticleSidebar} from "../layouts/Sidebar";
 import {ArticleSnippet} from "../components/ArticleSnippet";
+import {useParams} from "react-router";
+import {areSet, multiFilter} from "../helpers/Generics";
+import {useFilterArticles} from "../hooks/useFilterArticles";
+import {useGlobals} from "../contexts/Global";
+import {useFetcher} from "../hooks/useFetcher";
+import api_calls from "../constants/Api";
 
-function Article(props) {
-    const {title, resume, category, content} = article;
+/**
+ * @returns {{data: *, loading: *, error: *}}
+ */
+const useFetchArticle = () => {
+    const params = useParams();
+    const {data, loading, error} = useFetcher(api_calls.articles.one, {slug : params.slug});
+    return {data, loading, error};
+};
+
+
+const useAArticle = (data) => {
+    const [{aArticle}, dispatch] = useGlobals();
+    const setAArticle = (aArticle) => {
+        dispatch({
+            type: "setActiveArticle",
+            setActiveArticle: aArticle
+        });
+    };
+
+    useEffect(() => {
+        if (data.id) {
+            setAArticle(data)
+        }
+    }, [data]);
+
+    return {aArticle}
+};
+
+function Article() {
+    const [{language}] = useGlobals();
+    const params = useParams();
+    const [fArticles] = useFilterArticles(['slug'], params.slug, language);
+    const {data, loading, error} = useFetchArticle();
+    const {aArticle} = useAArticle(data);
+
     return (
         <article>
             <Container className="pt-5 text-center">
                 <Row>
                     <Col>
                         <HeroSimple
-                            title={title}
-                            overtitle={category}
-                            urlOvertitle={"/" + category.toLocaleLowerCase()}
+                            title={areSet(fArticles[0], [language, 'title'], <LoadingPlaceholder width="400px" height="90px"/>)}
+                            overtitle={areSet(fArticles[0], [language, 'category'], <LoadingPlaceholder width="50px" height="25px"/>)}
+                            urlOvertitle={'/' + (areSet(fArticles[0], ['category'], '#'))}
                         />
                     </Col>
                 </Row>
@@ -34,7 +73,7 @@ function Article(props) {
             <Container className="py-4">
                 <Row>
                     <Col xs={12} md={12} lg={9}>
-                        <ArticleContent/>
+                        <ArticleContent loading={loading} content={data && data.hasOwnProperty('content') ? data.content : ''}/>
                         <Tags/>
                         <AuthorWithImageExtended/>
                         <Sharer className="my-5 text-center justify-content-center"/>
@@ -45,9 +84,6 @@ function Article(props) {
                 </Row>
             </Container>
             <DiagonalContainer>
-                <Row className="justify-content-center my-5 py-2">
-                    <Col className="text-center"></Col>
-                </Row>
                 <Row>
                     <Col className="text-center">
                         <HeroSimple title="More of vvlog 👀"/>

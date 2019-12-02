@@ -8,8 +8,9 @@ export const initialState = {
     mainLoading: true,
     theme: "dark",
     language: "ca",
-    articles: [{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false}],
+    articles: [{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false}],
     categories: [],
+    aArticle : {},
     errors : false,
 };
 
@@ -48,6 +49,11 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 categories: reindexer(action.setCategories, 'code')
+            };
+        case "setActiveArticle":
+            return {
+                ...state,
+                aArticle: action.setActiveArticle,
             };
         case "setErrors":
             return {

@@ -5,7 +5,11 @@
  * @returns {*}
  */
 export function urlBuilder(url, params) {
-    return url + (params ? "?" + JSON.stringify(params) : '');
+    const ourl = new URL(url);
+    if(params){
+        Object.keys(params).forEach(key => ourl.searchParams.append(key, params[key]))
+    }
+    return ourl;
 }
 
 /**

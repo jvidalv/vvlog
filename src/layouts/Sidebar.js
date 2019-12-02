@@ -1,7 +1,14 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
-import {A, H4, SidebarElement} from "../styles/GenericStyles";
+import {A, H4, LoadingPlaceholder, SidebarElement} from "../styles/GenericStyles";
+import {useGlobals} from "../contexts/Global";
 
+/**
+ * Sidebar container that contains all elements
+ * @param props
+ * @returns {*}
+ * @constructor
+ */
 const Element = props => {
     const {icon} = props;
     return (
@@ -11,7 +18,11 @@ const Element = props => {
     );
 };
 
-const AboutMe = props => {
+/**
+ * @returns {*}
+ * @constructor
+ */
+const AboutMe = () => {
     return (
         <>
             <A
@@ -28,6 +39,11 @@ const AboutMe = props => {
     );
 };
 
+/**
+ * @param props
+ * @returns {*}
+ * @constructor
+ */
 function MoreOfMe(props) {
 
     const Project = props => {
@@ -57,20 +73,53 @@ function MoreOfMe(props) {
     );
 }
 
+
+/**
+ *
+ * @returns {*}
+ * @constructor
+ */
 export const ArticleSidebar = () => {
+    const [{aArticle}] = useGlobals();
+
+    const Anchors = () => {
+        return <> {aArticle.anchors.map((an, i) => (
+            <A
+                className="my-3 text-left"
+                bottomBar
+                fontSize="1rem"
+                href={`#${an.anchor_id}`}
+            >
+                {`${i + 1}. ${an.content}`}
+            </A>
+        ))} </>
+    };
+
     return (
-        <aside className="is-sticky">
-            <div className="mt-3 d-md-none"></div>
-            <Element content={<MoreOfMe/>} icon="📚"/>
-            <Element content={<AboutMe/>} icon="🚀"/>
-        </aside>
+        <>
+            <aside>
+                <Element content={<MoreOfMe/>} icon="📚"/>
+                <Element content={<AboutMe/>} icon="🚀"/>
+            </aside>
+            <aside className="is-sticky d-sm-none d-lg-block">
+                {
+                    aArticle && aArticle.hasOwnProperty('anchors') ? <Element content={<Anchors/>} icon="💬"/> :
+                        <LoadingPlaceholder width="100%" height="250px"/>
+                }
+            </aside>
+        </>
     );
 };
 
+/**
+ *
+ * @returns {*}
+ * @constructor
+ */
 export const CategorySidebar = () => {
     return (
         <aside>
-            <div className="mt-3 d-md-none"></div>
+            <div className="mt-3 d-md-none"/>
             <Element content={<MoreOfMe/>} icon="📚"/>
             <Element content={<MoreOfMe/>} icon="📚"/>
             <Element content={<AboutMe/>} icon="🚀"/>
@@ -78,16 +127,26 @@ export const CategorySidebar = () => {
     );
 };
 
+/**
+ *
+ * @returns {*}
+ * @constructor
+ */
 export const HomeSidebar = () => {
     return (
         <aside>
-            <div className="mt-3 d-md-none"></div>
+            <div className="mt-3 d-md-none"/>
             <Element content={<MoreOfMe/>} icon="📚"/>
             <Element content={<AboutMe/>} icon="🚀"/>
         </aside>
     );
 };
 
+/**
+ * @param props
+ * @returns {*}
+ * @constructor
+ */
 function Sidebar(props) {
     const {pathname} = props.location;
 

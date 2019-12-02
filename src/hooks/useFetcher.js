@@ -1,8 +1,13 @@
 import {useEffect, useState} from 'react'
 import {urlBuilder} from "../helpers/Generics";
 
-// Note here the new parameter we pass into the hook called "search"
-// this will be used to search the api for specific books
+/**
+ * Main fetcher
+ *
+ * @param url
+ * @param params *expects an object
+ * @returns {{data: *, loading: *, error: *}}
+ */
 export const useFetcher = (url, params) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -10,7 +15,6 @@ export const useFetcher = (url, params) => {
 
     useEffect(() => {
         let apiUrl = urlBuilder(url, params);
-
         fetch(apiUrl)
             .then(res => {
                 if(res.ok){
@@ -19,7 +23,7 @@ export const useFetcher = (url, params) => {
                 throw "Error with the api"
             })
             .then(res => setData(res))
-            .then(res => setLoading(false))
+            .then(() => setLoading(false))
             .catch(err => {
                 setError(err);
                 setLoading(false);

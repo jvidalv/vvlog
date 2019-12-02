@@ -80,7 +80,7 @@ export const A = styled.a`
   font-weight: 300;
   ${props => fontsDefaults(props)}
   &:hover {
-    color: ${props => THEMES[props.theme.style].secondary};
+    color: ${props => props.hasOwnProperty('color') ? props.color : THEMES[props.theme.style].secondary};
   }
   &::after {
     ${props => afterBottomBar(props)}
