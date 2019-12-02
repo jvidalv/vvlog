@@ -32,7 +32,7 @@ const AllArticlesSection = () => {
                 Check them all
             </H3>
             <Row className="px-2">
-                {limiter(articles, 12).map(snippet => (
+                {limiter(articles, 9).map(snippet => (
                     <Col className="d-flex px-1" md={6} lg={4}>
                         <ArticleSnippet
                             {...snippet[language]}
