@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from "react";
-import author from "../assets/images/me-roman.png";
 import {LoadingPlaceholder, P} from "../styles/GenericStyles";
 import {AuthorPhoto} from "./AuthorSectionStyle";
 import {useGlobals} from "../contexts/Global";
-import BASE_IMAGE from "../constants/Images";
+import BASE_IMAGE, {images_url} from "../constants/Images";
 import useT from "../helpers/Translator";
 
 const useAuthor = () => {
@@ -25,17 +24,18 @@ const useAuthor = () => {
  * @constructor
  */
 export function AuthorWithImage() {
+    const [{aArticle}] = useGlobals();
     const {author} = useAuthor();
 
     return (
         <div className="d-flex align-items-center justify-content-center">
-            <AuthorPhoto src={author.image ? BASE_IMAGE + author.image : '' } width="75" height="75"/>
+            <AuthorPhoto src={author.image ? BASE_IMAGE + author.image : images_url(75,75).user } width="75" height="75"/>
             <div className="ml-3">
                 <P className="mb-0" big>
-                    {author.name ? `${author.name} ❤` : <LoadingPlaceholder width="150px" height="25px"/> }
+                    {author.name ? `${author.name} ❤` : <LoadingPlaceholder width="125px" height="30px"/> }
                 </P>
-                <P className="mt-0" color="secondary2" muted>
-                    Aug 1, 2019 · 11 min read
+                <P className="text-capitalize mt-0" color="secondary2" muted>
+                    {aArticle.date_nice ? aArticle.date_nice + ' · 11 min read': <LoadingPlaceholder className="mt-1" width="140px" height="20px"/>}
                 </P>
             </div>
         </div>
@@ -55,7 +55,7 @@ export function AuthorWithImageExtended(props) {
         <div className="d-flex my-5">
             <AuthorPhoto
                 className="align-self-baseline"
-                src={author.image ? BASE_IMAGE + author.image : '' }
+                src={author.image ? BASE_IMAGE + author.image : images_url(95,95).user }
                 width="95"
                 height="95"
             />

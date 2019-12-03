@@ -65,7 +65,7 @@ function Article() {
                 <Row>
                     <Col>
                         <HeroSimple
-                            title={areSet(fArticles[0], [language, 'title'], <LoadingPlaceholder width="400px" height="90px"/>)}
+                            title={areSet(fArticles[0], [language, 'title'], <LoadingPlaceholder width="400px" height="95px"/>)}
                             overtitle={areSet(fArticles[0], [language, 'category'], <LoadingPlaceholder width="50px" height="25px"/>)}
                             urlOvertitle={'/' + (areSet(fArticles[0], ['category'], '#'))}
                         />
