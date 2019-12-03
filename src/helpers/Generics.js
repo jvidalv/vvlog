@@ -49,7 +49,7 @@ export function skipper(array, steps) {
 export function reindexer(array, index) {
     let newArr = {};
     for (let data of array) {
-        newArr[data[index]] = data;
+        newArr[data[index].toString()] = data;
     }
     return newArr;
 }

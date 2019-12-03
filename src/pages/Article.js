@@ -24,7 +24,11 @@ const useFetchArticle = () => {
     return {data, loading, error};
 };
 
-
+/**
+ * Sets active article
+ * @param data
+ * @returns {{aArticle: *}}
+ */
 const useAArticle = (data) => {
     const [{aArticle}, dispatch] = useGlobals();
     const setAArticle = (aArticle) => {
@@ -43,6 +47,11 @@ const useAArticle = (data) => {
     return {aArticle}
 };
 
+/**
+ * Article page
+ * @returns {*}
+ * @constructor
+ */
 function Article() {
     const [{language}] = useGlobals();
     const params = useParams();

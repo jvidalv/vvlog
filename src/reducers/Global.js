@@ -8,10 +8,11 @@ export const initialState = {
     mainLoading: true,
     theme: "dark",
     language: "ca",
-    articles: [{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false},{id : false}],
+    articles: [{id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}],
     categories: [],
-    aArticle : {},
-    errors : false,
+    authors : [{id: false}, {id: false}, {id: false}, {id: false}, {id: false}],
+    aArticle: {},
+    errors: false,
 };
 
 /**
@@ -49,6 +50,11 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 categories: reindexer(action.setCategories, 'code')
+            };
+        case "setAuthors":
+            return {
+                ...state,
+                authors: reindexer(action.setAuthors, 'id')
             };
         case "setActiveArticle":
             return {

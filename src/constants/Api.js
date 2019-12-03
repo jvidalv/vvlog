@@ -15,6 +15,9 @@ const api_calls = {
     },
     categories : {
         all: `${BASE_PATH}category/all`,
+    },
+    authors : {
+        all : `${BASE_PATH}user/all`,
     }
 };
 

@@ -65,6 +65,30 @@ const useCategories = () => {
 };
 
 /**
+ * Retrieve categrories and set them in global context
+ * @returns {{loading: *, error: *, articles: *}}
+ */
+const useAuthors = () => {
+    const [{authors}, dispatch] = useGlobals();
+    const {data, loading, error} = useFetcher(api_calls.authors.all);
+
+    const setAuthors = (authors) => {
+        dispatch({
+            type: "setAuthors",
+            setAuthors: authors
+        });
+    };
+
+    useEffect(() => {
+        if (data.length) {
+            setAuthors(data)
+        }
+    }, [data]);
+
+    return {authors: data, loading, error}
+}
+
+/**
  * Core of the app
  * @returns {*}
  * @constructor
@@ -72,6 +96,7 @@ const useCategories = () => {
 function Index() {
     const [{theme, articles, categories}] = useGlobals();
     const {} = useCategories();
+    const {} = useAuthors();
     const {loading, error} = useArticles();
 
     //console.log(articles, categories)
