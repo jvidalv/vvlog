@@ -55,16 +55,7 @@ export const Content = styled.div`
     padding: 0.8em 1em;
   }
   & pre {
-    background: ${props => THEMES[props.theme.style].surface.level1};
-    padding: 10px 10px;
-    border: 2px solid #0000000d;
-    margin: 30px 0px;
-  }
-  & pre > code {
-    font-size: 1rem;
-    color: ${props => THEMES[props.theme.style].onSurface};
-    font-family: "IBM Plex Mono";
-    font-weight: 500 !important;
+    background: #181C22 !important;
   }
   & > p:first-child {
     border-left: 4px solid ${props => THEMES[props.theme.style].primary};

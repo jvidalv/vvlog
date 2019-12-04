@@ -13,6 +13,8 @@ const DICTIONARY = {
         english : 'Anglés',
         but_dont_get_lost : '...Però no et perdis {param}',
         write_the_query : 'escriu la consulta',
+        written_by : 'Escrit per',
+        min_read : '{param} min. llegir',
     },
     es : {
         explore : 'Explora',
@@ -24,6 +26,9 @@ const DICTIONARY = {
         english : 'Inglés',
         but_dont_get_lost : '...Intenta no perderte {param}',
         write_the_query : 'escribe tu consulta',
+        written_by : 'Escrito por',
+        min_read : '{param} min. leer',
+
     },
     en : {
         explore : 'Explore',
@@ -35,7 +40,9 @@ const DICTIONARY = {
         english : 'English',
         but_dont_get_lost : '...But don\'t get lost {param}',
         write_the_query : 'write the query',
+        written_by : 'Written by',
+        min_read : '{param} min read',
     }
-}
+};
 
 export default DICTIONARY;

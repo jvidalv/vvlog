@@ -73,12 +73,20 @@ export const SnippetContainer = styled.div`
         height:25px;
     }
     & h3 {
-      width: 250px;
-      height:40px;
+      width: 350px;
+      height: 50px;
+      @media (max-width: 500px) {
+       width: 250px;
+       height: 80px;
+      }
     }
      & p {
-      width: 350px;
+      width: 390px;
       height:45px;
+      @media (max-width: 500px) {
+       width: 250px;
+       height: 80px;
+      }
     }
     & .image-snippet{
        margin: 10px;

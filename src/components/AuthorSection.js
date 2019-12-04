@@ -34,8 +34,9 @@ export function AuthorWithImage() {
                 <P className="mb-0" big>
                     {author.name ? `${author.name} ❤` : <LoadingPlaceholder width="125px" height="30px"/> }
                 </P>
-                <P className="text-capitalize mt-0" color="secondary2" muted>
-                    {aArticle.date_nice ? aArticle.date_nice + ' · 11 min read': <LoadingPlaceholder className="mt-1" width="140px" height="20px"/>}
+                <P className="mt-0" color="secondary2" muted>
+                    <span className="text-capitalize pr-1">{aArticle.date_nice}</span>
+                    · {useT('min_read', [aArticle.time_to_read])}
                 </P>
             </div>
         </div>
@@ -67,7 +68,7 @@ export function AuthorWithImageExtended(props) {
                     {author.name ? `${author.name}` : <LoadingPlaceholder width="150px" height="25px"/> }
                 </P>
                 <P className="mb-0 mt-2" color="onBackground" muted>
-                    {author.info && author.info[language] ? `${author.info[language].information}` : <LoadingPlaceholder width="150px" height="25px"/> }
+                    {author.info && author.info[language] ? `${author.info[language].information}` : <LoadingPlaceholder width="300px" height="25px"/> }
                 </P>
             </div>
         </div>

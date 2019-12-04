@@ -1,9 +1,15 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import Prism from "prismjs";
+import 'prismjs/themes/prism-okaidia.css'
+import 'prismjs/components/prism-php.min'
+import 'prismjs/components/prism-sql.min'
+import 'prismjs/components/prism-markup-templating.min'
 
 import {Content, ReadingBarStyled, TagContainer} from "./ArticleContentStyle";
 import {useScrollPosition} from "../hooks/useScrollPosition";
 import {Link} from "react-router-dom";
 import {LoadingPlaceholder} from "../styles/GenericStyles";
+import {useGlobals} from "../contexts/Global";
 
 /**
  * Article content
@@ -11,6 +17,14 @@ import {LoadingPlaceholder} from "../styles/GenericStyles";
  */
 export function ArticleContent(props) {
     const {content, loading} = props;
+    useEffect(() => {
+        if (content) {
+            setTimeout(function () {
+                Prism.highlightAll()
+            }, 150);
+        }
+    }, [content]);
+
     return (
         loading || !content ?
             <>
@@ -34,11 +48,16 @@ export function ArticleContent(props) {
 const tags = ["React", "JavaScript", "Web app development"];
 
 export function Tags() {
+    const [{tags, language, aArticle}] = useGlobals();
     return (
         <TagContainer className="d-flex">
-            {tags.map(tag => (
-                <Link className="align-self-baseline">{tag}</Link>
-            ))}
+            {
+                tags.length && aArticle.id ?
+                    tags.filter(tag => aArticle.tags.map(ta => ta.tag_id).includes(tag.id)).map(tag => <Link
+                        className="align-self-baseline">{tag[language]}</Link>)
+                    :
+                    <LoadingPlaceholder width="350px" height="34px"/>
+            }
         </TagContainer>
     );
 }

@@ -18,6 +18,9 @@ const api_calls = {
     },
     authors : {
         all : `${BASE_PATH}user/all`,
+    },
+    tags : {
+        all : `${BASE_PATH}tag/all`,
     }
 };
 

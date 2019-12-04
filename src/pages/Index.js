@@ -86,7 +86,32 @@ const useAuthors = () => {
     }, [data]);
 
     return {authors: data, loading, error}
+};
+
+/**
+ * Retrieve categrories and set them in global context
+ * @returns {{loading: *, error: *, articles: *}}
+ */
+const useTags = () => {
+    const [{tags}, dispatch] = useGlobals();
+    const {data, loading, error} = useFetcher(api_calls.tags.all);
+
+    const setTags = (tags) => {
+        dispatch({
+            type: "setTags",
+            setTags: tags
+        });
+    };
+
+    useEffect(() => {
+        if (data.length) {
+            setTags(data)
+        }
+    }, [data]);
+
+    return {tags: data, loading, error}
 }
+
 
 /**
  * Core of the app
@@ -95,9 +120,10 @@ const useAuthors = () => {
  */
 function Index() {
     const [{theme, articles, categories}] = useGlobals();
+    const {loading, error} = useArticles();
     const {} = useCategories();
     const {} = useAuthors();
-    const {loading, error} = useArticles();
+    const {} = useTags();
 
     //console.log(articles, categories)
     //if (loading) return <div>loading</div>;

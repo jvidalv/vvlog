@@ -9,9 +9,10 @@ export const initialState = {
     theme: "dark",
     language: "ca",
     articles: [{id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}],
-    categories: [],
+    categories: {},
     authors : [{id: false}, {id: false}, {id: false}, {id: false}, {id: false}],
-    aArticle: {},
+    tags : [],
+    aArticle: {time_to_read : '...', date_nice : new Date().getFullYear()},
     errors: false,
 };
 
@@ -55,6 +56,11 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 authors: reindexer(action.setAuthors, 'id')
+            };
+        case "setTags":
+            return {
+                ...state,
+                tags: action.setTags
             };
         case "setActiveArticle":
             return {
