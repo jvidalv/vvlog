@@ -92,7 +92,7 @@ export function multiFilter(array, properties, filter = '', nest = false){
 
         let fobj = nest ? obj[nest] : obj;
         for(let prop of properties){
-            if(fobj[prop].toLowerCase().search(filter.toLowerCase()) !== -1) return true
+            if(fobj[prop].toString().toLowerCase().search(filter.toLowerCase()) !== -1) return true
         }
 
         return false;

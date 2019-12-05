@@ -14,6 +14,7 @@ import {useFilterArticles} from "../hooks/useFilterArticles";
 import {useGlobals} from "../contexts/Global";
 import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
+import useT from "../helpers/Translator";
 
 /**
  * @returns {{data: *, loading: *, error: *}}
@@ -95,13 +96,13 @@ function Article() {
             <DiagonalContainer>
                 <Row>
                     <Col className="text-center">
-                        <HeroSimple title="More of vvlog 👀"/>
+                        <HeroSimple title={useT('more_of_vvlog', ['👀'])}/>
                     </Col>
                 </Row>
-                <Row className="justify-content-center my-5">
+                <Row className="my-5">
                     {snipperts.map(article => (
-                        <Col className="d-flex">
-                            <ArticleSnippet className="justify-content-center" {...article} />
+                        <Col className="d-flex px-1" sm={6} md={4}>
+                            <ArticleSnippet className="justify-content-center move-up mb-2" {...article} />
                         </Col>
                     ))}
                 </Row>
@@ -149,15 +150,4 @@ const snipperts = [
         slug: "lorem-ipsum-dolor-sir-amet",
         date: ""
     },
-    {
-        id: 3,
-
-        category: "React",
-        title:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur. ",
-        resume:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ",
-        date: "",
-        slug: "lorem-ipsum-dolor-sir-amet"
-    }
 ];

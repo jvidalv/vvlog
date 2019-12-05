@@ -8,13 +8,14 @@ import {HeroHome} from "../components/HeroSection";
 import {DiagonalContainer, H3} from "../styles/GenericStyles";
 import {Subscribe} from "../components/MyContents";
 import {useGlobals} from "../contexts/Global";
-import {limiter} from "../helpers/Generics";
+import {limiter, multiFilter} from "../helpers/Generics";
 
 const FeaturedSection = () => {
     const [{articles, language}] = useGlobals();
+    console.log(articles)
     return (
         <>
-            {limiter(articles, 3).map(snippet => (
+            {limiter(multiFilter(articles, ['featured'], '1'), 3).map(snippet => (
                 <ArticleSnippetWithImage {...snippet[language]} categorySlug={snippet.category} className="move-up"/>
             ))}
         </>

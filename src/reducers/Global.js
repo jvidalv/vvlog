@@ -1,5 +1,6 @@
 import React from "react";
 import {reindexer} from "../helpers/Generics";
+import {D_AARTICLE, D_ARTICLES, D_AUTHORS} from "../constants/Dummy";
 
 const _THEMES = ["dark", "light"];
 const _LANGUAGES = ["ca", "es", "en"];
@@ -8,11 +9,11 @@ export const initialState = {
     mainLoading: true,
     theme: "dark",
     language: "ca",
-    articles: [{id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}, {id: false}],
+    articles: D_ARTICLES,
     categories: {},
-    authors : [{id: false}, {id: false}, {id: false}, {id: false}, {id: false}],
+    authors : D_AUTHORS,
     tags : [],
-    aArticle: {time_to_read : '...', date_nice : new Date().getFullYear()},
+    aArticle: D_AARTICLE,
     errors: false,
 };
 
