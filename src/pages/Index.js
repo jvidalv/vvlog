@@ -114,7 +114,6 @@ const useTags = () => {
 
 
 /**
- * Core of the app
  * @returns {*}
  * @constructor
  */
@@ -124,7 +123,7 @@ function Index() {
     const {} = useCategories();
     const {} = useAuthors();
     const {} = useTags();
-
+    console.log(navigator.language, navigator.userLanguage)
     //console.log(articles, categories)
     //if (loading) return <div>loading</div>;
     return (

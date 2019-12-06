@@ -73,7 +73,7 @@ export const SnippetContainer = styled.div`
         height:25px;
     }
     & h3 {
-      width: 350px;
+      width: 315px;
       height: 50px;
       @media (max-width: 500px) {
        width: 250px;

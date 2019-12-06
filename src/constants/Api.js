@@ -6,7 +6,7 @@ const BASE_PATH = process.env.NODE_ENV === 'development' ? 'http://localhost:808
 
 /**
  * Array with all the calls to the api
- * @type {{all: string}}
+ * @type {{categories: {all: string}, articles: {all: string, one: string}, authors: {all: string}, tags: {all: string}}}
  */
 const api_calls = {
     articles : {

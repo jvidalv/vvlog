@@ -1,14 +1,17 @@
 import React from "react";
-import {reindexer} from "../helpers/Generics";
+import {loadFromCache, reindexer} from "../helpers/Generics";
 import {D_AARTICLE, D_ARTICLES, D_AUTHORS} from "../constants/Dummy";
+import {_LANGUAGES} from "../constants/Dictionary";
+import {_THEMES} from "../constants/Themes";
 
-const _THEMES = ["dark", "light"];
-const _LANGUAGES = ["ca", "es", "en"];
-
+/**
+ * Globals default state
+ * @type {{mainLoading: boolean, aArticle: *, theme: (*|string), language: (*|string), categories: {}, articles: *, errors: boolean, authors: *, tags: []}}
+ */
 export const initialState = {
     mainLoading: true,
-    theme: "dark",
-    language: "ca",
+    theme: loadFromCache('theme', _THEMES[0]),
+    language: loadFromCache('language', _LANGUAGES[0]),
     articles: D_ARTICLES,
     categories: {},
     authors : D_AUTHORS,
@@ -33,14 +36,14 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 theme: checkValue(action.changeTheme, _THEMES)
-                    ? action.changeTheme
+                    ?  loadFromCache('theme', action.changeTheme, true)
                     : _THEMES[0]
             };
         case "changeLanguage":
             return {
                 ...state,
                 language: checkValue(action.changeLanguage, _LANGUAGES)
-                    ? action.changeLanguage
+                    ? loadFromCache('language', action.changeLanguage, true)
                     : _LANGUAGES[0]
             };
         case "setArticles":
@@ -64,9 +67,11 @@ export const reducer = (state, action) => {
                 tags: action.setTags
             };
         case "setActiveArticle":
+            let language = checkValue(action.setActiveArticle.language_id, _LANGUAGES) ? action.setActiveArticle.language_id : state.language;
             return {
                 ...state,
                 aArticle: action.setActiveArticle,
+                language
             };
         case "setErrors":
             return {

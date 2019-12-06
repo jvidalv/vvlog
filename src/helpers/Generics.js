@@ -99,3 +99,20 @@ export function multiFilter(array, properties, filter = '', nest = false){
     })
 }
 
+/**
+ * Loads from cache the data by the key, and if it fails, it creates a new cache with the data in the fallback variable
+ * @param key
+ * @param fallback
+ * @param override
+ * @returns {string|*}
+ */
+export function loadFromCache(key, fallback, override = false){
+    const value = localStorage.getItem(key);
+    if(value && !override){
+        return value;
+    } else {
+        localStorage.setItem(key, fallback);
+        return fallback;
+    }
+}
+

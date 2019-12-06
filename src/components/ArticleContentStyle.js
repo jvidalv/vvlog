@@ -5,7 +5,7 @@ export const Content = styled.div`
   & p,
   span {
     color: ${props => THEMES[props.theme.style].onBackground};
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif !important;
     font-size: 20px !important;
     font-weight: 300 !important;
     @media only screen and (max-width: 40em) {
@@ -36,14 +36,14 @@ export const Content = styled.div`
   h2 {
     font-weight: 300;
     display: flex;
-    margin: 30px 0px;
+    margin: 30px 0;
     @media only screen and (max-width: 40em) {
       font-size: 1.5em !important;
       display: block;
     }
   }
   & blockquote {
-    margin: 30px 0px;
+    margin: 30px 0;
   }
   & blockquote > p {
     text-align: center;
@@ -53,6 +53,9 @@ export const Content = styled.div`
     position: relative;
     clear: both;
     padding: 0.8em 1em;
+  }
+  & img {
+      background: ${props => THEMES[props.theme.style].infoBox};
   }
   & pre {
     background: #181C22 !important;

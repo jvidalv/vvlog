@@ -48,6 +48,7 @@ const useAArticle = (data) => {
     return {aArticle}
 };
 
+
 /**
  * Article page
  * @returns {*}
@@ -59,8 +60,7 @@ function Article() {
     const [fArticles] = useFilterArticles(['slug'], params.slug, language);
     const {data, loading, error} = useFetchArticle();
     const {aArticle} = useAArticle(data);
-
-    return (
+        return (
         <article>
             <Container className="pt-5 text-center">
                 <Row>

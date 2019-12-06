@@ -1,5 +1,12 @@
+
 /**
- * Array with all the translations
+ * Accepted languages
+ * @type {Array}
+ */
+export const _LANGUAGES = ["en", "ca", "es"];
+
+/**
+ * All the translations by language
  * @private
  */
 const DICTIONARY = {

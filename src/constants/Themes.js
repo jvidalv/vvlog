@@ -1,7 +1,19 @@
 /**
- * Theme basic colors
+ * Accepted themes
+ * @type {Array}
+ */
+export const _THEMES = ["dark", "light"];
+
+/**
+ * THEMES OBJECT
  */
 export const THEMES = {
+
+    default: {
+        primary: "#efbb35",
+        secondary: "#ff6a00"
+    },
+
     dark: {
         background: "#222831",
         header: {1: "#302E24", 2: "#28313E"},
@@ -53,9 +65,4 @@ export const THEMES = {
 
         infoBox: "#ffd5461a"
     },
-
-    default: {
-        primary: "#efbb35",
-        secondary: "#ff6a00"
-    }
 };
