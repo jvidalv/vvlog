@@ -1,8 +1,9 @@
 import React from "react";
-import {loadFromCache, reindexer} from "../helpers/Generics";
+import {checkValue, loadFromCache, reindexer} from "../helpers/Generics";
 import {D_AARTICLE, D_ARTICLES, D_AUTHORS} from "../constants/Dummy";
 import {_LANGUAGES} from "../constants/Dictionary";
 import {_THEMES} from "../constants/Themes";
+import {getNavigatorLanguage} from "../helpers/Translator";
 
 /**
  * Globals default state
@@ -11,7 +12,7 @@ import {_THEMES} from "../constants/Themes";
 export const initialState = {
     mainLoading: true,
     theme: loadFromCache('theme', _THEMES[0]),
-    language: loadFromCache('language', _LANGUAGES[0]),
+    language: loadFromCache('language', getNavigatorLanguage()),
     articles: D_ARTICLES,
     categories: {},
     authors : D_AUTHORS,
@@ -81,13 +82,4 @@ export const reducer = (state, action) => {
         default:
             return state;
     }
-};
-
-/**
- * We check for the value te be really in the constants
- * @param {*} value
- * @param {*} values
- */
-const checkValue = (value, values) => {
-    return values.includes(value);
 };

@@ -30,12 +30,12 @@ function Category() {
             </Container>
             <Container className="py-5">
                 <Row>
-                    <Col sm={8}>
+                    <Col md={9}>
                         {fArticles.map(snippet => (
                             <ArticleSnippetWithImage {...snippet[language]} categorySlug={snippet.category} className="move-up mb-2"/>
                         ))}
                     </Col>
-                    <Col sm={4}>
+                    <Col md={3}>
                         <Sidebar/>
                     </Col>
                 </Row>

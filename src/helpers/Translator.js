@@ -1,5 +1,6 @@
 import {useGlobals} from "../contexts/Global";
-import DICTIONARY from "../constants/Dictionary";
+import DICTIONARY, {_LANGUAGES} from "../constants/Dictionary";
+import {checkValue} from "./Generics";
 
 /**
  * Translation hook
@@ -57,6 +58,21 @@ function multiReplace(fs, arr) {
     }
 
     return fs;
+}
+
+/**
+ * Captures the language of the navigator, if does not match any of the acepted ones it returns english as default language
+ * @returns {string|*}
+ */
+export function getNavigatorLanguage(){
+    let flang = _LANGUAGES[0];
+    const nlang = navigator.language.substr(0,2).toLocaleLowerCase();
+
+    if(!nlang || !checkValue(nlang, _LANGUAGES)){
+        return flang;
+    }
+
+    return nlang;
 }
 
 export default useT;

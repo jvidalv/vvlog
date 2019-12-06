@@ -116,3 +116,14 @@ export function loadFromCache(key, fallback, override = false){
     }
 }
 
+
+/**
+ * Is the value in the arrays of values?
+ * @param {*} value
+ * @param {*} values
+ */
+export const checkValue = (value, values) => {
+    return values.includes(value);
+};
+
+

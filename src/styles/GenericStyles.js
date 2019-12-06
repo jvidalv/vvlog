@@ -106,7 +106,7 @@ export const CardStyled = styled(Card)`
     transform: translateY(-10px);
   }
   &.with-icon::before {
-    content:'${props => (props.icon ? props.icon : "🔥")}';
+    content:'${props => (props.icon ?? "🔥")}';
     width: 45px;
     height: 45px;
     font-size: 1.5rem;
@@ -129,7 +129,7 @@ export const SidebarElement = styled(Card)`
   margin-bottom: 25px;
  
   &.with-icon::before {
-    content:'${props => (props.icon ? props.icon : "🔥")}';
+    content:'${props => (props.icon ?? "🔥")}';
     width: 45px;
     height: 45px;
     font-size: 1.5rem;

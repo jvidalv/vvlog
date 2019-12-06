@@ -9,7 +9,7 @@ import {ArticleContent, ReadingTopBar, Tags} from "../components/ArticleContents
 import {ArticleSidebar} from "../layouts/Sidebar";
 import {ArticleSnippet} from "../components/ArticleSnippet";
 import {useParams} from "react-router";
-import {areSet, multiFilter} from "../helpers/Generics";
+import {areSet} from "../helpers/Generics";
 import {useFilterArticles} from "../hooks/useFilterArticles";
 import {useGlobals} from "../contexts/Global";
 import {useFetcher} from "../hooks/useFetcher";
@@ -20,8 +20,9 @@ import useT from "../helpers/Translator";
  * @returns {{data: *, loading: *, error: *}}
  */
 const useFetchArticle = () => {
+    const [{language}] = useGlobals();
     const params = useParams();
-    const {data, loading, error} = useFetcher(api_calls.articles.one, {slug : params.slug});
+    const {data, loading, error} = useFetcher(api_calls.articles.one, {slug: params.slug});
     return {data, loading, error};
 };
 
@@ -60,14 +61,16 @@ function Article() {
     const [fArticles] = useFilterArticles(['slug'], params.slug, language);
     const {data, loading, error} = useFetchArticle();
     const {aArticle} = useAArticle(data);
-        return (
+    return (
         <article>
             <Container className="pt-5 text-center">
                 <Row>
                     <Col>
                         <HeroSimple
-                            title={areSet(fArticles[0], [language, 'title'], <LoadingPlaceholder width="400px" height="95px"/>)}
-                            overtitle={areSet(fArticles[0], [language, 'category'], <LoadingPlaceholder width="50px" height="25px"/>)}
+                            title={areSet(fArticles[0], [language, 'title'], <LoadingPlaceholder width="400px"
+                                                                                                 height="95px"/>)}
+                            overtitle={areSet(fArticles[0], [language, 'category'], <LoadingPlaceholder width="50px"
+                                                                                                        height="25px"/>)}
                             urlOvertitle={'/' + (areSet(fArticles[0], ['category'], '#'))}
                         />
                     </Col>
@@ -83,7 +86,8 @@ function Article() {
             <Container className="py-4">
                 <Row>
                     <Col xs={12} md={12} lg={9}>
-                        <ArticleContent loading={loading} content={data && data.hasOwnProperty('content') ? data.content : ''}/>
+                        <ArticleContent loading={loading}
+                                        content={data && data.hasOwnProperty('content') ? data.content : ''}/>
                         <Tags/>
                         <AuthorWithImageExtended/>
                         <Sharer className="my-5 text-center justify-content-center"/>

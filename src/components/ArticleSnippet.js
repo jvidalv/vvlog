@@ -23,12 +23,12 @@ export function ArticleSnippetWithImage(props) {
     const {id, title, slug, category, resume, categorySlug} = props;
     return (
         <SnippetContainer
-            className={"d-flex mb-3 " + props.className + (!id ? " empty" : null)}
+            className={"d-flex mb-3 " + props.className + (!id ? " empty" : '')}
             icon={props.icon}
             key={id}
         >
             <ImageSnippet className="d-none d-lg-block image-snippet" url={squarePlaceholder}/>
-            <div className="p-4">
+            <div className="content d-flex flex-column p-4">
                 <H5Category>
                     <Link to={generateLink(categorySlug)}>{category}</Link>
                 </H5Category>

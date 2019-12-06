@@ -19,10 +19,9 @@ export const H5Category = styled.h5`
 `;
 
 export const ImageSnippet = styled.div`
-  min-width: 170px;
-  max-width: 170px;
-  height: auto;
-  object-fit: cover;
+  margin: 10px;
+  height: 200px;
+  width: 200px;
   background: url(${props => props.url});
 `;
 
@@ -31,12 +30,15 @@ export const SnippetContainer = styled.div`
   box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15);
   position: relative;
   transition: 0.25s ease-in;
+  & > .content {
+      flex: 1;
+  }
   &.simple{
-  display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;
-        flex-grow: 1;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items:center;
+     flex-grow: 1;
   }
   &::before {
     content: '${props => (props.icon ? props.icon : null)}';
@@ -53,11 +55,14 @@ export const SnippetContainer = styled.div`
     top: -0.8rem;
     box-shadow: 0 0 10px rgba(67, 38, 100, 0.15);
   }
-  
-  & h3:hover {
-    text-decoration:underline !important;
-    opacity: 0.7;
+  & h3 {
+    font-size: 1.55rem;
+    &:hover{
+      text-decoration:underline !important;
+      opacity: 0.7;
+    }
   }
+  
   &.empty {  
     min-height:180px;
     display: flex;
