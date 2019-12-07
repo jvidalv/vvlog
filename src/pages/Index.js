@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {useGlobals} from "../contexts/Global";
 import {ThemeProvider} from "styled-components";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch, useParams} from "react-router-dom";
 import {Main} from "../styles/GenericStyles";
 import UseScrollToTop from "../hooks/useScrollToTop";
 
@@ -110,8 +110,7 @@ const useTags = () => {
     }, [data]);
 
     return {tags: data, loading, error}
-}
-
+};
 
 /**
  * @returns {*}
@@ -123,9 +122,6 @@ function Index() {
     const {} = useCategories();
     const {} = useAuthors();
     const {} = useTags();
-    console.log(navigator.language, navigator.userLanguage)
-    //console.log(articles, categories)
-    //if (loading) return <div>loading</div>;
     return (
         <ThemeProvider theme={{style: theme}}>
             <Main>

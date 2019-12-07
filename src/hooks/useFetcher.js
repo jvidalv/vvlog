@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
 import {urlBuilder} from "../helpers/Generics";
+import {useGlobals} from "../contexts/Global";
 
 /**
  * Main fetcher
@@ -12,6 +13,7 @@ export const useFetcher = (url, params) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
+    const [refetch, setRefetch] = useState(false);
 
     useEffect(() => {
         let apiUrl = urlBuilder(url, params);
@@ -23,13 +25,15 @@ export const useFetcher = (url, params) => {
                 throw "Error with the api"
             })
             .then(res => setData(res))
-            .then(() => setLoading(false))
+            .then(() => {
+                setLoading(false);
+            })
             .catch(err => {
                 setError(err);
                 setLoading(false);
             });
 
-    }, []);
+    }, [refetch]);
 
-    return {data, loading, error}
+    return {data, loading, error, setRefetch}
 }

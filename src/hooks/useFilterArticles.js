@@ -18,5 +18,5 @@ export const useFilterArticles = (properties, q, nested) => {
         setFArticles(q && articles && articles[0].id ? multiFilter(articles, properties, q, nested) : articles);
     }, [articles, q]);
 
-    return [fArticles];
+    return [fArticles, setFArticles];
 };

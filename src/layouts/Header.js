@@ -37,7 +37,7 @@ const isExplore = pathname => {
  */
 function Searcher(props) {
     const [q, setQ] = useState(null);
-    let history = useHistory();
+    const history = useHistory();
 
     const navigateToExplore = (e, q) => {
         e.preventDefault();
@@ -88,6 +88,7 @@ const ThemeSwitcher = props => {
  * @param {*} props
  */
 const LanguageSwitcher = props => {
+
     return (
         <Nav className={props.className}>
             <NavDropdownStyled title={useT("lang", ['👅'])}>

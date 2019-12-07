@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Col, Container, Row} from "react-bootstrap";
 
 import {HeroSimple} from "../components/HeroSection";
@@ -8,13 +8,14 @@ import {AuthorWithImage, AuthorWithImageExtended} from "../components/AuthorSect
 import {ArticleContent, ReadingTopBar, Tags} from "../components/ArticleContents";
 import {ArticleSidebar} from "../layouts/Sidebar";
 import {ArticleSnippet} from "../components/ArticleSnippet";
-import {useParams} from "react-router";
+import {useHistory, useParams} from "react-router";
 import {areSet} from "../helpers/Generics";
 import {useFilterArticles} from "../hooks/useFilterArticles";
 import {useGlobals} from "../contexts/Global";
 import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
 import useT from "../helpers/Translator";
+import {D_AARTICLE} from "../constants/Dummy";
 
 /**
  * @returns {{data: *, loading: *, error: *}}
@@ -22,8 +23,7 @@ import useT from "../helpers/Translator";
 const useFetchArticle = () => {
     const [{language}] = useGlobals();
     const params = useParams();
-    const {data, loading, error} = useFetcher(api_calls.articles.one, {slug: params.slug});
-    return {data, loading, error};
+    return useFetcher(api_calls.articles.one, {slug: params.slug});
 };
 
 /**
@@ -46,9 +46,8 @@ const useAArticle = (data) => {
         }
     }, [data]);
 
-    return {aArticle}
+    return {}
 };
-
 
 /**
  * Article page
@@ -56,11 +55,24 @@ const useAArticle = (data) => {
  * @constructor
  */
 function Article() {
-    const [{language}] = useGlobals();
+    const [{language, aArticle, articles, categories}] = useGlobals();
+    const history = useHistory();
     const params = useParams();
     const [fArticles] = useFilterArticles(['slug'], params.slug, language);
-    const {data, loading, error} = useFetchArticle();
-    const {aArticle} = useAArticle(data);
+    const {data, loading, error, setRefetch} = useFetchArticle();
+    const {} = useAArticle(data);
+
+    /**
+     * Handler case user switches language of article
+     * Pushes the new slug to the url and refetches data from api for the new article
+     */
+    useEffect(() => {
+        if(fArticles[0].id && aArticle.slug !== fArticles[0][language].slug){
+            history.push("/" + categories[params.category]['code'] + '/' + fArticles[0][language].slug);
+            setRefetch(true)
+        }
+    }, [language]);
+
     return (
         <article>
             <Container className="pt-5 text-center">
