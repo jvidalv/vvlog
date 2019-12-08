@@ -28,7 +28,7 @@ function useT(translation, params = []) {
         }
 
         if (!DICTIONARY[language][translation]) {
-            console.error(`🧨 Missing translation -> ${translation} <- for -> ${language}`);
+            console.error(`🧨 Missing translation -> ${translation} ${params} for -> ${language}`);
             return `@@ ${fs} @@`;
         }
 
@@ -64,11 +64,11 @@ function multiReplace(fs, arr) {
  * Captures the language of the navigator, if does not match any of the acepted ones it returns english as default language
  * @returns {string|*}
  */
-export function getNavigatorLanguage(){
+export function getNavigatorLanguage() {
     let flang = _LANGUAGES[0];
-    const nlang = navigator.language.substr(0,2).toLocaleLowerCase();
+    const nlang = navigator.language.substr(0, 2).toLocaleLowerCase();
 
-    if(!nlang || !checkValue(nlang, _LANGUAGES)){
+    if (!nlang || !checkValue(nlang, _LANGUAGES)) {
         return flang;
     }
 

@@ -10,18 +10,29 @@ import {Subscribe} from "../components/MyContents";
 import {useGlobals} from "../contexts/Global";
 import {limiter, multiFilter} from "../helpers/Generics";
 
+/**
+ *
+ * @returns {*}
+ * @constructor
+ */
 const FeaturedSection = () => {
     const [{articles, language}] = useGlobals();
-    console.log(articles)
     return (
         <>
             {limiter(multiFilter(articles, ['featured'], '1'), 3).map(snippet => (
-                <ArticleSnippetWithImage {...snippet[language]} categorySlug={snippet.category} className="move-up"/>
+                <ArticleSnippetWithImage key={snippet.id} {...snippet[language]} categorySlug={snippet.category}
+                                         fake={snippet.fake}/>
+
             ))}
         </>
     );
 };
 
+/**
+ *
+ * @returns {*}
+ * @constructor
+ */
 const AllArticlesSection = () => {
     const [{articles, language}] = useGlobals();
     return (
@@ -34,11 +45,12 @@ const AllArticlesSection = () => {
             </H3>
             <Row className="px-2">
                 {limiter(articles, 9).map(snippet => (
-                    <Col className="d-flex px-1" md={6} lg={4}>
+                    <Col key={snippet.id} className="d-flex px-1" md={6} lg={4}>
                         <ArticleSnippet
                             {...snippet[language]}
                             categorySlug={snippet.category}
-                            className="justify-content-center move-up mb-2"
+                            className="justify-content-center mb-2"
+                            fake={snippet.fake}
                         />
                     </Col>
                 ))}
@@ -47,6 +59,11 @@ const AllArticlesSection = () => {
     );
 };
 
+/**
+ *
+ * @returns {*}
+ * @constructor
+ */
 function Home() {
     return (
         <>

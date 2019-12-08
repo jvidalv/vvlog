@@ -16,7 +16,7 @@ import {IconA, ShareA, SharerStyled} from "./MyContentsStyle";
 import {ButtonStyled, H3, InputStyled} from "../styles/GenericStyles";
 
 export const Network = props => {
-    const {url, title, icon, iconColor} = props;
+    const {url, title, icon} = props;
     return (
         <IconA href={url} title={title} target="_blank">
             {icon}

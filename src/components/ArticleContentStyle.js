@@ -56,6 +56,7 @@ export const Content = styled.div`
   }
   & img {
       background: ${props => THEMES[props.theme.style].infoBox};
+     
   }
   & pre {
     background: #181C22 !important;

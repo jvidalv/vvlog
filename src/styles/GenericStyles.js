@@ -1,4 +1,4 @@
-import styled, {keyframes} from "styled-components";
+import styled from "styled-components";
 import {THEMES} from "../constants/Themes";
 import {Button, Card, Container, Form} from "react-bootstrap";
 import {afterBottomBar, borderLeft, fontsDefaults} from "./DefaultsStyles";

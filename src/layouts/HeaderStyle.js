@@ -44,7 +44,7 @@ export const LinkStyled = styled(NavLink)`
 export const NavStyled = styled(Navbar)`
   font-weight: 300 !important;
   ${props =>
-    props.shadow === true ? "box-shadow: 0 2px 20px 0 #0000005c" : ""};
+    props.className.shadow ? "box-shadow: 0 2px 20px 0 #0000005c" : ""};
   background: linear-gradient(
     to right,
     ${props => THEMES[props.theme.style].header["1"]},

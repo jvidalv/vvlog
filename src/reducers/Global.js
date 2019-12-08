@@ -15,8 +15,8 @@ export const initialState = {
     language: loadFromCache('language', getNavigatorLanguage()),
     articles: D_ARTICLES,
     categories: {},
-    authors : D_AUTHORS,
-    tags : [],
+    authors: D_AUTHORS,
+    tags: [],
     aArticle: D_AARTICLE,
     errors: false,
 };
@@ -37,7 +37,7 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 theme: checkValue(action.changeTheme, _THEMES)
-                    ?  loadFromCache('theme', action.changeTheme, true)
+                    ? loadFromCache('theme', action.changeTheme, true)
                     : _THEMES[0]
             };
         case "changeLanguage":

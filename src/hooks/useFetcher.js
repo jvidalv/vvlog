@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react'
 import {urlBuilder} from "../helpers/Generics";
-import {useGlobals} from "../contexts/Global";
 
 /**
  * Main fetcher
@@ -19,7 +18,7 @@ export const useFetcher = (url, params) => {
         let apiUrl = urlBuilder(url, params);
         fetch(apiUrl)
             .then(res => {
-                if(res.ok){
+                if (res.ok) {
                     return res.json();
                 }
                 throw "Error with the api"

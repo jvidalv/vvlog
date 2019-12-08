@@ -1,14 +1,14 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {Col, Container, Form, Row} from "react-bootstrap";
 
 import {HeroSimple} from "../components/HeroSection";
 import {ArticleSnippet} from "../components/ArticleSnippet";
 
-import {DiagonalContainer, H1, InputStyled} from "../styles/GenericStyles";
+import {DiagonalContainer, InputStyled} from "../styles/GenericStyles";
 import {useLocation} from "react-router";
 import useT from "../helpers/Translator";
 import {useGlobals} from "../contexts/Global";
-import {limiter, multiFilter} from "../helpers/Generics";
+import {limiter} from "../helpers/Generics";
 import {useFilterArticles} from "../hooks/useFilterArticles";
 
 function Explore() {
@@ -47,16 +47,17 @@ function Explore() {
                     {fArticles && fArticles.length ? (
                         limiter(fArticles, 12).map(snippet => (
                             <>
-                                <Col className="d-flex px-1" sm={6} md={4}>
+                                <Col key={snippet.id} className="d-flex px-1" sm={6} md={4}>
                                     <ArticleSnippet
                                         {...snippet[language]}
                                         categorySlug={snippet.category}
                                         className="justify-content-center move-up mb-2"
                                         q={q}
+                                        fake={snippet.fake}
                                     />
                                 </Col>
                             </>
-                        ))) : <Col sm={12}><ArticleSnippet title="" category=""  q={q}/></Col>}
+                        ))) : <Col sm={12}><ArticleSnippet title="" category="" q={q}/></Col>}
                 </Row>
             </DiagonalContainer>
         </>

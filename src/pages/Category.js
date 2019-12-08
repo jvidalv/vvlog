@@ -22,8 +22,10 @@ function Category() {
                 <Row>
                     <Col>
                         <HeroSimple
-                            title={areSet(categories, [params.category, language, 'name'], <LoadingPlaceholder width="250px" height="40px"/>)}
-                            subtitle={areSet(categories, [params.category, language, 'description'], <LoadingPlaceholder width="400px" height="35px"/>)}
+                            title={areSet(categories, [params.category, language, 'name'], <LoadingPlaceholder
+                                width="250px" height="40px"/>)}
+                            subtitle={areSet(categories, [params.category, language, 'description'], <LoadingPlaceholder
+                                width="400px" height="35px"/>)}
                         />
                     </Col>
                 </Row>
@@ -32,7 +34,9 @@ function Category() {
                 <Row>
                     <Col md={9}>
                         {fArticles.map(snippet => (
-                            <ArticleSnippetWithImage {...snippet[language]} categorySlug={snippet.category} className="move-up mb-2"/>
+                            <ArticleSnippetWithImage key={snippet.id} {...snippet[language]}
+                                                     categorySlug={snippet.category} className="mb-2"
+                                                     fake={snippet.fake}/>
                         ))}
                     </Col>
                     <Col md={3}>

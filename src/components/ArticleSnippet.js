@@ -20,10 +20,10 @@ const generateLink = (category, slug = "") => {
  * @param {*} props
  */
 export function ArticleSnippetWithImage(props) {
-    const {id, title, slug, category, resume, categorySlug} = props;
+    const {id, fake, title, slug, category, resume, categorySlug} = props;
     return (
         <SnippetContainer
-            className={"d-flex mb-3 " + props.className + (!id ? " empty" : '')}
+            className={"d-flex mb-3 " + props.className + (fake ? " empty" : '')}
             icon={props.icon}
             key={id}
         >
@@ -47,9 +47,8 @@ export function ArticleSnippetWithImage(props) {
  * @param {*} props
  */
 export function ArticleSnippet(props) {
-    const {id, title, slug, category, categorySlug} = props;
+    const {id, fake, title, slug, category, categorySlug} = props;
     const myRef = React.createRef();
-
     useEffect(() => {
         /**
          * Highlights texts inside content of articles when you search for them
@@ -59,14 +58,14 @@ export function ArticleSnippet(props) {
             let content = element.textContent;
             let position = content.toLowerCase().search(props.q.toLowerCase());
             if (position !== -1) {
-                element.innerHTML = [content.slice(0, position), `<span class="highlight">${content.slice(position, position + props.q.length)}</span>`, content.slice(position + props.q.length) ].join('');
+                element.innerHTML = [content.slice(0, position), `<span class="highlight">${content.slice(position, position + props.q.length)}</span>`, content.slice(position + props.q.length)].join('');
             }
         }
 
     }, [id, props.q]);
 
     return (
-        <SnippetContainer ref={myRef} className={props.className + (!id ? " empty" : "") + " simple text-center p-4"}
+        <SnippetContainer ref={myRef} className={props.className + (fake ? " empty" : "") + " simple text-center p-4"}
                           icon={props.icon} key={id}>
             <H5Category>
                 <Link to={generateLink(categorySlug)}>{category}</Link>

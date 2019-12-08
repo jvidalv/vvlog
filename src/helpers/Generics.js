@@ -6,7 +6,7 @@
  */
 export function urlBuilder(url, params) {
     const ourl = new URL(url);
-    if(params){
+    if (params) {
         Object.keys(params).forEach(key => ourl.searchParams.append(key, params[key]))
     }
     return ourl;
@@ -68,14 +68,14 @@ export function reindexer(array, index) {
  */
 export function areSet(object, properties, fallback = null) {
 
-        if (!object.hasOwnProperty(properties[0])) return fallback;
-        else if (properties.length > 1) {
-            let n = object[properties[0]];
-            properties.splice(0, 1);
-            return areSet(n, properties, fallback)
-        }
+    if (!object.hasOwnProperty(properties[0])) return fallback;
+    else if (properties.length > 1) {
+        let n = object[properties[0]];
+        properties.splice(0, 1);
+        return areSet(n, properties, fallback)
+    }
 
-        return object[properties[0]];
+    return object[properties[0]];
 }
 
 /**
@@ -86,13 +86,13 @@ export function areSet(object, properties, fallback = null) {
  * @param nest if the propertis are nested in a level below, you can set this property, exemple, obj.language.name, you would pass language
  * @returns {*}
  */
-export function multiFilter(array, properties, filter = '', nest = false){
+export function multiFilter(array, properties, filter = '', nest = false) {
 
     return array.filter(obj => {
 
         let fobj = nest ? obj[nest] : obj;
-        for(let prop of properties){
-            if(fobj[prop].toString().toLowerCase().search(filter.toLowerCase()) !== -1) return true
+        for (let prop of properties) {
+            if (fobj[prop].toString().toLowerCase().search(filter.toLowerCase()) !== -1) return true
         }
 
         return false;
@@ -106,9 +106,9 @@ export function multiFilter(array, properties, filter = '', nest = false){
  * @param override
  * @returns {string|*}
  */
-export function loadFromCache(key, fallback, override = false){
+export function loadFromCache(key, fallback, override = false) {
     const value = localStorage.getItem(key);
-    if(value && !override){
+    if (value && !override) {
         return value;
     } else {
         localStorage.setItem(key, fallback);

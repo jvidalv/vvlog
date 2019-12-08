@@ -36,7 +36,7 @@ const isExplore = pathname => {
  * @param {*} props
  */
 function Searcher(props) {
-    const [q, setQ] = useState(null);
+    const [q, setQ] = useState('');
     const history = useHistory();
 
     const navigateToExplore = (e, q) => {
@@ -59,7 +59,6 @@ function Searcher(props) {
                 onBlur={e => navigateToExplore(e, q)}
                 onChange={t => setQ(t.target.value)}
                 value={q}
-                defaultValue={q}
                 type="text"
                 placeholder="🔎"
                 className="mr-sm-2"
@@ -140,8 +139,7 @@ export function Header(props) {
     return (
         <NavStyled
             expand="lg"
-            shadow={isHome(pathname) ? undefined : true}
-            onSelect={() => console.log("hii")}
+            className={isHome(pathname) ? '' : 'shadow'}
             expanded={expanded}
         >
             <LinkStyled

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {Col, Container, Row} from "react-bootstrap";
 
 import {HeroSimple} from "../components/HeroSection";
@@ -15,7 +15,6 @@ import {useGlobals} from "../contexts/Global";
 import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
 import useT from "../helpers/Translator";
-import {D_AARTICLE} from "../constants/Dummy";
 
 /**
  * @returns {{data: *, loading: *, error: *}}
@@ -67,7 +66,7 @@ function Article() {
      * Pushes the new slug to the url and refetches data from api for the new article
      */
     useEffect(() => {
-        if(fArticles[0].id && aArticle.slug !== fArticles[0][language].slug){
+        if (!fArticles[0].fake && aArticle.slug !== fArticles[0][language].slug) {
             history.push("/" + categories[params.category]['code'] + '/' + fArticles[0][language].slug);
             setRefetch(true)
         }

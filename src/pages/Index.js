@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {useGlobals} from "../contexts/Global";
 import {ThemeProvider} from "styled-components";
-import {BrowserRouter as Router, Route, Switch, useParams} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {Main} from "../styles/GenericStyles";
 import UseScrollToTop from "../hooks/useScrollToTop";
 
@@ -37,7 +37,7 @@ const useArticles = () => {
         }
     }, [data]);
 
-    return {articles : data, loading, error}
+    return {articles: data, loading, error}
 };
 
 /**
@@ -61,7 +61,7 @@ const useCategories = () => {
         }
     }, [data]);
 
-    return {categories : data, loading, error}
+    return {categories: data, loading, error}
 };
 
 /**

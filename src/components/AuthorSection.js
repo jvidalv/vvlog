@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {LoadingPlaceholder, P} from "../styles/GenericStyles";
 import {AuthorPhoto} from "./AuthorSectionStyle";
 import {useGlobals} from "../contexts/Global";
@@ -10,7 +10,7 @@ const useAuthor = () => {
     const [author, setAuthor] = useState({});
 
     useEffect(() => {
-        if(aArticle.id && authors[aArticle.user_id]){
+        if (aArticle.id && authors[aArticle.user_id]) {
             setAuthor(authors[aArticle.user_id]);
         }
     }, [aArticle, authors]);
@@ -29,10 +29,11 @@ export function AuthorWithImage() {
 
     return (
         <div className="d-flex align-items-center justify-content-center">
-            <AuthorPhoto src={author.image ? BASE_IMAGE + author.image : images_url(75,75).user } width="75" height="75"/>
+            <AuthorPhoto src={author.image ? BASE_IMAGE + author.image : images_url(75, 75).user} width="75"
+                         height="75"/>
             <div className="ml-3">
                 <P className="mb-0" big>
-                    {author.name ? `${author.name} ❤` : <LoadingPlaceholder width="125px" height="30px"/> }
+                    {author.name ? `${author.name} ❤` : <LoadingPlaceholder width="125px" height="30px"/>}
                 </P>
                 <P className="mt-0" color="secondary2" muted>
                     <span className="text-capitalize pr-1">{aArticle.date_nice}</span>
@@ -56,7 +57,7 @@ export function AuthorWithImageExtended(props) {
         <div className="d-flex my-5">
             <AuthorPhoto
                 className="align-self-baseline"
-                src={author.image ? BASE_IMAGE + author.image : images_url(95,95).user }
+                src={author.image ? BASE_IMAGE + author.image : images_url(95, 95).user}
                 width="95"
                 height="95"
             />
@@ -65,10 +66,11 @@ export function AuthorWithImageExtended(props) {
                     {useT('written_by')}
                 </P>
                 <P className="mb-0" big>
-                    {author.name ? `${author.name}` : <LoadingPlaceholder width="150px" height="25px"/> }
+                    {author.name ? `${author.name}` : <LoadingPlaceholder width="150px" height="25px"/>}
                 </P>
                 <P className="mb-0 mt-2" color="onBackground" muted>
-                    {author.info && author.info[language] ? `${author.info[language].information}` : <LoadingPlaceholder width="300px" height="25px"/> }
+                    {author.info && author.info[language] ? `${author.info[language].information}` :
+                        <LoadingPlaceholder width="300px" height="25px"/>}
                 </P>
             </div>
         </div>
