@@ -4,6 +4,7 @@ import {H5Category, ImageSnippet, SnippetContainer} from "./ArticleSnippetStyle"
 
 import squarePlaceholder from "../assets/images/square-placeholder.png";
 import {H3, P} from "../styles/GenericStyles";
+import BASE_IMAGE, {images_url} from "../constants/Images";
 
 /**
  * Returns the url ready to be consumed by react-router
@@ -20,14 +21,14 @@ const generateLink = (category, slug = "") => {
  * @param {*} props
  */
 export function ArticleSnippetWithImage(props) {
-    const {id, fake, title, slug, category, resume, categorySlug} = props;
+    const {id, fake, title, slug, category, resume, image, categorySlug} = props;
     return (
         <SnippetContainer
             className={"d-flex mb-3 " + props.className + (fake ? " empty" : '')}
             icon={props.icon}
             key={id}
         >
-            <ImageSnippet className="d-none d-lg-block image-snippet" url={squarePlaceholder}/>
+            <ImageSnippet className="d-none d-lg-block image-snippet" url={image ? BASE_IMAGE + image : images_url(200, 200).article}/>
             <div className="content d-flex flex-column p-4">
                 <H5Category>
                     <Link to={generateLink(categorySlug)}>{category}</Link>

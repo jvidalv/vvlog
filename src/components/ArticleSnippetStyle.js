@@ -22,7 +22,7 @@ export const ImageSnippet = styled.div`
   margin: 10px;
   height: 200px;
   width: 200px;
-  background: url(${props => props.url});
+  background: url(${props => props.url ?? THEMES[props.theme.style].surface.level2});
 `;
 
 export const SnippetContainer = styled.div`

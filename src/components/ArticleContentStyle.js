@@ -3,7 +3,7 @@ import {THEMES} from "../constants/Themes";
 
 export const Content = styled.div`
   & p,
-  span {
+  span, ul {
     color: ${props => THEMES[props.theme.style].onBackground};
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif !important;
     font-size: 20px !important;
@@ -91,6 +91,17 @@ export const Content = styled.div`
       ${props => THEMES[props.theme.style].primary + "2e"}
     );
   }
+  & ul {
+    list-style: none; /* Remove default bullets */
+  }
+  & ul li::before {
+      content: "\\2022";  /* Add content: \\2022 is the CSS Code/unicode for a bullet */
+      color: ${props => THEMES[props.theme.style].onBackground};
+      font-weight: bold; /* If you want it to be bold */
+      display: inline-block; /* Needed to add space between the bullet and the text */
+      width: 1em; /* Also needed for space (tweak if needed) */
+      margin-left: -1em; /* Also needed for space (tweak if needed) */
+   }
 `;
 
 export const TagContainer = styled.div`
