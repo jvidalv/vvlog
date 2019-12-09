@@ -27,4 +27,4 @@ export const D_AUTHORS = [
     }
 ];
 
-export const D_AARTICLE = {time_to_read: '...', date_nice: new Date().getFullYear(), fake: true};
+export const D_AARTICLE = {time_to_read: 'X', date_nice: 'Feb. 30 ' + new Date().getFullYear(), fake: true};

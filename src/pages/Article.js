@@ -15,6 +15,7 @@ import {useGlobals} from "../contexts/Global";
 import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
 import useT from "../helpers/Translator";
+import {D_AARTICLE} from "../constants/Dummy";
 
 /**
  * @returns {{data: *, loading: *, error: *}}
@@ -23,16 +24,19 @@ const useFetchArticle = () => {
     const [{language}] = useGlobals();
     const params = useParams();
     const {data, loading, error, setRefetch} = useFetcher(api_calls.articles.one, {slug: params.slug});
-    return {article : data, loading, error, setRefetch}
+    return {data, loading, error, setRefetch}
 };
 
 /**
  * Sets active article
- * @param data
  * @returns {{aArticle: *}}
  */
-const useAArticle = (data) => {
-    const [{aArticle}, dispatch] = useGlobals();
+const useAArticle = () => {
+    const [{aArticle, language, categories}, dispatch] = useGlobals();
+    const {data, loading, error, setRefetch} = useFetchArticle();
+    const params = useParams();
+    const history = useHistory();
+
     const setAArticle = (aArticle) => {
         dispatch({
             type: "setActiveArticle",
@@ -42,11 +46,24 @@ const useAArticle = (data) => {
 
     useEffect(() => {
         if (data.id) {
-            setAArticle(data)
+            setAArticle(data);
         }
     }, [data]);
 
-    return {}
+    useEffect(() => {
+        if(!aArticle.fake && !loading){
+            if (aArticle.language_id !== language) {
+                history.push("/" + categories[params.category]['code'] + '/' + aArticle.translations[language]);
+                setAArticle(D_AARTICLE);
+                setRefetch(Date());
+            } else if(params.slug !== aArticle.slug) {
+                setAArticle(D_AARTICLE);
+                setRefetch(Date());
+            }
+        }
+    }, [language, history.location]);
+
+    return {data, loading}
 };
 
 /**
@@ -56,22 +73,7 @@ const useAArticle = (data) => {
  */
 function Article() {
     const [{language, aArticle, articles, categories}] = useGlobals();
-    const history = useHistory();
-    const params = useParams();
-    const [fArticle] = useFindArticleInArticles(['slug'], params.slug);
-    const {article, loading, error, setRefetch} = useFetchArticle();
-    const {} = useAArticle(article);
-
-    /**
-     * Handler case user switches language of article
-     * Pushes the new slug to the url and refetches data from api for the new article
-     */
-    useEffect(() => {
-        if (!fArticle.fake && aArticle.language_id !== language) {
-            history.push("/" + categories[params.category]['code'] + '/' + fArticle[language].slug);
-            setRefetch(Date())
-        }
-    }, [language]);
+    const {data, loading} = useAArticle();
 
     return (
         <article>
@@ -79,11 +81,11 @@ function Article() {
                 <Row>
                     <Col>
                         <HeroSimple
-                            title={areSet(fArticle, [language, 'title'], <LoadingPlaceholder width="400px"
+                            title={areSet(aArticle, ['title'], <LoadingPlaceholder width="400px"
                                                                                                  height="95px"/>)}
-                            overtitle={areSet(fArticle, [language, 'category'], <LoadingPlaceholder width="50px"
+                            overtitle={areSet(aArticle, ['category_id'], <LoadingPlaceholder width="50px"
                                                                                                         height="25px"/>)}
-                            urlOvertitle={'/' + (areSet(fArticle, ['category'], '#'))}
+                           // urlOvertitle={'/' + (areSet(fArticle, ['category'], '#'))}
                         />
                     </Col>
                 </Row>
@@ -99,7 +101,7 @@ function Article() {
                 <Row>
                     <Col xs={12} md={12} lg={9}>
                         <ArticleContent loading={loading}
-                                        content={article && article.hasOwnProperty('content') ? article.content : ''}/>
+                                        content={data && data.hasOwnProperty('content') ? data.content : ''}/>
                         <Tags/>
                         <AuthorWithImageExtended/>
                         <Sharer className="my-5 text-center justify-content-center"/>

@@ -1,10 +1,9 @@
 import {THEMES} from "../constants/Themes";
 
 /**
- * -------
- * In this file we define group of rules that are common on many styled components classes
- * -------
+ * Group of rules that are common on many styled components classes
  */
+
 export const fontsDefaults = props => {
     let stylesString = "";
     stylesString +=

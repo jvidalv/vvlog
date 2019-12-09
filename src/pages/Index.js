@@ -117,11 +117,12 @@ const useTags = () => {
  * @constructor
  */
 function Index() {
-    const [{theme, articles, categories}] = useGlobals();
-    const {loading, error} = useArticles();
-    const {} = useCategories();
-    const {} = useAuthors();
-    const {} = useTags();
+    const [{theme}] = useGlobals();
+    useArticles();
+    useCategories();
+    useAuthors();
+    useTags();
+
     return (
         <ThemeProvider theme={{style: theme}}>
             <Main>

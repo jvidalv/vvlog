@@ -4,6 +4,7 @@ import {P} from "../styles/GenericStyles";
 import {useScrollPosition} from "../hooks/useScrollPosition";
 import {FloatingButton} from "./FooterStyle.js";
 import {MyNetworks} from "../components/MyContents";
+import {smoothMove} from "../helpers/Generics";
 
 /**
  * Shows the floating button  that brings you to the top
@@ -12,7 +13,7 @@ import {MyNetworks} from "../components/MyContents";
 const ButtonToTop = props => {
     return (
         <FloatingButton
-            onClick={() => window.scrollTo(0, 0)}
+            onClick={() => smoothMove(true)}
             className={props.className}
         >
             {" "}

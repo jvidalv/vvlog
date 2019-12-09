@@ -2,6 +2,7 @@ import React from "react";
 import {withRouter} from "react-router-dom";
 import {A, H4, LoadingPlaceholder, SidebarElement} from "../styles/GenericStyles";
 import {useGlobals} from "../contexts/Global";
+import {smoothMove} from "../helpers/Generics";
 
 /**
  * Sidebar container that contains all elements
@@ -89,6 +90,7 @@ export const ArticleSidebar = () => {
                 bottomBar
                 fontSize="1rem"
                 href={`#${an.anchor_id}`}
+                onClick={() => smoothMove()}
             >
                 {`${i + 1}. ${an.content}`}
             </A>

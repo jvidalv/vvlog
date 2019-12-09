@@ -126,4 +126,16 @@ export const checkValue = (value, values) => {
     return values.includes(value);
 };
 
+/**
+ * Makes the scroll to anchors or X positions smooth
+ * @param toTop
+ */
+export const smoothMove = (toTop = false) => {
+    document.getElementsByTagName('html')[0].style.scrollBehavior = "smooth";
+    if (toTop) {
+        setTimeout(() => window.scrollTo(0, 0), 50);
+    }
+    setTimeout(() => document.getElementsByTagName('html')[0].removeAttribute('style'), 150);
+};
+
 

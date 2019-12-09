@@ -37,7 +37,7 @@ export const HeroImage = styled.img`
 
 export const HeroH1 = styled.h1`
   color: ${props => THEMES[props.theme.style].primary};
-  font-family: "IBM Plex Mono";
+  font-family: "IBM Plex Mono",serif;
   font-style: italic;
   font-weight: 300;
 

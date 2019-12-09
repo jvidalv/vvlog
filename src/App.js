@@ -1,7 +1,6 @@
 import React from "react";
 import {initialState, reducer} from "./reducers/Global";
 import {StateProvider} from "./contexts/Global";
-import WebFont from "webfontloader";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/#generic.css";
 
@@ -14,11 +13,5 @@ function App() {
         </StateProvider>
     );
 }
-
-WebFont.load({
-    google: {
-        families: ["IBM Plex Mono:200", "Satisfy:400"]
-    }
-});
 
 export default App;

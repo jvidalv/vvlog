@@ -16,6 +16,8 @@ export const useFetcher = (url, params) => {
 
     useEffect(() => {
         let apiUrl = urlBuilder(url, params);
+        setLoading(true);
+        setError(false);
         fetch(apiUrl)
             .then(res => {
                 if (res.ok) {
