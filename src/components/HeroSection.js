@@ -2,6 +2,7 @@ import React from "react";
 import {HeroH1, HeroH4, HeroImage, HeroP, HeroSectionStyled} from "./HeroSectionStyle";
 import {Link} from "react-router-dom";
 import initials from "../assets/images/logo-initials.png";
+import Logo from "../assets/svgs/Logo";
 
 /**
  * Home banner "/"
@@ -11,7 +12,8 @@ import initials from "../assets/images/logo-initials.png";
 export function HeroHome() {
     return (
         <HeroSectionStyled>
-            <HeroImage src={initials}/>
+            <Logo />
+            {/*<HeroImage src={initials}/>*/}
             <HeroH1 className="my-3 px-2 extra">
                 Fullstack development on point
             </HeroH1>
