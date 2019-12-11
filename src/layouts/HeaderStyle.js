@@ -42,6 +42,8 @@ export const LinkStyled = styled(NavLink)`
 `;
 
 export const NavStyled = styled(Navbar)`
+  z-index: 1500;
+  transition:0s;
   font-weight: 300 !important;
   ${props =>
     props.className.shadow ? "box-shadow: 0 2px 20px 0 #0000005c" : ""};
@@ -50,6 +52,7 @@ export const NavStyled = styled(Navbar)`
     ${props => THEMES[props.theme.style].header["1"]},
     ${props => THEMES[props.theme.style].header["2"]}
   );
+  
 `;
 
 export const NavbarToggleStyled = styled(Navbar.Toggle)`
@@ -79,7 +82,6 @@ export const FormControlStyled = styled(FormControl)`
   border-color: ${props => THEMES[props.theme.style].surface.level2};
   display: block;
   padding: 0.5rem;
-  width: 100%;
   transition: 0.25s ease-in-out;
   background: ${props => THEMES[props.theme.style].surface.level1};
   color: ${props => THEMES[props.theme.style].onSurface};

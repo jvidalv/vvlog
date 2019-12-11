@@ -3,7 +3,7 @@ import {THEMES} from "../constants/Themes";
 
 export const Content = styled.div`
   & p,
-  span, ul {
+  span:not(.token), ul {
     color: ${props => THEMES[props.theme.style].onBackground};
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif !important;
     font-size: 20px !important;

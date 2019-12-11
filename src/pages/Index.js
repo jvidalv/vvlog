@@ -15,6 +15,7 @@ import About from "./About";
 import Article from "./Article";
 import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
+import {MainLoader} from "../components/Loaders";
 
 /**
  * Retrieve articles and set them in global context

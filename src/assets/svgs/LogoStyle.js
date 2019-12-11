@@ -4,48 +4,64 @@ import {THEMES} from "../../constants/Themes";
 /**
  * ----- Animations -----
  */
-export const showAndColor = keyframes`
-    from {
+export const showFromTop = keyframes`
+   0% {
         opacity: 0;
-        fill: ${props => THEMES[props.theme.style].secondary};
-    }
+        transform: translate(0, -40px);
+   }
+   70% {
+        opacity: 1; 
+        transform: translate(0, 10px);
+   }
+   100% {
+        opacity: 1; 
+        transform: translate(0, 0);
+   }
+`;
 
-    to {
-        opacity: 1;
-        fill: ${props => THEMES[props.theme.style].primary};
+export const shakeToBottom = keyframes`
+     0% {
+        transform: translate(0, 0);
+     }
+     50% {
+        transform: translate(0, 10px);
+     }
+      100% {
+        transform: translate(0, 0);
+        fill : ${props => THEMES[props.theme.style].secondary} ;
     }
+`;
 
-   
+export const shakeToTop = keyframes`
+     0% {
+        transform: translate(-5px, 0px);
+     }
+     50% {
+        transform: translate(-5px, -5px);
+     }
+      100% {
+        transform: translate(-5px, 0);
+    }
 `;
 
 export const LogoSvg = styled.svg`
   & #big-v{
-    fill: ${props => THEMES[props.theme.style].primary} !important
+    fill:white !important;
+    animation: ${shakeToBottom} 1s ease-in-out forwards;
+    animation-delay: 0.7s;
   }
-  & #big-s-v{
-    fill: ${props => THEMES[props.theme.style].secondary} !important
+  & #small-v{
+    fill:white !important;
+    animation: ${showFromTop} 0.5s ease-in forwards;
+    animation-delay: 0.3s;
   }
-  & #layer1 path {
-   opacity: 0;
-   animation: ${showAndColor} 3s ease-in forwards;
-    &#poly-2 {
-    animation-delay: 0.35s;
-    }
-    &#poly-3 {
-    animation-delay: 0.5s;
-    }
-    &#poly-4 {
-    animation-delay: 0.65s;
-    }
-    &#poly-5 {
-    animation-delay: 1s;
-    }
-    &#poly-6 {
-    animation-delay: 1.25s;
-    }
-     &#poly-7 {
-    animation-delay: 1.5s;
-    }
+  
+  & #top-right, #top-left{
+     fill:white !important;
+     animation: ${shakeToTop} 0.5s ease-in forwards;
+     animation-delay: 1.6s;
+     transform: translate(-5px, 0px);
   }
+ 
 `;
 

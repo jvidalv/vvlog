@@ -9,6 +9,8 @@ import {DiagonalContainer, H3} from "../styles/GenericStyles";
 import {Subscribe} from "../components/MyContents";
 import {useGlobals} from "../contexts/Global";
 import {limiter, multiFilter} from "../helpers/Generics";
+import {MainLoader} from "../components/Loaders";
+import {BrowserRouter as Router} from "react-router-dom";
 
 /**
  *
@@ -22,7 +24,6 @@ const FeaturedSection = () => {
             {limiter(multiFilter(articles, ['featured'], '1'), 3).map(snippet => (
                 <ArticleSnippetWithImage key={snippet.id} {...snippet[language]} categorySlug={snippet.category}
                                          fake={snippet.fake}/>
-
             ))}
         </>
     );
@@ -67,6 +68,7 @@ const AllArticlesSection = () => {
 function Home() {
     return (
         <>
+            <MainLoader/>
             <HeroHome/>
             <Container className="pt-4 pb-2">
                 <Row>
