@@ -1,20 +1,27 @@
 {
   "files": {
-    "main.css": "/vvlog/static/css/main.21c12b8a.chunk.css",
-    "main.js": "/vvlog/static/js/main.144bb1ea.chunk.js",
-    "main.js.map": "/vvlog/static/js/main.144bb1ea.chunk.js.map",
-    "runtime-main.js": "/vvlog/static/js/runtime-main.9aaee20e.js",
-    "runtime-main.js.map": "/vvlog/static/js/runtime-main.9aaee20e.js.map",
-    "static/css/2.83ace7dd.chunk.css": "/vvlog/static/css/2.83ace7dd.chunk.css",
-    "static/js/2.8f6b0cdf.chunk.js": "/vvlog/static/js/2.8f6b0cdf.chunk.js",
-    "static/js/2.8f6b0cdf.chunk.js.map": "/vvlog/static/js/2.8f6b0cdf.chunk.js.map",
+    "main.css": "/vvlog/static/css/main.9aa69f39.chunk.css",
+    "main.js": "/vvlog/static/js/main.31577930.chunk.js",
+    "main.js.map": "/vvlog/static/js/main.31577930.chunk.js.map",
+    "runtime-main.js": "/vvlog/static/js/runtime-main.c145bf80.js",
+    "runtime-main.js.map": "/vvlog/static/js/runtime-main.c145bf80.js.map",
+    "static/css/2.27630459.chunk.css": "/vvlog/static/css/2.27630459.chunk.css",
+    "static/js/2.38b57840.chunk.js": "/vvlog/static/js/2.38b57840.chunk.js",
+    "static/js/2.38b57840.chunk.js.map": "/vvlog/static/js/2.38b57840.chunk.js.map",
     "index.html": "/vvlog/index.html",
-    "precache-manifest.52a95404b2f21de95e6dc41d5ea4ae1f.js": "/vvlog/precache-manifest.52a95404b2f21de95e6dc41d5ea4ae1f.js",
+    "precache-manifest.34d961b6cb168a4a6b4175823bcc10d9.js": "/vvlog/precache-manifest.34d961b6cb168a4a6b4175823bcc10d9.js",
     "service-worker.js": "/vvlog/service-worker.js",
-    "static/css/2.83ace7dd.chunk.css.map": "/vvlog/static/css/2.83ace7dd.chunk.css.map",
-    "static/css/main.21c12b8a.chunk.css.map": "/vvlog/static/css/main.21c12b8a.chunk.css.map",
+    "static/css/2.27630459.chunk.css.map": "/vvlog/static/css/2.27630459.chunk.css.map",
+    "static/css/main.9aa69f39.chunk.css.map": "/vvlog/static/css/main.9aa69f39.chunk.css.map",
+    "static/js/2.38b57840.chunk.js.LICENSE": "/vvlog/static/js/2.38b57840.chunk.js.LICENSE",
     "static/media/me-finland.jpg": "/vvlog/static/media/me-finland.c958a80d.jpg",
-    "static/media/me-roman.png": "/vvlog/static/media/me-roman.19d9e0dd.png",
     "static/media/square-placeholder.png": "/vvlog/static/media/square-placeholder.98a84962.png"
-  }
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c145bf80.js",
+    "static/css/2.27630459.chunk.css",
+    "static/js/2.38b57840.chunk.js",
+    "static/css/main.9aa69f39.chunk.css",
+    "static/js/main.31577930.chunk.js"
+  ]
 }
