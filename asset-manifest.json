@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/vvlog/static/css/main.9aa69f39.chunk.css",
-    "main.js": "/vvlog/static/js/main.31577930.chunk.js",
-    "main.js.map": "/vvlog/static/js/main.31577930.chunk.js.map",
+    "main.js": "/vvlog/static/js/main.d351956d.chunk.js",
+    "main.js.map": "/vvlog/static/js/main.d351956d.chunk.js.map",
     "runtime-main.js": "/vvlog/static/js/runtime-main.c145bf80.js",
     "runtime-main.js.map": "/vvlog/static/js/runtime-main.c145bf80.js.map",
     "static/css/2.27630459.chunk.css": "/vvlog/static/css/2.27630459.chunk.css",
     "static/js/2.38b57840.chunk.js": "/vvlog/static/js/2.38b57840.chunk.js",
     "static/js/2.38b57840.chunk.js.map": "/vvlog/static/js/2.38b57840.chunk.js.map",
     "index.html": "/vvlog/index.html",
-    "precache-manifest.34d961b6cb168a4a6b4175823bcc10d9.js": "/vvlog/precache-manifest.34d961b6cb168a4a6b4175823bcc10d9.js",
+    "precache-manifest.0b80927ed4d41c659f898b87b2ffd78a.js": "/vvlog/precache-manifest.0b80927ed4d41c659f898b87b2ffd78a.js",
     "service-worker.js": "/vvlog/service-worker.js",
     "static/css/2.27630459.chunk.css.map": "/vvlog/static/css/2.27630459.chunk.css.map",
     "static/css/main.9aa69f39.chunk.css.map": "/vvlog/static/css/main.9aa69f39.chunk.css.map",
@@ -22,6 +22,6 @@
     "static/css/2.27630459.chunk.css",
     "static/js/2.38b57840.chunk.js",
     "static/css/main.9aa69f39.chunk.css",
-    "static/js/main.31577930.chunk.js"
+    "static/js/main.d351956d.chunk.js"
   ]
 }
