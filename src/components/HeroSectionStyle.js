@@ -4,7 +4,6 @@ import {THEMES} from "../constants/Themes";
 export const HeroSectionStyled = styled.div`
   text-align: center;
   padding-top: 2em;
-  background-color: #6bb756;
   background: linear-gradient(
     to right,
     ${props => THEMES[props.theme.style].header["1"]},
@@ -25,7 +24,7 @@ const rotateColors = keyframes`
     }
     50% {
         filter: hue-rotate(360deg);
-    }
+    }FF
 `;
 
 export const HeroImage = styled.img`
@@ -37,7 +36,7 @@ export const HeroImage = styled.img`
 
 export const HeroH1 = styled.h1`
   color: ${props => THEMES[props.theme.style].primary};
-  font-family: "IBM Plex Mono",serif;
+  font-family: Recursive, "Segoe UI", "Helvetica Neue", Helvetica, Roboto, 'Open Sans', FreeSans, sans-serif;
   font-style: italic;
   font-weight: 300;
 

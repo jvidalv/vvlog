@@ -11,7 +11,7 @@ export const fontsDefaults = props => {
             ? "color : " + THEMES[props.theme.style][props.color] + ";"
             : "";
     stylesString += "italic" in props ? "font-style : italic;" : "";
-    stylesString += "fontPlex" in props ? "font-family : 'IBM Plex Mono';" : "";
+    stylesString += "fontPlex" in props ? "font-family : 'Recursive, \"Segoe UI\", \"Helvetica Neue\", Helvetica, Roboto, 'Open Sans', FreeSans, sans-serif;';" : "";
     stylesString += "muted" in props ? "opacity: 0.7;" : "";
 
     stylesString +=

@@ -3,17 +3,15 @@ import {LogoSvg} from "./LogoStyle";
 
 const Logo = props => (
     <LogoSvg
-        id="logo-svg"
-        viewBox="0 0 256 256"
-        height="256px"
         width="256px"
+        height="256px"
+        viewBox="0 0 256 256"
+        id="logo-svg"
         {...props}
     >
         <g id="layer1">
-            <text
-                id="big-v"
-                y={244.17047}
-                x={29.297054}
+            <g
+                aria-label="v"
                 style={{
                     fontStyle: "normal",
                     fontVariant: "normal",
@@ -30,10 +28,11 @@ const Logo = props => (
                     stroke: "none",
                     strokeWidth: 1.91305315
                 }}
-                xmlSpace="preserve"
+                id="big-v"
             >
-                <title id="title5126">{"Big v"}</title>
-                <tspan
+                <title id="title5131">{"Big v"}</title>
+                <path
+                    d="m 168.93892,40.52612 h 38.20127 l -69.946,186.16397 h -27.6197 L 39.628487,40.52612 h 38.201278 l 45.554575,132.8974 z"
                     style={{
                         fontStyle: "normal",
                         fontVariant: "normal",
@@ -43,17 +42,11 @@ const Logo = props => (
                         InkscapeFontSpecification: "Bahnschrift",
                         strokeWidth: 1.91305315
                     }}
-                    y={244.17047}
-                    x={29.297054}
-                    id="tspan4982"
-                >
-                    {"v"}
-                </tspan>
-            </text>
-            <text
-                id="small-v"
-                y={145.65598}
-                x={78.595612}
+                    id="path5128"
+                />
+            </g>
+            <g
+                aria-label="v"
                 style={{
                     fontStyle: "normal",
                     fontVariant: "normal",
@@ -70,10 +63,11 @@ const Logo = props => (
                     stroke: "none",
                     strokeWidth: 0.90087444
                 }}
-                xmlSpace="preserve"
+                id="small-v"
             >
-                <title id="title5124">{"Small v"}</title>
-                <tspan
+                <title id="title5136">{"Small v"}</title>
+                <path
+                    d="m 145.07593,40.50926 h 17.98933 L 130.12704,128.1756 H 117.12067 L 84.182451,40.50926 h 17.989339 l 21.45207,62.58262 z"
                     style={{
                         fontStyle: "normal",
                         fontVariant: "normal",
@@ -83,33 +77,9 @@ const Logo = props => (
                         InkscapeFontSpecification: "Bahnschrift",
                         strokeWidth: 0.90087444
                     }}
-                    id="tspan4982-3"
-                >
-                    {"v"}
-                </tspan>
-            </text>
-            <path
-                id="top-left"
-                d="M 59.125,52.03263 68.746027,31.61492 77.75,52.03263 Z"
-                style={{
-                    fill: "#000000",
-                    strokeLinecap: "butt",
-                    strokeLinejoin: "miter",
-                }}
-            >
-                <title id="title5120">{"Top left"}</title>
-            </path>
-            <path
-                id="top-right"
-                d="M 175.625,52.03263 185.24603,31.61492 194.25,52.03263 Z"
-                style={{
-                    fill: "#000000",
-                    strokeLinecap: "butt",
-                    strokeLinejoin: "miter",
-                }}
-            >
-                <title id="title5122">{"Top right"}</title>
-            </path>
+                    id="path5133"
+                />
+            </g>
         </g>
     </LogoSvg>
 );
