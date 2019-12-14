@@ -89,7 +89,7 @@ export function areSet(object, properties, fallback = null) {
 export function multiFilter(array, properties, filter = '', nest = false) {
 
     return array.filter(obj => {
-
+        console.log(filter)
         let fobj = nest ? obj[nest] : obj;
         for (let prop of properties) {
             if (fobj[prop].toString().toLowerCase().search(filter.toLowerCase()) !== -1) return true
@@ -137,5 +137,7 @@ export const smoothMove = (toTop = false) => {
     }
     setTimeout(() => document.getElementsByTagName('html')[0].removeAttribute('style'), 150);
 };
+
+
 
 

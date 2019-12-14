@@ -4,7 +4,7 @@ import {THEMES} from "../../constants/Themes";
 /**
  * ----- Animations -----
  */
-export const showFromTop = keyframes`
+const showFromTop = keyframes`
    0% {
         opacity: 0;
         transform: translate(0, -40px);
@@ -19,49 +19,53 @@ export const showFromTop = keyframes`
    }
 `;
 
-export const shakeToBottom = keyframes`
+const shakeToBottom = keyframes`
      0% {
         transform: translate(0, 0);
      }
      50% {
-        transform: translate(0, 10px);
+        transform: translate(0, 20px);
      }
       100% {
         transform: translate(0, 0);
-        fill : ${props => THEMES[props.theme.style].secondary} ;
     }
 `;
 
-export const shakeToTop = keyframes`
-     0% {
-        transform: translate(-5px, 0px);
-     }
-     50% {
-        transform: translate(-5px, -5px);
-     }
-      100% {
-        transform: translate(-5px, 0);
+const grow = keyframes`
+    0% {
+        transform: scale(0.9);
+    }
+    70% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1.0);
     }
 `;
 
 export const LogoSvg = styled.svg`
-  & #big-v{
-    fill:white !important;
-    animation: ${shakeToBottom} 1s ease-in-out forwards;
+    transform: scale(0.9);
+    animation: ${grow} 2s forwards;
     animation-delay: 0.7s;
-  }
-  & #small-v{
-    fill:white !important;
-    animation: ${showFromTop} 0.5s ease-in forwards;
-    animation-delay: 0.3s;
-  }
-  
-  & #top-right, #top-left{
-     fill:white !important;
-     animation: ${shakeToTop} 0.5s ease-in forwards;
-     animation-delay: 1.6s;
-     transform: translate(-5px, 0px);
-  }
- 
+    border-radius:50%;
+    transition: 0.25s;
+    &:hover #big-v{
+      fill:  ${props => THEMES[props.theme.style].secondary} !important;
+      transition: 0.25s;
+    }
+    & #big-v{
+      transition: 0.5s;
+      transform-origin: center center;
+      fill:white !important;
+      animation: ${shakeToBottom} 1s ease-in-out forwards;
+      animation-delay: 0.7s;
+    }
+    & #small-v{
+      opacity: 0;
+      transform-origin: center center;
+      fill:white !important;
+      animation: ${showFromTop} 0.5s ease-in forwards;
+      animation-delay: 0.3s;
+    }
 `;
 

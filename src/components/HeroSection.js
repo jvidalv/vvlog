@@ -13,8 +13,7 @@ export function HeroHome() {
     return (
         <HeroSectionStyled>
             <Logo />
-            {/*<HeroImage src={initials}/>*/}
-            <HeroH1 className="my-3 px-2 extra">
+            <HeroH1 className="text-uppercase my-3 px-2 extra">
                 Fullstack development on point
             </HeroH1>
             <HeroP className="mb-3 px-2">

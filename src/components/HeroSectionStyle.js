@@ -24,7 +24,7 @@ const rotateColors = keyframes`
     }
     50% {
         filter: hue-rotate(360deg);
-    }FF
+    }
 `;
 
 export const HeroImage = styled.img`
@@ -37,9 +37,9 @@ export const HeroImage = styled.img`
 export const HeroH1 = styled.h1`
   color: ${props => THEMES[props.theme.style].primary};
   font-family: Recursive, "Segoe UI", "Helvetica Neue", Helvetica, Roboto, 'Open Sans', FreeSans, sans-serif;
-  font-style: italic;
   font-weight: 300;
-
+  font-size: 3em;
+  
   &.extra {
     color: #fff;
     text-shadow: 0 0 14px rgba(0, 0, 0, 0.28);

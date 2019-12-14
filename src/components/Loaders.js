@@ -1,15 +1,41 @@
-import React from "react";
-import {MainLoaderDiv} from "./LoadersStyle";
-import {useGlobals} from "../contexts/Global";
+import React, {useEffect} from "react";
+import {HomeLoaderDiv, LettersDiv, LoadersWrapperDiv, OtherPagesLoaderDiv} from "./LoadersStyle";
 import {HeroHome} from "./HeroSection";
 import {useLocation} from "react-router";
+import Logo from "../assets/svgs/Logo";
+import {useGlobals} from "../contexts/Global";
 
-export function MainLoader(props) {
+/**
+ * @returns {boolean}
+ */
+const useIsHome = () => {
     const location = useLocation();
+    return location.pathname === "/";
+};
+
+/**
+ * @returns {*}
+ * @constructor
+ */
+export function MainLoader(props) {
 
     return (
-        <MainLoaderDiv>
-            <HeroHome />
-        </MainLoaderDiv>
+        <LoadersWrapperDiv showLoaders={props.showLoaders}>
+            {
+                useIsHome() ?
+                    <HomeLoaderDiv>
+                        <HeroHome/>
+                    </HomeLoaderDiv>
+                    :
+                    <>
+                    {/*<OtherPagesLoaderDiv>*/}
+                    {/*    <div className="d-flex justify-content-center align-items-center flex-column">*/}
+                    {/*        <LettersDiv>vvlog</LettersDiv>*/}
+                    {/*        <Logo/>*/}
+                    {/*    </div>*/}
+                    {/*</OtherPagesLoaderDiv>*/}
+                    </>
+            }
+        </LoadersWrapperDiv>
     )
 }

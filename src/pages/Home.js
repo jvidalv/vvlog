@@ -10,7 +10,6 @@ import {Subscribe} from "../components/MyContents";
 import {useGlobals} from "../contexts/Global";
 import {limiter, multiFilter} from "../helpers/Generics";
 import {MainLoader} from "../components/Loaders";
-import {BrowserRouter as Router} from "react-router-dom";
 
 /**
  *
@@ -39,9 +38,9 @@ const AllArticlesSection = () => {
     return (
         <>
             <H3 className="mb-5 text-center">
-        <span role="img" aria-label="rocket">
-          🚀
-        </span>{" "}
+            <span role="img" aria-label="rocket">
+              🚀
+            </span>{" "}
                 Check them all
             </H3>
             <Row className="px-2">
@@ -65,10 +64,9 @@ const AllArticlesSection = () => {
  * @returns {*}
  * @constructor
  */
-function Home() {
+function Home(props) {
     return (
         <>
-            <MainLoader/>
             <HeroHome/>
             <Container className="pt-4 pb-2">
                 <Row>

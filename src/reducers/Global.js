@@ -10,7 +10,6 @@ import {getNavigatorLanguage} from "../helpers/Translator";
  * @type {{mainLoading: boolean, aArticle: *, theme: (*|string), language: (*|string), categories: {}, articles: *, errors: boolean, authors: *, tags: []}}
  */
 export const initialState = {
-    mainLoading: true,
     theme: loadFromCache('theme', _THEMES[0]),
     language: loadFromCache('language', getNavigatorLanguage()),
     articles: D_ARTICLES,
@@ -19,6 +18,7 @@ export const initialState = {
     tags: [],
     aArticle: D_AARTICLE,
     errors: false,
+    showLoaders :  true,
 };
 
 /**
@@ -28,10 +28,10 @@ export const initialState = {
  */
 export const reducer = (state, action) => {
     switch (action.type) {
-        case "changeMainLoading" :
+        case "setShowLoaders" :
             return {
                 ...state,
-                mainLoading: action.mainLoading
+                showLoaders: action.setShowLoaders
             };
         case "changeTheme":
             return {

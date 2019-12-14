@@ -1,7 +1,7 @@
 import styled, {keyframes} from "styled-components";
 import {THEMES} from "../constants/Themes";
 
-export const fade = keyframes`
+export const fadeToTop = keyframes`
    0% {
         height: 100%;
         opacity: 1;
@@ -13,7 +13,20 @@ export const fade = keyframes`
    }
 `;
 
-export const MainLoaderDiv = styled.div`
+export const fade = keyframes`
+   0% {
+        opacity: 1;
+   }
+   100% {
+        opacity: 0
+   }
+`;
+
+export const LoadersWrapperDiv = styled.div`
+  opacity: ${props => props.showLoaders ? 1 : 0};
+`;
+
+export const HomeLoaderDiv = styled.div`
   padding-top:56px;
   position:absolute;
   top: 0;
@@ -25,6 +38,39 @@ export const MainLoaderDiv = styled.div`
     ${props => THEMES[props.theme.style].header["2"]}
   );
   z-index: 1400;
-  animation: ${fade} 2s ease-in-out forwards;
+  animation: ${fadeToTop} 2s ease-in-out forwards;
+  transition:0.25s;
  `;
+
+export const OtherPagesLoaderDiv = styled.div`
+  padding-top:56px;
+  position:absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden; 
+  z-index: 1400;
+  animation: ${fadeToTop} 1.5s ease-in-out forwards;
+  animation-delay: 2s;
+  background: linear-gradient(
+    to right,
+    ${props => THEMES[props.theme.style].header["1"]},
+    ${props => THEMES[props.theme.style].header["2"]}
+  );
+  transition:0.25s;
+  & > div {
+    margin-top: 150px;
+  }
+  & > * {
+      animation: ${fade} 0.5s ease-in forwards;
+      animation-delay: 2s;
+      overflow-y: hidden; 
+  }
+ `;
+
+export const LettersDiv = styled.div`
+  color: white;
+  font-size: 2em;
+  font-family: Recursive, "Segoe UI", "Helvetica Neue", Helvetica, Roboto, 'Open Sans', FreeSans, sans-serif;
+`;
 

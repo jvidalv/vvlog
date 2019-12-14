@@ -9,8 +9,7 @@ import {ArticleContent, ReadingTopBar, Tags} from "../components/ArticleContents
 import {ArticleSidebar} from "../layouts/Sidebar";
 import {ArticleSnippet} from "../components/ArticleSnippet";
 import {useHistory, useParams} from "react-router";
-import {areSet, limiter} from "../helpers/Generics";
-import {useFilterArticles, useFindArticleInArticles} from "../hooks/useFilterArticles";
+import {areSet, limiter, multiFilter} from "../helpers/Generics";
 import {useGlobals} from "../contexts/Global";
 import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
@@ -18,10 +17,10 @@ import useT from "../helpers/Translator";
 import {D_AARTICLE} from "../constants/Dummy";
 
 /**
+ * Fetches current article
  * @returns {{data: *, loading: *, error: *}}
  */
 const useFetchArticle = () => {
-    const [{language}] = useGlobals();
     const params = useParams();
     const {data, loading, error, setRefetch} = useFetcher(api_calls.articles.one, {slug: params.slug});
     return {data, loading, error, setRefetch}
@@ -51,12 +50,12 @@ const useAArticle = () => {
     }, [data]);
 
     useEffect(() => {
-        if(!aArticle.fake && !loading){
+        if (!aArticle.fake && !loading) {
             if (aArticle.language_id !== language) {
                 history.push("/" + categories[params.category]['code'] + '/' + aArticle.translations[language]);
                 setAArticle(D_AARTICLE);
                 setRefetch(Date());
-            } else if(params.slug !== aArticle.slug) {
+            } else if (params.slug !== aArticle.slug) {
                 setAArticle(D_AARTICLE);
                 setRefetch(Date());
             }
@@ -82,10 +81,9 @@ function Article() {
                     <Col>
                         <HeroSimple
                             title={areSet(aArticle, ['title'], <LoadingPlaceholder width="400px"
-                                                                                                 height="95px"/>)}
-                            overtitle={areSet(aArticle, ['category_id'], <LoadingPlaceholder width="50px"
-                                                                                                        height="25px"/>)}
-                           // urlOvertitle={'/' + (areSet(fArticle, ['category'], '#'))}
+                                                                                   height="95px"/>)}
+                            overtitle={areSet(aArticle, ['category_nice'], <LoadingPlaceholder width="100px" height="35px"/>)}
+                            urlOvertitle={'/' + aArticle.category_code}
                         />
                     </Col>
                 </Row>

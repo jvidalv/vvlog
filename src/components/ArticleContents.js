@@ -12,7 +12,7 @@ import {LoadingPlaceholder} from "../styles/GenericStyles";
 import {useGlobals} from "../contexts/Global";
 
 /**
- * Fixed bar on top that grows as the user scroll
+ * Fixed bar on top that grows as user scroll
  */
 export function ReadingTopBar() {
     const [scroll, setScroll] = useState(0);

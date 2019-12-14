@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useGlobals} from "../contexts/Global";
 import {ThemeProvider} from "styled-components";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
@@ -114,12 +114,31 @@ const useTags = () => {
 };
 
 /**
+ * Controls the diferent loaders effect of the blog
+ * @returns {{showLoaders: *}}
+ */
+const useLoaders = (loading) => {
+    const [showLoaders, setShowLoaders] = useState(true);
+
+    useEffect(() => {
+        if (showLoaders && !loading) {
+          //  setShowLoaders(false);
+        }
+    }, [loading]);
+
+    return {showLoaders, setShowLoaders}
+};
+
+
+/**
  * @returns {*}
  * @constructor
  */
 function Index() {
     const [{theme}] = useGlobals();
-    useArticles();
+    const {loading} = useArticles();
+    const {showLoaders} = useLoaders(loading);
+
     useCategories();
     useAuthors();
     useTags();
@@ -131,7 +150,9 @@ function Index() {
                     <UseScrollToTop/>
                     <Header/>
                     <Switch>
-                        <Route exact path="/" component={Home}/>
+                        <Route exact path="/">
+                            <Home loader={showLoaders}/>
+                        </Route>
                         <Route path="/explore" component={Explore}/>
                         <Route path="/contact" component={Contact}/>
                         <Route path="/about" component={About}/>
@@ -139,6 +160,7 @@ function Index() {
                         <Route path="/:category" component={Category}/>
                     </Switch>
                     <Footer/>
+                    <MainLoader showLoaders={showLoaders}/>
                 </Router>
             </Main>
         </ThemeProvider>

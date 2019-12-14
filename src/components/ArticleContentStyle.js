@@ -47,7 +47,7 @@ export const Content = styled.div`
   }
   & blockquote > p {
     text-align: center;
-    border-left: 4px solid ${props => THEMES.default.primary};
+    border-left: 4px solid ${THEMES.default.primary};
     background: ${props => THEMES[props.theme.style].infoBox};
     font-size: 1.2rem !important;
     position: relative;
@@ -60,6 +60,8 @@ export const Content = styled.div`
   }
   & pre {
     background: #181C22 !important;
+    box-shadow: 5px 5px 10px 2px #00000029;
+    margin: 1.5em 0 !important;
   }
   & > p:first-child {
     border-left: 4px solid ${props => THEMES[props.theme.style].primary};
