@@ -49,6 +49,10 @@ const useAArticle = () => {
         }
     }, [data]);
 
+    /**
+     * Here we control the switches between language and back and forth, so the data always stays veridic
+     * with the current language and current slug
+     */
     useEffect(() => {
         if (!aArticle.fake && !loading) {
             if (aArticle.language_id !== language) {
@@ -63,6 +67,31 @@ const useAArticle = () => {
     }, [language, history.location]);
 
     return {data, loading}
+};
+
+/**
+ * Fetches related articles
+ * @returns {{data: *, loading: *, error: *}}
+ */
+const useFetchRelatedArticles = () => {
+    const [{aArticle}] = useGlobals();
+    const {data, loading, error, setRefetch} = useFetcher(api_calls.articles.related, {id: aArticle.id, limit : 3, category_id : aArticle.category_id});
+    return {related : data, loading, error, setRelated : setRefetch}
+};
+
+/**
+ * Sets active article
+ * @returns {{aArticle: *}}
+ */
+const useRelatedArticles = () => {
+    const [{aArticle, language, categories}, dispatch] = useGlobals();
+    const {related, loading, error, setRelated} = useFetchRelatedArticles();
+
+    useEffect(() => {
+
+    }, [aArticle]);
+
+    return {related}
 };
 
 /**

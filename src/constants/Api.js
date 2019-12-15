@@ -12,6 +12,7 @@ const api_calls = {
     articles: {
         all: `${BASE_PATH}article/all`,
         one: `${BASE_PATH}article/one`,
+        related: `${BASE_PATH}article/related`,
     },
     categories: {
         all: `${BASE_PATH}category/all`,
