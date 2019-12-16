@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "730be28992718e099b8cbbf77abf49c3",
+    "revision": "a0783d4caf0c37c620fc1a47d8eed571",
     "url": "/vvlog/index.html"
   },
   {
-    "revision": "0b320041fa2c541f5d80",
+    "revision": "36df573c31316019a8a5",
     "url": "/vvlog/static/css/2.85244a98.chunk.css"
   },
   {
-    "revision": "51fa73c2aa6ced910e58",
+    "revision": "65d3d46d56818bf361df",
     "url": "/vvlog/static/css/main.39f91c47.chunk.css"
   },
   {
-    "revision": "0b320041fa2c541f5d80",
-    "url": "/vvlog/static/js/2.1455d5a0.chunk.js"
+    "revision": "36df573c31316019a8a5",
+    "url": "/vvlog/static/js/2.154b7de3.chunk.js"
   },
   {
     "revision": "953e12b376508e384bbb764a199bd423",
-    "url": "/vvlog/static/js/2.1455d5a0.chunk.js.LICENSE"
+    "url": "/vvlog/static/js/2.154b7de3.chunk.js.LICENSE"
   },
   {
-    "revision": "51fa73c2aa6ced910e58",
-    "url": "/vvlog/static/js/main.8c0ebc6b.chunk.js"
+    "revision": "65d3d46d56818bf361df",
+    "url": "/vvlog/static/js/main.355ad5b9.chunk.js"
   },
   {
     "revision": "9ac50c03efb2c24ef8c1",
