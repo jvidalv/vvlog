@@ -1,9 +1,10 @@
-import {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {urlBuilder} from "../helpers/Generics";
+import {useAppError} from "./useAppError";
+import {useHistory} from "react-router";
 
 /**
  * Main fetcher
- *
  * @param url
  * @param params *expects an object
  * @returns {{data: *, loading: *, error: *}}
@@ -23,9 +24,14 @@ export const useFetcher = (url, params) => {
                 if (res.ok) {
                     return res.json();
                 }
-                throw "Error with the api"
+                throw "Error fetching data"
             })
-            .then(res => setData(res))
+            .then(res => {
+                if(res){
+                    return setData(res)
+                }
+                throw "Error fetching data"
+            })
             .then(() => {
                 setLoading(false);
             })
@@ -37,4 +43,5 @@ export const useFetcher = (url, params) => {
     }, [refetch]);
 
     return {data, loading, error, setRefetch}
-}
+};
+

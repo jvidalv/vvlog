@@ -3,18 +3,31 @@ import {Col, Container, Row} from "react-bootstrap";
 
 import {HeroSimple} from "../components/HeroSection";
 import {useGlobals} from "../contexts/Global";
+import useT from "../helpers/Translator";
+import {P} from "../styles/GenericStyles";
 
-function Error(props) {
-    const [{errors, language}] = useGlobals();
+/**
+ * @returns {*}
+ * @constructor
+ */
+function Error() {
+    const [{error}] = useGlobals();
     return (
         <>
-            <Container className="pt-5 text-center">
+            <Container className="d-flex flex-column justify-content-center align-items-center pt-5 text-center" style={{minHeight: "500px"}}>
                 <Row>
                     <Col>
                         <HeroSimple
-                            title="Something went wrong!"
-                            subtitle={errors}
+                            title={error.code}
+                            subtitle={useT(error.message)}
                         />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <P>
+                            {useT(error.description)}
+                        </P>
                     </Col>
                 </Row>
             </Container>

@@ -13,6 +13,8 @@ import Explore from "./Explore";
 import Contact from "./Contact";
 import About from "./About";
 import Article from "./Article";
+import Error from "./Error";
+
 import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
 import {MainLoader} from "../components/Loaders";
@@ -156,6 +158,7 @@ function Index() {
                         <Route path="/explore" component={Explore}/>
                         <Route path="/contact" component={Contact}/>
                         <Route path="/about" component={About}/>
+                        <Route path="/error" component={Error}/>
                         <Route path="/:category/:slug" component={Article}/>
                         <Route path="/:category" component={Category}/>
                     </Switch>

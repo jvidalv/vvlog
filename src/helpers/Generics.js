@@ -22,9 +22,7 @@ export function urlBuilder(url, params) {
  */
 export function limiter(array, limit, numToSkip) {
     let bs = 0;
-
     if (numToSkip) array = skipper(array, numToSkip);
-
     return array.filter(() => {
         bs++;
         return bs <= limit;
@@ -67,7 +65,6 @@ export function reindexer(array, index) {
  * @returns {*}
  */
 export function areSet(object, properties, fallback = null) {
-
     if (!object.hasOwnProperty(properties[0])) return fallback;
     else if (properties.length > 1) {
         let n = object[properties[0]];
@@ -89,7 +86,6 @@ export function areSet(object, properties, fallback = null) {
 export function multiFilter(array, properties, filter = '', nest = false) {
 
     return array.filter(obj => {
-        console.log(filter)
         let fobj = nest ? obj[nest] : obj;
         for (let prop of properties) {
             if (fobj[prop].toString().toLowerCase().search(filter.toLowerCase()) !== -1) return true

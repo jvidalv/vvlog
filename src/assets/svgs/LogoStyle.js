@@ -18,6 +18,15 @@ const showFromTop = keyframes`
         transform: translate(0, 0);
    }
 `;
+const toTop = keyframes`
+   from {
+       transform: translateY(0) ;
+   }
+   to {
+       transform: translateY(-0.5em);
+       fill: red !important;
+   }
+`;
 
 const shakeToBottom = keyframes`
      0% {
@@ -31,41 +40,70 @@ const shakeToBottom = keyframes`
     }
 `;
 
-const grow = keyframes`
-    0% {
-        transform: scale(0.9);
+const shrink = keyframes`
+    from {
+        transform: scale(1.5);
     }
-    70% {
-        transform: scale(1.1);
-    }
-    100% {
+    to {
         transform: scale(1.0);
     }
 `;
 
+const grow = keyframes`
+     from {
+       transform: scale(1);
+     }
+     to {
+        transform: scale(1.1);
+      }
+`;
+
 export const LogoSvg = styled.svg`
-    transform: scale(0.9);
-    animation: ${grow} 2s forwards;
-    animation-delay: 0.7s;
-    border-radius:50%;
+    transform: scale(1.5);
+    animation: ${shrink} 0.8s ease-in-out forwards;
     transition: 0.25s;
-    &:hover #big-v{
-      fill:  ${props => THEMES[props.theme.style].secondary} !important;
-      transition: 0.25s;
-    }
     & #big-v{
       transition: 0.5s;
       transform-origin: center center;
       fill:white !important;
-      animation: ${shakeToBottom} 1s ease-in-out forwards;
-      animation-delay: 0.7s;
     }
     & #small-v{
-      opacity: 0;
       transform-origin: center center;
       fill:white !important;
-      animation: ${showFromTop} 0.5s ease-in forwards;
-      animation-delay: 0.3s;
+      animation: ${toTop} 0.5s forwards;
+      animation-delay: 0.81s;
     }
+    &:hover #big-v{
+    }
+    &:hover #small-v{
+    }
+`;
+
+export const HeaderLogoSvg = styled.svg`
+  background: ${props => THEMES[props.theme.style].header[2]} !important;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 3px #00000040;
+  transition: 0.25s;
+  left: 25px;
+  margin-top:-10px;
+  & > g {
+    transform: scale(0.23)
+  }   
+  & > *{
+    fill : ${props => THEMES[props.theme.style].onPrimary2} !important;
+  }
+  &:hover {
+    transform: translateY(-0.5em) rotate(-2deg) scale(1.15);
+  }
+  &:hover > * {
+    fill : ${props => THEMES[props.theme.style].primary} !important;
+  }
+  &:hover #small-v-header {
+    transform: translateY(-1.5em);
+  }
+  @media (max-width: 700px) {
+    left: 15px;
+  }
 `;
 

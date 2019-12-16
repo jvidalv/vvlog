@@ -14,6 +14,8 @@ import {useHistory, withRouter} from "react-router-dom";
 
 import logo from "../assets/images/logo-app.png";
 import useT from "../helpers/Translator";
+import {HeaderLogoSvg} from "../assets/svgs/LogoStyle";
+import {HeaderLogo} from "../assets/svgs/Logo";
 
 /**
  * Returns true if we are in homepage
@@ -149,7 +151,7 @@ export function Header(props) {
                 data-toggle="collapse"
                 data-target="#navbarMobile"
             >
-                <Logo src={logo}/>
+                <HeaderLogo />
             </LinkStyled>
             <ThemeSwitcher
                 changeTheme={changeTheme}

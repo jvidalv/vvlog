@@ -1,6 +1,6 @@
 import React from "react";
-import {checkValue, loadFromCache, reindexer} from "../helpers/Generics";
-import {D_AARTICLE, D_ARTICLES, D_AUTHORS} from "../constants/Dummy";
+import {checkValue, limiter, loadFromCache, reindexer} from "../helpers/Generics";
+import {D_AARTICLE, D_ARTICLES, D_AUTHORS, D_ERROR} from "../constants/Dummy";
 import {_LANGUAGES} from "../constants/Dictionary";
 import {_THEMES} from "../constants/Themes";
 import {getNavigatorLanguage} from "../helpers/Translator";
@@ -17,8 +17,8 @@ export const initialState = {
     authors: D_AUTHORS,
     tags: [],
     aArticle: D_AARTICLE,
-    errors: false,
-    showLoaders :  true,
+    relatedArticles: limiter(D_ARTICLES, 4),
+    error: D_ERROR,
 };
 
 /**
@@ -28,11 +28,6 @@ export const initialState = {
  */
 export const reducer = (state, action) => {
     switch (action.type) {
-        case "setShowLoaders" :
-            return {
-                ...state,
-                showLoaders: action.setShowLoaders
-            };
         case "changeTheme":
             return {
                 ...state,
@@ -46,6 +41,11 @@ export const reducer = (state, action) => {
                 language: checkValue(action.changeLanguage, _LANGUAGES)
                     ? loadFromCache('language', action.changeLanguage, true)
                     : _LANGUAGES[0]
+            };
+        case "setError":
+            return {
+                ...state,
+                error: action.setError,
             };
         case "setArticles":
             return {
@@ -74,10 +74,10 @@ export const reducer = (state, action) => {
                 aArticle: action.setActiveArticle,
                 language
             };
-        case "setErrors":
+        case "setRelatedArticles":
             return {
                 ...state,
-                errors: action.setErrors
+                relatedArticles: action.setRelatedArticles,
             };
         default:
             return state;

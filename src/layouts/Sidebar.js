@@ -76,7 +76,7 @@ function MoreOfMe(props) {
 
 
 /**
- *
+ * Article sidebar
  * @returns {*}
  * @constructor
  */
@@ -105,7 +105,9 @@ export const ArticleSidebar = () => {
             </aside>
             <aside className="is-sticky d-sm-none d-lg-block">
                 {
-                    aArticle && aArticle.hasOwnProperty('anchors') ? <Element content={<Anchors/>} icon="💬"/> :
+                    aArticle && aArticle.hasOwnProperty('anchors') ?
+                        aArticle.anchors.length ? <Element content={<Anchors/>} icon="💬"/> : null
+                        :
                         <LoadingPlaceholder width="100%" height="250px"/>
                 }
             </aside>

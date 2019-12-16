@@ -1,6 +1,8 @@
 /**
  * DUMMY DATA USED WHILE REAL DATA LOADS
  */
+import useT from "../helpers/Translator";
+
 export const D_ARTICLES =
     [{id: 1, featured: 1, fake: true}, {id: 2, featured: 1, fake: true}, {id: 3, featured: 1, fake: true}, {
         id: 4,
@@ -28,3 +30,5 @@ export const D_AUTHORS = [
 ];
 
 export const D_AARTICLE = {time_to_read: 'X', date_nice: 'Feb. 30 ' + new Date().getFullYear(), fake: true};
+
+export const D_ERROR = {code : 200, message : 'nothing_is_wrong', description : 'why_would_you_come_here'};

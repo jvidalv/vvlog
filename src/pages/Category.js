@@ -5,16 +5,38 @@ import {ArticleSnippetWithImage} from "../components/ArticleSnippet";
 import Sidebar from "../layouts/Sidebar";
 import {HeroSimple} from "../components/HeroSection";
 import {useGlobals} from "../contexts/Global";
-import {useParams} from "react-router";
+import {useHistory, useParams} from "react-router";
 import {areSet} from "../helpers/Generics";
 import {LoadingPlaceholder} from "../styles/GenericStyles";
 import {useFilterArticles} from "../hooks/useFilterArticles";
 
+const useCategory = () => {
+    const [{error}, dispatch] = useGlobals();
+    const history = useHistory();
+    const params = useParams();
+    const [fArticles] = useFilterArticles(['category'], params.category);
+
+    const setError = (error) => {
+        dispatch({
+            type: "setError",
+            setError: error
+        });
+    };
+
+    React.useEffect(() => {
+        if (fArticles && !fArticles.length) {
+            setError({code : 404, message : 'category_does_not_exist', description : 'category_does_not_exist_or_it_is_no_longer_public'});
+            history.push("/error");
+        }
+    }, [fArticles]);
+
+    return {fArticles}
+}
 
 function Category() {
     const [{categories, language}] = useGlobals();
     const params = useParams();
-    const [fArticles] = useFilterArticles(['category'], params.category);
+    const {fArticles} = useCategory();
 
     return (
         <>
