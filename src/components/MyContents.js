@@ -15,6 +15,11 @@ import {Form} from "react-bootstrap";
 import {IconA, ShareA, SharerStyled} from "./MyContentsStyle";
 import {ButtonStyled, H3, InputStyled} from "../styles/GenericStyles";
 
+/**
+ * @param props
+ * @returns {*}
+ * @constructor
+ */
 export const Network = props => {
     const {url, title, icon} = props;
     return (
@@ -27,6 +32,9 @@ export const Network = props => {
 /**
  * Returns an inline element with all my social networks
  * Ready to use everywhere as it contains until the container component
+ * @param props
+ * @returns {*}
+ * @constructor
  */
 export function MyNetworks(props) {
     const {className} = props;
@@ -66,6 +74,11 @@ export function MyNetworks(props) {
     );
 }
 
+/**
+ * @param props
+ * @returns {*}
+ * @constructor
+ */
 const ShareOption = props => {
     const {url, title, icon, iconColor, className} = props;
     return (
@@ -81,6 +94,11 @@ const ShareOption = props => {
     );
 };
 
+/**
+ * @param props
+ * @returns {*}
+ * @constructor
+ */
 export function Sharer(props) {
     const {title} = props;
     let location = window.location.href;
@@ -132,16 +150,17 @@ export function Sharer(props) {
 }
 
 /**
- *
- * @param {*} props
+ * @param props
+ * @returns {*}
+ * @constructor
  */
 export function Subscribe(props) {
     return (
         <>
             <H3>
-        <span role="img" aria-label="train">
-          🚇
-        </span>{" "}
+                <span role="img" aria-label="train">
+                  🚇
+                </span>
                 Subscribe and stay in touch
             </H3>
             <Form className="my-4">

@@ -6,13 +6,13 @@ export const HeroSectionStyled = styled.div`
   padding-top: 2em;
   background: linear-gradient(
     to right,
-    ${props => THEMES[props.theme.style].header["1"]},
-    ${props => THEMES[props.theme.style].header["2"]}
+    ${props => THEMES[props.theme.style].header.left},
+    ${props => THEMES[props.theme.style].header.right}
   );
   margin-bottom: 1em;
   padding-bottom: 6.5em;
-  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 65%, 50% 100%, 0 65%, 0 0);
-  clip-path: polygon(50% 0%, 100% 0, 100% 65%, 50% 100%, 0 65%, 0 0);
+  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 85%, 50% 100%, 0 85%, 0 0);
+  clip-path: polygon(50% 0%,100% 0,100% 85%,50% 100%,0 85%,0 0);
   @media (max-width: 600px) {
     padding-bottom: 9.5em;
   }
@@ -39,7 +39,6 @@ export const HeroH1 = styled.h1`
   font-family: Recursive, "Segoe UI", "Helvetica Neue", Helvetica, Roboto, 'Open Sans', FreeSans, sans-serif;
   font-weight: 300;
   font-size: 3em;
-  
   &.extra {
     color: #fff;
     text-shadow: 0 0 14px rgba(0, 0, 0, 0.28);

@@ -16,7 +16,6 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
   color: ${props => THEMES[props.theme.style].primary};
   font-weight: 300;
-
   ${props => fontsDefaults(props)}
   &.separator {
     display: flex;
@@ -50,14 +49,12 @@ export const H3 = styled.h3`
 export const H4 = styled.h4`
   color: ${props => THEMES[props.theme.style].primary};
   font-weight: 300;
-
   ${props => fontsDefaults(props)}
 `;
 
 export const H5 = styled.h5`
   color: ${props => THEMES[props.theme.style].secondary};
   font-weight: 300;
-
   ${props => fontsDefaults(props)}
 `;
 
@@ -65,7 +62,7 @@ export const P = styled.p`
   color: ${props => THEMES[props.theme.style].onSurface};
   font-weight: 300;
   ${props => fontsDefaults(props)}
-  ${props => borderLeft(props)}
+  ${props => props.borderLeft ? borderLeft(props) : null}
   ${props => ("big" in props ? "font-size:1.3rem" : "")}
   &.on-background {
     color: ${props => THEMES[props.theme.style].onBackground};
@@ -83,13 +80,31 @@ export const A = styled.a`
     color: ${props => props.hasOwnProperty('color') ? props.color : THEMES[props.theme.style].secondary};
   }
   &::after {
-    ${props => afterBottomBar(props)}
+    ${
+      props => 
+        props.bottomBar ? 
+          `
+          width: 2.5rem;
+          height: 2px;
+          background: ${THEMES[props.theme.style].secondary};
+          content: '  ';
+          display: block;
+          margin: 0px auto;
+          position: relative;
+          top: 1rem;
+          ` : ``
+    }
   }
 `;
 
 export const S = styled.strong`
   color: ${props => THEMES[props.theme.style].onSurface};
   ${props => fontsDefaults(props)}
+`;
+
+export const HR = styled.hr`
+    border-top: 10px dashed ${ props => props.borderColor ?? THEMES[props.theme.style].secondary };
+    padding-top: 40px;
 `;
 
 /**
@@ -118,7 +133,7 @@ export const CardStyled = styled(Card)`
     border-radius: 50%;
     align-items: center;
     top: -0.8rem;
-    box-shadow: 0px 0px 10px rgba(67, 38, 100, 0.15);
+    box-shadow: 0 0 10px rgba(67, 38, 100, 0.15);
   }
 `;
 
@@ -142,7 +157,7 @@ export const SidebarElement = styled(Card)`
     align-items: center;
     top: -0.8rem;
     transition: 1s;
-    box-shadow: 0px 0px 10px rgba(67, 38, 100, 0.15);
+    box-shadow: 0 0 10px rgba(67, 38, 100, 0.15);
   }
 `;
 
@@ -152,8 +167,8 @@ export const SidebarElement = styled(Card)`
 
 export const ButtonStyled = styled(Button)`
   transition: 0.5s;
-  color: ${props => THEMES[props.theme.style].primary};
-  background: ${props => THEMES[props.theme.style].surface.level1};
+  color: ${props => props.color ? THEMES[props.theme.style][props.color] : THEMES[props.theme.style].primary};
+  background: ${props => props.background ? THEMES[props.theme.style][props.background] : THEMES[props.theme.style].surface.level1};
   letter-spacing: 1px;
   box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15) !important;
   border: none;
@@ -161,7 +176,8 @@ export const ButtonStyled = styled(Button)`
   padding: 10px 20px;
   &:hover {
     transform: translateY(-10px);
-    background: ${props => THEMES[props.theme.style].surface.level3};
+    background: ${props => THEMES[props.theme.style].secondary2};
+    color : ${props => THEMES[props.theme.style].onSecondary2};
   }
   &:focus {
     background: ${props => THEMES[props.theme.style].surface.level3} !important;
@@ -171,12 +187,6 @@ export const ButtonStyled = styled(Button)`
     border-color: #ffffff00 !important;
     background: ${props => THEMES[props.theme.style].surface.level3} !important;
   }
-  ${props =>
-    "background" in props
-        ? "background: " + THEMES[props.theme.style][props.background]
-        : ""};
-  ${props =>
-    "color" in props ? "color: " + THEMES[props.theme.style][props.color] : ""};
 `;
 
 export const InputStyled = styled(Form.Control)`
@@ -184,6 +194,7 @@ export const InputStyled = styled(Form.Control)`
   border: 2px solid ${props => THEMES[props.theme.style].secondary};
   background: ${props => THEMES[props.theme.style].surface.level1};
   color: ${props => THEMES[props.theme.style].onSurface};
+  font-size : ${props => props.big ? '1.6rem' : 'inherit'};
   &.pulse {
     box-shadow: 0 0 0 0 ${props => THEMES[props.theme.style].secondary};
     transform: scale(1);
@@ -196,10 +207,10 @@ export const InputStyled = styled(Form.Control)`
     box-shadow: none;
     background: ${props => THEMES[props.theme.style].surface.level2};
   }
-  ${props => ("big" in props ? "font-size: 1.6rem" : "")};
 `;
 
 export const DiagonalContainer = styled(Container)`
+  min-height: 250px;
   padding-bottom: 50px;
   background: linear-gradient(
     to bottom,
@@ -210,6 +221,9 @@ export const DiagonalContainer = styled(Container)`
   & > * {
     transform: skewY(-6deg);
   }
+  @media (max-width: 650px) {
+      min-height: 250px;
+    }
 `;
 
 export const FormStyled = styled(Form)`
@@ -235,7 +249,7 @@ export const FormStyled = styled(Form)`
 `;
 
 export const LoadingPlaceholder = styled.div`
-   background: linear-gradient(90deg,  ${props => THEMES[props.theme.style].header[2]} , ${props => THEMES[props.theme.style].surface.level1}, ${props => THEMES[props.theme.style].surface.level2}, ${props => THEMES[props.theme.style].surface.level3}, ${props => THEMES[props.theme.style].header[2]});
+   background: linear-gradient(90deg,  ${props => THEMES[props.theme.style].header.right} , ${props => THEMES[props.theme.style].surface.level1}, ${props => THEMES[props.theme.style].surface.level2}, ${props => THEMES[props.theme.style].surface.level3}, ${props => THEMES[props.theme.style].header.right});
    background-size: 300% 300%;
    animation: ${gradient} 5s ease-in-out infinite;
    width: ${props => props.width ? props.width : '150px'};
@@ -258,7 +272,7 @@ export const Me = styled.div`
   transition: 0.5s;
   & > img {
     transform: scale(1.1);
-    box-shadow: 5px 5px 0px ${props => THEMES[props.theme.style].secondary};
+    box-shadow: 5px 5px 0 ${props => THEMES[props.theme.style].secondary};
     @media (max-width: 650px) {
       transform: scale(1);
     }

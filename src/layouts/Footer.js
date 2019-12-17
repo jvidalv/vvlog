@@ -16,12 +16,15 @@ const ButtonToTop = props => {
             onClick={() => smoothMove(true)}
             className={props.className}
         >
-            {" "}
-            ↑{" "}
+            <span>↑</span>
         </FloatingButton>
     );
 };
 
+/**
+ * @returns {*}
+ * @constructor
+ */
 function Footer() {
     const [showToTop, setShowToTop] = useState(false);
 

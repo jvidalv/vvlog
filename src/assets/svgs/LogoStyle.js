@@ -4,20 +4,7 @@ import {THEMES} from "../../constants/Themes";
 /**
  * ----- Animations -----
  */
-const showFromTop = keyframes`
-   0% {
-        opacity: 0;
-        transform: translate(0, -40px);
-   }
-   70% {
-        opacity: 1; 
-        transform: translate(0, 10px);
-   }
-   100% {
-        opacity: 1; 
-        transform: translate(0, 0);
-   }
-`;
+
 const toTop = keyframes`
    from {
        transform: translateY(0) ;
@@ -28,17 +15,6 @@ const toTop = keyframes`
    }
 `;
 
-const shakeToBottom = keyframes`
-     0% {
-        transform: translate(0, 0);
-     }
-     50% {
-        transform: translate(0, 20px);
-     }
-      100% {
-        transform: translate(0, 0);
-    }
-`;
 
 const shrink = keyframes`
     from {
@@ -49,14 +25,6 @@ const shrink = keyframes`
     }
 `;
 
-const grow = keyframes`
-     from {
-       transform: scale(1);
-     }
-     to {
-        transform: scale(1.1);
-      }
-`;
 
 export const LogoSvg = styled.svg`
     transform: scale(1.5);
@@ -80,7 +48,7 @@ export const LogoSvg = styled.svg`
 `;
 
 export const HeaderLogoSvg = styled.svg`
-  background: ${props => THEMES[props.theme.style].header[2]} !important;
+  background: ${props => THEMES[props.theme.style].header.right} !important;
   position: absolute;
   border-radius: 10px;
   box-shadow: 0 0 10px 3px #00000040;
@@ -91,13 +59,13 @@ export const HeaderLogoSvg = styled.svg`
     transform: scale(0.23)
   }   
   & > *{
-    fill : ${props => THEMES[props.theme.style].onPrimary2} !important;
+    fill : white !important;
   }
   &:hover {
     transform: translateY(-0.5em) rotate(-2deg) scale(1.15);
   }
   &:hover > * {
-    fill : ${props => THEMES[props.theme.style].primary} !important;
+    fill : ${props => THEMES[props.theme.style].secondary2} !important;
   }
   &:hover #small-v-header {
     transform: translateY(-1.5em);

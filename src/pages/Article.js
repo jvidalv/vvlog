@@ -3,19 +3,18 @@ import {Col, Container, Row} from "react-bootstrap";
 
 import {HeroSimple} from "../components/HeroSection";
 import {Sharer, Subscribe} from "../components/MyContents";
-import {DiagonalContainer, LoadingPlaceholder} from "../styles/GenericStyles";
+import {DiagonalContainer, H3, HR, LoadingPlaceholder} from "../styles/GenericStyles";
 import {AuthorWithImage, AuthorWithImageExtended} from "../components/AuthorSection";
 import {ArticleContent, ReadingTopBar, Tags} from "../components/ArticleContents";
 import {ArticleSidebar} from "../layouts/Sidebar";
 import {ArticleSnippet} from "../components/ArticleSnippet";
 import {useHistory, useParams} from "react-router";
-import {areSet, limiter} from "../helpers/Generics";
+import {areSet} from "../helpers/Generics";
 import {useGlobals} from "../contexts/Global";
 import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
 import useT from "../helpers/Translator";
 import {D_AARTICLE} from "../constants/Dummy";
-import {useAppError} from "../hooks/useAppError";
 
 /**
  * Fetches current article
@@ -145,19 +144,26 @@ function Article() {
                                         content={data && data.hasOwnProperty('content') ? data.content : ''}/>
                         <Tags/>
                         <AuthorWithImageExtended/>
-                        <Sharer className="my-5 text-center justify-content-center"/>
                     </Col>
                     <Col>
                         <ArticleSidebar/>
                     </Col>
                 </Row>
             </Container>
-            <DiagonalContainer>
+            <Container>
                 <Row>
-                    <Col className="text-center">
-                        <HeroSimple title={useT('more_of_vvlog', ['👀'])}/>
+                    <Col>
+                        <Sharer className="my-4 text-center justify-content-center"/>
                     </Col>
                 </Row>
+                <Row>
+                    <Col className="text-center">
+                        <HR />
+                        <H3> {useT('more_of_vvlog', ['👀'])} </H3>
+                    </Col>
+                </Row>
+            </Container>
+            <DiagonalContainer>
                 <Row className="my-5">
                     {relatedArticles.map(snippet => (
                         <Col key={snippet.id} className="d-flex px-1" sm={6} md={6}>

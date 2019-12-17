@@ -34,8 +34,8 @@ export const HomeLoaderDiv = styled.div`
   height: 100%;
   background: linear-gradient(
     to right,
-    ${props => THEMES[props.theme.style].header["1"]},
-    ${props => THEMES[props.theme.style].header["2"]}
+    ${props => THEMES[props.theme.style].header.left},
+    ${props => THEMES[props.theme.style].header.right}
   );
   z-index: 1400;
   animation: ${fadeToTop} 2s ease-in-out forwards;
@@ -54,8 +54,8 @@ export const OtherPagesLoaderDiv = styled.div`
   animation-delay: 2s;
   background: linear-gradient(
     to right,
-    ${props => THEMES[props.theme.style].header["1"]},
-    ${props => THEMES[props.theme.style].header["2"]}
+    ${props => THEMES[props.theme.style].header.left},
+    ${props => THEMES[props.theme.style].header.right}
   );
   transition:0.25s;
   & > div {

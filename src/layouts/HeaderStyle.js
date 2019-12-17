@@ -48,8 +48,8 @@ export const NavStyled = styled(Navbar)`
   ${props => props.shadow ? "box-shadow: 0 2px 20px 0 #0000005c" : ""};
   background: linear-gradient(
     to right,
-    ${props => THEMES[props.theme.style].header["1"]},
-    ${props => THEMES[props.theme.style].header["2"]}
+    ${props => THEMES[props.theme.style].header.left},
+    ${props => THEMES[props.theme.style].header.right}
   );
   
 `;

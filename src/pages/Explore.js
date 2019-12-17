@@ -10,6 +10,7 @@ import useT from "../helpers/Translator";
 import {useGlobals} from "../contexts/Global";
 import {limiter} from "../helpers/Generics";
 import {useFilterArticles} from "../hooks/useFilterArticles";
+import {EmptyList} from "../components/Others";
 
 function Explore() {
     const [{language}] = useGlobals();
@@ -42,7 +43,7 @@ function Explore() {
                     </Col>
                 </Row>
             </Container>
-            <DiagonalContainer>
+            <DiagonalContainer minHeight="500px">
                 <Row className="px-2">
                     {fArticles && fArticles.length ? (
                         limiter(fArticles, 12).map(snippet => (
@@ -57,7 +58,7 @@ function Explore() {
                                     />
                                 </Col>
                             </>
-                        ))) : <Col sm={12}><ArticleSnippet title="" category="" q={q}/></Col>}
+                        ))) : <Col lg={12}><EmptyList /></Col>}
                 </Row>
             </DiagonalContainer>
         </>

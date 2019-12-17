@@ -23,6 +23,9 @@ export const FloatingButton = styled.div`
   &:hover {
     opacity: 1;
   }
+  &:hover > span {
+    transform: translateY(-0.5rem) ;
+  }
   &.active {
     opacity: 0.6;
     transform: translateY(0);

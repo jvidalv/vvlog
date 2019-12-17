@@ -47,7 +47,7 @@ export const Content = styled.div`
   }
   & blockquote > p {
     text-align: center;
-    border-left: 4px solid ${THEMES.default.primary};
+    border-left: 4px solid ${props => THEMES[props.theme.style].primary};
     background: ${props => THEMES[props.theme.style].infoBox};
     font-size: 1.2rem !important;
     position: relative;
@@ -55,13 +55,15 @@ export const Content = styled.div`
     padding: 0.8em 1em;
   }
   & img {
-      background: ${props => THEMES[props.theme.style].infoBox};
-     
+      background: ${props => THEMES[props.theme.style].surface.level3};
   }
   & pre {
     background: #181C22 !important;
     box-shadow: 5px 5px 10px 2px #00000029;
     margin: 1.5em 0 !important;
+    @media (max-width: 2049px) and (min-width: 1550px){
+       margin-left: -5rem !important;
+    }
   }
   & > p:first-child {
     border-left: 4px solid ${props => THEMES[props.theme.style].primary};
@@ -110,7 +112,7 @@ export const TagContainer = styled.div`
   > a {
     padding: 5px 10px;
     border-radius: 3px;
-    background: ${props => THEMES[props.theme.style].infoBox};
+    background: ${props => THEMES[props.theme.style].surface.level3};
     margin-right: 5px;
     color: ${props => THEMES[props.theme.style].onSurface};
   }

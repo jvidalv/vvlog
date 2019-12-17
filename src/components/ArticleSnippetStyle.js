@@ -69,7 +69,7 @@ export const SnippetContainer = styled.div`
     flex-grow: 1;
     pointer-events: none;
     & h5, .image-snippet, h3, p {
-        background: linear-gradient(90deg,  ${props => THEMES[props.theme.style].header[2]} , ${props => THEMES[props.theme.style].surface.level1}, ${props => THEMES[props.theme.style].surface.level2}, ${props => THEMES[props.theme.style].surface.level3}, ${props => THEMES[props.theme.style].header[2]});
+        background: linear-gradient(90deg,  ${props => THEMES[props.theme.style].header.right} , ${props => THEMES[props.theme.style].surface.level1}, ${props => THEMES[props.theme.style].surface.level2}, ${props => THEMES[props.theme.style].surface.level3}, ${props => THEMES[props.theme.style].header.right});
         background-size: 300% 300%;
         animation: ${gradient} 5s ease-in-out infinite;
     }
@@ -78,7 +78,7 @@ export const SnippetContainer = styled.div`
         height:25px;
     }
     & h3 {
-      width: 315px;
+      width: 200px;
       height: 50px;
       @media (max-width: 500px) {
        width: 250px;

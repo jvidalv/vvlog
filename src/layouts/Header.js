@@ -77,9 +77,9 @@ function Searcher(props) {
 const ThemeSwitcher = props => {
     return (
         <Nav className={props.className}>
-            <Nav.Link className="text-white" href="#home" onClick={props.changeTheme}>
+            <span className="cursor-pointer text-white px-2" onClick={props.changeTheme}>
                 {props.theme === "dark" ? "🌓" : "🌗"}
-            </Nav.Link>
+            </span>
         </Nav>
     );
 };

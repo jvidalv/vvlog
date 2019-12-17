@@ -6,6 +6,10 @@ import "./styles/#generic.css";
 
 import Index from "./pages/Index";
 
+/**
+ * @returns {*}
+ * @constructor
+ */
 function App() {
     return (
         <StateProvider initialState={initialState} reducer={reducer}>
