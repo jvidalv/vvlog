@@ -2,9 +2,11 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
 }
+
 body * {
     transition: 0.75s;
 }
+
 img,
 svg {
     height: auto;
@@ -13,27 +15,33 @@ svg {
     vertical-align: middle;
     border: 0;
 }
+
 a:hover {
     text-decoration: none;
 }
+
 /** Custom CSS */
 .highlight {
     background: #e0b0343b;
     border: 1px solid;
     border-radius: 5px;
 }
+
 .is-sticky {
     position: -webkit-sticky;
     position: sticky;
     top: 20px;
 }
+
 /** Helpers  */
-.min-height-250{
+.min-height-250 {
     min-height: 250px;
 }
-.min-height-500{
+
+.min-height-500 {
     min-height: 500px;
 }
-.cursor-pointer{
+
+.cursor-pointer {
     cursor: pointer;
 }

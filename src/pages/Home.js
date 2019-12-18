@@ -9,7 +9,6 @@ import {DiagonalContainer, H3} from "../styles/GenericStyles";
 import {Subscribe} from "../components/MyContents";
 import {useGlobals} from "../contexts/Global";
 import {limiter, multiFilter} from "../helpers/Generics";
-import {MainLoader} from "../components/Loaders";
 
 /**
  *

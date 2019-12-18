@@ -58,7 +58,7 @@ function Explore() {
                                     />
                                 </Col>
                             </>
-                        ))) : <Col lg={12}><EmptyList /></Col>}
+                        ))) : <Col lg={12}><EmptyList/></Col>}
                 </Row>
             </DiagonalContainer>
         </>

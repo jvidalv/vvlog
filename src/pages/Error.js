@@ -14,7 +14,8 @@ function Error() {
     const [{error}] = useGlobals();
     return (
         <>
-            <Container className="d-flex flex-column justify-content-center align-items-center pt-5 text-center" style={{minHeight: "500px"}}>
+            <Container className="d-flex flex-column justify-content-center align-items-center pt-5 text-center"
+                       style={{minHeight: "500px"}}>
                 <Row>
                     <Col>
                         <HeroSimple

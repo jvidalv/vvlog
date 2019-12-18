@@ -1,5 +1,5 @@
 import React from "react";
-import {LogoSvg, HeaderLogoSvg} from "./LogoStyle";
+import {HeaderLogoSvg, LogoSvg} from "./LogoStyle";
 
 export const HeaderLogo = props => (
     <HeaderLogoSvg

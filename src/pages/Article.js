@@ -74,8 +74,12 @@ const useAArticle = () => {
             setAArticle(data);
         }
         // If something wrong happens
-        if(error){
-            setError({code : 404, message : 'article_does_not_exist', description : 'article_does_not_exist_or_it_is_no_longer_public'});
+        if (error) {
+            setError({
+                code: 404,
+                message: 'article_does_not_exist',
+                description: 'article_does_not_exist_or_it_is_no_longer_public'
+            });
             history.push("/error");
         }
     }, [data, error]);
@@ -158,7 +162,7 @@ function Article() {
                 </Row>
                 <Row>
                     <Col className="text-center">
-                        <HR />
+                        <HR/>
                         <H3> {useT('more_of_vvlog', ['👀'])} </H3>
                     </Col>
                 </Row>

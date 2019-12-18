@@ -4,7 +4,7 @@ import {THEMES} from "../constants/Themes";
 export const IconA = styled.a`
   color: ${props => THEMES[props.theme.style].primary};
   font-size: 2rem;
-  padding: 0px 20px;
+  padding: 0 20px;
   transition: all 0.15s ease;
   opacity: 0.8;
   & > * {

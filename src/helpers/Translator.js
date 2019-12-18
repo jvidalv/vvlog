@@ -15,9 +15,6 @@ function useT(translation, params = []) {
      */
     const [{language}] = useGlobals();
 
-    /**
-     * Properties
-     */
     let fs = translation;
 
     try {

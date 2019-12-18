@@ -10,6 +10,9 @@ import {areSet} from "../helpers/Generics";
 import {LoadingPlaceholder} from "../styles/GenericStyles";
 import {useFilterArticles} from "../hooks/useFilterArticles";
 
+/**
+ * @returns {{fArticles: *}}
+ */
 const useCategory = () => {
     const [{error}, dispatch] = useGlobals();
     const history = useHistory();
@@ -25,14 +28,23 @@ const useCategory = () => {
 
     React.useEffect(() => {
         if (fArticles && !fArticles.length) {
-            setError({code : 404, message : 'category_does_not_exist', description : 'category_does_not_exist_or_it_is_no_longer_public'});
+            setError({
+                code: 404,
+                message: 'category_does_not_exist',
+                description: 'category_does_not_exist_or_it_is_no_longer_public'
+            });
             history.push("/error");
         }
     }, [fArticles]);
 
     return {fArticles}
-}
+};
 
+/**
+ *
+ * @returns {*}
+ * @constructor
+ */
 function Category() {
     const [{categories, language}] = useGlobals();
     const params = useParams();

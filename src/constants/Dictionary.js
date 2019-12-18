@@ -21,9 +21,9 @@ const DICTIONARY = {
         write_the_query: 'escriu la consulta',
         written_by: 'Escrit per',
         min_read: '{param} min. llegir',
-        more_of_vvlog : 'Més de vvlog {param}',
-        seems_like_this_is_empty : 'Sembla que això esta buit',
-        maybe_try_another_words : 'Potser amb unes altres paraules {param}'
+        more_of_vvlog: 'Més de vvlog {param}',
+        seems_like_this_is_empty: 'Sembla que això esta buit',
+        maybe_try_another_words: 'Potser amb unes altres paraules {param}'
     },
     es: {
         explore: 'Explora',
@@ -38,8 +38,8 @@ const DICTIONARY = {
         written_by: 'Escrito por',
         min_read: '{param} min. leer',
         more_of_vvlog: 'Mas de vvlog {param}',
-        seems_like_this_is_empty : 'Parece que esto esta vacio',
-        maybe_try_another_words : 'A lo mejor con otras palabras {param}'
+        seems_like_this_is_empty: 'Parece que esto esta vacio',
+        maybe_try_another_words: 'A lo mejor con otras palabras {param}'
     },
     en: {
         explore: 'Explore',
@@ -53,9 +53,9 @@ const DICTIONARY = {
         write_the_query: 'write the query',
         written_by: 'Written by',
         min_read: '{param} min read',
-        more_of_vvlog:'More of vvlog {param}',
-        seems_like_this_is_empty : 'Seems like this is empty',
-        maybe_try_another_words : 'Maybe with other words {param}'
+        more_of_vvlog: 'More of vvlog {param}',
+        seems_like_this_is_empty: 'Seems like this is empty',
+        maybe_try_another_words: 'Maybe with other words {param}'
     }
 };
 

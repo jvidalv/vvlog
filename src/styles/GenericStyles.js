@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {THEMES} from "../constants/Themes";
 import {Button, Card, Container, Form} from "react-bootstrap";
-import {afterBottomBar, borderLeft, fontsDefaults} from "./DefaultsStyles";
+import {borderLeft, fontsDefaults} from "./DefaultsStyles";
 import {gradient, pulse} from "./AnimationsStyles";
 
 /**
@@ -81,9 +81,9 @@ export const A = styled.a`
   }
   &::after {
     ${
-      props => 
-        props.bottomBar ? 
-          `
+    props =>
+        props.bottomBar ?
+            `
           width: 2.5rem;
           height: 2px;
           background: ${THEMES[props.theme.style].secondary};
@@ -93,7 +93,7 @@ export const A = styled.a`
           position: relative;
           top: 1rem;
           ` : ``
-    }
+}
   }
 `;
 
@@ -103,7 +103,7 @@ export const S = styled.strong`
 `;
 
 export const HR = styled.hr`
-    border-top: 10px dashed ${ props => props.borderColor ?? THEMES[props.theme.style].secondary };
+    border-top: 10px dashed ${props => props.borderColor ?? THEMES[props.theme.style].secondary};
     padding-top: 40px;
 `;
 

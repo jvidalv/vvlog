@@ -1,9 +1,7 @@
-import React, {useEffect} from "react";
-import {HomeLoaderDiv, LettersDiv, LoadersWrapperDiv, OtherPagesLoaderDiv} from "./LoadersStyle";
+import React from "react";
+import {HomeLoaderDiv, LoadersWrapperDiv} from "./LoadersStyle";
 import {HeroHome} from "./HeroSection";
 import {useLocation} from "react-router";
-import Logo from "../assets/svgs/Logo";
-import {useGlobals} from "../contexts/Global";
 
 /**
  * @returns {boolean}
@@ -29,12 +27,12 @@ export function MainLoader(props) {
                     </HomeLoaderDiv>
                     :
                     <>
-                    {/*<OtherPagesLoaderDiv>*/}
-                    {/*    <div className="d-flex justify-content-center align-items-center flex-column">*/}
-                    {/*        <LettersDiv>vvlog</LettersDiv>*/}
-                    {/*        <Logo/>*/}
-                    {/*    </div>*/}
-                    {/*</OtherPagesLoaderDiv>*/}
+                        {/*<OtherPagesLoaderDiv>*/}
+                        {/*    <div className="d-flex justify-content-center align-items-center flex-column">*/}
+                        {/*        <LettersDiv>vvlog</LettersDiv>*/}
+                        {/*        <Logo/>*/}
+                        {/*    </div>*/}
+                        {/*</OtherPagesLoaderDiv>*/}
                     </>
             }
         </LoadersWrapperDiv>

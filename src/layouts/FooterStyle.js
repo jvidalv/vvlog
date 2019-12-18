@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {THEMES} from "../constants/Themes";
 
 export const FloatingButton = styled.div`
+  z-index: 1100;
   color: ${props => THEMES[props.theme.style].secondary};
   border: 2px solid ${props => THEMES[props.theme.style].secondary};
   background: ${props => THEMES[props.theme.style].surface.level2};

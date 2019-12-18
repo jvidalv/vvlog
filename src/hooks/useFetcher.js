@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import {urlBuilder} from "../helpers/Generics";
-import {useAppError} from "./useAppError";
-import {useHistory} from "react-router";
 
 /**
  * Main fetcher
@@ -27,7 +25,7 @@ export const useFetcher = (url, params) => {
                 throw "Error fetching data"
             })
             .then(res => {
-                if(res){
+                if (res) {
                     return setData(res)
                 }
                 throw "Error fetching data"

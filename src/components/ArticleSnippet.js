@@ -1,8 +1,6 @@
 import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import {H5Category, ImageSnippet, SnippetContainer} from "./ArticleSnippetStyle";
-
-import squarePlaceholder from "../assets/images/square-placeholder.png";
 import {H3, P} from "../styles/GenericStyles";
 import BASE_IMAGE, {images_url} from "../constants/Images";
 
@@ -28,7 +26,8 @@ export function ArticleSnippetWithImage(props) {
             icon={props.icon}
             key={id}
         >
-            <ImageSnippet className="d-none d-lg-block image-snippet" url={image ? BASE_IMAGE + image : images_url(200, 200).article}/>
+            <ImageSnippet className="d-none d-lg-block image-snippet"
+                          url={image ? BASE_IMAGE + image : images_url(200, 200).article}/>
             <div className="content d-flex flex-column p-4">
                 <H5Category>
                     <Link to={generateLink(categorySlug)}>{category}</Link>

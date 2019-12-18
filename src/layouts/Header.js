@@ -4,17 +4,13 @@ import {Form, Nav, NavDropdown} from "react-bootstrap";
 import {
     FormControlStyled,
     LinkStyled,
-    Logo,
     NavbarCollapseStyled,
     NavbarToggleStyled,
     NavDropdownStyled,
     NavStyled
 } from "./HeaderStyle.js";
 import {useHistory, withRouter} from "react-router-dom";
-
-import logo from "../assets/images/logo-app.png";
 import useT from "../helpers/Translator";
-import {HeaderLogoSvg} from "../assets/svgs/LogoStyle";
 import {HeaderLogo} from "../assets/svgs/Logo";
 
 /**
@@ -151,7 +147,7 @@ export function Header(props) {
                 data-toggle="collapse"
                 data-target="#navbarMobile"
             >
-                <HeaderLogo />
+                <HeaderLogo/>
             </LinkStyled>
             <ThemeSwitcher
                 changeTheme={changeTheme}

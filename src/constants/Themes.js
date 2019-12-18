@@ -66,7 +66,7 @@ export const THEMES = {
         onSurface: "#505050",
         onPrimary: "#FFFFFF",
         onPrimary2: "#FFFFFF",
-        onSecondary: "#000000",
+        onSecondary: "#FFFFFF",
         onSecondary2: "#FFFFFF",
         onError: "#FFFFFF",
 
