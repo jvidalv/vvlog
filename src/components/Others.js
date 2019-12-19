@@ -1,11 +1,14 @@
 import React from "react";
-import {H3, H5, P} from "../styles/GenericStyles";
+import {ButtonStyled, H3, H5, P} from "../styles/GenericStyles";
 import useT from "../helpers/Translator";
 import {CookiesDiv} from "./OthersStyle";
 import Container from "react-bootstrap/Container";
-import {Button} from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import STORAGE_KEYS from "../constants/Storers";
+import api_calls from "../constants/Api";
+import vfetch from "../helpers/Vfetch";
+import vStorage from "../helpers/VStorage";
 
 /**
  * Component used on places where you can search for items
@@ -28,13 +31,31 @@ export function EmptyList(props) {
 }
 
 /**
- * Cookies
+ * Cookie notification
  * @returns {*}
  * @constructor
+ * @return {null}
  */
 export function Cookies() {
-    return (
-        <CookiesDiv className="position-fixed fixed-bottom d-flex flex-column align-items-center">
+    const [show, setShow] = React.useState(false);
+    const cookiesRef = React.createRef();
+
+    /**
+     * Hide component, store data in DB and remove it from dom
+     */
+    const accept = () => {
+        cookiesRef.current.classList.add('hideToBottom');
+        vfetch(api_calls.data.user_cookies)
+            .then(() => vStorage.setItem(STORAGE_KEYS.BASIC_COOKIES, true));
+        setTimeout(() => setShow(false), 1000);
+    };
+
+    React.useEffect(() => {
+        setTimeout(() => setShow(!vStorage.getItem(STORAGE_KEYS.BASIC_COOKIES)), 5000);
+    }, []);
+
+    return show ? (
+        <CookiesDiv ref={cookiesRef} className="position-fixed fixed-bottom d-flex flex-column align-items-center">
             <Container>
                 <Row>
                     <Col sm={10} lg={5}>
@@ -43,17 +64,12 @@ export function Cookies() {
                             We use cookies to personalise content and ads, to provide social media
                             features and to analyse our traffic.
                         </P>
-                        <div className="d-flex mb-3">
-                            <Button className="w-25 mr-1">
-                                Cancel
-                            </Button>
-                            <Button className="w-75 ">
-                                I agree
-                            </Button>
-                        </div>
+                        <ButtonStyled onClick={() => accept()} className="w-100 mb-3">
+                            I agree
+                        </ButtonStyled>
                     </Col>
                 </Row>
             </Container>
         </CookiesDiv>
-    )
+    ) : null
 }

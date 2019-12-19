@@ -3,31 +3,6 @@ import {NavLink} from "react-router-dom";
 import {THEMES} from "../constants/Themes";
 import {FormControl, Navbar, NavDropdown} from "react-bootstrap";
 
-const rotateColors = keyframes`
-    0% {
-        filter: hue-rotate(0deg);
-    }
-    50% {
-        filter: hue-rotate(360deg);
-    }
-`;
-
-export const Logo = styled.img`
-  animation: ${rotateColors} 15s linear infinite;
-  position: absolute;
-  max-height: 100%;
-  left: 25px;
-  transition: transform 0.1s cubic-bezier(0, 1.8, 1, 1.8);
-  transform: translateY(-1em);
-
-  &:hover {
-    transform: translateY(-0.5em) rotate(-2deg) scale(1.25);
-  }
-  @media (max-width: 700px) {
-    left: 10px;
-  }
-`;
-
 export const LinkStyled = styled(NavLink)`
   color: white !important;
   transition: 0.25s;

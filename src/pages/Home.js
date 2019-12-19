@@ -5,7 +5,7 @@ import {ArticleSnippet, ArticleSnippetWithImage} from "../components/ArticleSnip
 
 import Sidebar from "../layouts/Sidebar";
 import {HeroHome} from "../components/HeroSection";
-import {DiagonalContainer, H3} from "../styles/GenericStyles";
+import {DiagonalContainer, H3, TexturedContainer} from "../styles/GenericStyles";
 import {Subscribe} from "../components/MyContents";
 import {useGlobals} from "../contexts/Global";
 import {limiter, multiFilter} from "../helpers/Generics";
@@ -36,12 +36,6 @@ const AllArticlesSection = () => {
     const [{articles, language}] = useGlobals();
     return (
         <>
-            <H3 className="mb-5 text-center">
-            <span role="img" aria-label="rocket">
-              🚀
-            </span>{" "}
-                Check them all
-            </H3>
             <Row className="px-2">
                 {limiter(articles, 9).map(snippet => (
                     <Col key={snippet.id} className="d-flex px-1" md={6} lg={4}>
@@ -63,7 +57,7 @@ const AllArticlesSection = () => {
  * @returns {*}
  * @constructor
  */
-function Home(props) {
+function Home() {
     return (
         <>
             <HeroHome/>
@@ -77,14 +71,26 @@ function Home(props) {
                     </Col>
                 </Row>
             </Container>
-            <Container className="pt-2 pb-2">
-                <Row className="mt-5 justify-content-md-center">
+            <TexturedContainer className="py-5 my-5">
+                <Row className="justify-content-md-center">
                     <Col className="text-center" xs md={8} lg={6}>
                         <Subscribe/>
                     </Col>
                 </Row>
+            </TexturedContainer>
+            <Container className="mt-5 pt-3">
+                <Row>
+                    <Col>
+                        <H3 className="mb-5 text-center">
+                            <span role="img" aria-label="rocket">
+                              🚀
+                            </span>
+                            <span>Check them all</span>
+                        </H3>
+                    </Col>
+                </Row>
             </Container>
-            <DiagonalContainer className="my-5 pt-2 pb-4">
+            <DiagonalContainer className="my-2 py-3">
                 <AllArticlesSection/>
             </DiagonalContainer>
         </>

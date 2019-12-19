@@ -46,7 +46,6 @@ export const Content = styled.div`
     margin: 30px 0;
   }
   & blockquote > p {
-    text-align: center;
     border-left: 4px solid ${props => THEMES[props.theme.style].primary};
     background: ${props => THEMES[props.theme.style].infoBox};
     font-size: 1.2rem !important;

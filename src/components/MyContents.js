@@ -13,7 +13,7 @@ import {
 } from "react-icons/fa";
 import {Form} from "react-bootstrap";
 import {IconA, ShareA, SharerStyled} from "./MyContentsStyle";
-import {ButtonStyled, H3, InputStyled} from "../styles/GenericStyles";
+import {ButtonStyled, H3, InputStyled, TexturedContainer} from "../styles/GenericStyles";
 
 /**
  * @param props

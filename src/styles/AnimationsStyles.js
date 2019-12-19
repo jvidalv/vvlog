@@ -23,13 +23,13 @@ export const pulse = keyframes`
 
 export const gradient = keyframes`
     0% {
-        background-position: 0 50%;
+        background-position: 0 2%;
     }
     50% {
-        background-position: 100% 50%;
+        background-position: 4% 2%;
     }
     100% {
-        background-position: 0 50%;
+        background-position: 0 2%;
     }
 `;
 
@@ -54,5 +54,26 @@ export const backArrows = keyframes`
     }
     100% {
       content : ''
+    }
+`;
+
+export const gradientToRight = keyframes`
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+`;
+
+export const hueRotate = keyframes`
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        filter: hue-rotate(360deg);
     }
 `;

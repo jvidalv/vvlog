@@ -11,7 +11,7 @@ import {THEMES} from "../constants/Themes";
  */
 export const fontsDefaults = props => `
     ${props.color ? `color : ${props.color}` : ''};
-    ${props.color ? `font-size : ${props.fontSize}` : ''};
+    ${props.fontSize ? `font-size : ${props.fontSize}` : ''};
     font-style : ${props.italic ? 'italic' : 'unset'};
     opacity : ${props.muted ? 0.7 : 1};
     font-family : ${props.fontPlex ? 'Recursive, "Segoe UI", "Helvetica Neue", Helvetica, Roboto, "Open Sans", FreeSans, sans-serif;' : 'inherit'}

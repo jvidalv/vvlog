@@ -1,23 +1,25 @@
 import React, {useEffect, useState} from 'react'
-import {urlBuilder} from "../helpers/Generics";
+import {buildRequest} from "../helpers/Generics";
 
 /**
  * Main fetcher
- * @param url
+ * @param call
  * @param params *expects an object
  * @returns {{data: *, loading: *, error: *}}
  */
-export const useFetcher = (url, params) => {
+export const useFetcher = (call, params) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [refetch, setRefetch] = useState(false);
 
     useEffect(() => {
-        let apiUrl = urlBuilder(url, params);
+
+        const request = buildRequest(call, params);
         setLoading(true);
         setError(false);
-        fetch(apiUrl)
+
+        fetch(request.url, request.request)
             .then(res => {
                 if (res.ok) {
                     return res.json();

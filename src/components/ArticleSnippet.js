@@ -48,13 +48,14 @@ export function ArticleSnippetWithImage(props) {
  */
 export function ArticleSnippet(props) {
     const {id, fake, title, slug, category, categorySlug} = props;
-    const myRef = React.createRef();
+    const snippetRef = React.createRef();
+
     useEffect(() => {
         /**
          * Highlights texts inside content of articles when you search for them
          */
         if (props.q && props.q.length > 1) {
-            const element = myRef.current.getElementsByTagName("h3")[0];
+            const element = snippetRef.current.getElementsByTagName("h3")[0];
             let content = element.textContent;
             let position = content.toLowerCase().search(props.q.toLowerCase());
             if (position !== -1) {
@@ -65,7 +66,7 @@ export function ArticleSnippet(props) {
     }, [id, props.q]);
 
     return (
-        <SnippetContainer ref={myRef} className={props.className + (fake ? " empty" : "") + " simple text-center p-4"}
+        <SnippetContainer ref={snippetRef} className={props.className + (fake ? " empty" : "") + " simple text-center p-4"}
                           icon={props.icon} key={id}>
             <H5Category>
                 <Link to={generateLink(categorySlug)}>{category}</Link>

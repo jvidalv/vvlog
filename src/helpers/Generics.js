@@ -1,16 +1,42 @@
 /**
+ * Builds the request object depending on call and params specified
+ * @param call
+ * @param params
+ */
+export const buildRequest = (call, params) => {
+
+    let url = urlBuilder(call.url, params);
+    let request = {
+        method: call.method,
+    };
+
+    switch (call.method) {
+        case 'POST':
+            request.body = JSON.stringify(params);
+            break;
+        default:
+        case 'GET':
+            url = urlBuilder(call.url, params);
+            break;
+    }
+
+    return {url, request};
+};
+
+/**
  * Builds an url consumable by a fetch promise
  * @param url
  * @param params
  * @returns {*}
  */
-export function urlBuilder(url, params) {
+export const urlBuilder = (url, params) => {
     const ourl = new URL(url);
     if (params) {
         Object.keys(params).forEach(key => ourl.searchParams.append(key, params[key]))
     }
     return ourl;
-}
+};
+
 
 /**
  * Limits the number of items in a certain array, so we can operate the data in less lines of code in the components

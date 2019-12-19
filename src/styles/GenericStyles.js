@@ -2,11 +2,12 @@ import styled from "styled-components";
 import {THEMES} from "../constants/Themes";
 import {Button, Card, Container, Form} from "react-bootstrap";
 import {borderLeft, fontsDefaults} from "./DefaultsStyles";
-import {gradient, pulse} from "./AnimationsStyles";
+import {gradient, hueRotate, pulse} from "./AnimationsStyles";
 
 /**
  * ----- Overrides defaults
  */
+
 export const H1 = styled.h1`
   color: ${props => THEMES[props.theme.style].primary};
   font-weight: 300;
@@ -175,7 +176,7 @@ export const ButtonStyled = styled(Button)`
   font-size: 16px;
   padding: 10px 20px;
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     background: ${props => THEMES[props.theme.style].secondary2};
     color : ${props => THEMES[props.theme.style].onSecondary2};
   }
@@ -223,7 +224,17 @@ export const DiagonalContainer = styled(Container)`
   }
   @media (max-width: 650px) {
       min-height: 250px;
-    }
+  }
+`;
+
+export const TexturedContainer = styled(Container)`
+  background: repeating-linear-gradient(45deg,  ${props => THEMES[props.theme.style].primary + '3d'}, transparent 100px);
+  border-radius: 5px;
+  background-size: 500% 500%;
+  background-position: 0 2% !important;
+  &:hover{
+      animation: ${hueRotate} 15s linear infinite;
+  }
 `;
 
 export const FormStyled = styled(Form)`

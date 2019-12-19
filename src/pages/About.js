@@ -5,7 +5,7 @@ import {HeroSimple} from "../components/HeroSection";
 import {H2, Me, P, S} from "../styles/GenericStyles";
 import me from "../assets/images/me-finland.jpg";
 
-function About(props) {
+function About() {
     return (
         <>
             <Container className="pt-5 text-center">

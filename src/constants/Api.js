@@ -5,23 +5,46 @@
 const BASE_PATH = process.env.NODE_ENV === 'development' ? 'http://localhost:8080/api/' : 'https://vvlog.io/admin/api/';
 
 /**
- * Array with all the calls to the api
- * @type {{categories: {all: string}, articles: {all: string, one: string}, authors: {all: string}, tags: {all: string}}}
+ * @type {{categories: {all: {method: string, url: string}}, articles: {all: {method: string, url: string}, related: {method: string, url: string}, one: {method: string, url: string}}, authors: {all: {method: string, url: string}}, tags: {all: {method: string, url: string}}}}
  */
 const api_calls = {
     articles: {
-        all: `${BASE_PATH}article/all`,
-        one: `${BASE_PATH}article/one`,
-        related: `${BASE_PATH}article/related`,
+        all: {
+            url: `${BASE_PATH}article/all`,
+            method: 'GET',
+        },
+        one: {
+            url: `${BASE_PATH}article/one`,
+            method: 'GET',
+        },
+        related: {
+            url: `${BASE_PATH}article/related`,
+            method: 'GET',
+        },
     },
     categories: {
-        all: `${BASE_PATH}category/all`,
+        all: {
+            url: `${BASE_PATH}category/all`,
+            method: 'GET',
+        },
     },
     authors: {
-        all: `${BASE_PATH}user/all`,
+        all: {
+            url: `${BASE_PATH}user/all`,
+            method: 'GET',
+        },
     },
     tags: {
-        all: `${BASE_PATH}tag/all`,
+        all: {
+            url: `${BASE_PATH}tag/all`,
+            method: 'GET',
+        },
+    },
+    data : {
+        user_cookies : {
+            url: `${BASE_PATH}data/user-cookies`,
+            method: 'GET',
+        }
     }
 };
 
