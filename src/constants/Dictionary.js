@@ -23,7 +23,11 @@ const DICTIONARY = {
         min_read: '{param} min. llegir',
         more_of_vvlog: 'Més de vvlog {param}',
         seems_like_this_is_empty: 'Sembla que això esta buit',
-        maybe_try_another_words: 'Potser amb unes altres paraules {param}'
+        maybe_try_another_words: 'Potser amb unes altres paraules {param}',
+        subscribe_and_stay_in_touch : 'Subscriute i mante el contacte',
+        subscribe : 'Subscriures',
+        fullstack_development : 'Fullstack development',
+        if_you_are_not_a_ill_check_you_back : 'Si no ets un {param} et tornare el missatge {param}',
     },
     es: {
         explore: 'Explora',
@@ -39,7 +43,11 @@ const DICTIONARY = {
         min_read: '{param} min. leer',
         more_of_vvlog: 'Mas de vvlog {param}',
         seems_like_this_is_empty: 'Parece que esto esta vacio',
-        maybe_try_another_words: 'A lo mejor con otras palabras {param}'
+        maybe_try_another_words: 'A lo mejor con otras palabras {param}',
+        subscribe_and_stay_in_touch : 'Subscribete y manten el contacto',
+        subscribe : 'Subscribirse',
+        fullstack_development : 'Fullstack development',
+        if_you_are_not_a_ill_check_you_back : 'Si no eres un {param} te devolvere el mensaje {param}',
     },
     en: {
         explore: 'Explore',
@@ -55,7 +63,11 @@ const DICTIONARY = {
         min_read: '{param} min read',
         more_of_vvlog: 'More of vvlog {param}',
         seems_like_this_is_empty: 'Seems like this is empty',
-        maybe_try_another_words: 'Maybe with other words {param}'
+        maybe_try_another_words: 'Maybe with other words {param}',
+        subscribe_and_stay_in_touch : 'Subscribe and stay in touch',
+        subscribe : 'Subscribe',
+        fullstack_development : 'Fullstack development',
+        if_you_are_not_a_ill_check_you_back : 'If you are not a {param} i\'ll check you back {param}',
     }
 };
 

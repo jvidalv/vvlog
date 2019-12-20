@@ -12,6 +12,10 @@ export const buildRequest = (call, params) => {
 
     switch (call.method) {
         case 'POST':
+            request.headers = {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            };
             request.body = JSON.stringify(params);
             break;
         default:

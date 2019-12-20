@@ -13,7 +13,14 @@ import {
 } from "react-icons/fa";
 import {Form} from "react-bootstrap";
 import {IconA, ShareA, SharerStyled} from "./MyContentsStyle";
-import {ButtonStyled, H3, InputStyled, TexturedContainer} from "../styles/GenericStyles";
+import {ButtonStyled, H3, InputStyled} from "../styles/GenericStyles";
+import useT from "../helpers/Translator";
+import {useGlobals} from "../contexts/Global";
+import {isEmail} from "../helpers/Validations";
+import vfetch from "../helpers/Vfetch";
+import vStorage from "../helpers/VStorage";
+import api_calls from "../constants/Api";
+import STORAGE_KEYS from "../constants/Storers";
 
 /**
  * @param props
@@ -155,18 +162,44 @@ export function Sharer(props) {
  * @constructor
  */
 export function Subscribe(props) {
+    const [{language}] = useGlobals();
+    // 0 => yet has to subscribe, 1 => email is invalid, 2 => something went wrong in the server, 3 => ok
+    const [subscribed, setSubscribed] = React.useState(0);
+    const emailInput = React.useRef();
+
+    const subscription = () => {
+        const user_email = emailInput.current.value;
+        if (isEmail(user_email)) {
+            const data = {
+                email: user_email,
+                language_id: language
+            };
+            vfetch(api_calls.data.newsletter_subscriber, {...data})
+                .then(() => vStorage.setItem(STORAGE_KEYS.NEWSLETTER_SUBSCRIBED, user_email));
+            //setTimeout(() => setShow(false), 1000);
+        } else {
+            // todo fer un switch al use effect i escoltar alli los cambis de estat
+            setSubscribed(1);
+            alert("No és un email valid")
+        }
+    };
+
+    React.useEffect(() => {
+
+    }, []);
+
     return (
         <>
             <H3>
                 <span role="img" aria-label="train">
                   🚇
                 </span>
-                Subscribe and stay in touch
+                {useT('subscribe_and_stay_in_touch')}
             </H3>
             <Form className="my-4">
-                <InputStyled className="text-center" placeholder="your email"/>
+                <InputStyled ref={emailInput} type="email" className="text-center" placeholder="your email"/>
             </Form>
-            <ButtonStyled>Subscribe</ButtonStyled>
+            <ButtonStyled onClick={() => subscription()}>{useT('subscribe')}</ButtonStyled>
         </>
     );
 }

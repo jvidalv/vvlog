@@ -2,6 +2,7 @@ import React from "react";
 import {HeroH1, HeroH4, HeroP, HeroSectionStyled} from "./HeroSectionStyle";
 import {Link} from "react-router-dom";
 import Logo from "../assets/svgs/Logo";
+import useT from "../helpers/Translator";
 
 /**
  * Home banner "/"
@@ -13,7 +14,7 @@ export function HeroHome() {
         <HeroSectionStyled>
             <Logo/>
             <HeroH1 className="text-uppercase my-3 px-2 extra">
-                Fullstack development on point
+                {useT('fullstack_development')}
             </HeroH1>
             <HeroP className="mb-3 px-2">
                 React, JavaScript, PHP

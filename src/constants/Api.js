@@ -44,7 +44,15 @@ const api_calls = {
         user_cookies : {
             url: `${BASE_PATH}data/user-cookies`,
             method: 'GET',
-        }
+        },
+        newsletter_subscriber : {
+            url: `${BASE_PATH}data/newsletter-subscriber`,
+            method: 'GET',
+        },
+        contact_form : {
+            url: `${BASE_PATH}data/contact-form`,
+            method: 'POST',
+        },
     }
 };
 

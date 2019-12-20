@@ -9,6 +9,7 @@ import STORAGE_KEYS from "../constants/Storers";
 import api_calls from "../constants/Api";
 import vfetch from "../helpers/Vfetch";
 import vStorage from "../helpers/VStorage";
+import {isEmail} from "../helpers/Validations";
 
 /**
  * Component used on places where you can search for items
@@ -39,7 +40,6 @@ export function EmptyList(props) {
 export function Cookies() {
     const [show, setShow] = React.useState(false);
     const cookiesRef = React.createRef();
-
     /**
      * Hide component, store data in DB and remove it from dom
      */
