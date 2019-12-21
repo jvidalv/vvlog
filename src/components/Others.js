@@ -1,7 +1,7 @@
 import React from "react";
-import {ButtonStyled, H3, H5, P} from "../styles/GenericStyles";
+import {ButtonStyled, ContentDiv, H3, H5, P} from "../styles/GenericStyles";
 import useT from "../helpers/Translator";
-import {CookiesDiv} from "./OthersStyle";
+import {CategoryCircle, CookiesDiv} from "./OthersStyle";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -10,6 +10,9 @@ import api_calls from "../constants/Api";
 import vfetch from "../helpers/Vfetch";
 import vStorage from "../helpers/VStorage";
 import {isEmail} from "../helpers/Validations";
+import {useGlobals} from "../contexts/Global";
+import {Link} from "react-router-dom";
+import {generateLink} from "../helpers/Generics";
 
 /**
  * Component used on places where you can search for items
@@ -59,7 +62,7 @@ export function Cookies() {
             <Container>
                 <Row>
                     <Col sm={10} lg={5}>
-                        <H5 className="text-center" fontPlex>This website uses cookies</H5>
+                        <H5 className="text-center" fontRecursive>This website uses cookies</H5>
                         <P>
                             We use cookies to personalise content and ads, to provide social media
                             features and to analyse our traffic.
@@ -72,4 +75,26 @@ export function Cookies() {
             </Container>
         </CookiesDiv>
     ) : null
+}
+
+export function CategoriesCircle(){
+    const [{categories, language}] = useGlobals();
+    return (
+        <>
+        {
+            Object.keys(categories).map(category =>
+                <Col className="d-flex justify-content-center align-items-center">
+                    <CategoryCircle className={"d-flex justify-content-center align-items-center " + ( categories[category].fake ? "loading" : "" )}>
+                        {
+                            !categories[category].fake ?
+                            <Link to={generateLink(category)}>
+                                {categories[category][language].name}
+                            </Link> : null
+                        }
+                    </CategoryCircle>
+                </Col>
+            )
+        }
+        </>
+    )
 }

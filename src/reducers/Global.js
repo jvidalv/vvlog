@@ -1,28 +1,59 @@
 import React from "react";
 import {checkValue, limiter, loadFromCache, reindexer} from "../helpers/Generics";
-import {D_AARTICLE, D_ARTICLES, D_AUTHORS, D_ERROR} from "../constants/Dummy";
+import {D_AARTICLE, D_ARTICLES, D_AUTHORS, D_CATEGORIES, D_ERROR, D_TOAST} from "../constants/Dummy";
 import {_LANGUAGES} from "../constants/Dictionary";
 import {_THEMES} from "../constants/Themes";
 import {getNavigatorLanguage} from "../helpers/Translator";
 
 /**
  * Globals default state
- * @type {{mainLoading: boolean, aArticle: *, theme: (*|string), language: (*|string), categories: {}, articles: *, errors: boolean, authors: *, tags: []}}
+ * @type {{relatedArticles: *, aArticle: *, theme: *, language: *, categories: {}, error: *, articles: *, authors: *, tags: []}}
  */
 export const initialState = {
+    /**
+     * Default theme that propionates the entire CSS configuration
+     */
     theme: loadFromCache('theme', _THEMES[0]),
+    /**
+     * Language
+     */
     language: loadFromCache('language', getNavigatorLanguage()),
-    articles: D_ARTICLES,
-    categories: {},
-    authors: D_AUTHORS,
-    tags: [],
-    aArticle: D_AARTICLE,
-    relatedArticles: limiter(D_ARTICLES, 4),
+    /**
+     * Notifications that pops in the top corner
+     */
+    toasts: [D_TOAST],
+    /**
+     * Error
+     */
     error: D_ERROR,
+    /**
+     * List of articles, with all the languages
+     */
+    articles: D_ARTICLES,
+    /**
+     * Categories
+     */
+    categories: D_CATEGORIES,
+    /**
+     * All authors with articles
+     */
+    authors: D_AUTHORS,
+    /**
+     * Tags
+     */
+    tags: [],
+    /**
+     * Current active article
+     */
+    aArticle: D_AARTICLE,
+    /**
+     * Related articles of aArticle
+     */
+    relatedArticles: limiter(D_ARTICLES, 4),
+
 };
 
 /**
- * Reducer of global parameters
  * @param {*} state
  * @param {*} action
  */
@@ -41,6 +72,11 @@ export const reducer = (state, action) => {
                 language: checkValue(action.changeLanguage, _LANGUAGES)
                     ? loadFromCache('language', action.changeLanguage, true)
                     : _LANGUAGES[0]
+            };
+        case "addToast":
+            return {
+                ...state,
+                toasts: action.addToast,
             };
         case "setError":
             return {

@@ -1,10 +1,6 @@
 import {THEMES} from "../constants/Themes";
 
 /**
- * Rules that are used in more than one component
- */
-
-/**
  * Fonts defaults
  * @param props
  * @returns {string}
@@ -12,11 +8,11 @@ import {THEMES} from "../constants/Themes";
 export const fontsDefaults = props => `
     ${props.color ? `color : ${props.color}` : ''};
     ${props.fontSize ? `font-size : ${props.fontSize}` : ''};
+    ${props.fontWeight ? `font-weight : ${props.fontWeight}` : ''};
     font-style : ${props.italic ? 'italic' : 'unset'};
     opacity : ${props.muted ? 0.7 : 1};
-    font-family : ${props.fontPlex ? 'Recursive, "Segoe UI", "Helvetica Neue", Helvetica, Roboto, "Open Sans", FreeSans, sans-serif;' : 'inherit'}
+    font-family : ${props.fontRecursive ? 'Recursive, "Segoe UI", "Helvetica Neue", Helvetica, Roboto, "Open Sans", FreeSans, sans-serif;' : 'inherit'}
 `;
-
 /**
  * Custom border left
  * @param props

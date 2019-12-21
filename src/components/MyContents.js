@@ -108,8 +108,7 @@ const ShareOption = props => {
  */
 export function Sharer(props) {
     const {title} = props;
-    let location = window.location.href;
-
+    const location = window.location.href;
     return (
         <>
             <SharerStyled className={props.className}>
@@ -190,10 +189,10 @@ export function Subscribe(props) {
 
     return (
         <>
-            <H3>
-                <span role="img" aria-label="train">
-                  🚇
-                </span>
+            <span role="img" aria-label="train">
+                  💌
+            </span>
+            <H3 fontWeight="400">
                 {useT('subscribe_and_stay_in_touch')}
             </H3>
             <Form className="my-4">

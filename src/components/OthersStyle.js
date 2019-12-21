@@ -1,5 +1,7 @@
 import styled, {keyframes} from "styled-components";
 import {THEMES} from "../constants/Themes";
+import {ContentDiv} from "../styles/GenericStyles";
+import {gradient} from "../styles/AnimationsStyles";
 
 export const showToTop = keyframes`
     from {
@@ -39,5 +41,16 @@ export const CookiesDiv = styled.div`
   @media (max-width: 650px) {
       transform: unset;
       z-index: 9000;
+  }
+`;
+
+export const CategoryCircle = styled(ContentDiv)`
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  &.loading {
+        background: linear-gradient(90deg,  ${props => THEMES[props.theme.style].header.right} , ${props => THEMES[props.theme.style].surface.level1}, ${props => THEMES[props.theme.style].surface.level2}, ${props => THEMES[props.theme.style].surface.level3}, ${props => THEMES[props.theme.style].header.right});
+        background-size: 300% 300%;
+        animation: ${gradient} 5s ease-in-out infinite;
   }
 `;

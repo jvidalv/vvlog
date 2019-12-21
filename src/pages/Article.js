@@ -9,12 +9,12 @@ import {ArticleContent, ReadingTopBar, Tags} from "../components/ArticleContents
 import {ArticleSidebar} from "../layouts/Sidebar";
 import {ArticleSnippet} from "../components/ArticleSnippet";
 import {useHistory, useParams} from "react-router";
-import {areSet} from "../helpers/Generics";
+import {areSet, limiter} from "../helpers/Generics";
 import {useGlobals} from "../contexts/Global";
 import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
 import useT from "../helpers/Translator";
-import {D_AARTICLE} from "../constants/Dummy";
+import {D_AARTICLE, D_ARTICLES} from "../constants/Dummy";
 
 /**
  * Fetches current article
@@ -100,9 +100,13 @@ const useAArticle = () => {
                 history.push("/" + categories[params.category]['code'] + '/' + aArticle.translations[language]);
                 setAArticle(D_AARTICLE);
                 setRefetch(Date());
+                setRelatedArticles(limiter(D_ARTICLES, 4),);
+                setRefetchRelated(Date());
             } else if (params.slug !== aArticle.slug) {
                 setAArticle(D_AARTICLE);
                 setRefetch(Date());
+                setRelatedArticles(limiter(D_ARTICLES, 4),);
+                setRefetchRelated(Date());
             }
         }
     }, [language, history.location]);

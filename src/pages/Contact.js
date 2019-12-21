@@ -2,7 +2,7 @@ import React from "react";
 import {Col, Container, Form, Row} from "react-bootstrap";
 import ReCAPTCHA from "react-google-recaptcha";
 import {HeroSimple} from "../components/HeroSection";
-import {ButtonStyled, CardStyled, FormStyled, P, S} from "../styles/GenericStyles";
+import {ButtonStyled, ContentDiv, FormStyled, P, S} from "../styles/GenericStyles";
 import {isEmail} from "../helpers/Validations";
 import vfetch from "../helpers/Vfetch";
 import api_calls from "../constants/Api";
@@ -10,6 +10,10 @@ import vStorage from "../helpers/VStorage";
 import STORAGE_KEYS from "../constants/Storers";
 import useT from "../helpers/Translator";
 
+/**
+ * @returns {*}
+ * @constructor
+ */
 function Contact() {
     // 0 => Non send, 1 => Wrong email, 2 => Empty message, 3 => server error, 4 => ok
     const [submited, setSubmited] = React.useState(0);
@@ -47,21 +51,21 @@ function Contact() {
             <Container className="my-5">
                 <Row className="justify-content-md-center">
                     <Col xs md={10} lg={8}>
-                        <CardStyled>
-                            <CardStyled.Body className="p-4">
+                        <ContentDiv>
+                            <div className="p-4">
                                 <P big>
                                     Do you have any <S>suggestions</S>? Any topic you need help
                                     with, or code you'd like to see together. 🙌
                                 </P>
                                 <P big>Contact me, I will try to answer as soon as possible.</P>
-                            </CardStyled.Body>
-                        </CardStyled>
+                            </div>
+                        </ContentDiv>
                     </Col>
                 </Row>
                 <Row className="justify-content-md-center">
                     <Col xs md={10} lg={8}>
-                        <CardStyled>
-                            <CardStyled.Body className="p-4">
+                        <ContentDiv>
+                            <div className="p-4">
                                 <FormStyled ref={contactForm}>
                                     <Form.Group controlId="formBasicEmail">
                                         <Form.Label>Your Name</Form.Label>
@@ -96,8 +100,8 @@ function Contact() {
                                         Send 📮
                                     </ButtonStyled>
                                 </div>
-                            </CardStyled.Body>
-                        </CardStyled>
+                            </div>
+                        </ContentDiv>
                     </Col>
                 </Row>
             </Container>

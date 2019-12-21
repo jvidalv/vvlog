@@ -18,6 +18,7 @@ import Error from "./Error";
 import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
 import {MainLoader} from "../components/Loaders";
+import Toasts from "../layouts/Toasts";
 
 /**
  * Retrieve articles and set them in global context
@@ -149,12 +150,11 @@ function Index() {
         <ThemeProvider theme={{style: theme}}>
             <Main>
                 <Router basename={process.env.PUBLIC_URL}>
+                    {/*<Toasts />*/}
                     <UseScrollToTop/>
                     <Header/>
                     <Switch>
-                        <Route exact path="/">
-                            <Home loader={showLoaders}/>
-                        </Route>
+                        <Route exact path="/" component={Home} />
                         <Route path="/explore" component={Explore}/>
                         <Route path="/contact" component={Contact}/>
                         <Route path="/about" component={About}/>

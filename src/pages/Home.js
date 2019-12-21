@@ -5,10 +5,11 @@ import {ArticleSnippet, ArticleSnippetWithImage} from "../components/ArticleSnip
 
 import Sidebar from "../layouts/Sidebar";
 import {HeroHome} from "../components/HeroSection";
-import {DiagonalContainer, H3, TexturedContainer} from "../styles/GenericStyles";
-import {Subscribe} from "../components/MyContents";
 import {useGlobals} from "../contexts/Global";
 import {limiter, multiFilter} from "../helpers/Generics";
+import {ContentDiv, DiagonalContainer, H3, TexturedContainer} from "../styles/GenericStyles";
+import {Subscribe} from "../components/MyContents";
+import {CategoriesCircle} from "../components/Others";
 
 /**
  *
@@ -71,6 +72,11 @@ function Home() {
                     </Col>
                 </Row>
             </Container>
+            <Container className="pt-4 pb-2">
+                <Row>
+                   <CategoriesCircle/>
+                </Row>
+            </Container>
             <TexturedContainer className="py-5 my-5">
                 <Row className="justify-content-md-center">
                     <Col className="text-center" xs md={8} lg={6}>
@@ -82,9 +88,9 @@ function Home() {
                 <Row>
                     <Col>
                         <H3 className="mb-5 text-center">
-                            <span role="img" aria-label="rocket">
-                              🚀
-                            </span>
+                        <span role="img" aria-label="rocket">
+                        🚀
+                        </span>
                             <span>Check them all</span>
                         </H3>
                     </Col>

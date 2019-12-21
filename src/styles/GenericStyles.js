@@ -108,59 +108,6 @@ export const HR = styled.hr`
     padding-top: 40px;
 `;
 
-/**
- * ----- Used on multiple components
- */
-
-export const CardStyled = styled(Card)`
-  background: ${props => THEMES[props.theme.style].surface.level1};
-  box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15);
-  cursor: pointer;
-  border: none;
-  margin-bottom: 10px;
-  & a:hover {
-    transform: translateY(-10px);
-  }
-  &.with-icon::before {
-    content:'${props => (props.icon ?? "🔥")}';
-    width: 45px;
-    height: 45px;
-    font-size: 1.5rem;
-    display: inline-flex;
-    justify-content: center;
-    position: absolute;
-    right: -0.9rem;
-    background: ${props => THEMES[props.theme.style].surface.level1};
-    border-radius: 50%;
-    align-items: center;
-    top: -0.8rem;
-    box-shadow: 0 0 10px rgba(67, 38, 100, 0.15);
-  }
-`;
-
-export const SidebarElement = styled(Card)`
-  background: ${props => THEMES[props.theme.style].surface.level1};
-  box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15);
-  border: none;
-  margin-bottom: 25px;
- 
-  &.with-icon::before {
-    content:'${props => (props.icon ?? "🔥")}';
-    width: 45px;
-    height: 45px;
-    font-size: 1.5rem;
-    display: inline-flex;
-    justify-content: center;
-    position: absolute;
-    right: -0.9rem;
-    background: ${props => THEMES[props.theme.style].surface.level1};
-    border-radius: 50%;
-    align-items: center;
-    top: -0.8rem;
-    transition: 1s;
-    box-shadow: 0 0 10px rgba(67, 38, 100, 0.15);
-  }
-`;
 
 /**
  * ----- Overrides defaults boostraps
@@ -265,6 +212,32 @@ export const LoadingPlaceholder = styled.div`
    animation: ${gradient} 5s ease-in-out infinite;
    width: ${props => props.width ? props.width : '150px'};
    height: ${props => props.height ? props.height : '40px'};
+`;
+
+export const ContentDiv = styled.div`
+  background: ${props => THEMES[props.theme.style].surface.level1};
+  box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15);
+  cursor: pointer;
+  border: none;
+  margin-bottom: 10px;
+  & a:hover {
+    transform: translateY(-10px);
+  }
+  &.with-icon::before {
+    content:'${props => (props.icon ?? "🔥")}';
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+    display: inline-flex;
+    justify-content: center;
+    position: absolute;
+    right: -0.9rem;
+    background: ${props => THEMES[props.theme.style].surface.level1};
+    border-radius: 50%;
+    align-items: center;
+    top: -0.8rem;
+    box-shadow: 0 0 10px rgba(67, 38, 100, 0.15);
+  }
 `;
 
 /**

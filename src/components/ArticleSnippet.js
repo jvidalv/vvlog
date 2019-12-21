@@ -3,16 +3,7 @@ import {Link} from "react-router-dom";
 import {H5Category, ImageSnippet, SnippetContainer} from "./ArticleSnippetStyle";
 import {H3, P} from "../styles/GenericStyles";
 import BASE_IMAGE, {images_url} from "../constants/Images";
-
-/**
- * Returns the url ready to be consumed by react-router
- * @param {string} category
- * @param {string} slug
- */
-const generateLink = (category, slug = "") => {
-    return ("/" + category + "/" + slug).toLocaleLowerCase();
-};
-
+import {generateLink} from "../helpers/Generics";
 /**
  * Article snippet with a left image
  * Expects all the props spreaded below
@@ -40,7 +31,6 @@ export function ArticleSnippetWithImage(props) {
         </SnippetContainer>
     );
 }
-
 /**
  * Article snippet without image and with content centered
  * Expects all the props spreaded below

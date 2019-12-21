@@ -1,8 +1,9 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
-import {A, H4, LoadingPlaceholder, SidebarElement} from "../styles/GenericStyles";
+import {A, H4, LoadingPlaceholder} from "../styles/GenericStyles";
 import {useGlobals} from "../contexts/Global";
 import {smoothMove} from "../helpers/Generics";
+import {SidebarElement} from "./SidebarStyle";
 
 /**
  * Sidebar container that contains all elements
@@ -63,7 +64,7 @@ function MoreOfMe(props) {
 
     return (
         <>
-            <H4 fontPlex fontSize="1.6rem">
+            <H4 fontRecursive fontSize="1.6rem">
                 more of me
             </H4>
             <Project name="Fem Poble" url="https://fempoble.app"/>

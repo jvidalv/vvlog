@@ -63,6 +63,10 @@ export const SnippetContainer = styled.div`
     }
   }
   
+  &.icon::after {
+    
+  }
+  
   &.empty {  
     min-height:180px;
     display: flex;
@@ -99,8 +103,4 @@ export const SnippetContainer = styled.div`
     }
     
   }
-`;
-
-export const HighlightSpan = styled.span`
-    background: ${props => THEMES[props.theme.style].secondary}
 `;
