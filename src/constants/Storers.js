@@ -11,7 +11,7 @@ export const STORAGE_KEYS = {
      * @type {string}
      */
     BASIC_COOKIES : 'basic_cookies',
-    /**
+        /**
      * If the user has subscribed to our newsletter
      * @mustbe BOOL
      * @type {string}

@@ -13,7 +13,7 @@ import {
 } from "react-icons/fa";
 import {Form} from "react-bootstrap";
 import {IconA, ShareA, SharerStyled} from "./MyContentsStyle";
-import {ButtonStyled, H3, InputStyled} from "../styles/GenericStyles";
+import {ButtonStyled, H3, InputStyled, Label} from "../styles/GenericStyles";
 import useT from "../helpers/Translator";
 import {useGlobals} from "../contexts/Global";
 import {isEmail} from "../helpers/Validations";
@@ -162,30 +162,26 @@ export function Sharer(props) {
  */
 export function Subscribe(props) {
     const [{language}] = useGlobals();
-    // 0 => yet has to subscribe, 1 => email is invalid, 2 => something went wrong in the server, 3 => ok
+    // 0 => yet has to subscribe, 1 => email is invalid, 3 => ok
     const [subscribed, setSubscribed] = React.useState(0);
     const emailInput = React.useRef();
-
+    /**
+     * Validates email and fetches de data to the bd
+     */
     const subscription = () => {
         const user_email = emailInput.current.value;
         if (isEmail(user_email)) {
+            setSubscribed(3);
             const data = {
                 email: user_email,
                 language_id: language
             };
             vfetch(api_calls.data.newsletter_subscriber, {...data})
-                .then(() => vStorage.setItem(STORAGE_KEYS.NEWSLETTER_SUBSCRIBED, user_email));
-            //setTimeout(() => setShow(false), 1000);
+                .then(() => vStorage.setItem(STORAGE_KEYS.NEWSLETTER_SUBSCRIBED, user_email))
         } else {
-            // todo fer un switch al use effect i escoltar alli los cambis de estat
             setSubscribed(1);
-            alert("No és un email valid")
         }
     };
-
-    React.useEffect(() => {
-
-    }, []);
 
     return (
         <>
@@ -196,9 +192,13 @@ export function Subscribe(props) {
                 {useT('subscribe_and_stay_in_touch')}
             </H3>
             <Form className="my-4">
-                <InputStyled ref={emailInput} type="email" className="text-center" placeholder="your email"/>
+                <InputStyled ref={emailInput} disabled={subscribed === 3} type="email" className="text-center" placeholder="your email"/>
+                <Label themeColor="error"
+                       className={"m-0 mt-4 " + (subscribed !== 1 ? "d-none" : "")}>{useT('email_is_invalid')}</Label>
+                <Label themeColor="primary"
+                       className={"m-0 mt-4 " + (subscribed !== 3 ? "d-none" : "")}>{useT('thanks_for_subsribing')}</Label>
             </Form>
-            <ButtonStyled onClick={() => subscription()}>{useT('subscribe')}</ButtonStyled>
+            <ButtonStyled className={(subscribed === 3 ? "d-none" : "")} disabled={subscribed === 3} onClick={() => subscription()}>{useT('subscribe')}</ButtonStyled>
         </>
     );
 }

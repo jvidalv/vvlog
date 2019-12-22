@@ -73,6 +73,11 @@ export const P = styled.p`
   }
 `;
 
+export const Label = styled.label`
+  font-weight: 300;
+  ${props => fontsDefaults(props)}
+`;
+
 export const A = styled.a`
   color: ${props => THEMES[props.theme.style].primary};
   font-weight: 300;
@@ -115,8 +120,8 @@ export const HR = styled.hr`
 
 export const ButtonStyled = styled(Button)`
   transition: 0.5s;
-  color: ${props => props.color ? THEMES[props.theme.style][props.color] : THEMES[props.theme.style].primary};
-  background: ${props => props.background ? THEMES[props.theme.style][props.background] : THEMES[props.theme.style].surface.level1};
+  color: ${props => props.themeColor ? THEMES[props.theme.style][props.color] : THEMES[props.theme.style].primary};
+  background: ${props => props.themeBackground ? THEMES[props.theme.style][props.background] : THEMES[props.theme.style].surface.level1};
   letter-spacing: 1px;
   box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15) !important;
   border: none;
@@ -147,6 +152,9 @@ export const InputStyled = styled(Form.Control)`
     box-shadow: 0 0 0 0 ${props => THEMES[props.theme.style].secondary};
     transform: scale(1);
     animation: ${pulse} 2s forwards;
+  }
+  &:disabled{
+      background: ${props => THEMES[props.theme.style].surface.level2};
   }
   &:active,
   &:focus {
@@ -212,6 +220,7 @@ export const LoadingPlaceholder = styled.div`
    animation: ${gradient} 5s ease-in-out infinite;
    width: ${props => props.width ? props.width : '150px'};
    height: ${props => props.height ? props.height : '40px'};
+   ${props => props.hasOwnProperty('rounded') ? `border-radius: 50%` : ``};
 `;
 
 export const ContentDiv = styled.div`

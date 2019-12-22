@@ -2,7 +2,7 @@ import React from "react";
 import {Col, Container, Form, Row} from "react-bootstrap";
 import ReCAPTCHA from "react-google-recaptcha";
 import {HeroSimple} from "../components/HeroSection";
-import {ButtonStyled, ContentDiv, FormStyled, P, S} from "../styles/GenericStyles";
+import {ButtonStyled, ContentDiv, FormStyled, Label, P, S} from "../styles/GenericStyles";
 import {isEmail} from "../helpers/Validations";
 import vfetch from "../helpers/Vfetch";
 import api_calls from "../constants/Api";
@@ -28,11 +28,11 @@ function Contact() {
             message: document.getElementById('contact-message').value,
         };
         if (isEmail(data.email) && data.message) {
+            setSubmited(4);
             vfetch(api_calls.data.contact_form, {...data})
                 .then(() => vStorage.setItem(STORAGE_KEYS.CONTACT_FORM_SUBMITED, true));
         } else {
-            setSubmited(1);
-            alert('something is wrong')
+            setSubmited(isEmail(data.email) ? 2 : 1);
         }
     };
 
@@ -67,8 +67,10 @@ function Contact() {
                         <ContentDiv>
                             <div className="p-4">
                                 <FormStyled ref={contactForm}>
-                                    <Form.Group controlId="formBasicEmail">
-                                        <Form.Label>Your Name</Form.Label>
+                                    <Form.Group controlId="formBasicName">
+                                        <div>
+                                            <Label themeColor="onSurface" fontSize="1.3rem">{useT('your_name')}</Label>
+                                        </div>
                                         <Form.Control
                                             id="contact-name"
                                             type="text"
@@ -76,12 +78,22 @@ function Contact() {
                                             autoComplete="off"
                                         />
                                     </Form.Group>
-                                    <Form.Group controlId="formBasicPassword">
-                                        <Form.Label>Your Email</Form.Label>
+                                    <Form.Group controlId="formBasicEmail">
+                                        <div>
+                                            <Label themeColor="onSurface" fontSize="1.3rem">{useT('your_email')}</Label>
+                                            <Label className={"ml-2 " + (submited !== 1 ? "d-none" : "")}
+                                                   themeColor="error"
+                                                   fontSize="1rem">{useT('invalid_email')}</Label>
+                                        </div>
                                         <Form.Control id="contact-email" type="email" placeholder="" required/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicMessage">
-                                        <Form.Label>Message</Form.Label>
+                                        <div>
+                                            <Label themeColor="onSurface" fontSize="1.3rem">{useT('message')}</Label>
+                                            <Label className={"ml-2 " + (submited !== 2 ? "d-none" : "")}
+                                                   themeColor="error"
+                                                   fontSize="1rem">{useT('message_cant_be_empty')}</Label>
+                                        </div>
                                         <Form.Control id="contact-message" as="textarea" rows="3" required/>
                                     </Form.Group>
                                     <ReCAPTCHA
@@ -91,13 +103,16 @@ function Contact() {
                                     />
                                 </FormStyled>
                                 <div className="text-center mt-3">
+                                    <Label className={"my-2 " + (submited !== 4 ? "d-none" : "")} themeColor="primary" fontSize="1.3rem">{useT('thanks_for_contacting_us')}</Label>
                                     <ButtonStyled
-                                        background="primary2"
-                                        color="onPrimary2"
+                                        className={(submited === 4 ? "d-none" : "")}
+                                        disabled={submited === 4}
+                                        themeBackground="primary2"
+                                        themeColor="onPrimary2"
                                         type="submit"
                                         onClick={() => submit()}
                                     >
-                                        Send 📮
+                                        {useT('send', ['📮'])}
                                     </ButtonStyled>
                                 </div>
                             </div>

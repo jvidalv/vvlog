@@ -14,16 +14,16 @@ import useT from "../helpers/Translator";
 import {HeaderLogo} from "../assets/svgs/Logo";
 
 /**
- * Returns true if we are in homepage
- * @param {string} pathname
+ * @param pathname
+ * @returns {boolean}
  */
 const isHome = pathname => {
     return pathname === "/";
 };
 
 /**
- * Returns true if we are in explorepage
- * @param {string} pathname
+ * @param pathname
+ * @returns {boolean}
  */
 const isExplore = pathname => {
     return pathname === "/explore";
@@ -36,7 +36,11 @@ const isExplore = pathname => {
 function Searcher(props) {
     const [q, setQ] = useState('');
     const history = useHistory();
-
+    /**
+     * Navigates to explore page with the string that is written in the input
+     * @param e
+     * @param q
+     */
     const navigateToExplore = (e, q) => {
         e.preventDefault();
         if (q && q.length > 2) {
@@ -67,7 +71,7 @@ function Searcher(props) {
 }
 
 /**
- * Button that switches the themes
+ * Theme switcher
  * @param {*} props
  */
 const ThemeSwitcher = props => {
@@ -81,7 +85,7 @@ const ThemeSwitcher = props => {
 };
 
 /**
- * Button that switches the language
+ * Language switcher
  * @param {*} props
  */
 const LanguageSwitcher = props => {
@@ -113,7 +117,7 @@ const LanguageSwitcher = props => {
 };
 
 /**
- * Main functional function that returns the navigation bar
+ * Navigation bar
  * @param {*} props
  */
 export function Header(props) {
@@ -142,6 +146,7 @@ export function Header(props) {
         >
             <LinkStyled
                 to="/"
+                onClick={() => setExpanded(false)}
                 className={isHome(pathname) ? "d-none" : "pr-3 mr-5"}
                 style={{opacity: 1}}
                 data-toggle="collapse"

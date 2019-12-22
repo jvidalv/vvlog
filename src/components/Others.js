@@ -9,11 +9,9 @@ import STORAGE_KEYS from "../constants/Storers";
 import api_calls from "../constants/Api";
 import vfetch from "../helpers/Vfetch";
 import vStorage from "../helpers/VStorage";
-import {isEmail} from "../helpers/Validations";
 import {useGlobals} from "../contexts/Global";
 import {Link} from "react-router-dom";
 import {generateLink} from "../helpers/Generics";
-import {ImageSnippet, SnippetContainer} from "./ArticleSnippetStyle";
 import BASE_IMAGE, {images_url} from "../constants/Images";
 
 /**
@@ -59,27 +57,30 @@ export function Cookies() {
         setTimeout(() => setShow(!vStorage.getItem(STORAGE_KEYS.BASIC_COOKIES)), 5000);
     }, []);
 
-    return show ? (
-        <CookiesDiv ref={cookiesRef} className="position-fixed fixed-bottom d-flex flex-column align-items-center">
+    return (
+        <CookiesDiv
+            ref={cookiesRef}
+            className={"position-fixed fixed-bottom flex-column align-items-center " + (!show ? "d-none" : "d-flex")}
+        >
             <Container>
                 <Row>
                     <Col sm={10} lg={5}>
-                        <H5 className="text-center" fontRecursive>This website uses cookies</H5>
+                        <H5 className="text-center" fontRecursive>{useT('this_website_uses_cookies')}</H5>
                         <P>
-                            We use cookies to personalise content and ads, to provide social media
-                            features and to analyse our traffic.
+                            {useT('we_use_cookies_to_personalise_content_and_ads_to_provide_social_media_features_and_to_analyse_our_traffic')}
                         </P>
                         <ButtonStyled onClick={() => accept()} className="w-100 mb-3">
-                            I agree
+                            {useT('i_agree')}
                         </ButtonStyled>
                     </Col>
                 </Row>
             </Container>
         </CookiesDiv>
-    ) : null
+    )
 }
 
 /**
+ * Categories row
  * @returns {*}
  * @constructor
  */
@@ -94,7 +95,8 @@ export function CategoriesCircle(){
                         {
                             !categories[category].fake ?
                             <Link to={generateLink(category)}>
-                                <img src={BASE_IMAGE + categories[category].image}/>
+                                <img alt={categories[category][language].name} src={BASE_IMAGE + categories[category].image}/>
+                                <label>{categories[category][language].name}</label>
                             </Link> : null
                         }
                     </CategoryCircle>
