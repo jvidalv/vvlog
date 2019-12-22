@@ -13,6 +13,8 @@ import {isEmail} from "../helpers/Validations";
 import {useGlobals} from "../contexts/Global";
 import {Link} from "react-router-dom";
 import {generateLink} from "../helpers/Generics";
+import {ImageSnippet, SnippetContainer} from "./ArticleSnippetStyle";
+import BASE_IMAGE, {images_url} from "../constants/Images";
 
 /**
  * Component used on places where you can search for items
@@ -77,6 +79,10 @@ export function Cookies() {
     ) : null
 }
 
+/**
+ * @returns {*}
+ * @constructor
+ */
 export function CategoriesCircle(){
     const [{categories, language}] = useGlobals();
     return (
@@ -88,7 +94,7 @@ export function CategoriesCircle(){
                         {
                             !categories[category].fake ?
                             <Link to={generateLink(category)}>
-                                {categories[category][language].name}
+                                <img src={BASE_IMAGE + categories[category].image}/>
                             </Link> : null
                         }
                     </CategoryCircle>
