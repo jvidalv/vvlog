@@ -15,6 +15,8 @@ import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
 import useT from "../helpers/Translator";
 import {D_AARTICLE, D_ARTICLES} from "../constants/Dummy";
+import Helmet from "react-helmet/es/Helmet";
+import {HelmetArticle} from "../constants/Helmets";
 
 /**
  * Fetches current article
@@ -124,72 +126,75 @@ function Article() {
     const {data, loading, dataRelated} = useAArticle();
 
     return (
-        <article>
-            <Container className="pt-5 text-center">
-                <Row>
-                    <Col>
-                        <HeroSimple
-                            title={areSet(aArticle, ['title'], <LoadingPlaceholder width="400px"
-                                                                                   height="95px"/>)}
-                            overtitle={areSet(aArticle, ['category_nice'], <LoadingPlaceholder width="100px"
-                                                                                               height="35px"/>)}
-                            urlOvertitle={'/' + aArticle.category_code}
-                        />
-                    </Col>
-                </Row>
-            </Container>
-            <Container className="py-3">
-                <Row noGutters className="justify-content-center align-items-center">
-                    <Col xs md={10} lg={8}>
-                        <AuthorWithImage/>
-                    </Col>
-                </Row>
-            </Container>
-            <Container className="py-4">
-                <Row>
-                    <Col xs={12} md={12} lg={9}>
-                        <ArticleContent loading={loading}
-                                        content={data && data.hasOwnProperty('content') ? data.content : ''}/>
-                        <Tags/>
-                        <AuthorWithImageExtended/>
-                    </Col>
-                    <Col>
-                        <ArticleSidebar/>
-                    </Col>
-                </Row>
-            </Container>
-            <Container>
-                <Row>
-                    <Col>
-                        <Sharer className="my-4 text-center justify-content-center"/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col className="text-center">
-                        <HR/>
-                        <H3> {useT('more_of_vvlog', ['👀'])} </H3>
-                    </Col>
-                </Row>
-            </Container>
-            <DiagonalContainer>
-                <Row className="my-5">
-                    {relatedArticles.map(snippet => (
-                        <Col key={snippet.id} className="d-flex px-1" sm={6} md={6}>
-                            <ArticleSnippet className="justify-content-center mb-2" {...snippet[language]}
-                                            categorySlug={snippet.category} fake={snippet.fake}/>
+        <>
+            <HelmetArticle aArticle={aArticle}/>
+            <article>
+                <Container className="pt-5 text-center">
+                    <Row>
+                        <Col>
+                            <HeroSimple
+                                title={areSet(aArticle, ['title'], <LoadingPlaceholder width="400px"
+                                                                                       height="95px"/>)}
+                                overtitle={areSet(aArticle, ['category_nice'], <LoadingPlaceholder width="100px"
+                                                                                                   height="35px"/>)}
+                                urlOvertitle={'/' + aArticle.category_code}
+                            />
                         </Col>
-                    ))}
-                </Row>
-            </DiagonalContainer>
-            <Container>
-                <Row className="justify-content-center my-5 py-5">
-                    <Col className="text-center" xs md={8} lg={6}>
-                        <Subscribe/>
-                    </Col>
-                </Row>
-            </Container>
-            <ReadingTopBar/>
-        </article>
+                    </Row>
+                </Container>
+                <Container className="py-3">
+                    <Row noGutters className="justify-content-center align-items-center">
+                        <Col xs md={10} lg={8}>
+                            <AuthorWithImage/>
+                        </Col>
+                    </Row>
+                </Container>
+                <Container className="py-4">
+                    <Row>
+                        <Col xs={12} md={12} lg={9}>
+                            <ArticleContent loading={loading}
+                                            content={data && data.hasOwnProperty('content') ? data.content : ''}/>
+                            <Tags/>
+                            <AuthorWithImageExtended/>
+                        </Col>
+                        <Col>
+                            <ArticleSidebar/>
+                        </Col>
+                    </Row>
+                </Container>
+                <Container>
+                    <Row>
+                        <Col>
+                            <Sharer className="my-4 text-center justify-content-center"/>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="text-center">
+                            <HR/>
+                            <H3> {useT('more_of_vvlog', ['👀'])} </H3>
+                        </Col>
+                    </Row>
+                </Container>
+                <DiagonalContainer>
+                    <Row className="my-5">
+                        {relatedArticles.map(snippet => (
+                            <Col key={snippet.id} className="d-flex px-1" sm={6} md={6}>
+                                <ArticleSnippet className="justify-content-center mb-2" {...snippet[language]}
+                                                categorySlug={snippet.category} fake={snippet.fake}/>
+                            </Col>
+                        ))}
+                    </Row>
+                </DiagonalContainer>
+                <Container>
+                    <Row className="justify-content-center my-5 py-5">
+                        <Col className="text-center" xs md={8} lg={6}>
+                            <Subscribe/>
+                        </Col>
+                    </Row>
+                </Container>
+                <ReadingTopBar/>
+            </article>
+        </>
     );
 }
 

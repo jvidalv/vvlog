@@ -9,6 +9,8 @@ import api_calls from "../constants/Api";
 import vStorage from "../helpers/VStorage";
 import STORAGE_KEYS from "../constants/Storers";
 import useT from "../helpers/Translator";
+import Helmet from "react-helmet/es/Helmet";
+import {HelmetContact} from "../constants/Helmets";
 
 /**
  * @returns {*}
@@ -38,6 +40,7 @@ function Contact() {
 
     return (
         <>
+            <HelmetContact />
             <Container className="pt-5 text-center">
                 <Row>
                     <Col>

@@ -19,6 +19,9 @@ import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
 import {MainLoader} from "../components/Loaders";
 import Toasts from "../layouts/Toasts";
+import Helmet from "react-helmet/es/Helmet";
+import useT from "../helpers/Translator";
+import {HelmetIndex} from "../constants/Helmets";
 
 /**
  * Retrieve articles and set them in global context
@@ -148,8 +151,10 @@ function Index() {
 
     return (
         <ThemeProvider theme={{style: theme}}>
+
             <Main>
                 <Router basename={process.env.PUBLIC_URL}>
+                    <HelmetIndex />
                     {/*<Toasts />*/}
                     <UseScrollToTop/>
                     <Header/>

@@ -10,6 +10,9 @@ import {limiter, multiFilter} from "../helpers/Generics";
 import {ContentDiv, DiagonalContainer, H3, TexturedContainer} from "../styles/GenericStyles";
 import {Subscribe} from "../components/MyContents";
 import {CategoriesCircle} from "../components/Others";
+import Helmet from "react-helmet/es/Helmet";
+import useT from "../helpers/Translator";
+import {HelmetHome} from "../constants/Helmets";
 
 /**
  *
@@ -20,7 +23,7 @@ const FeaturedSection = () => {
     const [{articles, language}] = useGlobals();
     return (
         <>
-            {limiter(multiFilter(articles, ['featured'], '1'), 3).map(snippet => (
+            {limiter(multiFilter(articles, ['featured'], '1'), 4).map(snippet => (
                 <ArticleSnippetWithImage key={snippet.id} {...snippet[language]} categorySlug={snippet.category}
                                          fake={snippet.fake}/>
             ))}
@@ -38,7 +41,7 @@ const AllArticlesSection = () => {
     return (
         <>
             <Row className="px-2">
-                {limiter(articles, 9).map(snippet => (
+                {limiter(multiFilter(articles, ['featured'], '0'), 9).map(snippet => (
                     <Col key={snippet.id} className="d-flex px-1" md={6} lg={4}>
                         <ArticleSnippet
                             {...snippet[language]}
@@ -61,6 +64,7 @@ const AllArticlesSection = () => {
 function Home() {
     return (
         <>
+            <HelmetHome />
             <HeroHome/>
             <Container className="pt-4 pb-2">
                 <Row>

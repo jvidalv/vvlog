@@ -5,6 +5,8 @@ import {HeroSimple} from "../components/HeroSection";
 import {useGlobals} from "../contexts/Global";
 import useT from "../helpers/Translator";
 import {P} from "../styles/GenericStyles";
+import Helmet from "react-helmet/es/Helmet";
+import {HelmetError} from "../constants/Helmets";
 
 /**
  * @returns {*}
@@ -14,6 +16,7 @@ function Error() {
     const [{error}] = useGlobals();
     return (
         <>
+            <HelmetError />
             <Container className="d-flex flex-column justify-content-center align-items-center pt-5 text-center"
                        style={{minHeight: "500px"}}>
                 <Row>

@@ -188,7 +188,7 @@ export function Subscribe(props) {
             <span role="img" aria-label="train">
                   💌
             </span>
-            <H3 fontWeight="400">
+            <H3>
                 {useT('subscribe_and_stay_in_touch')}
             </H3>
             <Form className="my-4">

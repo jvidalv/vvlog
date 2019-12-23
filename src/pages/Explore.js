@@ -11,6 +11,8 @@ import {useGlobals} from "../contexts/Global";
 import {limiter} from "../helpers/Generics";
 import {useFilterArticles} from "../hooks/useFilterArticles";
 import {EmptyList} from "../components/Others";
+import Helmet from "react-helmet/es/Helmet";
+import {HelmetExplore} from "../constants/Helmets";
 
 function Explore() {
     const [{language}] = useGlobals();
@@ -21,6 +23,7 @@ function Explore() {
 
     return (
         <>
+            <HelmetExplore />
             <Container className="pt-5 text-center">
                 <Row>
                     <Col>

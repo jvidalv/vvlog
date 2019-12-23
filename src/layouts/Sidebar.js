@@ -4,6 +4,7 @@ import {A, H4, LoadingPlaceholder} from "../styles/GenericStyles";
 import {useGlobals} from "../contexts/Global";
 import {smoothMove} from "../helpers/Generics";
 import {SidebarElement} from "./SidebarStyle";
+import useT from "../helpers/Translator";
 
 /**
  * Sidebar container that contains all elements
@@ -28,14 +29,14 @@ const AboutMe = () => {
     return (
         <>
             <A
-                href="https://github.com/jvidalv"
+                href="https://github.com/jvidalv/vvlog"
                 italic
                 fontPlex
                 fontSize="1.6rem"
                 target="_blank"
             >
                 On Github
-                <br/> @jvidalv
+                <br/> @vvlog
             </A>
         </>
     );
@@ -65,7 +66,7 @@ function MoreOfMe(props) {
     return (
         <>
             <H4 fontRecursive fontSize="1.6rem">
-                more of me
+                {useT('other_projects')}
             </H4>
             <Project name="Fem Poble" url="https://fempoble.app"/>
             <Project name="ReactNews" url="https://jvidalv.github.io/reactnews/"/>

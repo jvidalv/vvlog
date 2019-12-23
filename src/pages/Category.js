@@ -9,6 +9,9 @@ import {useHistory, useParams} from "react-router";
 import {areSet} from "../helpers/Generics";
 import {LoadingPlaceholder} from "../styles/GenericStyles";
 import {useFilterArticles} from "../hooks/useFilterArticles";
+import useT from "../helpers/Translator";
+import Helmet from "react-helmet/es/Helmet";
+import {HelmetCategory} from "../constants/Helmets";
 
 /**
  * @returns {{fArticles: *}}
@@ -52,6 +55,7 @@ function Category() {
 
     return (
         <>
+            <HelmetCategory params={params}/>
             <Container className="pt-5 text-center">
                 <Row>
                     <Col>
