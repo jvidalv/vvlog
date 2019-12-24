@@ -88,6 +88,7 @@ export const ArticleSidebar = () => {
     const Anchors = () => {
         return <> {aArticle.anchors.map((an, i) => (
             <A
+                key={i}
                 className="my-3 text-left"
                 bottomBar
                 fontSize="1rem"

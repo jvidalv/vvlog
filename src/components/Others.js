@@ -1,5 +1,5 @@
 import React from "react";
-import {ButtonStyled, ContentDiv, H3, H5, P} from "../styles/GenericStyles";
+import {ButtonStyled, H3, H5, P} from "../styles/GenericStyles";
 import useT from "../helpers/Translator";
 import {CategoryCircle, CookiesDiv} from "./OthersStyle";
 import Container from "react-bootstrap/Container";
@@ -12,7 +12,7 @@ import vStorage from "../helpers/VStorage";
 import {useGlobals} from "../contexts/Global";
 import {Link} from "react-router-dom";
 import {generateLink} from "../helpers/Generics";
-import BASE_IMAGE, {images_url} from "../constants/Images";
+import BASE_IMAGE from "../constants/Images";
 
 /**
  * Component used on places where you can search for items
@@ -84,25 +84,27 @@ export function Cookies() {
  * @returns {*}
  * @constructor
  */
-export function CategoriesCircle(){
+export function CategoriesCircle() {
     const [{categories, language}] = useGlobals();
     return (
         <>
-        {
-            Object.keys(categories).map(category =>
-                <Col className="d-flex justify-content-center align-items-center">
-                    <CategoryCircle className={"d-flex justify-content-center align-items-center " + ( categories[category].fake ? "loading" : "" )}>
-                        {
-                            !categories[category].fake ?
-                            <Link to={generateLink(category)}>
-                                <img alt={categories[category][language].name} src={BASE_IMAGE + categories[category].image}/>
-                                <label>{categories[category][language].name}</label>
-                            </Link> : null
-                        }
-                    </CategoryCircle>
-                </Col>
-            )
-        }
+            {
+                Object.keys(categories).map(category =>
+                    <Col key={categories[category].id} className="d-flex justify-content-center align-items-center">
+                        <CategoryCircle
+                            className={"d-flex justify-content-center align-items-center " + (categories[category].fake ? "loading" : "")}>
+                            {
+                                !categories[category].fake ?
+                                    <Link to={generateLink(category)}>
+                                        <img alt={categories[category][language].name}
+                                             src={BASE_IMAGE + categories[category].image}/>
+                                        <label>{categories[category][language].name}</label>
+                                    </Link> : null
+                            }
+                        </CategoryCircle>
+                    </Col>
+                )
+            }
         </>
     )
 }

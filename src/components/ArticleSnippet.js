@@ -4,6 +4,7 @@ import {H5Category, ImageSnippet, SnippetContainer} from "./ArticleSnippetStyle"
 import {H3, P} from "../styles/GenericStyles";
 import BASE_IMAGE, {images_url} from "../constants/Images";
 import {generateLink} from "../helpers/Generics";
+
 /**
  * Article snippet with a left image
  * Expects all the props spreaded below
@@ -31,6 +32,7 @@ export function ArticleSnippetWithImage(props) {
         </SnippetContainer>
     );
 }
+
 /**
  * Article snippet without image and with content centered
  * Expects all the props spreaded below
@@ -56,7 +58,8 @@ export function ArticleSnippet(props) {
     }, [id, props.q]);
 
     return (
-        <SnippetContainer ref={snippetRef} className={props.className + (fake ? " empty" : "") + " simple text-center p-4"}
+        <SnippetContainer ref={snippetRef}
+                          className={props.className + (fake ? " empty" : "") + " simple text-center p-4"}
                           icon={props.icon} key={id}>
             <H5Category>
                 <Link to={generateLink(categorySlug)}>{category}</Link>

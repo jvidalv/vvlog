@@ -9,7 +9,6 @@ import api_calls from "../constants/Api";
 import vStorage from "../helpers/VStorage";
 import STORAGE_KEYS from "../constants/Storers";
 import useT from "../helpers/Translator";
-import Helmet from "react-helmet/es/Helmet";
 import {HelmetContact} from "../constants/Helmets";
 
 /**
@@ -40,7 +39,7 @@ function Contact() {
 
     return (
         <>
-            <HelmetContact />
+            <HelmetContact/>
             <Container className="pt-5 text-center">
                 <Row>
                     <Col>
@@ -70,9 +69,9 @@ function Contact() {
                         <ContentDiv>
                             <div className="p-4">
                                 <FormStyled ref={contactForm}>
-                                    <Form.Group controlId="formBasicName">
+                                    <Form.Group>
                                         <div>
-                                            <Label themeColor="onSurface" fontSize="1.3rem">{useT('your_name')}</Label>
+                                            <Label themecolor="onSurface" fontSize="1.3rem">{useT('your_name')}</Label>
                                         </div>
                                         <Form.Control
                                             id="contact-name"
@@ -81,20 +80,20 @@ function Contact() {
                                             autoComplete="off"
                                         />
                                     </Form.Group>
-                                    <Form.Group controlId="formBasicEmail">
+                                    <Form.Group>
                                         <div>
-                                            <Label themeColor="onSurface" fontSize="1.3rem">{useT('your_email')}</Label>
+                                            <Label themecolor="onSurface" fontSize="1.3rem">{useT('your_email')}</Label>
                                             <Label className={"ml-2 " + (submited !== 1 ? "d-none" : "")}
-                                                   themeColor="error"
-                                                   fontSize="1rem">{useT('invalid_email')}</Label>
+                                                   themecolor="error"
+                                                   fontSize="1rem">{useT('email_is_invalid')}</Label>
                                         </div>
                                         <Form.Control id="contact-email" type="email" placeholder="" required/>
                                     </Form.Group>
-                                    <Form.Group controlId="formBasicMessage">
+                                    <Form.Group>
                                         <div>
-                                            <Label themeColor="onSurface" fontSize="1.3rem">{useT('message')}</Label>
+                                            <Label themecolor="onSurface" fontSize="1.3rem">{useT('message')}</Label>
                                             <Label className={"ml-2 " + (submited !== 2 ? "d-none" : "")}
-                                                   themeColor="error"
+                                                   themecolor="error"
                                                    fontSize="1rem">{useT('message_cant_be_empty')}</Label>
                                         </div>
                                         <Form.Control id="contact-message" as="textarea" rows="3" required/>
@@ -106,12 +105,13 @@ function Contact() {
                                     />
                                 </FormStyled>
                                 <div className="text-center mt-3">
-                                    <Label className={"my-2 " + (submited !== 4 ? "d-none" : "")} themeColor="primary" fontSize="1.3rem">{useT('thanks_for_contacting_us')}</Label>
+                                    <Label className={"my-2 " + (submited !== 4 ? "d-none" : "")} themecolor="primary"
+                                           fontSize="1.3rem">{useT('thanks_for_contacting_us', ['😛'])}</Label>
                                     <ButtonStyled
                                         className={(submited === 4 ? "d-none" : "")}
                                         disabled={submited === 4}
-                                        themeBackground="primary2"
-                                        themeColor="onPrimary2"
+                                        themebackground="primary2"
+                                        themebolor="onPrimary2"
                                         type="submit"
                                         onClick={() => submit()}
                                     >

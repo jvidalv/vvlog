@@ -9,7 +9,7 @@ import {multiFilter} from "../helpers/Generics";
  * @param nested
  * @returns {[]}
  */
-export const useFilterArticles = (properties, q, nested) => {
+export const useFilterArticles = (properties, q = false, nested = false) => {
 
     const [{articles}] = useGlobals();
     const [fArticles, setFArticles] = useState(articles);

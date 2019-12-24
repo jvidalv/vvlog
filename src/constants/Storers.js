@@ -10,19 +10,19 @@ export const STORAGE_KEYS = {
      * @mustbe BOOL
      * @type {string}
      */
-    BASIC_COOKIES : 'basic_cookies',
-        /**
+    BASIC_COOKIES: 'basic_cookies',
+    /**
      * If the user has subscribed to our newsletter
      * @mustbe BOOL
      * @type {string}
      */
-    NEWSLETTER_SUBSCRIBED : 'newsletter_subscribed',
+    NEWSLETTER_SUBSCRIBED: 'newsletter_subscribed',
     /**
      * If the user has submited the contact form, it is deleted after checked
      * @mustbe BOOL
      * @type {string}
      */
-    CONTACT_FORM_SUBMITED : 'contact_form_submited',
+    CONTACT_FORM_SUBMITED: 'contact_form_submited',
 };
 
 export default STORAGE_KEYS;

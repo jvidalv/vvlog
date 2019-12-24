@@ -192,13 +192,15 @@ export function Subscribe(props) {
                 {useT('subscribe_and_stay_in_touch')}
             </H3>
             <Form className="my-4">
-                <InputStyled ref={emailInput} disabled={subscribed === 3} type="email" className="text-center" placeholder="your email"/>
-                <Label themeColor="error"
+                <InputStyled ref={emailInput} disabled={subscribed === 3} type="email" className="text-center"
+                             placeholder="your email"/>
+                <Label themecolor="error"
                        className={"m-0 mt-4 " + (subscribed !== 1 ? "d-none" : "")}>{useT('email_is_invalid')}</Label>
-                <Label themeColor="primary"
-                       className={"m-0 mt-4 " + (subscribed !== 3 ? "d-none" : "")}>{useT('thanks_for_subsribing')}</Label>
+                <Label themecolor="primary"
+                       className={"m-0 mt-4 " + (subscribed !== 3 ? "d-none" : "")}>{useT('thanks_for_subscribing')}</Label>
             </Form>
-            <ButtonStyled className={(subscribed === 3 ? "d-none" : "")} disabled={subscribed === 3} onClick={() => subscription()}>{useT('subscribe')}</ButtonStyled>
+            <ButtonStyled className={(subscribed === 3 ? "d-none" : "")} disabled={subscribed === 3}
+                          onClick={() => subscription()}>{useT('subscribe')}</ButtonStyled>
         </>
     );
 }

@@ -15,7 +15,6 @@ import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
 import useT from "../helpers/Translator";
 import {D_AARTICLE, D_ARTICLES} from "../constants/Dummy";
-import Helmet from "react-helmet/es/Helmet";
 import {HelmetArticle} from "../constants/Helmets";
 
 /**

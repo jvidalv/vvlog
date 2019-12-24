@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import {buildRequest} from "../helpers/Generics";
 
 /**
@@ -24,13 +24,13 @@ export const useFetcher = (call, params) => {
                 if (res.ok) {
                     return res.json();
                 }
-                throw "Error fetching data"
+                throw Error("Error fetching data");
             })
             .then(res => {
                 if (res) {
                     return setData(res)
                 }
-                throw "Error fetching data"
+                throw Error("Error fetching data");
             })
             .then(() => {
                 setLoading(false);

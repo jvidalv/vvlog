@@ -141,7 +141,7 @@ export function Header(props) {
     return (
         <NavStyled
             expand="lg"
-            shadow={!isHome(pathname)}
+            shadow={(!isHome(pathname)).toString()}
             expanded={expanded}
         >
             <LinkStyled

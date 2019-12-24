@@ -3,7 +3,7 @@
  * @param call
  * @param params
  */
-export function buildRequest(call, params){
+export function buildRequest(call, params) {
     let url = urlBuilder(call.url, params);
     let request = {
         method: call.method,
@@ -25,19 +25,21 @@ export function buildRequest(call, params){
 
     return {url, request};
 }
+
 /**
  * Builds an url consumable by a fetch promise
  * @param url
  * @param params
  * @returns {*}
  */
-export function urlBuilder(url, params){
+export function urlBuilder(url, params) {
     const ourl = new URL(url);
     if (params) {
         Object.keys(params).forEach(key => ourl.searchParams.append(key, params[key]))
     }
     return ourl;
 }
+
 /**
  * Limits the number of items in a certain array, so we can operate the data in less lines of code in the components
  * You can also skips certain number of values
@@ -54,6 +56,7 @@ export function limiter(array, limit, numToSkip) {
         return bs <= limit;
     })
 }
+
 /**
  * Removes x elements from the array starting from the beggining
  * @param array
@@ -63,6 +66,7 @@ export function limiter(array, limit, numToSkip) {
 export function skipper(array, steps) {
     return array.splice(0, steps);
 }
+
 /**
  * Converts an array to an indexed object by the property specified
  * @param array
@@ -75,6 +79,7 @@ export function reindexer(array, index) {
     }
     return newArr;
 }
+
 /**
  * Recursive dynamic function that checks for setted properties in objects
  * You must pass and object and all the properties that you want to check IN ORDER 💡
@@ -97,6 +102,7 @@ export function areSet(object, properties, fallback = null) {
 
     return object[properties[0]];
 }
+
 /**
  * Filters an array of objects
  * @param array of objects
@@ -116,6 +122,7 @@ export function multiFilter(array, properties, filter = '', nest = false) {
         return false;
     })
 }
+
 /**
  * Loads from cache the data by the key, and if it fails, it creates a new cache with the data in the fallback variable
  * @param key
@@ -132,31 +139,34 @@ export function loadFromCache(key, fallback, override = false) {
         return fallback;
     }
 }
+
 /**
  * Is the value in the arrays of values?
  * @param {*} value
  * @param {*} values
  */
-export function checkValue(value, values){
+export function checkValue(value, values) {
     return values.includes(value);
 }
+
 /**
  * Makes the scroll to anchors or to top smooth instead of automatic
  * @param toTop boolean
  */
-export function smoothMove(toTop = false){
+export function smoothMove(toTop = false) {
     document.getElementsByTagName('html')[0].style.scrollBehavior = "smooth";
     if (toTop) {
         setTimeout(() => window.scrollTo(0, 0), 50);
     }
     setTimeout(() => document.getElementsByTagName('html')[0].removeAttribute('style'), 150);
 }
+
 /**
  * Returns the url ready to be consumed by react-router
  * @param {string} category
  * @param {string} slug
  */
-export function generateLink(category, slug = ""){
+export function generateLink(category, slug = "") {
     return ("/" + category + "/" + slug).toLocaleLowerCase();
 }
 

@@ -7,7 +7,7 @@ import {THEMES} from "../constants/Themes";
  */
 export const fontsDefaults = props => `
     ${props.color ? `color : ${props.color}` : ''};
-    ${props.themeColor ? `color : ${THEMES[props.theme.style][props.themeColor]}` : ''};
+    ${props.themecolor ? `color : ${THEMES[props.theme.style][props.themecolor]}` : ''};
     ${props.fontSize ? `font-size : ${props.fontSize}` : ''};
     ${props.fontWeight ? `font-weight : ${props.fontWeight}` : ''};
     font-style : ${props.italic ? 'italic' : 'unset'};

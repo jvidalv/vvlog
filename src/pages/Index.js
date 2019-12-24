@@ -18,9 +18,6 @@ import Error from "./Error";
 import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
 import {MainLoader} from "../components/Loaders";
-import Toasts from "../layouts/Toasts";
-import Helmet from "react-helmet/es/Helmet";
-import useT from "../helpers/Translator";
 import {HelmetIndex} from "../constants/Helmets";
 
 /**
@@ -28,7 +25,7 @@ import {HelmetIndex} from "../constants/Helmets";
  * @returns {{loading: *, error: *, articles: *}}
  */
 const useArticles = () => {
-    const [{articles}, dispatch] = useGlobals();
+    const [{}, dispatch] = useGlobals();
     const {data, loading, error} = useFetcher(api_calls.articles.all);
 
     const setArticles = (articles) => {
@@ -154,12 +151,12 @@ function Index() {
 
             <Main>
                 <Router basename={process.env.PUBLIC_URL}>
-                    <HelmetIndex />
+                    <HelmetIndex/>
                     {/*<Toasts />*/}
                     <UseScrollToTop/>
                     <Header/>
                     <Switch>
-                        <Route exact path="/" component={Home} />
+                        <Route exact path="/" component={Home}/>
                         <Route path="/explore" component={Explore}/>
                         <Route path="/contact" component={Contact}/>
                         <Route path="/about" component={About}/>

@@ -7,11 +7,9 @@ import Sidebar from "../layouts/Sidebar";
 import {HeroHome} from "../components/HeroSection";
 import {useGlobals} from "../contexts/Global";
 import {limiter, multiFilter} from "../helpers/Generics";
-import {ContentDiv, DiagonalContainer, H3, TexturedContainer} from "../styles/GenericStyles";
+import {DiagonalContainer, H3, TexturedContainer} from "../styles/GenericStyles";
 import {Subscribe} from "../components/MyContents";
 import {CategoriesCircle} from "../components/Others";
-import Helmet from "react-helmet/es/Helmet";
-import useT from "../helpers/Translator";
 import {HelmetHome} from "../constants/Helmets";
 
 /**
@@ -64,7 +62,7 @@ const AllArticlesSection = () => {
 function Home() {
     return (
         <>
-            <HelmetHome />
+            <HelmetHome/>
             <HeroHome/>
             <Container className="pt-4 pb-2">
                 <Row>
@@ -78,7 +76,7 @@ function Home() {
             </Container>
             <Container className="pt-4 pb-2">
                 <Row>
-                   <CategoriesCircle/>
+                    <CategoriesCircle/>
                 </Row>
             </Container>
             <TexturedContainer className="py-5 my-5">

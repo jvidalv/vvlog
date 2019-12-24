@@ -39,9 +39,9 @@ export function HeroSimple(props) {
             {
                 image ? (
                     image === 'loading' ?
-                    <LoadingPlaceholder rounded width="100px" height="100px"/>
-                    :
-                    <img alt={title} src={BASE_IMAGE + image}/>
+                        <LoadingPlaceholder rounded width="100px" height="100px"/>
+                        :
+                        <img alt={title} src={BASE_IMAGE + image}/>
                 ) : null
             }
             {

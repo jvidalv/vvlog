@@ -1,4 +1,4 @@
-import styled, {keyframes} from "styled-components";
+import styled from "styled-components";
 import {NavLink} from "react-router-dom";
 import {THEMES} from "../constants/Themes";
 import {FormControl, Navbar, NavDropdown} from "react-bootstrap";
@@ -9,7 +9,6 @@ export const LinkStyled = styled(NavLink)`
   opacity: 0.7;
   &:hover {
       opacity: 1;
-
   }
   &::before {
     content: "${props => ("icon" in props ? props.icon + " " : "")}";
@@ -20,13 +19,12 @@ export const NavStyled = styled(Navbar)`
   z-index: 1500;
   transition:0s;
   font-weight: 300 !important;
-  ${props => props.shadow ? "box-shadow: 0 2px 20px 0 #0000005c" : ""};
+  ${props => props.shadow === 'true' ? "box-shadow: 0 2px 20px 0 #0000005c" : ""};
   background: linear-gradient(
     to right,
     ${props => THEMES[props.theme.style].header.left},
     ${props => THEMES[props.theme.style].header.right}
   );
-  
 `;
 
 export const NavbarToggleStyled = styled(Navbar.Toggle)`

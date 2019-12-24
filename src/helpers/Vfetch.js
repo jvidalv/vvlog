@@ -7,7 +7,7 @@ import {buildRequest} from "./Generics";
  * @param params
  * @returns {Promise<Response>}
  */
-function vfetch (call, params) {
+function vfetch(call, params) {
     const request = buildRequest(call, params);
     return fetch(request.url, request.request);
 }

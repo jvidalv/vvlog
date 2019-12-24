@@ -2,7 +2,6 @@ import React from "react";
 import {useGlobals} from "../contexts/Global";
 import Toast from "react-bootstrap/Toast";
 import {ToastsContainer} from "./ToastsStyle";
-import useT from "../helpers/Translator";
 
 /**
  *

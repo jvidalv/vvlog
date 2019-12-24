@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import {Container} from "react-bootstrap";
-import {P} from "../styles/GenericStyles";
 import {useScrollPosition} from "../hooks/useScrollPosition";
 import {FloatingButton} from "./FooterStyle.js";
-import {MyNetworks} from "../components/MyContents";
 import {smoothMove} from "../helpers/Generics";
 import {Cookies} from "../components/Others";
+import {FooterStyled} from "./FooterStyle";
+import {A, P} from "../styles/GenericStyles";
+import {Link} from "react-router-dom";
 
 /**
  * Shows the floating button  that brings you to the top
@@ -37,6 +38,9 @@ function Footer() {
         }
     };
 
+    /**
+     * Moves back to top on click
+     */
     useScrollPosition(
         ({prevPos, currPos}) => hasToShow(prevPos, currPos),
         [],
@@ -48,16 +52,21 @@ function Footer() {
     return (
         <>
             <ButtonToTop className={showToTop ? "active" : null}/>
-            <Cookies />
-            <footer >
-                <Container className="text-center mt-5 py-5">
-                    <MyNetworks className="mb-4"/>
-                    <P className="on-background mb-0">
-                        Code snippets licensed under MIT, unless otherwise noted. Content &
-                        Graphics © 2019 vvlog Josep Vidal
-                    </P>
+            <Cookies/>
+            <FooterStyled>
+                <Container fluid className="d-flex mt-5 py-5">
+                    <div className="w-50 d-flex flex-column justify-content-center">
+                        <P fontSize="1.3rem" className="hand mb-1">👋</P>
+                        <P fontSize="1rem">
+                            vvlog is created, written, and maintained by <br />
+                            <A href="http://vidal.fun">Josep Vidal</A> and a team of contributors on github.
+                        </P>
+                    </div>
+                    <div className="w-50 text-right">
+                        <Link to="/">Proba</Link>
+                    </div>
                 </Container>
-            </footer>
+            </FooterStyled>
         </>
     );
 }

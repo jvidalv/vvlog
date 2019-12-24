@@ -11,19 +11,18 @@ import {useGlobals} from "../contexts/Global";
 import {limiter} from "../helpers/Generics";
 import {useFilterArticles} from "../hooks/useFilterArticles";
 import {EmptyList} from "../components/Others";
-import Helmet from "react-helmet/es/Helmet";
 import {HelmetExplore} from "../constants/Helmets";
 
 function Explore() {
     const [{language}] = useGlobals();
     const location = useLocation();
     const {state} = location;
-    const [q, setQ] = useState(state ? state.q : null);
+    const [q, setQ] = useState(state ? state.q : "");
     const [fArticles] = useFilterArticles(['title', 'category'], q ? q : (state ? state.q : null), language);
 
     return (
         <>
-            <HelmetExplore />
+            <HelmetExplore/>
             <Container className="pt-5 text-center">
                 <Row>
                     <Col>
@@ -40,17 +39,16 @@ function Explore() {
                                 placeholder={useT("write_the_query")}
                                 value={q}
                                 onChange={e => setQ(e.target.value)}
-                                big
+                                big="true"
                             />
                         </Form>
                     </Col>
                 </Row>
             </Container>
-            <DiagonalContainer minHeight="500px">
+            <DiagonalContainer>
                 <Row className="px-2">
                     {fArticles && fArticles.length ? (
                         limiter(fArticles, 12).map(snippet => (
-                            <>
                                 <Col key={snippet.id} className="d-flex px-1" sm={6} md={4}>
                                     <ArticleSnippet
                                         {...snippet[language]}
@@ -60,7 +58,6 @@ function Explore() {
                                         fake={snippet.fake}
                                     />
                                 </Col>
-                            </>
                         ))) : <Col lg={12}><EmptyList/></Col>}
                 </Row>
             </DiagonalContainer>

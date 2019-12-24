@@ -9,7 +9,7 @@ import {HelmetAbout} from "../constants/Helmets";
 function About() {
     return (
         <>
-            <HelmetAbout />
+            <HelmetAbout/>
             <Container className="pt-5 text-center">
                 <Row>
                     <Col>

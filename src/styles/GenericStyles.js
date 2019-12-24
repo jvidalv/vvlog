@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {THEMES} from "../constants/Themes";
-import {Button, Card, Container, Form} from "react-bootstrap";
+import {Button, Container, Form} from "react-bootstrap";
 import {borderLeft, fontsDefaults} from "./DefaultsStyles";
 import {gradient, hueRotate, pulse} from "./AnimationsStyles";
 
@@ -120,8 +120,8 @@ export const HR = styled.hr`
 
 export const ButtonStyled = styled(Button)`
   transition: 0.5s;
-  color: ${props => props.themeColor ? THEMES[props.theme.style][props.color] : THEMES[props.theme.style].primary};
-  background: ${props => props.themeBackground ? THEMES[props.theme.style][props.background] : THEMES[props.theme.style].surface.level1};
+  color: ${props => props.themecolor ? THEMES[props.theme.style][props.color] : THEMES[props.theme.style].primary};
+  background: ${props => props.themebackground ? THEMES[props.theme.style][props.background] : THEMES[props.theme.style].surface.level1};
   letter-spacing: 1px;
   box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15) !important;
   border: none;

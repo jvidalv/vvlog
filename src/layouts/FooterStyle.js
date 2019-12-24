@@ -36,3 +36,13 @@ export const FloatingButton = styled.div`
     right: 2.5rem;
   }
 `;
+
+export const FooterStyled = styled.footer`
+  & .container-fluid {
+    background: linear-gradient(
+    to right,
+    ${props => THEMES[props.theme.style].header.left},
+    ${props => THEMES[props.theme.style].header.right}
+  );
+  }
+`;
