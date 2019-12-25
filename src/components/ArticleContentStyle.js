@@ -24,7 +24,7 @@ export const Content = styled.div`
   h2 > span,
   h2 > a {
     color: ${props => THEMES[props.theme.style].primary};
-    font-size: 2.25rem !important;
+    font-size: 2rem !important;
   }
   & h3,
   h3 > span,

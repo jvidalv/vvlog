@@ -48,7 +48,6 @@ const AboutMe = () => {
  * @constructor
  */
 function MoreOfMe(props) {
-
     const Project = props => {
         return (
             <A
@@ -84,7 +83,6 @@ function MoreOfMe(props) {
  */
 export const ArticleSidebar = () => {
     const [{aArticle}] = useGlobals();
-
     const Anchors = () => {
         return <> {aArticle.anchors.map((an, i) => (
             <A
@@ -102,10 +100,6 @@ export const ArticleSidebar = () => {
 
     return (
         <>
-            <aside>
-                <Element content={<MoreOfMe/>} icon="📚"/>
-                <Element content={<AboutMe/>} icon="🚀"/>
-            </aside>
             <aside className="is-sticky d-sm-none d-lg-block">
                 {
                     aArticle && aArticle.hasOwnProperty('anchors') ?
@@ -119,7 +113,6 @@ export const ArticleSidebar = () => {
 };
 
 /**
- *
  * @returns {*}
  * @constructor
  */

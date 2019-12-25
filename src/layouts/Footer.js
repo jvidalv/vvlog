@@ -7,6 +7,7 @@ import {Cookies} from "../components/Others";
 import {FooterStyled} from "./FooterStyle";
 import {A, P} from "../styles/GenericStyles";
 import {Link} from "react-router-dom";
+import useT from "../helpers/Translator";
 
 /**
  * Shows the floating button  that brings you to the top
@@ -29,7 +30,6 @@ const ButtonToTop = props => {
  */
 function Footer() {
     const [showToTop, setShowToTop] = useState(false);
-
     const hasToShow = (prevPos, currPos) => {
         if (currPos.y < -500) {
             setShowToTop(true);
@@ -37,7 +37,6 @@ function Footer() {
             setShowToTop(false);
         }
     };
-
     /**
      * Moves back to top on click
      */
@@ -53,17 +52,20 @@ function Footer() {
         <>
             <ButtonToTop className={showToTop ? "active" : null}/>
             <Cookies/>
-            <FooterStyled>
-                <Container fluid className="d-flex mt-5 py-5">
-                    <div className="w-50 d-flex flex-column justify-content-center">
-                        <P fontSize="1.3rem" className="hand mb-1">👋</P>
+            <FooterStyled className="mt-3 pt-5">
+                <Container className="d-md-flex mt-5 py-5">
+                    <div className="left-side w-50 d-flex flex-column justify-content-center">
+                        <span className="hand mb-1">👋</span>
                         <P fontSize="1rem">
-                            vvlog is created, written, and maintained by <br />
-                            <A href="http://vidal.fun">Josep Vidal</A> and a team of contributors on github.
+                            {useT('vvlog_is_created_written_and_maintained_by')} <br />
+                            <A href="http://vidal.fun">Josep Vidal </A> {useT('and_a_team_of_contributors_on_github')}.
                         </P>
                     </div>
-                    <div className="w-50 text-right">
-                        <Link to="/">Proba</Link>
+                    <div className="right-side d-flex flex-column w-50 text-right">
+                        <Link to="/" className="ba">{useT('homepage')}</Link>
+                        <Link to="/about" className="ba">{useT('about')}</Link>
+                        <Link to="/contact" className="ba">{useT('contact')}</Link>
+                        <a href="https://github.com/jvidalv/vvlog" className="fa">Github</a>
                     </div>
                 </Container>
             </FooterStyled>

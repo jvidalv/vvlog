@@ -5,6 +5,7 @@ import {HeroSimple} from "../components/HeroSection";
 import {H2, Me, P, S} from "../styles/GenericStyles";
 import me from "../assets/images/me-finland.jpg";
 import {HelmetAbout} from "../constants/Helmets";
+import {MyNetworks} from "../components/MyContents";
 
 function About() {
     return (
@@ -66,6 +67,13 @@ function About() {
                             You can contact me in one of my social networks below or by mail
                             😉.
                         </P>
+                    </Col>
+                </Row>
+            </Container>
+            <Container className="mt-5">
+                <Row>
+                    <Col>
+                        <MyNetworks/>
                     </Col>
                 </Row>
             </Container>

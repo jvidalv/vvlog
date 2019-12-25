@@ -48,6 +48,7 @@ export const CategoryCircle = styled(ContentDiv)`
   height: 120px;
   width: 120px;
   border-radius: 50%;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.25);
   & a {
     display:flex;
     flex-direction: column;
@@ -62,9 +63,9 @@ export const CategoryCircle = styled(ContentDiv)`
     font-size:1.3rem;
   }
   &.loading {
-        background: linear-gradient(90deg,  ${props => THEMES[props.theme.style].header.right} , ${props => THEMES[props.theme.style].surface.level1}, ${props => THEMES[props.theme.style].surface.level2}, ${props => THEMES[props.theme.style].surface.level3}, ${props => THEMES[props.theme.style].header.right});
-        background-size: 300% 300%;
-        animation: ${gradient} 5s ease-in-out infinite;
+    background: linear-gradient(90deg,  ${props => THEMES[props.theme.style].header.right} , ${props => THEMES[props.theme.style].surface.level1}, ${props => THEMES[props.theme.style].surface.level2}, ${props => THEMES[props.theme.style].surface.level3}, ${props => THEMES[props.theme.style].header.right});
+    background-size: 300% 300%;
+    animation: ${gradient} 5s ease-in-out infinite;
   }
   & a:hover label { 
     opacity: 1;

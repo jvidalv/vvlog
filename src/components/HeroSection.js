@@ -18,11 +18,6 @@ export function HeroHome() {
             <HeroH1 className="text-uppercase my-3 px-2 extra">
                 {useT('fullstack_development')}
             </HeroH1>
-            <HeroP className="mb-3 px-2">
-                React, JavaScript, PHP
-                <br/>
-                Yii2, CSS and a glimpse into my life
-            </HeroP>
         </HeroSectionStyled>
     );
 }
@@ -35,13 +30,13 @@ export function HeroHome() {
 export function HeroSimple(props) {
     const {title, subtitle, overtitle, image, urlOvertitle} = props;
     return (
-        <div className="d-flex flex-column justify-content-center align-items-center">
+        <div className="d-flex flex-column justify-content-center align-items-center mt-4">
             {
                 image ? (
                     image === 'loading' ?
                         <LoadingPlaceholder rounded width="100px" height="100px"/>
                         :
-                        <img alt={title} src={BASE_IMAGE + image}/>
+                        <img alt={title} src={BASE_IMAGE + image} style={{width:'100px',height:'100px'}}/>
                 ) : null
             }
             {

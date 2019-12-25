@@ -7,13 +7,13 @@ import Sidebar from "../layouts/Sidebar";
 import {HeroHome} from "../components/HeroSection";
 import {useGlobals} from "../contexts/Global";
 import {limiter, multiFilter} from "../helpers/Generics";
-import {DiagonalContainer, H3, TexturedContainer} from "../styles/GenericStyles";
+import {H3, TexturedContainer} from "../styles/GenericStyles";
 import {Subscribe} from "../components/MyContents";
 import {CategoriesCircle} from "../components/Others";
 import {HelmetHome} from "../constants/Helmets";
+import useT from "../helpers/Translator";
 
 /**
- *
  * @returns {*}
  * @constructor
  */
@@ -30,7 +30,6 @@ const FeaturedSection = () => {
 };
 
 /**
- *
  * @returns {*}
  * @constructor
  */
@@ -38,8 +37,8 @@ const AllArticlesSection = () => {
     const [{articles, language}] = useGlobals();
     return (
         <>
-            <Row className="px-2">
-                {limiter(multiFilter(articles, ['featured'], '0'), 9).map(snippet => (
+            {
+                limiter(multiFilter(articles, ['featured'], '0'), 9).map(snippet => (
                     <Col key={snippet.id} className="d-flex px-1" md={6} lg={4}>
                         <ArticleSnippet
                             {...snippet[language]}
@@ -48,14 +47,13 @@ const AllArticlesSection = () => {
                             fake={snippet.fake}
                         />
                     </Col>
-                ))}
-            </Row>
+                ))
+            }
         </>
     );
 };
 
 /**
- *
  * @returns {*}
  * @constructor
  */
@@ -64,43 +62,50 @@ function Home() {
         <>
             <HelmetHome/>
             <HeroHome/>
-            <Container className="pt-4 pb-2">
+            <Container className="pt-5 mt-5 mb-2 pb-2">
                 <Row>
-                    <Col md={8} lg={9}>
-                        <FeaturedSection/>
+                    <Col>
+                        <H3 fontRecursive className="mb-5 text-center">
+                        <span className="pr-2" role="img" aria-label="rocket">
+                        ⭐
+                        </span>
+                            <span>{useT('featured')}</span>
+                        </H3>
                     </Col>
-                    <Col md={4} lg={3}>
-                        <Sidebar/>
+                </Row>
+                <Row>
+                    <Col>
+                        <FeaturedSection/>
                     </Col>
                 </Row>
             </Container>
-            <Container className="pt-4 pb-2">
+            <Container className="py-5 mb-5 mt-3">
                 <Row>
                     <CategoriesCircle/>
                 </Row>
             </Container>
-            <TexturedContainer className="py-5 my-5">
+            <TexturedContainer fluid className="py-5 my-5">
                 <Row className="justify-content-md-center">
                     <Col className="text-center" xs md={8} lg={6}>
                         <Subscribe/>
                     </Col>
                 </Row>
             </TexturedContainer>
-            <Container className="mt-5 pt-3">
+            <Container className="py-5 my-5">
                 <Row>
                     <Col>
-                        <H3 className="mb-5 text-center">
-                        <span role="img" aria-label="rocket">
+                        <H3 fontRecursive className="mb-5 text-center">
+                        <span className="pr-2" role="img" aria-label="rocket">
                         🚀
                         </span>
-                            <span>Check them all</span>
+                            <span>{useT('check_them_all')}</span>
                         </H3>
                     </Col>
                 </Row>
+                <Row>
+                    <AllArticlesSection/>
+                </Row>
             </Container>
-            <DiagonalContainer className="my-2 py-3">
-                <AllArticlesSection/>
-            </DiagonalContainer>
         </>
     );
 }

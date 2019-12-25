@@ -10,6 +10,7 @@ import vStorage from "../helpers/VStorage";
 import STORAGE_KEYS from "../constants/Storers";
 import useT from "../helpers/Translator";
 import {HelmetContact} from "../constants/Helmets";
+import {MyNetworks} from "../components/MyContents";
 
 /**
  * @returns {*}
@@ -51,7 +52,7 @@ function Contact() {
                 </Row>
             </Container>
             <Container className="my-5">
-                <Row className="justify-content-md-center">
+                <Row className="justify-content-md-center mb-4">
                     <Col xs md={10} lg={8}>
                         <ContentDiv>
                             <div className="p-4">
@@ -59,7 +60,7 @@ function Contact() {
                                     Do you have any <S>suggestions</S>? Any topic you need help
                                     with, or code you'd like to see together. 🙌
                                 </P>
-                                <P big>Contact me, I will try to answer as soon as possible.</P>
+                                <P big>{useT('contact_me_ill_try_to_answer_as_soon_as_possible')}.</P>
                             </div>
                         </ContentDiv>
                     </Col>
@@ -111,7 +112,7 @@ function Contact() {
                                         className={(submited === 4 ? "d-none" : "")}
                                         disabled={submited === 4}
                                         themebackground="primary2"
-                                        themebolor="onPrimary2"
+                                        themecolor="onPrimary2"
                                         type="submit"
                                         onClick={() => submit()}
                                     >
@@ -120,6 +121,13 @@ function Contact() {
                                 </div>
                             </div>
                         </ContentDiv>
+                    </Col>
+                </Row>
+            </Container>
+            <Container>
+                <Row>
+                    <Col>
+                        <MyNetworks/>
                     </Col>
                 </Row>
             </Container>

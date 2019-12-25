@@ -109,24 +109,23 @@ export const S = styled.strong`
 `;
 
 export const HR = styled.hr`
-    border-top: 10px dashed ${props => props.borderColor ?? THEMES[props.theme.style].secondary};
+    border-top: 10px dotted ${props => props.borderColor ?? THEMES[props.theme.style].secondary};
     padding-top: 40px;
+    transform: scaleX(1.2);
 `;
-
-
 /**
- * ----- Overrides defaults boostraps
+ *  Overrides defaults boostraps
  */
-
-export const ButtonStyled = styled(Button)`
+export const ButtonStyled = styled.button`
   transition: 0.5s;
-  color: ${props => props.themecolor ? THEMES[props.theme.style][props.color] : THEMES[props.theme.style].primary};
-  background: ${props => props.themebackground ? THEMES[props.theme.style][props.background] : THEMES[props.theme.style].surface.level1};
+  color: ${props => props.themecolor ? THEMES[props.theme.style][props.themecolor] : THEMES[props.theme.style].primary};
+  background: ${props => props.themebackground ? THEMES[props.theme.style][props.themebackground] : THEMES[props.theme.style].surface.level1};
   letter-spacing: 1px;
   box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15) !important;
   border: none;
   font-size: 16px;
   padding: 10px 20px;
+  border-radius:5px;
   &:hover {
     transform: translateY(-5px);
     background: ${props => THEMES[props.theme.style].secondary2};
@@ -142,24 +141,29 @@ export const ButtonStyled = styled(Button)`
   }
 `;
 
-export const InputStyled = styled(Form.Control)`
-  transition: 0.5s;
+export const InputStyled = styled.input`
   border: 2px solid ${props => THEMES[props.theme.style].secondary};
   background: ${props => THEMES[props.theme.style].surface.level1};
   color: ${props => THEMES[props.theme.style].onSurface};
   font-size : ${props => props.big ? '1.6rem' : 'inherit'};
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  transition: .25s;
   &.pulse {
     box-shadow: 0 0 0 0 ${props => THEMES[props.theme.style].secondary};
     transform: scale(1);
     animation: ${pulse} 2s forwards;
   }
   &:disabled{
-      background: ${props => THEMES[props.theme.style].surface.level2};
+    background: ${props => THEMES[props.theme.style].surface.level2};
   }
   &:active,
   &:focus {
     color: ${props => THEMES[props.theme.style].onSurface};
-    border-color: ${props => THEMES[props.theme.style].primary2};
+    border-color: ${props => THEMES[props.theme.style].primary2} !important;
     box-shadow: none;
     background: ${props => THEMES[props.theme.style].surface.level2};
   }
@@ -225,7 +229,7 @@ export const LoadingPlaceholder = styled.div`
 
 export const ContentDiv = styled.div`
   background: ${props => THEMES[props.theme.style].surface.level1};
-  box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15);
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   border: none;
   margin-bottom: 10px;

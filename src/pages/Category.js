@@ -70,11 +70,13 @@ function Category() {
             <Container className="py-5">
                 <Row>
                     <Col md={9}>
-                        {fArticles.map(snippet => (
-                            <ArticleSnippetWithImage key={snippet.id} {...snippet[language]}
-                                                     categorySlug={snippet.category} className="mb-2"
-                                                     fake={snippet.fake}/>
-                        ))}
+                        {
+                            fArticles.map(snippet => (
+                                <ArticleSnippetWithImage key={snippet.id} {...snippet[language]}
+                                                         className="mb-2"
+                                                         fake={snippet.fake}/>
+                            ))
+                        }
                     </Col>
                     <Col md={3}>
                         <Sidebar/>

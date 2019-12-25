@@ -23,14 +23,14 @@ function Explore() {
     return (
         <>
             <HelmetExplore/>
-            <Container className="pt-5 text-center">
+            <Container className="my-5 text-center">
                 <Row>
                     <Col>
                         <HeroSimple title={useT("explore")} subtitle={useT("but_dont_get_lost", ['😜'])}/>
                     </Col>
                 </Row>
             </Container>
-            <Container className="my-5">
+            <Container className="my-5 py-5">
                 <Row className="justify-content-md-center">
                     <Col className="text-center" xs md={8} lg={6}>
                         <Form className="my-4">
@@ -45,7 +45,7 @@ function Explore() {
                     </Col>
                 </Row>
             </Container>
-            <DiagonalContainer>
+            <DiagonalContainer className="my-5 py-5">
                 <Row className="px-2">
                     {fArticles && fArticles.length ? (
                         limiter(fArticles, 12).map(snippet => (

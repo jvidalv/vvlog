@@ -1,3 +1,6 @@
+import {P} from "../styles/GenericStyles";
+import React from "react";
+
 /**
  * Accepted languages
  * @type {Array}
@@ -28,7 +31,7 @@ const DICTIONARY = {
         subscribe: 'Subscriures',
         fullstack_development: 'Fullstack development',
         if_you_are_not_a_ill_check_you_back: 'Si no ets un {param} et tornare el missatge {param}',
-        vvlog_explore: 'vvlog_{param}_Explora',
+        vvlog_explore: 'vvlog {param} Explora',
         your_name: 'El teu nom',
         we_use_cookies_to_personalise_content_and_ads_to_provide_social_media_features_and_to_analyse_our_traffic: 'Utilitzem cookies per a personalitzar el contingut i la publicitat aixi com les xarxes socials, a més per analitzar el nostra tráfic',
         vvlog_homepage: 'vvlog {param} Inici',
@@ -37,7 +40,6 @@ const DICTIONARY = {
         email_is_invalid: 'El email es invàlid',
         thanks_for_subscribing: 'Gràcies per subscriuret',
         other_projects: 'Altres projectes',
-
         your_email: 'El teu correu',
         send: 'Enviar {param}',
         vvlog_contact: 'vvlog {param} Contactar',
@@ -46,6 +48,16 @@ const DICTIONARY = {
         thanks_for_contacting_us: 'Gràcies per contactar-nos {param}!',
         vvlog_about: 'vvblog {param} Sobre nosaltres',
         category: 'Categoria',
+        homepage: 'Inici',
+        vvlog_is_created_written_and_maintained_by : 'vvlog esta creat, escrit i mantingut per',
+        and_a_team_of_contributors_on_github : 'i un equip de colaboradors a github',
+        category_does_not_exist : 'La categoria no existeix',
+        category_does_not_exist_or_it_is_no_longer_public : 'La categoria no existex o ja no és pública',
+        nothing_is_wrong : 'No esta passant res',
+        why_would_you_come_here : 'Porque vendrias aquí?',
+        contact_me_ill_try_to_answer_as_soon_as_possible : 'Contactam, intentare contestar el més rápid possible',
+        check_them_all : 'Mirals tots',
+        featured : 'Destacats',
     },
     es: {
         explore: 'Explora',
@@ -66,7 +78,7 @@ const DICTIONARY = {
         subscribe: 'Subscribirse',
         fullstack_development: 'Fullstack development',
         if_you_are_not_a_ill_check_you_back: 'Si no eres un {param} te devolvere el mensaje {param}',
-        vvlog_explore: 'vvlog_{param}_Explora',
+        vvlog_explore: 'vvlog {param} Explora',
         your_name: 'Tu nombre',
         we_use_cookies_to_personalise_content_and_ads_to_provide_social_media_features_and_to_analyse_our_traffic: 'Usamos cookies para personalizar el contenido y la publicidad asi como las redes sociales, además de analizar nuestro trafico',
         vvlog_homepage: 'vvlog {param} Inicio',
@@ -75,7 +87,6 @@ const DICTIONARY = {
         email_is_invalid: 'El email es inválido',
         thanks_for_subscribing: 'Grácias por subscribirte',
         other_projects: 'Otros proyectos',
-
         your_email: 'Tu email',
         send: 'Enviar {param}',
         vvlog_contact: 'vvlog {param} Contactar',
@@ -84,7 +95,16 @@ const DICTIONARY = {
         thanks_for_contacting_us: 'Grácias por contactarnos {param}!',
         vvlog_about: 'vvblog {param} Sobre nosotros',
         category: 'Categoria',
-
+        homepage: 'Inicio',
+        vvlog_is_created_written_and_maintained_by : 'vvlog ha estado creado, escrito y mantenido por',
+        and_a_team_of_contributors_on_github : 'y un equipo de colaboradores en github',
+        category_does_not_exist : 'La categoria no existe',
+        category_does_not_exist_or_it_is_no_longer_public : 'La categoria no existe o ya no és pública',
+        nothing_is_wrong : 'No esta pasando nada',
+        why_would_you_come_here : '¿Porque vendrias aquí?',
+        contact_me_ill_try_to_answer_as_soon_as_possible : 'Contactame, intentare contestar lo más rápido posible',
+        check_them_all : 'Miralos todos',
+        featured : 'Destacados',
     },
     en: {
         explore: 'Explore',
@@ -105,7 +125,7 @@ const DICTIONARY = {
         subscribe: 'Subscribe',
         fullstack_development: 'Fullstack development',
         if_you_are_not_a_ill_check_you_back: 'If you are not a {param} i\'ll check you back {param}',
-        vvlog_explore: 'vvlog_{param}_Explore',
+        vvlog_explore: 'vvlog {param} Explore',
         your_name: 'Your name',
         we_use_cookies_to_personalise_content_and_ads_to_provide_social_media_features_and_to_analyse_our_traffic: 'We use cookies to personalise content and ads to prove social media features and to analyse our traffic',
         vvlog_homepage: 'vvlog {param} Homepage',
@@ -114,7 +134,6 @@ const DICTIONARY = {
         email_is_invalid: 'Email is invalid',
         thanks_for_subscribing: 'Thanks for subscribing',
         other_projects: 'Other projects',
-
         your_email: 'Your email',
         send: 'Send {param}',
         vvlog_contact: 'vvlog {param} Contact',
@@ -123,6 +142,16 @@ const DICTIONARY = {
         thanks_for_contacting_us: 'Thanks for contacting us {param}!',
         vvlog_about: 'vvblog {param} About us',
         category: 'Category',
+        homepage: 'Homepage',
+        vvlog_is_created_written_and_maintained_by : 'vvlog is created, written, and maintained by',
+        and_a_team_of_contributors_on_github : 'and a team of contributors on github',
+        category_does_not_exist : 'Category doesn\'t exist',
+        category_does_not_exist_or_it_is_no_longer_public : 'Category doesn\'t exist or it is no longer public',
+        nothing_is_wrong : 'Nothing is wrong',
+        why_would_you_come_here : 'Why would you come here?',
+        contact_me_ill_try_to_answer_as_soon_as_possible : 'Contact me, I\'ll try to answer as soon as possible',
+        check_them_all : 'Check them all',
+        featured : 'Featured',
     }
 };
 

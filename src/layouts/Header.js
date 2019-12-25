@@ -30,6 +30,15 @@ const isExplore = pathname => {
 };
 
 /**
+ * @param category
+ * @returns {string}
+ */
+const useGetDotColor = (category) => {
+    const [{categories}] = useGlobals();
+    return categories[category] ? categories[category]['color_hex']  : '#ffffff';
+};
+
+/**
  * Returns the input bar that querys de page for blog entries
  * @param {*} props
  */
@@ -124,6 +133,7 @@ export function Header(props) {
     const {pathname} = props.location;
     const [{theme, language}, dispatch] = useGlobals();
     const [expanded, setExpanded] = useState(false);
+    const activeStyle = {opacity: "1", transform: 'scale(1.1)'};
     const changeTheme = () => {
         dispatch({
             type: "changeTheme",
@@ -147,7 +157,7 @@ export function Header(props) {
             <LinkStyled
                 to="/"
                 onClick={() => setExpanded(false)}
-                className={isHome(pathname) ? "d-none" : "pr-3 mr-5"}
+                className={"logo " + ( isHome(pathname) ? "d-none" : "pr-3 mr-5")}
                 style={{opacity: 1}}
                 data-toggle="collapse"
                 data-target="#navbarMobile"
@@ -167,10 +177,10 @@ export function Header(props) {
                 onClick={() => setExpanded(expanded ? false : "expanded")}
             />
             <NavbarCollapseStyled id="responsive-navbar-nav">
-                <Nav className="mr-auto text-center text-lg-left pt-5 pt-lg-0">
+                <Nav className="menu mr-auto text-center text-lg-left pt-5 pt-lg-0">
                     <LinkStyled
                         onClick={() => setExpanded(false)}
-                        activeStyle={{opacity: "1"}}
+                        activeStyle={activeStyle}
                         className="my-2 my-lg-0 px-lg-4"
                         to="/explore"
                         icon="💡"
@@ -179,19 +189,48 @@ export function Header(props) {
                     </LinkStyled>
                     <LinkStyled
                         onClick={() => setExpanded(false)}
-                        activeStyle={{opacity: "1"}}
-                        className="my-2 my-lg-0 px-lg-4"
-                        to="/contact"
+                        activeStyle={activeStyle}
+                        className="category my-2 my-lg-0 px-lg-4"
+                        dotColor={useGetDotColor('javascript')}
+                        to="/javascript"
                     >
-                        {useT('contact')}
+                        JavaScript
                     </LinkStyled>
                     <LinkStyled
                         onClick={() => setExpanded(false)}
-                        activeStyle={{opacity: "1"}}
-                        className="my-2 my-lg-0 px-lg-4"
-                        to="/about"
+                        activeStyle={activeStyle}
+                        className="category my-2 my-lg-0 px-lg-4"
+                        dotColor={useGetDotColor('react')}
+                        to="/react"
                     >
-                        {useT('about')}
+                        React
+                    </LinkStyled>
+                    <LinkStyled
+                        onClick={() => setExpanded(false)}
+                        activeStyle={activeStyle}
+                        className="category my-2 my-lg-0 px-lg-4"
+                        dotColor={useGetDotColor('php')}
+                        to="/php"
+                    >
+                        PHP
+                    </LinkStyled>
+                    <LinkStyled
+                        onClick={() => setExpanded(false)}
+                        activeStyle={activeStyle}
+                        className="category my-2 my-lg-0 px-lg-4"
+                        dotColor={useGetDotColor('yii2')}
+                        to="/yii2"
+                    >
+                        Yii2
+                    </LinkStyled>
+                    <LinkStyled
+                        onClick={() => setExpanded(false)}
+                        activeStyle={activeStyle}
+                        className="category my-2 my-lg-0 px-lg-4"
+                        dotColor={useGetDotColor('CSS')}
+                        to="/css"
+                    >
+                        CSS
                     </LinkStyled>
                 </Nav>
                 <LanguageSwitcher

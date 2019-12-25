@@ -20,6 +20,11 @@ a:hover {
     text-decoration: none;
 }
 
+textarea:focus,
+input:focus{
+    outline: none !important;
+}
+
 /** Custom CSS */
 .highlight {
     background: #e0b0343b;

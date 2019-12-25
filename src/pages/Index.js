@@ -148,7 +148,6 @@ function Index() {
 
     return (
         <ThemeProvider theme={{style: theme}}>
-
             <Main>
                 <Router basename={process.env.PUBLIC_URL}>
                     <HelmetIndex/>

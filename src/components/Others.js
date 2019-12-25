@@ -27,7 +27,7 @@ export function EmptyList(props) {
             <H3>
                 {useT('seems_like_this_is_empty')}
             </H3>
-            <P>
+            <P themecolor="onPrimary">
                 {useT('maybe_try_another_words', ['🤔'])}
             </P>
         </div>
@@ -108,3 +108,4 @@ export function CategoriesCircle() {
         </>
     )
 }
+

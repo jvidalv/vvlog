@@ -3,7 +3,7 @@ import {Col, Container, Row} from "react-bootstrap";
 
 import {HeroSimple} from "../components/HeroSection";
 import {Sharer, Subscribe} from "../components/MyContents";
-import {DiagonalContainer, H3, HR, LoadingPlaceholder} from "../styles/GenericStyles";
+import {DiagonalContainer, H3, HR, LoadingPlaceholder, TexturedContainer} from "../styles/GenericStyles";
 import {AuthorWithImage, AuthorWithImageExtended} from "../components/AuthorSection";
 import {ArticleContent, ReadingTopBar, Tags} from "../components/ArticleContents";
 import {ArticleSidebar} from "../layouts/Sidebar";
@@ -161,7 +161,7 @@ function Article() {
                         </Col>
                     </Row>
                 </Container>
-                <Container>
+                <Container className="py-2 my-2">
                     <Row>
                         <Col>
                             <Sharer className="my-4 text-center justify-content-center"/>
@@ -170,11 +170,15 @@ function Article() {
                     <Row>
                         <Col className="text-center">
                             <HR/>
-                            <H3> {useT('more_of_vvlog', ['👀'])} </H3>
                         </Col>
                     </Row>
                 </Container>
-                <DiagonalContainer>
+                <DiagonalContainer className="py-5 my-5">
+                    <Row>
+                        <Col className="text-center">
+                            <H3> {useT('more_of_vvlog', ['👀'])} </H3>
+                        </Col>
+                    </Row>
                     <Row className="my-5">
                         {relatedArticles.map(snippet => (
                             <Col key={snippet.id} className="d-flex px-1" sm={6} md={6}>
@@ -184,13 +188,13 @@ function Article() {
                         ))}
                     </Row>
                 </DiagonalContainer>
-                <Container>
-                    <Row className="justify-content-center my-5 py-5">
+                <TexturedContainer fluid className="py-5 my-5">
+                    <Row className="justify-content-md-center">
                         <Col className="text-center" xs md={8} lg={6}>
                             <Subscribe/>
                         </Col>
                     </Row>
-                </Container>
+                </TexturedContainer>
                 <ReadingTopBar/>
             </article>
         </>

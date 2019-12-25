@@ -185,10 +185,10 @@ export function Subscribe(props) {
 
     return (
         <>
-            <span role="img" aria-label="train">
-                  💌
-            </span>
             <H3>
+                 <span className="pr-2" role="img" aria-label="rocket">
+                  💌
+                 </span>
                 {useT('subscribe_and_stay_in_touch')}
             </H3>
             <Form className="my-4">

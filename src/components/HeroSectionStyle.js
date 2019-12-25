@@ -1,5 +1,6 @@
 import styled, {keyframes} from "styled-components";
 import {THEMES} from "../constants/Themes";
+import {backArrows} from "../styles/AnimationsStyles";
 
 export const HeroSectionStyled = styled.div`
   text-align: center;
@@ -18,22 +19,6 @@ export const HeroSectionStyled = styled.div`
   }
 `;
 
-const rotateColors = keyframes`
-    0% {
-        filter: hue-rotate(0deg);
-    }
-    50% {
-        filter: hue-rotate(360deg);
-    }
-`;
-
-export const HeroImage = styled.img`
-  animation: ${rotateColors} 15s linear infinite;
-  @media (max-width: 992px) {
-    width: 150px;
-  }
-`;
-
 export const HeroH1 = styled.h1`
   color: ${props => THEMES[props.theme.style].primary};
   font-family: Recursive, "Segoe UI", "Helvetica Neue", Helvetica, Roboto, 'Open Sans', FreeSans, sans-serif;
@@ -49,30 +34,6 @@ export const HeroH1 = styled.h1`
   @media (max-width: 650px) {
     font-size: 1.8rem;
   }
-`;
-
-const backArrows = keyframes`
-    0% {
-        content : ''
-    }
-     17% {
-        content : '<'
-    }
-     35% {
-        content : '<<'
-    }
-    50% {
-        content : '<<<'
-    }
-    67% {
-      content : '<<'
-    }
-    85% {
-      content : '<'
-    }
-    100% {
-      content : ''
-    }
 `;
 
 export const HeroH4 = styled.h4`

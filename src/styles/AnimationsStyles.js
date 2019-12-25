@@ -1,9 +1,6 @@
 import {keyframes} from "styled-components";
 import {THEMES} from "../constants/Themes";
 
-/**
- * ----- Animations -----
- */
 export const pulse = keyframes`
     0% {
         transform: scale(0.95);
@@ -57,6 +54,30 @@ export const backArrows = keyframes`
     }
 `;
 
+export const arrowsLeft = keyframes`
+    0% {
+        content : ''
+    }
+     17% {
+        content : '<'
+    }
+     35% {
+        content : '<<'
+    }
+    50% {
+        content : '<<<'
+    }
+    67% {
+      content : '<<'
+    }
+    85% {
+      content : '<'
+    }
+    100% {
+      content : ''
+    }
+`;
+
 export const gradientToRight = keyframes`
     0% {
         background-position: 0 50%;
@@ -75,5 +96,21 @@ export const hueRotate = keyframes`
     }
     50% {
         filter: hue-rotate(360deg);
+    }
+`;
+export const handWave = keyframes`
+    0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    }
+
+    50% {
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+    }
+    
+    100% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
     }
 `;

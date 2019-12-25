@@ -27,7 +27,7 @@ export const ImageSnippet = styled.div`
 
 export const SnippetContainer = styled.div`
   background: ${props => THEMES[props.theme.style].surface.level1};
-  box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15);
+  box-shadow: 1px 1px 15px rgba(0,0,0,0.15);
   position: relative;
   transition: 0.25s ease-in;
   & > .content {
@@ -65,6 +65,17 @@ export const SnippetContainer = styled.div`
   
   &.icon::after {
     
+  }
+  
+  &::after{
+    content: ${ props => props.trianglecolor ? "⭐" : ""};
+    background: ${ props => props.trianglecolor ? props.trianglecolor : THEMES[props.theme.style].primary};
+    width: 25px;
+    height: 25px;
+    transform: scale(1.5);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    margin-top: 4px;
+    margin-right: 4px;
   }
   
   &.empty {  

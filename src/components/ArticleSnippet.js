@@ -22,7 +22,7 @@ export function ArticleSnippetWithImage(props) {
                           url={image ? BASE_IMAGE + image : images_url(200, 200).article}/>
             <div className="content d-flex flex-column p-4">
                 <H5Category>
-                    <Link to={generateLink(categorySlug)}>{category}</Link>
+                    {categorySlug ? <Link to={generateLink(categorySlug)}>{category}</Link> : null}
                 </H5Category>
                 <Link to={generateLink(categorySlug, slug)}>
                     <H3>{title}</H3>

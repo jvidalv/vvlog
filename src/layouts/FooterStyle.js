@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {THEMES} from "../constants/Themes";
+import {arrowsLeft, backArrows, handWave} from "../styles/AnimationsStyles";
 
 export const FloatingButton = styled.div`
   z-index: 1100;
@@ -38,11 +39,41 @@ export const FloatingButton = styled.div`
 `;
 
 export const FooterStyled = styled.footer`
-  & .container-fluid {
-    background: linear-gradient(
-    to right,
-    ${props => THEMES[props.theme.style].header.left},
-    ${props => THEMES[props.theme.style].header.right}
-  );
+  & .container {
+    border-top: 1px dotted rgba(93,92,101,.5);
+  }
+  & .left-side{
+        & .hand {
+              animation : ${handWave} 2s cubic-bezier(0.75,0.82,0.165,1) infinite;
+              transition: all .3s ease-in-out;
+              display: inline-block;
+              width: 5%;
+              font-size: 1.3rem;
+         }
+       }
+  & .right-side{
+      & a{
+        color: ${props => THEMES[props.theme.style].onSurface};
+        position: relative;
+        font-family: Recursive, 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+      }
+      & .ba:hover::before {
+        animation: ${arrowsLeft} 2s infinite;
+        content: "<<<";
+        position: absolute;
+        margin-left: -35px;
+      }
+      & .fa:hover::after {
+        animation: ${backArrows} 2s infinite;
+        content: ">>>";
+        position: absolute;
+        margin-left: 10px;
+      }
+  }
+  
+  @media (max-width: 700px) {
+    .right-side, .left-side{
+      width: 100% !important;
+    }
   }
 `;
