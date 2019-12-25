@@ -1,27 +1,26 @@
 {
   "files": {
-    "main.css": "/vvlog/static/css/main.a20acbd6.chunk.css",
-    "main.js": "/vvlog/static/js/main.0867e435.chunk.js",
-    "main.js.map": "/vvlog/static/js/main.0867e435.chunk.js.map",
+    "main.css": "/vvlog/static/css/main.1d10b744.chunk.css",
+    "main.js": "/vvlog/static/js/main.6c122d04.chunk.js",
+    "main.js.map": "/vvlog/static/js/main.6c122d04.chunk.js.map",
     "runtime-main.js": "/vvlog/static/js/runtime-main.c145bf80.js",
     "runtime-main.js.map": "/vvlog/static/js/runtime-main.c145bf80.js.map",
-    "static/css/2.85244a98.chunk.css": "/vvlog/static/css/2.85244a98.chunk.css",
-    "static/js/2.154b7de3.chunk.js": "/vvlog/static/js/2.154b7de3.chunk.js",
-    "static/js/2.154b7de3.chunk.js.map": "/vvlog/static/js/2.154b7de3.chunk.js.map",
+    "static/css/2.27630459.chunk.css": "/vvlog/static/css/2.27630459.chunk.css",
+    "static/js/2.8127163b.chunk.js": "/vvlog/static/js/2.8127163b.chunk.js",
+    "static/js/2.8127163b.chunk.js.map": "/vvlog/static/js/2.8127163b.chunk.js.map",
     "index.html": "/vvlog/index.html",
-    "precache-manifest.63adfc940d589ddd07de05c405cfd699.js": "/vvlog/precache-manifest.63adfc940d589ddd07de05c405cfd699.js",
+    "precache-manifest.8f2d3ba05476198b8c4ded3e015a5c88.js": "/vvlog/precache-manifest.8f2d3ba05476198b8c4ded3e015a5c88.js",
     "service-worker.js": "/vvlog/service-worker.js",
-    "static/css/2.85244a98.chunk.css.map": "/vvlog/static/css/2.85244a98.chunk.css.map",
-    "static/css/main.a20acbd6.chunk.css.map": "/vvlog/static/css/main.a20acbd6.chunk.css.map",
-    "static/js/2.154b7de3.chunk.js.LICENSE": "/vvlog/static/js/2.154b7de3.chunk.js.LICENSE",
-    "static/media/me-finland.jpg": "/vvlog/static/media/me-finland.c958a80d.jpg",
-    "static/media/square-placeholder.png": "/vvlog/static/media/square-placeholder.98a84962.png"
+    "static/css/2.27630459.chunk.css.map": "/vvlog/static/css/2.27630459.chunk.css.map",
+    "static/css/main.1d10b744.chunk.css.map": "/vvlog/static/css/main.1d10b744.chunk.css.map",
+    "static/js/2.8127163b.chunk.js.LICENSE": "/vvlog/static/js/2.8127163b.chunk.js.LICENSE",
+    "static/media/me-finland.jpg": "/vvlog/static/media/me-finland.c958a80d.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.c145bf80.js",
-    "static/css/2.85244a98.chunk.css",
-    "static/js/2.154b7de3.chunk.js",
-    "static/css/main.a20acbd6.chunk.css",
-    "static/js/main.0867e435.chunk.js"
+    "static/css/2.27630459.chunk.css",
+    "static/js/2.8127163b.chunk.js",
+    "static/css/main.1d10b744.chunk.css",
+    "static/js/main.6c122d04.chunk.js"
   ]
 }
