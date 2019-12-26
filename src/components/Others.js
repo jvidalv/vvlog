@@ -69,7 +69,7 @@ export function Cookies() {
                         <P>
                             {useT('we_use_cookies_to_personalise_content_and_ads_to_provide_social_media_features_and_to_analyse_our_traffic')}
                         </P>
-                        <ButtonStyled onClick={() => accept()} className="w-100 mb-3">
+                        <ButtonStyled onClick={() => accept()} themebackground="secondary" themecolor="onSecondary" className="w-100 mb-3">
                             {useT('i_agree')}
                         </ButtonStyled>
                     </Col>

@@ -114,3 +114,28 @@ export const handWave = keyframes`
     transform: rotate(0);
     }
 `;
+
+
+export const dissapearToRight = keyframes`
+    from {
+        transform: translateX(0px);
+    }
+    to {
+       transform: translateX(500px);
+       opacity: 0;
+    }
+`;
+
+export const growBig = keyframes`
+    0% {
+        
+    }
+    70% {
+       transform: scale(2);
+       opacity: 1;
+    }
+    100% {
+       transform: scale(1.7);
+       opacity: 1;
+    }
+`;

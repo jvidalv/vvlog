@@ -6,6 +6,7 @@ import {H2, Me, P, S} from "../styles/GenericStyles";
 import me from "../assets/images/me-finland.jpg";
 import {HelmetAbout} from "../constants/Helmets";
 import {MyNetworks} from "../components/MyContents";
+import useT from "../helpers/Translator";
 
 function About() {
     return (
@@ -15,8 +16,8 @@ function About() {
                 <Row>
                     <Col>
                         <HeroSimple
-                            title="About"
-                            subtitle="An introduction to me and vvlog's philosophy ⚖"
+                            title={useT('about')}
+                            subtitle={useT('an_introduction_to_me_and_vvlogs_philosophy') + " ⚖"}
                         />
                     </Col>
                 </Row>
@@ -25,16 +26,13 @@ function About() {
                 <Row className="justify-content-md-center">
                     <Col xs md={10} lg={8}>
                         <P big borderLeft="primary">
-                            vvlog is born out of the passion for the creation of things from
-                            the absolute void. What greater art is there than the appearance
-                            of things where there was nothing before?
+                            {useT('about_p_1')}
                         </P>
                         <P big borderLeft="secondary">
-                            And in the meantime, I will try to explain them as best I can, so
-                            that I can learn from them. And someone who reads me, too. ♥
+                            {useT('about_p_2')}
                         </P>
-                        <P big color="primary" className="text-right">
-                            I really hope you like it.
+                        <P big themecolor="primary" className="text-right">
+                            {useT('about_p_3')}
                         </P>
                     </Col>
                 </Row>
@@ -48,24 +46,20 @@ function About() {
                 <Row className="justify-content-md-center">
                     <Col xs md={10} lg={8}>
                         <Me>
-                            <img src={me}/>
+                            <img src={me} alt="its me!"/>
                         </Me>
                     </Col>
                 </Row>
                 <Row className="justify-content-md-center">
                     <Col xs md={10} lg={8}>
                         <P big>
-                            As you might have guessed, <S>vvlog's name</S> comes from my
-                            repeated surnames 👀.
+                            {useT('about_p_4', ['👀'])}
                         </P>
                         <P big>
-                            I'm a <S>fullstack programmer</S> who loves web development, I
-                            really like <S>CREATING ✨</S> literally, inventing things that go
-                            through my head. Design and UX are things I'm passionate about.
+                            {useT('about_p_5', ['✨'])}
                         </P>
                         <P big>
-                            You can contact me in one of my social networks below or by mail
-                            😉.
+                            {useT('about_p_6', ['😉'])}
                         </P>
                     </Col>
                 </Row>

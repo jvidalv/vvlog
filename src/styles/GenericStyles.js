@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {THEMES} from "../constants/Themes";
-import {Button, Container, Form} from "react-bootstrap";
+import {Container, Form} from "react-bootstrap";
 import {borderLeft, fontsDefaults} from "./DefaultsStyles";
 import {gradient, hueRotate, pulse} from "./AnimationsStyles";
 
@@ -142,16 +142,17 @@ export const ButtonStyled = styled.button`
 `;
 
 export const InputStyled = styled.input`
-  border: 2px solid ${props => THEMES[props.theme.style].secondary};
+  border: 2px solid ${props => props.themeborder ? THEMES[props.theme.style][props.themeborder] : THEMES[props.theme.style].secondary};
   background: ${props => THEMES[props.theme.style].surface.level1};
   color: ${props => THEMES[props.theme.style].onSurface};
   font-size : ${props => props.big ? '1.6rem' : 'inherit'};
-  width: 100%;
+  width: ${props => props.width ? props.width : '100%'};
   height: calc(1.5em + .75rem + 2px);
   padding: .375rem .75rem;
   font-weight: 400;
   line-height: 1.5;
   transition: .25s;
+  border-radius:5px;
   &.pulse {
     box-shadow: 0 0 0 0 ${props => THEMES[props.theme.style].secondary};
     transform: scale(1);
@@ -166,6 +167,9 @@ export const InputStyled = styled.input`
     border-color: ${props => THEMES[props.theme.style].primary2} !important;
     box-shadow: none;
     background: ${props => THEMES[props.theme.style].surface.level2};
+  }
+  @media (max-width: 700px) {
+    width: 100%;
   }
 `;
 

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {THEMES} from "../constants/Themes";
+import {dissapearToRight, growBig} from "../styles/AnimationsStyles";
 
 export const IconA = styled.a`
   color: ${props => THEMES[props.theme.style].primary};
@@ -35,7 +36,7 @@ export const SharerStyled = styled.div`
 export const ShareA = styled.a`
   color: ${props => THEMES[props.theme.style].secondary};
   font-size: 1.5rem;
-  padding: 0px 20px;
+  padding: 0 20px;
   transition: all 0.15s ease;
   opacity: 0.8;
   &.left-bar::before {
@@ -80,6 +81,18 @@ export const ShareA = styled.a`
     opacity: 1;
   }
   @media (max-width: 650px) {
-    padding: 0px 8px;
+    padding: 0 8px;
   }
+`;
+
+export const SubscribeContainer = styled.div`
+    &.disappearToRight > div:first-child{
+      animation: ${dissapearToRight} 1s forwards;
+    }
+    & .growBig{
+      animation-delay: 0.5s;
+      opacity: 0;
+      transform: scale(0.1);
+      animation: ${growBig} 1s forwards;
+    }
 `;

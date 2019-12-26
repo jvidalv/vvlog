@@ -12,7 +12,7 @@ import {
     FaWhatsapp
 } from "react-icons/fa";
 import {Form} from "react-bootstrap";
-import {IconA, ShareA, SharerStyled} from "./MyContentsStyle";
+import {IconA, ShareA, SharerStyled, SubscribeContainer} from "./MyContentsStyle";
 import {ButtonStyled, H3, InputStyled, Label} from "../styles/GenericStyles";
 import useT from "../helpers/Translator";
 import {useGlobals} from "../contexts/Global";
@@ -184,23 +184,30 @@ export function Subscribe(props) {
     };
 
     return (
-        <>
-            <H3>
+        <SubscribeContainer className={"position-relative " + (subscribed === 3 ? 'disappearToRight' : '')}>
+            <div>
+                <H3>
                  <span className="pr-2" role="img" aria-label="rocket">
                   💌
                  </span>
-                {useT('subscribe_and_stay_in_touch')}
-            </H3>
-            <Form className="my-4">
-                <InputStyled ref={emailInput} disabled={subscribed === 3} type="email" className="text-center"
-                             placeholder="your email"/>
-                <Label themecolor="error"
-                       className={"m-0 mt-4 " + (subscribed !== 1 ? "d-none" : "")}>{useT('email_is_invalid')}</Label>
-                <Label themecolor="primary"
-                       className={"m-0 mt-4 " + (subscribed !== 3 ? "d-none" : "")}>{useT('thanks_for_subscribing')}</Label>
-            </Form>
-            <ButtonStyled className={(subscribed === 3 ? "d-none" : "")} disabled={subscribed === 3}
-                          onClick={() => subscription()}>{useT('subscribe')}</ButtonStyled>
-        </>
+                    {useT('subscribe_and_stay_in_touch')}
+                </H3>
+                <Form className="my-4">
+                    <InputStyled width="50%" ref={emailInput} disabled={subscribed === 3} type="email"
+                                 className="text-center"
+                                 placeholder="your email"
+                                 themeborder={subscribed === 1 ? 'error' : null}
+                    />
+                </Form>
+                <ButtonStyled className={(subscribed === 3 ? "d-none" : "")} disabled={subscribed === 3}
+                              onClick={() => subscription()}>{useT('subscribe')}</ButtonStyled>
+            </div>
+            <div className={"position-absolute w-100 " + (subscribed !== 3 ? "d-none" : "growBig")} style={{top: "20px"}}>
+                <div>
+                    👍
+                </div>
+                <Label themecolor="primary">{useT('thanks_for_subscribing')}!!</Label>
+            </div>
+        </SubscribeContainer>
     );
 }

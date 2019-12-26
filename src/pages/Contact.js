@@ -57,8 +57,7 @@ function Contact() {
                         <ContentDiv>
                             <div className="p-4">
                                 <P big>
-                                    Do you have any <S>suggestions</S>? Any topic you need help
-                                    with, or code you'd like to see together. 🙌
+                                    {useT('do_you_have_any_suggestions_any_topic_you_need_help_with_or_code_youd_like_to_see_together')}. 🙌
                                 </P>
                                 <P big>{useT('contact_me_ill_try_to_answer_as_soon_as_possible')}.</P>
                             </div>

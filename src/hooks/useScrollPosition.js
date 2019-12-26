@@ -2,6 +2,12 @@ import {useLayoutEffect, useRef} from "react";
 
 const isBrowser = typeof window !== `undefined`;
 
+/**
+ *
+ * @param element
+ * @param useWindow
+ * @returns {{x: number, y: number}}
+ */
 function getScrollPosition({element, useWindow}) {
     if (!isBrowser) return {x: 0, y: 0};
 
@@ -13,6 +19,13 @@ function getScrollPosition({element, useWindow}) {
         : {x: position.left, y: position.top};
 }
 
+/**
+ * @param effect
+ * @param deps
+ * @param element
+ * @param useWindow
+ * @param wait
+ */
 export function useScrollPosition(effect, deps, element, useWindow, wait) {
     const position = useRef(getScrollPosition({useWindow}));
 

@@ -22,7 +22,7 @@ export const CookiesDiv = styled.div`
     transform : translateX(-1em);
     opacity: 0.8;
     border-radius: 5px;
-    box-shadow: 0 0 5px 0 ${props => THEMES[props.theme.style].primary};
+    box-shadow: 0 0 5px 5px #00000030;
   }
   & .btn {
     background : ${props => THEMES[props.theme.style].primary};
