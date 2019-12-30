@@ -2,9 +2,7 @@ import React from "react";
 import {ButtonStyled, H3, H5, P} from "../styles/GenericStyles";
 import useT from "../helpers/Translator";
 import {CategoryCircle, CookiesDiv} from "./OthersStyle";
-import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import STORAGE_KEYS from "../constants/Storers";
 import api_calls from "../constants/Api";
 import vfetch from "../helpers/Vfetch";
@@ -49,7 +47,7 @@ export function Cookies() {
     const accept = () => {
         cookiesRef.current.classList.add('hideToBottom');
         vfetch(api_calls.data.user_cookies)
-            .then(() => vStorage.setItem(STORAGE_KEYS.BASIC_COOKIES, true));
+            .then(() => vStorage.setItem(STORAGE_KEYS.BASIC_COOKIES, '1'));
         setTimeout(() => setShow(false), 1000);
     };
 
@@ -62,19 +60,16 @@ export function Cookies() {
             ref={cookiesRef}
             className={"position-fixed fixed-bottom flex-column align-items-center " + (!show ? "d-none" : "d-flex")}
         >
-            <Container>
-                <Row>
-                    <Col sm={10} lg={5}>
-                        <H5 className="text-center" fontRecursive>{useT('this_website_uses_cookies')}</H5>
-                        <P>
-                            {useT('we_use_cookies_to_personalise_content_and_ads_to_provide_social_media_features_and_to_analyse_our_traffic')}
-                        </P>
-                        <ButtonStyled onClick={() => accept()} themebackground="secondary" themecolor="onSecondary" className="w-100 mb-3">
-                            {useT('i_agree')}
-                        </ButtonStyled>
-                    </Col>
-                </Row>
-            </Container>
+            <div>
+                <H5 className="text-center" fontRecursive>{useT('this_website_uses_cookies')}</H5>
+                <P>
+                    {useT('we_use_cookies_to_personalise_content_and_ads_to_provide_social_media_features_and_to_analyse_our_traffic')}
+                </P>
+                <ButtonStyled onClick={() => accept()} themebackground="secondary" themecolor="onSecondary"
+                              className="w-100 mb-3">
+                    {useT('i_agree')}
+                </ButtonStyled>
+            </div>
         </CookiesDiv>
     )
 }

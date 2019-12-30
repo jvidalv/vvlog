@@ -27,12 +27,12 @@ function Contact() {
         const data = {
             name: document.getElementById('contact-name').value,
             email: document.getElementById('contact-email').value,
-            message: document.getElementById('contact-message').value,
+            message: document.getElementById('contact-message').value,  
         };
         if (isEmail(data.email) && data.message) {
             setSubmited(4);
             vfetch(api_calls.data.contact_form, {...data})
-                .then(() => vStorage.setItem(STORAGE_KEYS.CONTACT_FORM_SUBMITED, true));
+                .then(() => vStorage.setItem(STORAGE_KEYS.CONTACT_FORM_SUBMITED, '1'));
         } else {
             setSubmited(isEmail(data.email) ? 2 : 1);
         }

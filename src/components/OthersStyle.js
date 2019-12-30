@@ -15,7 +15,8 @@ export const showToTop = keyframes`
 `;
 
 export const CookiesDiv = styled.div`
-  & .row > div {
+  width: 500px;
+  & > div {
     background: ${props => THEMES[props.theme.style].surface.level1};
     padding: 15px;
     animation: ${showToTop} 1s forwards;
@@ -41,6 +42,7 @@ export const CookiesDiv = styled.div`
   @media (max-width: 650px) {
       transform: unset;
       z-index: 9000;
+      width: inherit;
   }
 `;
 

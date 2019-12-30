@@ -78,5 +78,8 @@ export const FooterStyled = styled.footer`
     .right-side, .left-side{
       width: 100% !important;
     }
+    .left-side{
+      margin-bottom: 25px;
+    }
   }
 `;
