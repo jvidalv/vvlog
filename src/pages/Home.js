@@ -84,7 +84,7 @@ function Home() {
                     <CategoriesCircle/>
                 </Row>
             </Container>
-            <TexturedContainer fluid className="py-5 my-5">
+            <TexturedContainer fluid className="py-5 my-5 overflow-hidden min-height-300">
                 <Row className="justify-content-md-center">
                     <Col className="text-center" xs md={8} lg={6}>
                         <Subscribe/>

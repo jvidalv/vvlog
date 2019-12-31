@@ -60,9 +60,9 @@ function Category() {
                         <HeroSimple
                             image={areSet(categories, [params.category, 'image'], 'loading')}
                             title={areSet(categories, [params.category, language, 'name'], <LoadingPlaceholder
-                                width="250px" height="40px"/>)}
+                                width="250px" height="35px"/>)}
                             subtitle={areSet(categories, [params.category, language, 'description'], <LoadingPlaceholder
-                                width="400px" height="35px"/>)}
+                                width="350px" height="35px"/>)}
                         />
                     </Col>
                 </Row>

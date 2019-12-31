@@ -227,7 +227,7 @@ export function Header(props) {
                         onClick={() => setExpanded(false)}
                         activeStyle={activeStyle}
                         className="category my-2 my-lg-0 px-lg-4"
-                        dotColor={useGetDotColor('CSS')}
+                        dotColor={useGetDotColor('css')}
                         to="/css"
                     >
                         CSS

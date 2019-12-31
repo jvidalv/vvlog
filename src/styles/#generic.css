@@ -43,7 +43,9 @@ input:focus{
 .min-height-250 {
     min-height: 250px;
 }
-
+.min-height-300 {
+    min-height: 300px;
+}
 .min-height-500 {
     min-height: 500px;
 }
