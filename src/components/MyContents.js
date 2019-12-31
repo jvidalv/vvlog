@@ -192,17 +192,17 @@ export function Subscribe(props) {
                  </span>
                     {useT('subscribe_and_stay_in_touch')}
                 </H3>
-                <Form className="my-4">
-                    <InputStyled width="50%" ref={emailInput} disabled={subscribed === 3} type="email"
-                                 className="text-center"
+                <div>
+                    <InputStyled width="80%" ref={emailInput} disabled={subscribed === 3} type="email"
+                                 className="text-center my-4"
                                  placeholder="your email"
                                  themeborder={subscribed === 1 ? 'error' : null}
                     />
-                </Form>
+                </div>
                 <ButtonStyled className={(subscribed === 3 ? "d-none" : "")} disabled={subscribed === 3}
                               onClick={() => subscription()}>{useT('subscribe')}</ButtonStyled>
             </div>
-            <div className={"position-absolute w-100 " + (subscribed !== 3 ? "d-none" : "growBig")} style={{top: "20px"}}>
+            <div className={"position-absolute w-100 " + (subscribed !== 3 ? "d-none" : "growBig")} style={{top: "40%"}}>
                 <div>
                     👍
                 </div>

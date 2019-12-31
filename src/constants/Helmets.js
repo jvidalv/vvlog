@@ -6,6 +6,7 @@ import {areSet} from "../helpers/Generics";
 export const HelmetIndex = (props) => (
     <Helmet>
         <meta charSet="utf-8"/>
+        <link href={"f" + props.theme + ".jpg"} rel="shortcut icon"/>
     </Helmet>
 );
 

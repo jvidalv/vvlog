@@ -200,7 +200,7 @@ export const TexturedContainer = styled(Container)`
   }
 `;
 
-export const FormStyled = styled(Form)`
+export const FormStyled = styled.div`
   .form-label {
     color: ${props => THEMES[props.theme.style].onSurface};
     font-weight: 300;

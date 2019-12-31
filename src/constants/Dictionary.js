@@ -89,7 +89,7 @@ const DICTIONARY = {
         your_name: 'Tu nombre',
         we_use_cookies_to_personalise_content_and_ads_to_provide_social_media_features_and_to_analyse_our_traffic: 'Usamos cookies para personalizar el contenido y la publicidad, asi como las redes sociales, además de analizar nuestro trafico',
         vvlog_homepage: 'vvlog {param} Inicio',
-        i_agree: 'Estoy deacuerdo',
+        i_agree: 'Estoy de acuerdo',
         this_website_uses_cookies: 'Esta página web usa cookies',
         email_is_invalid: 'El email es inválido',
         thanks_for_subscribing: 'Grácias por subscribirte',

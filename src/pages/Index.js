@@ -150,7 +150,7 @@ function Index() {
         <ThemeProvider theme={{style: theme}}>
             <Main>
                 <Router>
-                    <HelmetIndex/>
+                    <HelmetIndex theme={theme}/>
                     {/*<Toasts />*/}
                     <UseScrollToTop/>
                     <Header/>
