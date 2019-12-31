@@ -27,7 +27,7 @@ function Contact() {
         const data = {
             name: document.getElementById('contact-name').value,
             email: document.getElementById('contact-email').value,
-            message: document.getElementById('contact-message').value,  
+            message: document.getElementById('contact-message').value,
         };
         if (isEmail(data.email) && data.message) {
             setSubmited(4);
