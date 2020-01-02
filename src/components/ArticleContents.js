@@ -43,7 +43,7 @@ export function ReadingTopBar() {
 export function Tags() {
     const [{tags, language, aArticle}] = useGlobals();
     return (
-        <TagContainer className="d-flex mt-3">
+        <TagContainer className="d-flex mt-5 pt-1">
             {
                 tags.length && aArticle.id ?
                     tags.filter(tag => aArticle.tags.map(ta => ta.tag_id).includes(tag.id)).map(tag => <Link
