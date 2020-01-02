@@ -1,6 +1,6 @@
 import styled, {keyframes} from "styled-components";
 import {THEMES} from "../constants/Themes";
-import {backArrows} from "../styles/AnimationsStyles";
+import {arrowsLeft, backArrows} from "../styles/AnimationsStyles";
 
 export const HeroSectionStyled = styled.div`
   text-align: center;
@@ -45,7 +45,7 @@ export const HeroH4 = styled.h4`
     transition: all 2s ease-in-out;
   }
   & > a:hover::before {
-    animation: ${backArrows} 2s infinite;
+    animation: ${arrowsLeft} 2s infinite;
     content: "<<<";
     position: absolute;
     left: -55px;

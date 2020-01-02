@@ -23,6 +23,28 @@ const useAuthor = () => {
  * @returns {*}
  * @constructor
  */
+export function AuthorSimple() {
+    const [{aArticle}] = useGlobals();
+    const {author} = useAuthor();
+
+    return (
+        <div className="d-flex align-items-center justify-content-center">
+                <P className="mb-0">
+                    {author.name ? `${author.name} ♥ ` : <LoadingPlaceholder width="100px" height="25px"/>}
+                </P>
+                <P className="mt-0 pl-1" color="secondary2">
+                    <span className="text-capitalize pr-1">{aArticle.date_nice}</span>
+                    · {useT('min_read', [aArticle.time_to_read])}
+                </P>
+        </div>
+    );
+}
+
+/**
+ * Author with image simple
+ * @returns {*}
+ * @constructor
+ */
 export function AuthorWithImage() {
     const [{aArticle}] = useGlobals();
     const {author} = useAuthor();

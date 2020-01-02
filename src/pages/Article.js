@@ -4,7 +4,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import {HeroSimple} from "../components/HeroSection";
 import {Sharer, Subscribe} from "../components/MyContents";
 import {DiagonalContainer, H3, HR, LoadingPlaceholder, TexturedContainer} from "../styles/GenericStyles";
-import {AuthorWithImage, AuthorWithImageExtended} from "../components/AuthorSection";
+import {AuthorSimple, AuthorWithImage, AuthorWithImageExtended} from "../components/AuthorSection";
 import {ArticleContent, ReadingTopBar, Tags} from "../components/ArticleContents";
 import {ArticleSidebar} from "../layouts/Sidebar";
 import {ArticleSnippet} from "../components/ArticleSnippet";
@@ -141,10 +141,10 @@ function Article() {
                         </Col>
                     </Row>
                 </Container>
-                <Container className="py-3">
+                <Container className="py-2">
                     <Row noGutters className="justify-content-center align-items-center">
                         <Col xs md={10} lg={8}>
-                            <AuthorWithImage/>
+                            <AuthorSimple/>
                         </Col>
                     </Row>
                 </Container>

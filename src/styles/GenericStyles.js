@@ -112,6 +112,9 @@ export const HR = styled.hr`
     border-top: 10px dotted ${props => props.borderColor ?? THEMES[props.theme.style].secondary};
     padding-top: 40px;
     transform: scaleX(1.2);
+    @media (max-width: 700px) {
+      transform: scaleX(1);
+    }
 `;
 /**
  *  Overrides defaults boostraps

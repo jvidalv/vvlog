@@ -43,6 +43,7 @@ const useGetDotColor = (category) => {
  * @param {*} props
  */
 function Searcher(props) {
+    const {className, setExpanded} = props;
     const [q, setQ] = useState('');
     const history = useHistory();
     /**
@@ -53,6 +54,7 @@ function Searcher(props) {
     const navigateToExplore = (e, q) => {
         e.preventDefault();
         if (q && q.length > 2) {
+            setExpanded(false);
             history.push("/explore", {q});
             window.scrollTo(0, 0);
         }
@@ -63,7 +65,7 @@ function Searcher(props) {
             inline
             action="/explore"
             onSubmit={e => navigateToExplore(e, q)}
-            className={props.className}
+            className={className}
         >
             <FormControlStyled
                 name="q"
@@ -170,6 +172,7 @@ export function Header(props) {
                 className="ml-auto mr-3 d-flex d-lg-none"
             />
             <Searcher
+                setExpanded={setExpanded}
                 className={isExplore(pathname) ? "d-none" : "mr-3 d-flex d-lg-none"}
             />
             <NavbarToggleStyled
@@ -244,6 +247,7 @@ export function Header(props) {
                     className="mr-3 d-none d-lg-flex"
                 />
                 <Searcher
+                    setExpanded={setExpanded}
                     className={isExplore(pathname) ? "d-none" : "mr-2 d-none d-lg-flex"}
                 />
             </NavbarCollapseStyled>
