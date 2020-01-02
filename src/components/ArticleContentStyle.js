@@ -59,8 +59,8 @@ export const Content = styled.div`
   & pre {
     background: #181C22 !important;
     box-shadow: 5px 5px 10px 2px #00000029;
-    margin: 1.5em 0 !important;
-    @media (max-width: 2049px) and (min-width: 1550px){
+    margin: 1.8em 0 !important;
+    @media (max-width: 10000px) and (min-width: 1550px){
        margin-left: -5rem !important;
     }
   }

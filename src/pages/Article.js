@@ -141,10 +141,10 @@ function Article() {
                         </Col>
                     </Row>
                 </Container>
-                <Container className="py-2">
+                <Container className="py-3 mb-1">
                     <Row noGutters className="justify-content-center align-items-center">
                         <Col xs md={10} lg={8}>
-                            <AuthorSimple/>
+                            <AuthorWithImage/>
                         </Col>
                     </Row>
                 </Container>
