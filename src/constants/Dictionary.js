@@ -65,6 +65,8 @@ const DICTIONARY = {
         about_p_4: 'Com hauràs endevinat, el nom de vvlog ve dels meus cognoms repetits {param}.',
         about_p_5: 'Sóc un programador que estima el desenvolupament web, m\'agrada molt CREAR {param} literalment, inventar coses que passen pel meu cap. El disseny i la programació de funcionalitat dura i UX són les coses que m\'apassionen.',
         about_p_6: 'Pots posar-te en contacte amb mi en una de les meves xarxes socials a baix o per correu {param}.',
+        article_does_not_exist: 'L\'article no existeix',
+        article_does_not_exist_or_it_is_no_longer_public: 'L\'article no existeix o ja no és públic',
     },
     es: {
         explore: 'Explora',
@@ -120,6 +122,8 @@ const DICTIONARY = {
         about_p_4: 'Como habrás adivinado, el nombre de vvlog viene de mis apellidos repetidos {param}.',
         about_p_5: 'Soy un programador que ama el desarrollo web, me gusta mucho CREAR {param} literalmente, inventar cosas que pasan por mi cabeza. El diseño y la programación de funcionalidad dura y UX son las cosas que me apasionan.',
         about_p_6: 'Puedes ponerte en contacto conmigo en una de mis redes sociales abajo o por correo {param}.',
+        article_does_not_exist: 'El articulo no existe',
+        article_does_not_exist_or_it_is_no_longer_public: 'El articulo no existe o ya no és público',
     },
     en: {
         explore: 'Explore',
@@ -175,6 +179,8 @@ const DICTIONARY = {
         about_p_4: 'As you might have guessed, vvlog\'s name comes from my repeated surnames {param}.',
         about_p_5: 'I\'m a fullstack programmer who loves web development, I really like CREATING {param} literally, inventing things that go through my head. Design and UX and hard functionality programming are the things that im passionate about.',
         about_p_6: 'You can contact me in one of my social networks below or by mail {param}.',
+        article_does_not_exist: 'Article does not exist',
+        article_does_not_exist_or_it_is_no_longer_public: 'Article does not exist or it is no longer public'
     }
 };
 
