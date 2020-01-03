@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Prism from "prismjs";
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/components/prism-php.min'
+import 'prismjs/components/prism-jsx.min'
 import 'prismjs/components/prism-sql.min'
 import 'prismjs/components/prism-markup-templating.min'
 
@@ -43,11 +44,11 @@ export function ReadingTopBar() {
 export function Tags() {
     const [{tags, language, aArticle}] = useGlobals();
     return (
-        <TagContainer className="d-flex mt-5 pt-1">
+        <TagContainer className="d-flex flex-wrap mt-5 pt-1">
             {
                 tags.length && aArticle.id ?
                     tags.filter(tag => aArticle.tags.map(ta => ta.tag_id).includes(tag.id)).map(tag => <Link
-                        className="align-self-baseline">{tag[language]}</Link>)
+                        className="align-self-baseline mt-1">{tag[language]}</Link>)
                     :
                     <LoadingPlaceholder width="350px" height="34px"/>
             }
