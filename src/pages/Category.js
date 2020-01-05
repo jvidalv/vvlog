@@ -1,7 +1,7 @@
 import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
 
-import {ArticleSnippetWithImage} from "../components/ArticleSnippet";
+import {ArticleSnippet, ArticleSnippetWithImage} from "../components/ArticleSnippet";
 import Sidebar from "../layouts/Sidebar";
 import {HeroSimple} from "../components/HeroSection";
 import {useGlobals} from "../contexts/Global";
@@ -73,6 +73,7 @@ function Category() {
                         {
                             fArticles.map(snippet => (
                                 <ArticleSnippetWithImage key={snippet.id} {...snippet[language]}
+                                                         categorySlug={snippet.category}
                                                          className="mb-2"
                                                          fake={snippet.fake}/>
                             ))

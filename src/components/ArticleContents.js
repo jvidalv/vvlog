@@ -4,6 +4,7 @@ import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/components/prism-php.min'
 import 'prismjs/components/prism-jsx.min'
 import 'prismjs/components/prism-sql.min'
+import 'prismjs/components/prism-bash.min'
 import 'prismjs/components/prism-markup-templating.min'
 
 import {Content, ReadingBarStyled, TagContainer} from "./ArticleContentStyle";
