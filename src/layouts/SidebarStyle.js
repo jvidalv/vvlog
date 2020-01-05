@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {THEMES} from "../constants/Themes";
 
 export const SourceDiv = styled.div`
-  margin-bottom:5px;
+  margin-bottom:.5rem;
   &:last-child{
     margin-bottom:unset;
   }

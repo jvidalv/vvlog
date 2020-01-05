@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useGlobals} from "../contexts/Global";
 import {ThemeProvider} from "styled-components";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch, useHistory} from "react-router-dom";
 import {Main} from "../styles/GenericStyles";
 import UseScrollToTop from "../hooks/useScrollToTop";
 
@@ -19,6 +19,7 @@ import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
 import {MainLoader} from "../components/Loaders";
 import {HelmetIndex} from "../constants/Helmets";
+import ReactGA from "react-ga";
 
 /**
  * Retrieve articles and set them in global context
@@ -117,30 +118,30 @@ const useTags = () => {
 };
 
 /**
- * Controls the diferent loaders effect of the blog
- * @returns {{showLoaders: *}}
+ * Google Analytics
+ * Initialitzation and page switches listener
+ * @returns {null}
+ * @constructor
  */
-const useLoaders = (loading) => {
-    const [showLoaders, setShowLoaders] = useState(true);
-
+const GA = () => {
+    const history = useHistory();
     useEffect(() => {
-        if (showLoaders && !loading) {
-            //  setShowLoaders(false);
-        }
-    }, [loading]);
-
-    return {showLoaders, setShowLoaders}
+        ReactGA.initialize('G-FHQ9KVHQSK');
+        history.listen((location) => {
+            ReactGA.set({ page: location.pathname });
+            ReactGA.pageview(location.pathname)
+        })
+    }, []);
+    return null;
 };
-
 
 /**
  * @returns {*}
  * @constructor
  */
-function Index() {
+function Index(props) {
     const [{theme}] = useGlobals();
     const {loading} = useArticles();
-    const {showLoaders} = useLoaders(loading);
 
     useCategories();
     useAuthors();
@@ -152,6 +153,7 @@ function Index() {
                 <Router>
                     <HelmetIndex theme={theme}/>
                     {/*<Toasts />*/}
+                    <GA/>
                     <UseScrollToTop/>
                     <Header/>
                     <Switch>
@@ -164,7 +166,7 @@ function Index() {
                         <Route path="/:category" component={Category}/>
                     </Switch>
                     <Footer/>
-                    <MainLoader showLoaders={showLoaders}/>
+                    <MainLoader/>
                 </Router>
             </Main>
         </ThemeProvider>

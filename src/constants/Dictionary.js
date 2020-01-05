@@ -208,7 +208,6 @@ const DICTIONARY = {
         source: 'Source',
         so: 'OS',
         other: 'other',
-
     }
 };
 

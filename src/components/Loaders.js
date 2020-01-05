@@ -19,7 +19,7 @@ const useIsHome = () => {
 export function MainLoader(props) {
 
     return (
-        <LoadersWrapperDiv showLoaders={props.showLoaders}>
+        <LoadersWrapperDiv>
             {
                 useIsHome() ?
                     <HomeLoaderDiv>
