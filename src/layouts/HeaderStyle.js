@@ -21,7 +21,7 @@ export const LinkStyled = styled(NavLink)`
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: ${props => props.dotColor ? props.dotColor : 'white'};
+    background: ${props => props.dotcolor ? props.dotcolor : 'white'};
     border-radius: 50%;
     margin-right: 7px;
   }

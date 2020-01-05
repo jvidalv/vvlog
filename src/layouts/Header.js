@@ -194,7 +194,7 @@ export function Header(props) {
                         onClick={() => setExpanded(false)}
                         activeStyle={activeStyle}
                         className="category my-2 my-lg-0 px-lg-4"
-                        dotColor={useGetDotColor('javascript')}
+                        dotcolor={useGetDotColor('javascript')}
                         to="/javascript"
                     >
                         JavaScript
@@ -203,7 +203,7 @@ export function Header(props) {
                         onClick={() => setExpanded(false)}
                         activeStyle={activeStyle}
                         className="category my-2 my-lg-0 px-lg-4"
-                        dotColor={useGetDotColor('react')}
+                        dotcolor={useGetDotColor('react')}
                         to="/react"
                     >
                         React
@@ -212,7 +212,7 @@ export function Header(props) {
                         onClick={() => setExpanded(false)}
                         activeStyle={activeStyle}
                         className="category my-2 my-lg-0 px-lg-4"
-                        dotColor={useGetDotColor('php')}
+                        dotcolor={useGetDotColor('php')}
                         to="/php"
                     >
                         PHP
@@ -221,7 +221,7 @@ export function Header(props) {
                         onClick={() => setExpanded(false)}
                         activeStyle={activeStyle}
                         className="category my-2 my-lg-0 px-lg-4"
-                        dotColor={useGetDotColor('yii2')}
+                        dotcolor={useGetDotColor('yii2')}
                         to="/yii2"
                     >
                         Yii2
@@ -230,7 +230,7 @@ export function Header(props) {
                         onClick={() => setExpanded(false)}
                         activeStyle={activeStyle}
                         className="category my-2 my-lg-0 px-lg-4"
-                        dotColor={useGetDotColor('css')}
+                        dotcolor={useGetDotColor('css')}
                         to="/css"
                     >
                         CSS
