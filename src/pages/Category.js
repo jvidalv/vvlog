@@ -1,7 +1,7 @@
 import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
 
-import {ArticleSnippet, ArticleSnippetWithImage} from "../components/ArticleSnippet";
+import {ArticleSnippetWithImage} from "../components/ArticleSnippet";
 import Sidebar from "../layouts/Sidebar";
 import {HeroSimple} from "../components/HeroSection";
 import {useGlobals} from "../contexts/Global";

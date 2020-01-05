@@ -2,7 +2,7 @@ import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
 
 import {HeroSimple} from "../components/HeroSection";
-import {H2, Me, P, S} from "../styles/GenericStyles";
+import {H2, Me, P} from "../styles/GenericStyles";
 import me from "../assets/images/me-finland.jpg";
 import {HelmetAbout} from "../constants/Helmets";
 import {MyNetworks} from "../components/MyContents";

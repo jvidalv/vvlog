@@ -10,11 +10,28 @@ import {checkValue} from "./Generics";
  */
 function useT(translation, params = []) {
 
-    /**
-     * Language from context
-     */
     const [{language}] = useGlobals();
+    return translatorCore(translation, params, language)
+}
 
+/**
+ * Non hook translation  for dynamic components
+ * @param translation
+ * @param params
+ * @param language
+ */
+export function t(translation, params = [], language) {
+    return translatorCore(translation, params, language)
+}
+
+/**
+ * Core function that translates both hooks and non hooks call
+ * @param translation
+ * @param params
+ * @param language
+ * @returns {string|*}
+ */
+function translatorCore(translation, params = [], language) {
     let fs = translation;
 
     try {
@@ -36,10 +53,10 @@ function useT(translation, params = []) {
         }
 
     } catch (error) {
-        return '@@ translation_error @@'
+        fs = '@@ translation_error @@'
     }
 
-    return fs
+    return fs;
 }
 
 /**

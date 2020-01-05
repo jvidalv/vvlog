@@ -69,6 +69,13 @@ const DICTIONARY = {
         article_does_not_exist_or_it_is_no_longer_public: 'L\'article no existeix o ja no és públic',
         vvlog_error: 'vvlog {param} Error',
         react_powered_blog_for_web_development: 'Blog construït en React per al desenvolupament web',
+        language: 'Llenguatge',
+        library: 'Llibreria',
+        framework: 'Framework',
+        package: 'Package',
+        source: 'Font',
+        so: 'Sistema operatiu',
+        other: 'Altre',
     },
     es: {
         explore: 'Explora',
@@ -128,6 +135,13 @@ const DICTIONARY = {
         article_does_not_exist_or_it_is_no_longer_public: 'El articulo no existe o ya no és público',
         vvlog_error: 'vvlog {param} Error',
         react_powered_blog_for_web_development: 'Blog construido en React para y por el desarrollo web',
+        language: 'Lenguaje',
+        library: 'Libreria',
+        framework: 'Framework',
+        package: 'Package',
+        source: 'Fuente',
+        so: 'Sistema operativo',
+        other: 'Otro',
     },
     en: {
         explore: 'Explore',
@@ -187,6 +201,14 @@ const DICTIONARY = {
         article_does_not_exist_or_it_is_no_longer_public: 'Article does not exist or it is no longer public',
         vvlog_error: 'vvlog {param} Error',
         react_powered_blog_for_web_development: 'React powered blog for web development',
+        language: 'Language',
+        library: 'Library',
+        framework: 'Framework',
+        package: 'Package',
+        source: 'Source',
+        so: 'OS',
+        other: 'other',
+
     }
 };
 

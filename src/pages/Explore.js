@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Col, Container, Form, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 
 import {HeroSimple} from "../components/HeroSection";
 import {ArticleSnippet} from "../components/ArticleSnippet";
@@ -48,15 +48,15 @@ function Explore() {
                 <Row className="px-2">
                     {fArticles && fArticles.length ? (
                         limiter(fArticles, 12).map(snippet => (
-                                <Col key={snippet.id} className="d-flex px-1" sm={6} md={4}>
-                                    <ArticleSnippet
-                                        {...snippet[language]}
-                                        categorySlug={snippet.category}
-                                        className="justify-content-center move-up mb-2"
-                                        q={q}
-                                        fake={snippet.fake}
-                                    />
-                                </Col>
+                            <Col key={snippet.id} className="d-flex px-1" sm={6} md={4}>
+                                <ArticleSnippet
+                                    {...snippet[language]}
+                                    categorySlug={snippet.category}
+                                    className="justify-content-center move-up mb-2"
+                                    q={q}
+                                    fake={snippet.fake}
+                                />
+                            </Col>
                         ))) : <Col lg={12}><EmptyList/></Col>}
                 </Row>
             </DiagonalContainer>

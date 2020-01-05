@@ -4,7 +4,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import {HeroSimple} from "../components/HeroSection";
 import {Sharer, Subscribe} from "../components/MyContents";
 import {DiagonalContainer, H3, HR, LoadingPlaceholder, TexturedContainer} from "../styles/GenericStyles";
-import {AuthorSimple, AuthorWithImage, AuthorWithImageExtended} from "../components/AuthorSection";
+import {AuthorWithImage, AuthorWithImageExtended} from "../components/AuthorSection";
 import {ArticleContent, ReadingTopBar, Tags} from "../components/ArticleContents";
 import {ArticleSidebar} from "../layouts/Sidebar";
 import {ArticleSnippet} from "../components/ArticleSnippet";

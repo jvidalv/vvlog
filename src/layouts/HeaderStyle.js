@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {NavLink} from "react-router-dom";
 import {THEMES} from "../constants/Themes";
-import {FormControl, Navbar, NavDropdown} from "react-bootstrap";
+import {Navbar, NavDropdown} from "react-bootstrap";
 
 export const LinkStyled = styled(NavLink)`
   color: white !important;

@@ -4,7 +4,7 @@ import {A, H4, Label, LoadingPlaceholder} from "../styles/GenericStyles";
 import {useGlobals} from "../contexts/Global";
 import {smoothMove} from "../helpers/Generics";
 import {SidebarElement, SourceDiv} from "./SidebarStyle";
-import useT from "../helpers/Translator";
+import useT, {t} from "../helpers/Translator";
 
 /**
  * Sidebar container that contains all elements
@@ -82,7 +82,7 @@ function MoreOfMe(props) {
  * @constructor
  */
 export const ArticleSidebar = () => {
-    const [{aArticle}] = useGlobals();
+    const [{aArticle, language}] = useGlobals();
     const Anchors = () => {
         return <> {
             aArticle.anchors.map((an, i) => (
@@ -103,7 +103,7 @@ export const ArticleSidebar = () => {
             Object.keys(aArticle.sources).map((source, i) => (
                 aArticle.sources[source].length ? (
                     <SourceDiv key={i} className="text-left">
-                        <Label themecolor="onSurface">{source}</Label>
+                        <Label themecolor="onSurface">{t(source, [], language)}</Label>
                         {
                             aArticle.sources[source].map((data, ic) => (
                                 <A

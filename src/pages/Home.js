@@ -2,8 +2,6 @@ import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
 
 import {ArticleSnippet, ArticleSnippetWithImage} from "../components/ArticleSnippet";
-
-import Sidebar from "../layouts/Sidebar";
 import {HeroHome} from "../components/HeroSection";
 import {useGlobals} from "../contexts/Global";
 import {limiter, multiFilter} from "../helpers/Generics";
@@ -84,7 +82,8 @@ function Home() {
                     <CategoriesCircle/>
                 </Row>
             </Container>
-            <TexturedContainer fluid className="d-flex justify-content-center align-items-center py-5 my-5 overflow-hidden min-height-300">
+            <TexturedContainer fluid
+                               className="d-flex justify-content-center align-items-center py-5 my-5 overflow-hidden min-height-300">
                 <Row>
                     <Col className="text-center">
                         <Subscribe/>

@@ -2,7 +2,7 @@ import React from "react";
 import {Col, Container, Form, Row} from "react-bootstrap";
 import ReCAPTCHA from "react-google-recaptcha";
 import {HeroSimple} from "../components/HeroSection";
-import {ButtonStyled, ContentDiv, FormStyled, Label, P, S} from "../styles/GenericStyles";
+import {ButtonStyled, ContentDiv, FormStyled, Label, P} from "../styles/GenericStyles";
 import {isEmail} from "../helpers/Validations";
 import vfetch from "../helpers/Vfetch";
 import api_calls from "../constants/Api";
@@ -57,7 +57,8 @@ function Contact() {
                         <ContentDiv>
                             <div className="p-4">
                                 <P big>
-                                    {useT('do_you_have_any_suggestions_any_topic_you_need_help_with_or_code_youd_like_to_see_together')}. 🙌
+                                    {useT('do_you_have_any_suggestions_any_topic_you_need_help_with_or_code_youd_like_to_see_together')}.
+                                    🙌
                                 </P>
                                 <P big>{useT('contact_me_ill_try_to_answer_as_soon_as_possible')}.</P>
                             </div>

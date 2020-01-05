@@ -68,8 +68,8 @@ export const SnippetContainer = styled.div`
   }
   
   &::after{
-    content: ${ props => props.trianglecolor ? "⭐" : ""};
-    background: ${ props => props.trianglecolor ? props.trianglecolor : THEMES[props.theme.style].primary};
+    content: ${props => props.trianglecolor ? "⭐" : ""};
+    background: ${props => props.trianglecolor ? props.trianglecolor : THEMES[props.theme.style].primary};
     width: 25px;
     height: 25px;
     transform: scale(1.5);

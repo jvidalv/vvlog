@@ -1,5 +1,5 @@
 import React from "react";
-import {HeroH1, HeroH4, HeroP, HeroSectionStyled} from "./HeroSectionStyle";
+import {HeroH1, HeroH4, HeroSectionStyled} from "./HeroSectionStyle";
 import {Link} from "react-router-dom";
 import Logo from "../assets/svgs/Logo";
 import useT from "../helpers/Translator";
@@ -39,7 +39,7 @@ export function HeroSimple(props) {
                     image === 'loading' ?
                         <LoadingPlaceholder rounded width="100px" height="100px"/>
                         :
-                        <img alt={title} src={BASE_IMAGE + image} style={{width:'100px',height:'100px'}}/>
+                        <img alt={title} src={BASE_IMAGE + image} style={{width: '100px', height: '100px'}}/>
                 ) : null
             }
             {

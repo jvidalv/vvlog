@@ -35,7 +35,7 @@ const isExplore = pathname => {
  */
 const useGetDotColor = (category) => {
     const [{categories}] = useGlobals();
-    return categories[category] ? categories[category]['color_hex']  : '#ffffff';
+    return categories[category] ? categories[category]['color_hex'] : '#ffffff';
 };
 
 /**
@@ -159,7 +159,7 @@ export function Header(props) {
             <LinkStyled
                 to="/"
                 onClick={() => setExpanded(false)}
-                className={"logo " + ( isHome(pathname) ? "d-none" : "pr-3 mr-5")}
+                className={"logo " + (isHome(pathname) ? "d-none" : "pr-3 mr-5")}
                 style={{opacity: 1}}
                 data-toggle="collapse"
                 data-target="#navbarMobile"

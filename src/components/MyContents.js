@@ -11,7 +11,6 @@ import {
     FaTwitter,
     FaWhatsapp
 } from "react-icons/fa";
-import {Form} from "react-bootstrap";
 import {IconA, ShareA, SharerStyled, SubscribeContainer} from "./MyContentsStyle";
 import {ButtonStyled, H3, InputStyled, Label} from "../styles/GenericStyles";
 import useT from "../helpers/Translator";
@@ -202,7 +201,8 @@ export function Subscribe(props) {
                 <ButtonStyled className={(subscribed === 3 ? "d-none" : "")} disabled={subscribed === 3}
                               onClick={() => subscription()}>{useT('subscribe')}</ButtonStyled>
             </div>
-            <div className={"position-absolute w-100 " + (subscribed !== 3 ? "d-none" : "growBig")} style={{top: "40%"}}>
+            <div className={"position-absolute w-100 " + (subscribed !== 3 ? "d-none" : "growBig")}
+                 style={{top: "40%"}}>
                 <div>
                     👍
                 </div>

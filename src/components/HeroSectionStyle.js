@@ -1,6 +1,6 @@
-import styled, {keyframes} from "styled-components";
+import styled from "styled-components";
 import {THEMES} from "../constants/Themes";
-import {arrowsLeft, backArrows} from "../styles/AnimationsStyles";
+import {arrowsLeft} from "../styles/AnimationsStyles";
 
 export const HeroSectionStyled = styled.div`
   text-align: center;
