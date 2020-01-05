@@ -1,9 +1,9 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
-import {A, H4, LoadingPlaceholder} from "../styles/GenericStyles";
+import {A, H4, Label, LoadingPlaceholder} from "../styles/GenericStyles";
 import {useGlobals} from "../contexts/Global";
 import {smoothMove} from "../helpers/Generics";
-import {SidebarElement} from "./SidebarStyle";
+import {SidebarElement, SourceDiv} from "./SidebarStyle";
 import useT from "../helpers/Translator";
 
 /**
@@ -84,18 +84,45 @@ function MoreOfMe(props) {
 export const ArticleSidebar = () => {
     const [{aArticle}] = useGlobals();
     const Anchors = () => {
-        return <> {aArticle.anchors.map((an, i) => (
-            <A
-                key={i}
-                className="my-3 text-left"
-                bottomBar
-                fontSize="1rem"
-                href={`#${an.anchor_id}`}
-                onClick={() => smoothMove()}
-            >
-                {`${i + 1}. ${an.content}`}
-            </A>
-        ))} </>
+        return <> {
+            aArticle.anchors.map((an, i) => (
+                <A
+                    key={i}
+                    className="my-3 text-left"
+                    bottomBar
+                    fontSize="1rem"
+                    href={`#${an.anchor_id}`}
+                    onClick={() => smoothMove()}
+                >
+                    {`${i + 1}. ${an.content}`}
+                </A>
+            ))} </>
+    };
+    const Sources = () => {
+        return <> {
+            Object.keys(aArticle.sources).map((source, i) => (
+                aArticle.sources[source].length ? (
+                    <SourceDiv key={i} className="text-left">
+                        <Label themecolor="onSurface">{source}</Label>
+                        {
+                            aArticle.sources[source].map((data, ic) => (
+                                <A
+                                    key={i + ic}
+                                    className="d-block"
+                                    fontSize="1rem"
+                                    href={data.url ?? '#'}
+                                    onClick={() => smoothMove()}
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    <span>{data.name}</span>
+                                    <span className="float-right">{data.version}</span>
+                                </A>
+                            ))
+                        }
+                    </SourceDiv>
+                ) : null
+            ))} </>
     };
 
     return (
@@ -104,6 +131,13 @@ export const ArticleSidebar = () => {
                 {
                     aArticle && aArticle.hasOwnProperty('anchors') ?
                         aArticle.anchors.length ? <Element content={<Anchors/>} icon="💬"/> : null
+                        :
+                        <LoadingPlaceholder width="100%" height="250px"/>
+                }
+                {
+                    aArticle && aArticle.hasOwnProperty('sources') ?
+                        aArticle.sources ?
+                            <Element content={<Sources/>} icon="⛲"/> : null
                         :
                         <LoadingPlaceholder width="100%" height="250px"/>
                 }

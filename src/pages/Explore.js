@@ -18,8 +18,7 @@ function Explore() {
     const location = useLocation();
     const {state} = location;
     const [q, setQ] = useState(state ? state.q : "");
-    const [fArticles] = useFilterArticles(['title', 'category'], q ? q : (state ? state.q : null), language);
-
+    const [fArticles] = useFilterArticles(['title', 'category'], q ? q : (state ? state.q : q), language);
     return (
         <>
             <HelmetExplore/>
@@ -33,7 +32,7 @@ function Explore() {
             <Container className="my-5 py-5">
                 <Row className="justify-content-md-center">
                     <Col className="text-center" xs md={8} lg={6}>
-                        <Form className="my-4">
+                        <div className="my-4">
                             <InputStyled
                                 className="text-center pulse"
                                 placeholder={useT("write_the_query")}
@@ -41,7 +40,7 @@ function Explore() {
                                 onChange={e => setQ(e.target.value)}
                                 big="true"
                             />
-                        </Form>
+                        </div>
                     </Col>
                 </Row>
             </Container>

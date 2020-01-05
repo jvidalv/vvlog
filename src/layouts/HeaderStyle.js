@@ -31,7 +31,7 @@ export const NavStyled = styled(Navbar)`
   z-index: 1500;
   transition:0s;
   font-weight: 300 !important;
-  ${props => props.shadow === 'true' ? "box-shadow: 0 2px 20px 0 #0000005c" : ""};
+  ${props => props.className && props.className.shadow ? "box-shadow: 0 2px 20px 0 #0000005c" : ""};
   background: linear-gradient(
     to right,
     ${props => THEMES[props.theme.style].header.left},

@@ -10,12 +10,11 @@ import {multiFilter} from "../helpers/Generics";
  * @returns {[]}
  */
 export const useFilterArticles = (properties, q = false, nested = false) => {
-
     const [{articles}] = useGlobals();
     const [fArticles, setFArticles] = useState(articles);
 
     useEffect(() => {
-        setFArticles(q && articles && !articles[0].fake ? multiFilter(articles, properties, q, nested) : articles);
+        setFArticles(articles && !articles[0].fake ? multiFilter(articles, properties, q, nested) : articles);
     }, [articles, q]);
 
     return [fArticles, setFArticles];

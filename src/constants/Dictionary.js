@@ -22,7 +22,7 @@ const DICTIONARY = {
         but_dont_get_lost: '...Però no et perdis {param}',
         write_the_query: 'escriu la consulta',
         written_by: 'Escrit per',
-        min_read: 'llegir {param} min.',
+        min_read: 'lectura {param} min.',
         more_of_vvlog: 'Més de vvlog {param}',
         seems_like_this_is_empty: 'Sembla que això esta buit',
         maybe_try_another_words: 'Potser amb unes altres paraules {param}',
@@ -67,6 +67,8 @@ const DICTIONARY = {
         about_p_6: 'Pots posar-te en contacte amb mi en una de les meves xarxes socials a baix o per correu {param}.',
         article_does_not_exist: 'L\'article no existeix',
         article_does_not_exist_or_it_is_no_longer_public: 'L\'article no existeix o ja no és públic',
+        vvlog_error: 'vvlog {param} Error',
+        react_powered_blog_for_web_development: 'Blog construït en React per al desenvolupament web',
     },
     es: {
         explore: 'Explora',
@@ -124,6 +126,8 @@ const DICTIONARY = {
         about_p_6: 'Puedes ponerte en contacto conmigo en una de mis redes sociales abajo o por correo {param}.',
         article_does_not_exist: 'El articulo no existe',
         article_does_not_exist_or_it_is_no_longer_public: 'El articulo no existe o ya no és público',
+        vvlog_error: 'vvlog {param} Error',
+        react_powered_blog_for_web_development: 'Blog construido en React para y por el desarrollo web',
     },
     en: {
         explore: 'Explore',
@@ -180,7 +184,9 @@ const DICTIONARY = {
         about_p_5: 'I\'m a fullstack programmer who loves web development, I really like CREATING {param} literally, inventing things that go through my head. Design and UX and hard functionality programming are the things that im passionate about.',
         about_p_6: 'You can contact me in one of my social networks below or by mail {param}.',
         article_does_not_exist: 'Article does not exist',
-        article_does_not_exist_or_it_is_no_longer_public: 'Article does not exist or it is no longer public'
+        article_does_not_exist_or_it_is_no_longer_public: 'Article does not exist or it is no longer public',
+        vvlog_error: 'vvlog {param} Error',
+        react_powered_blog_for_web_development: 'React powered blog for web development',
     }
 };
 

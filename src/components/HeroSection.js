@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import Logo from "../assets/svgs/Logo";
 import useT from "../helpers/Translator";
 import BASE_IMAGE from "../constants/Images";
-import {LoadingPlaceholder} from "../styles/GenericStyles";
+import {LoadingPlaceholder, P} from "../styles/GenericStyles";
 
 /**
  * Home banner "/"
@@ -16,8 +16,11 @@ export function HeroHome() {
         <HeroSectionStyled>
             <Logo/>
             <HeroH1 className="text-uppercase my-3 px-2 extra">
-                {useT('fullstack_development')}
+                vvlog
             </HeroH1>
+            <P className="px-2" big color="white">
+                {useT('react_powered_blog_for_web_development')}
+            </P>
         </HeroSectionStyled>
     );
 }

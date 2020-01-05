@@ -1,6 +1,13 @@
 import styled from "styled-components";
 import {THEMES} from "../constants/Themes";
 
+export const SourceDiv = styled.div`
+  margin-bottom:5px;
+  &:last-child{
+    margin-bottom:unset;
+  }
+`;
+
 export const SidebarElement = styled.div`
   background: ${props => THEMES[props.theme.style].surface.level1};
   box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15);

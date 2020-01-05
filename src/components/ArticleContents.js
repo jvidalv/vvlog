@@ -48,7 +48,7 @@ export function Tags() {
         <TagContainer className="d-flex flex-wrap mt-5 pt-1">
             {
                 tags.length && aArticle.id ?
-                    tags.filter(tag => aArticle.tags.map(ta => ta.tag_id).includes(tag.id)).map(tag => <Link
+                    tags.filter(tag => aArticle.tags.map(ta => ta.tag_id).includes(tag.id)).map(tag => <Link key={tag.id} to={{pathname : '/explore', state : {q : tag[language]}}}
                         className="align-self-baseline mt-1">{tag[language]}</Link>)
                     :
                     <LoadingPlaceholder width="350px" height="34px"/>

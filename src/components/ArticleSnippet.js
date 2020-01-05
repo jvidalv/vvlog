@@ -41,20 +41,21 @@ export function ArticleSnippetWithImage(props) {
 export function ArticleSnippet(props) {
     const {id, fake, title, slug, category, categorySlug} = props;
     const snippetRef = React.createRef();
-
+    /**
+     * Highlights texts inside content of snippets when you search for them
+     */
     useEffect(() => {
-        /**
-         * Highlights texts inside content of articles when you search for them
-         */
+        const element = snippetRef.current.getElementsByTagName("h3")[0];
+        let content = element.textContent;
         if (props.q && props.q.length > 1) {
-            const element = snippetRef.current.getElementsByTagName("h3")[0];
-            let content = element.textContent;
             let position = content.toLowerCase().search(props.q.toLowerCase());
             if (position !== -1) {
                 element.innerHTML = [content.slice(0, position), `<span class="highlight">${content.slice(position, position + props.q.length)}</span>`, content.slice(position + props.q.length)].join('');
             }
+        } else {
+            // Edge cases when user removes entire search, we backup to default
+            element.innerHTML = content;
         }
-
     }, [id, props.q]);
 
     return (
