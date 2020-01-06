@@ -119,18 +119,17 @@ const useTags = () => {
 
 /**
  * Google Analytics
- * Initialitzation and page switches listener
+ * Page switches listener
  * @returns {null}
  * @constructor
  */
 const GA = () => {
     const history = useHistory();
     useEffect(() => {
-        ReactGA.initialize('G-FHQ9KVHQSK');
         history.listen((location) => {
             ReactGA.set({ page: location.pathname });
             ReactGA.pageview(location.pathname)
-        })
+        });
     }, []);
     return null;
 };
