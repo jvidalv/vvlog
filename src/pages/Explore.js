@@ -18,7 +18,7 @@ function Explore() {
     const location = useLocation();
     const {state} = location;
     const [q, setQ] = useState(state ? state.q : "");
-    const [fArticles] = useFilterArticles(['title', 'category'], q ? q : (state ? state.q : q), language);
+    const [fArticles] = useFilterArticles(['title', 'category'], q, language);
     return (
         <>
             <HelmetExplore/>

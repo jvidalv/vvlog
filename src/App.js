@@ -9,7 +9,10 @@ import Index from "./pages/Index";
 /**
  * Google analyitics
  */
-ReactGA.initialize('G-FHQ9KVHQSK');
+ReactGA.initialize('UA-155356290-1', {
+    test: process.env.NODE_ENV === 'development',
+    debug: process.env.NODE_ENV === 'development'
+});
 
 /**
  * @returns {*}

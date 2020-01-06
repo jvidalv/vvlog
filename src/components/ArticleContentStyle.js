@@ -7,7 +7,7 @@ export const Content = styled.div`
     color: ${props => THEMES[props.theme.style].onBackground};
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif !important;
     font-size: 20px !important;
-    font-weight: 400 !important;
+    font-weight: 300 !important;
     @media only screen and (max-width: 40em) {
       font-size: 1.25em !important;
     }

@@ -27,8 +27,8 @@ export const HeroH1 = styled.h1`
   &.extra {
     color: #fff;
     text-shadow: 0 0 14px rgba(0, 0, 0, 0.28);
-    @media (max-width: 600px) {
-      font-size: 1.6rem;
+    @media (max-width: 650px) {
+      font-size: 3em !important;
     }
   }
   @media (max-width: 650px) {
