@@ -126,7 +126,7 @@ function Article() {
 
     return (
         <>
-            <HelmetArticle aArticle={aArticle}/>
+            {!aArticle.fake ? <HelmetArticle aArticle={aArticle}/> : null}
             <article>
                 <Container className="pt-5 text-center">
                     <Row>
