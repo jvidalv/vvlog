@@ -8,12 +8,24 @@ export const HelmetIndex = (props) => (
     <Helmet>
         <meta charSet="utf-8"/>
         <link href={"f" + props.theme + ".jpg"} rel="shortcut icon"/>
+        <meta name="date" content={Date.now()}/>
+        <meta content="Programming blog made by Josep Vidal, focused mostly in Web Development" name="vvlog"/>
         <meta name="robots" content="index,follow"/>
         <meta name="organization" content="vvlog by Josep Vidal"/>
-        <meta name="date" content={Date.now()}/>
         <meta name="twitter:site" content="@vvlog"/>
         <meta name="twitter:creator" content="@vvlog"/>
         <meta property="og:site_name" content="vvlog.dev"/>
+        <meta name="description"
+              content="Vvlog a programming blog made by Josep Vidal, focused mostly in Web Development, learn JavaScript, React, PHP, Yii2..."/>
+        <meta data-ue-u="twitter:title" name="twitter:title" content="Vvlog a programming blog made by Josep Vidal"/>
+        <meta data-ue-u="twitter:description" name="twitter:description"
+              content="Programming blog made by Josep Vidal, focused mostly in Web Development, learn JavaScript, React, PHP, Yii2..."/>
+        <meta data-ue-u="description" name="description"
+              content="Programming blog made by Josep Vidal, focused mostly in Web Development, learn JavaScript, React, PHP, Yii2..."/>
+        <meta data-ue-u="og:title" property="og:title" content="Vvlog a programming blog made by Josep Vidal"/>
+        <meta data-ue-u="og:description" property="og:description"
+              content="Programming blog made by Josep Vidal, focused mostly in Web Development, learn JavaScript, React, PHP, Yii2..."/>
+        <meta property="og:type" content="blog"/>
     </Helmet>
 );
 
@@ -21,15 +33,12 @@ export const HelmetHome = (props) => (
     <Helmet>
         <meta charSet="utf-8"/>
         <title>{useT('vvlog_homepage', ['🔥'])}</title>
-        <link rel="canonical" href="https://vvlog.io/"/>
-        <meta name="description" content="vvlog homepage"/>
     </Helmet>
 );
 
 export const HelmetExplore = (props) => (
     <Helmet>
         <title>{useT('vvlog_explore', ['🔎'])}</title>
-        <meta name="description" content="vvlog page for finding and quering for articles"/>
     </Helmet>
 );
 
@@ -37,39 +46,36 @@ export const HelmetError = (props) => (
     <Helmet>
         <meta charSet="utf-8"/>
         <title>{useT('vvlog_error', ['🤷‍♂'])}</title>
-        <meta name="description" content="error page, something went very off"/>
     </Helmet>
 );
 
 export const HelmetContact = (props) => (
     <Helmet>
         <title>{useT('vvlog_contact', ['🧾'])}</title>
-        <meta name="description" content="contact with vvlog admin page"/>
     </Helmet>
 );
 
 export const HelmetCategory = (props) => (
     <Helmet>
         <title>{props.params.category + ' ⚜ ' + useT('category')}</title>
-        <meta name="description" content="category page"/>
     </Helmet>
 );
 
 export const HelmetAbout = () => (
     <Helmet>
         <title>{useT('vvlog_about', ['🤠'])}</title>
-        <meta name="description" content="about me!"/>
     </Helmet>
 );
 
 export const HelmetArticle = (props) => (
     <Helmet>
         <title>{areSet(props.aArticle, ['title'])}</title>
-        <meta name="description" content="article page"/>
+        <meta name="description" content={props.aArticle.resume}/>
         <meta property="article:published_time" content={Date(Date.now()).toLocaleString()}/>
         <meta property="article:modified_time" content={Date(Date.now()).toLocaleString()}/>
         <meta property="article:category" content={props.aArticle.category_nice}/>
-        {props.tags ? props.map() : null}
+        {props.aArticle && props.aArticle.tags ? props.aArticle.tags.map((tag) => <meta property="article:tag"
+                                                                                        content={tag[props.language]}/>) : null}
         <meta data-ue-u="twitter:title" name="twitter:title" content={props.aArticle.title}/>
         <meta data-ue-u="twitter:description" name="twitter:description" content={props.aArticle.resume}/>
         <meta data-ue-u="description" name="description" content={props.aArticle.resume}/>
