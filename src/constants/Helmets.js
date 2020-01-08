@@ -57,7 +57,7 @@ export const HelmetContact = (props) => (
 
 export const HelmetCategory = (props) => (
     <Helmet>
-        <title>{props.params.category + ' ⚜ ' + useT('category')}</title>
+        <title>{props.params.category.toUpperCase() + ' ⚜ ' + useT('category')}</title>
     </Helmet>
 );
 
