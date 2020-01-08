@@ -154,8 +154,6 @@ export const CategorySidebar = () => {
     return (
         <aside>
             <div className="mt-3 d-md-none"/>
-            <Element content={<MoreOfMe/>} icon="📚"/>
-            <Element content={<MoreOfMe/>} icon="📚"/>
             <Element content={<AboutMe/>} icon="🚀"/>
         </aside>
     );
@@ -182,16 +180,10 @@ export const HomeSidebar = () => {
  * @constructor
  */
 function Sidebar(props) {
-    const {pathname} = props.location;
-
-    switch (pathname) {
-        case "/":
-            return <HomeSidebar/>;
-        case "/category":
-            return <CategorySidebar/>;
-        default:
-            return <HomeSidebar/>;
-    }
+    const {params} = props.match;
+    if(params.article) return <ArticleSidebar/>;
+    if(params.category) return <CategorySidebar/>;
+    return <HomeSidebar />
 }
 
 export default withRouter(Sidebar);
