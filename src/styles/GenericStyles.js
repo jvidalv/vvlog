@@ -72,6 +72,17 @@ export const P = styled.p`
     margin-bottom: 0;
   }
 `;
+export const SPAN = styled.span`
+  color: ${props => THEMES[props.theme.style].onSurface};
+  font-weight: 300;
+  ${props => fontsDefaults(props)}
+  ${props => props.borderLeft ? borderLeft(props) : null}
+  ${props => ("big" in props ? "font-size:1.3rem" : "")}
+  &.on-background {
+    color: ${props => THEMES[props.theme.style].onBackground};
+  }
+`;
+
 
 export const Label = styled.label`
   font-weight: 300;

@@ -61,7 +61,7 @@ export const Content = styled.div`
     box-shadow: 5px 5px 10px 2px #00000029;
     margin: 1.8em 0 !important;
     @media (max-width: 10000px) and (min-width: 1550px){
-       margin-left: -5rem !important;
+       margin-left: -3rem !important;
     }
   }
   & > p:first-child {
@@ -111,9 +111,13 @@ export const TagContainer = styled.div`
   > a {
     padding: 5px 10px;
     border-radius: 3px;
-    background: ${props => THEMES[props.theme.style].surface.level3};
     margin-right: 5px;
+    box-shadow: 0 0 1px 1px #c7c7c7;
     color: ${props => THEMES[props.theme.style].onSurface};
+  }
+  & > a:hover{
+    background: #1d2124;
+    color:white;
   }
 `;
 
@@ -130,4 +134,23 @@ export const ReadingBarStyled = styled.div`
       ${props => props.scroll + "%"},
     transparent 0
   );
+`;
+
+export const ClapSpan = styled.span`
+  filter: grayscale(1);
+  border-radius: 50%;
+  box-shadow: 0 0 1px 1px #c7c7c7;
+  text-align: center;
+  line-height:58px;
+  width:58px;
+  height:58px;
+  font-size: 1.5rem;
+  margin-left:16px;
+  cursor:pointer;
+  transition: .25s !important;
+  &:hover{
+    filter: unset;
+    box-shadow: 0 0 10px 5px #c7c7c7;
+    transition: .25s !important;
+  }
 `;

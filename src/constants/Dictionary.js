@@ -76,6 +76,8 @@ const DICTIONARY = {
         source: 'Font',
         so: 'Sistema operatiu',
         other: 'Altre',
+        hey_give_me_a_clap : 'Hei! Donam un aplaudiment',
+        claps : '{param} aplaudiments',
     },
     es: {
         explore: 'Explora',
@@ -89,7 +91,7 @@ const DICTIONARY = {
         write_the_query: 'escribe tu consulta',
         written_by: 'Escrito por',
         min_read: 'lectura {param} min.',
-        more_of_vvlog: 'Mas de VVLOG {param}',
+        more_of_vvlog: 'Más de VVLOG {param}',
         seems_like_this_is_empty: 'Parece que esto esta vacio',
         maybe_try_another_words: 'A lo mejor con otras palabras {param}',
         subscribe_and_stay_in_touch: 'Subscribete y manten el contacto',
@@ -142,6 +144,8 @@ const DICTIONARY = {
         source: 'Fuente',
         so: 'Sistema operativo',
         other: 'Otro',
+        hey_give_me_a_clap : 'Hey! Dame un aplauso',
+        claps : '{param} aplausos',
     },
     en: {
         explore: 'Explore',
@@ -208,6 +212,8 @@ const DICTIONARY = {
         source: 'Source',
         so: 'OS',
         other: 'other',
+        hey_give_me_a_clap : 'Hey! Give me a clap',
+        claps : '{param} claps',
     }
 };
 

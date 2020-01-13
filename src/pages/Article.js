@@ -3,7 +3,7 @@ import {Col, Container, Row} from "react-bootstrap";
 
 import {HeroSimple} from "../components/HeroSection";
 import {Sharer, Subscribe} from "../components/MyContents";
-import {DiagonalContainer, H3, HR, LoadingPlaceholder, TexturedContainer} from "../styles/GenericStyles";
+import {DiagonalContainer, H3, HR, LoadingPlaceholder, SPAN, TexturedContainer} from "../styles/GenericStyles";
 import {AuthorWithImage, AuthorWithImageExtended} from "../components/AuthorSection";
 import {ArticleContent, ReadingTopBar, Tags} from "../components/ArticleContents";
 import {ArticleSidebar} from "../layouts/Sidebar";
@@ -16,6 +16,7 @@ import api_calls from "../constants/Api";
 import useT from "../helpers/Translator";
 import {D_AARTICLE, D_ARTICLES} from "../constants/Dummy";
 import {HelmetArticle} from "../constants/Helmets";
+import {ClapSpan} from "../components/ArticleContentStyle";
 
 /**
  * Fetches current article
@@ -153,7 +154,13 @@ function Article() {
                         <Col xs={12} md={12} lg={9}>
                             <ArticleContent loading={loading}
                                             content={data && data.hasOwnProperty('content') ? data.content : ''}/>
-                            <Tags/>
+                            <Row className="my-5 py-3 align-items-center">
+                                <Col xs={8} className="d-flex align-items-center"><Tags/></Col>
+                                <Col xs={4}>
+                                    <div className="d-flex align-items-center justify-content-end"><SPAN
+                                        fontSize="14px">{useT('claps', [aArticle.claps])}</SPAN><ClapSpan alt={useT('hey_give_me_a_clap') + ' 😛'} title={useT('hey_give_me_a_clap') + ' 😛'}>👏</ClapSpan></div>
+                                </Col>
+                            </Row>
                             <AuthorWithImageExtended/>
                         </Col>
                         <Col>

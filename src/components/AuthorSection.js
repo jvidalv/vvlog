@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {LoadingPlaceholder, P} from "../styles/GenericStyles";
-import {AuthorPhoto} from "./AuthorSectionStyle";
+import {AuthorPhoto, AuthorWithImageExtendedDiv} from "./AuthorSectionStyle";
 import {useGlobals} from "../contexts/Global";
 import BASE_IMAGE, {images_url} from "../constants/Images";
 import useT from "../helpers/Translator";
@@ -76,7 +76,7 @@ export function AuthorWithImageExtended(props) {
     const [{language}] = useGlobals();
     const {author} = useAuthor();
     return (
-        <div className="d-flex my-5">
+        <AuthorWithImageExtendedDiv className="d-flex py-5 my-2">
             <AuthorPhoto
                 className="align-self-baseline"
                 src={author.image ? BASE_IMAGE + author.image : images_url(95, 95).user}
@@ -95,6 +95,6 @@ export function AuthorWithImageExtended(props) {
                         <LoadingPlaceholder width="300px" height="25px"/>}
                 </P>
             </div>
-        </div>
+        </AuthorWithImageExtendedDiv>
     );
 }

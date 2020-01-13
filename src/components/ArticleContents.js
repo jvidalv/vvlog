@@ -45,12 +45,16 @@ export function ReadingTopBar() {
 export function Tags() {
     const [{tags, language, aArticle}] = useGlobals();
     return (
-        <TagContainer className="d-flex flex-wrap mt-5 pt-1">
+        <TagContainer className="d-flex align-items-center flex-wrap">
             {
                 tags.length && aArticle.id ?
-                    tags.filter(tag => aArticle.tags.map(ta => ta.tag_id).includes(tag.id)).map(tag => <Link
-                        key={tag.id} to={{pathname: '/explore', state: {q: tag[language]}}}
-                        className="align-self-baseline mt-1">{tag[language]}</Link>)
+                    tags.filter(tag => aArticle.tags.map(ta => ta.tag_id).includes(tag.id)).map(tag => (
+                        <Link
+                            key={tag.id} to={{pathname: '/explore', state: {q: tag[language]}}}
+                            className="align-self-baseline mt-1 small">
+                            {tag[language]}
+                        </Link>)
+                    )
                     :
                     <LoadingPlaceholder width="350px" height="34px"/>
             }

@@ -10,3 +10,7 @@ export const AuthorPhoto = styled.img`
     transform: scale(1.1);
   }
 `;
+
+export const AuthorWithImageExtendedDiv = styled.div`
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+`;
