@@ -148,6 +148,7 @@ export const ClapSpan = styled.span`
   margin-left:16px;
   cursor:pointer;
   transition: .25s !important;
+  user-select: none; 
   &:hover{
     filter: unset;
     box-shadow: 0 0 10px 5px #c7c7c7;

@@ -5,7 +5,7 @@ import {HeroSimple} from "../components/HeroSection";
 import {Sharer, Subscribe} from "../components/MyContents";
 import {DiagonalContainer, H3, HR, LoadingPlaceholder, SPAN, TexturedContainer} from "../styles/GenericStyles";
 import {AuthorWithImage, AuthorWithImageExtended} from "../components/AuthorSection";
-import {ArticleContent, ReadingTopBar, Tags} from "../components/ArticleContents";
+import {ArticleContent, Claps, ReadingTopBar, Tags} from "../components/ArticleContents";
 import {ArticleSidebar} from "../layouts/Sidebar";
 import {ArticleSnippet} from "../components/ArticleSnippet";
 import {useHistory, useParams} from "react-router";
@@ -157,8 +157,7 @@ function Article() {
                             <Row className="my-5 py-3 align-items-center">
                                 <Col xs={8} className="d-flex align-items-center"><Tags/></Col>
                                 <Col xs={4}>
-                                    <div className="d-flex align-items-center justify-content-end"><SPAN
-                                        fontSize="14px">{useT('claps', [aArticle.claps])}</SPAN><ClapSpan alt={useT('hey_give_me_a_clap') + ' 😛'} title={useT('hey_give_me_a_clap') + ' 😛'}>👏</ClapSpan></div>
+                                  <Claps/>
                                 </Col>
                             </Row>
                             <AuthorWithImageExtended/>

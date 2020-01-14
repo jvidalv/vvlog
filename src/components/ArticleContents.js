@@ -7,11 +7,12 @@ import 'prismjs/components/prism-sql.min'
 import 'prismjs/components/prism-bash.min'
 import 'prismjs/components/prism-markup-templating.min'
 
-import {Content, ReadingBarStyled, TagContainer} from "./ArticleContentStyle";
+import {ClapSpan, Content, ReadingBarStyled, TagContainer} from "./ArticleContentStyle";
 import {useScrollPosition} from "../hooks/useScrollPosition";
 import {Link} from "react-router-dom";
-import {LoadingPlaceholder} from "../styles/GenericStyles";
+import {LoadingPlaceholder, SPAN} from "../styles/GenericStyles";
 import {useGlobals} from "../contexts/Global";
+import useT from "../helpers/Translator";
 
 /**
  * Fixed bar on top that grows as user scroll
@@ -35,6 +36,32 @@ export function ReadingTopBar() {
     );
 
     return <ReadingBarStyled scroll={scroll}/>;
+}
+
+/**
+ *
+ * @returns {*}
+ * @constructor
+ */
+export function Claps() {
+    const [{aArticle}] = useGlobals();
+    const clapRef = React.createRef();
+
+    // Increase number by one
+    const clapped = () => {
+        const clapspan = clapRef.current;
+        clapspan.innerHTML = parseInt(clapspan.innerHTML) + 1;
+    };
+
+
+
+    return (
+        <div className="d-flex align-items-center justify-content-end">
+            <SPAN fontSize="14px">{useT('claps')}<SPAN className="ml-1" ref={clapRef}>155</SPAN></SPAN>
+            <ClapSpan onClick={() => clapped()} alt={useT('hey_give_me_a_clap') + ' 😛'}
+                      title={useT('hey_give_me_a_clap') + ' 😛'}>👏</ClapSpan>
+        </div>
+    )
 }
 
 /**

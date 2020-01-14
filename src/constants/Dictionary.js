@@ -77,7 +77,7 @@ const DICTIONARY = {
         so: 'Sistema operatiu',
         other: 'Altre',
         hey_give_me_a_clap : 'Hei! Donam un aplaudiment',
-        claps : '{param} aplaudiments',
+        claps : 'aplaudiments',
     },
     es: {
         explore: 'Explora',
@@ -145,7 +145,7 @@ const DICTIONARY = {
         so: 'Sistema operativo',
         other: 'Otro',
         hey_give_me_a_clap : 'Hey! Dame un aplauso',
-        claps : '{param} aplausos',
+        claps : 'aplausos',
     },
     en: {
         explore: 'Explore',
@@ -213,7 +213,7 @@ const DICTIONARY = {
         so: 'OS',
         other: 'other',
         hey_give_me_a_clap : 'Hey! Give me a clap',
-        claps : '{param} claps',
+        claps : 'claps',
     }
 };
 
