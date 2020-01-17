@@ -125,13 +125,13 @@ export const ReadingBarStyled = styled.div`
   top: 0;
   position: fixed;
   width: 100%;
-  height: 4px;
+  height: 6px;
   z-index: 10000;
   transition: 0.25s;
   background: linear-gradient(
     to right,
     ${props => THEMES[props.theme.style].primary + "50"}
-      ${props => props.scroll + "%"},
+    ${props => props.scroll + "%"},
     transparent 0
   );
 `;

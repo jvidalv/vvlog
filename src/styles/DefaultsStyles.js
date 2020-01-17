@@ -14,6 +14,7 @@ export const fontsDefaults = props => `
     opacity : ${props.muted ? 0.7 : 1};
     font-family : ${props.fontRecursive ? 'Recursive, "Segoe UI", "Helvetica Neue", Helvetica, Roboto, "Open Sans", FreeSans, sans-serif;' : 'inherit'}
 `;
+
 /**
  * Custom border left
  * @param props

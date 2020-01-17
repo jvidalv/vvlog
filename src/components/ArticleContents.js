@@ -39,21 +39,17 @@ export function ReadingTopBar() {
 }
 
 /**
- *
  * @returns {*}
  * @constructor
  */
 export function Claps() {
-    const [{aArticle}] = useGlobals();
+    const [{}] = useGlobals();
     const clapRef = React.createRef();
 
-    // Increase number by one
     const clapped = () => {
-        const clapspan = clapRef.current;
-        clapspan.innerHTML = parseInt(clapspan.innerHTML) + 1;
+        const clapSpan = clapRef.current;
+        clapSpan.innerHTML = parseInt(clapSpan.innerHTML) + 1;
     };
-
-
 
     return (
         <div className="d-flex align-items-center justify-content-end">
