@@ -23,10 +23,10 @@ Honorable mention to prismjs for making my code snippets beautiful ♥.
 
 ### The dynamic data
 
-All the articles (Also extra data in them), categories, and authors come from my backend `https://vvadmin.dev`, running
+All the articles (Also extra data in them), categories, and authors come from my backend [VVADMIN](https://vvadmin.dev), running
 in a docker with Ubuntu and Nginx as a web server. 
 
 It is a _Wordpress wannabe_ that lets you write articles, create categories, tags, upload media and has a user role system.
 Then the data is served trough an API REST directly into the fetches veins of my React frontend. 
 
-You can check the source code of it here `https://github.com/jvidalv/yii2-vvadmin`. 
+You can check the source code of it here [yii-vvadmin](https://github.com/jvidalv/yii2-vvadmin). 
