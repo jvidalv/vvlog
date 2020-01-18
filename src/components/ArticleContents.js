@@ -41,11 +41,12 @@ export function ReadingTopBar() {
 }
 
 /**
+ * todo make it work with clap api
  * @returns {*}
  * @constructor
  */
 export function Claps() {
-    const [{language}] = useGlobals();
+    const [{language, aArticle}] = useGlobals();
     const clapRef = React.createRef();
     const [didClap, setDidClap] = React.useState(false);
 
@@ -54,6 +55,10 @@ export function Claps() {
         clapSpan.innerHTML = parseInt(clapSpan.innerHTML) + 1;
         setDidClap(true);
     };
+
+    React.useEffect(() => {
+        setDidClap(false)
+    }, [aArticle]);
 
     return (
         <div className="d-flex align-items-center justify-content-end">
