@@ -76,8 +76,10 @@ const DICTIONARY = {
         source: 'Font',
         so: 'Sistema operatiu',
         other: 'Altre',
-        hey_give_me_a_clap : 'Hei! Donam un aplaudiment',
-        claps : 'aplaudiments',
+        hey_give_me_a_clap : 'Ei! Donam un aplaudiment',
+        claps : 'Aplaudiments',
+        thanks : 'Gràcies',
+
     },
     es: {
         explore: 'Explora',
@@ -145,7 +147,8 @@ const DICTIONARY = {
         so: 'Sistema operativo',
         other: 'Otro',
         hey_give_me_a_clap : 'Hey! Dame un aplauso',
-        claps : 'aplausos',
+        claps : 'Aplausos',
+        thanks : 'Gracias',
     },
     en: {
         explore: 'Explore',
@@ -171,7 +174,7 @@ const DICTIONARY = {
         we_use_cookies_to_personalise_content_and_ads_to_provide_social_media_features_and_to_analyse_our_traffic: 'We use cookies to personalise content and ads, to provide social media features and to analyse our traffic',
         vvlog_homepage: 'VVLOG {param} Homepage',
         i_agree: 'I agree',
-        this_website_uses_cookies: 'This webiste uses cookies',
+        this_website_uses_cookies: 'This website uses cookies',
         email_is_invalid: 'Email is invalid',
         thanks_for_subscribing: 'Thanks for subscribing',
         other_projects: 'Other projects',
@@ -213,7 +216,8 @@ const DICTIONARY = {
         so: 'OS',
         other: 'other',
         hey_give_me_a_clap : 'Hey! Give me a clap',
-        claps : 'claps',
+        claps : 'Claps',
+        thanks : 'Thanks',
     }
 };
 

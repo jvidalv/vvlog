@@ -155,8 +155,8 @@ function Article() {
                             <ArticleContent loading={loading}
                                             content={data && data.hasOwnProperty('content') ? data.content : ''}/>
                             <Row className="my-5 py-3 align-items-center">
-                                <Col xs={8} className="d-flex align-items-center"><Tags/></Col>
-                                <Col xs={4}>
+                                <Col xs={7} md={8} className="d-flex align-items-center"><Tags/></Col>
+                                <Col xs={5} md={4}>
                                   <Claps/>
                                 </Col>
                             </Row>

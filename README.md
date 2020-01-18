@@ -29,4 +29,4 @@ in a docker with Ubuntu and Nginx as a web server.
 It is a _Wordpress wannabe_ that lets you write articles, create categories, tags, upload media and has a user role system.
 Then the data is served trough an API REST directly into the fetches veins of my React frontend. 
 
-You can check the source code of it here [yii-vvadmin](https://github.com/jvidalv/yii2-vvadmin). 
+You can check the source code of it here [yii2-vvadmin](https://github.com/jvidalv/yii2-vvadmin). 

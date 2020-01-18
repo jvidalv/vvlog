@@ -9,7 +9,6 @@ import {checkValue} from "./Generics";
  * @returns {string|*}
  */
 function useT(translation, params = []) {
-
     const [{language}] = useGlobals();
     return translatorCore(translation, params, language)
 }
