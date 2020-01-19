@@ -7,7 +7,7 @@
 
 ### Core
 
-Build with the power 🔥 of React.useState and React.context, also:
+Build with the power 🔥 of React.useState and React.createContext, also:
 
 - styled-components
 - react-bootstrap

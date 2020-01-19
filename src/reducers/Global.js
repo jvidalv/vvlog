@@ -11,7 +11,7 @@ import {getNavigatorLanguage} from "../helpers/Translator";
  */
 export const initialState = {
     /**
-     * Default theme that propionates the entire CSS configuration
+     * Default theme that propitiate the entire CSS configuration
      */
     theme: loadFromCache('theme', _THEMES[0]),
     /**

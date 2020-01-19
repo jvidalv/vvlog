@@ -96,7 +96,7 @@ export function Tags() {
                     (
                         <>
                             <LoadingPlaceholder width="80px" height="30px"/>
-                            <LoadingPlaceholder className="ml-1" width="80px" height="30px"/>
+                            <LoadingPlaceholder className="ml-1 mt-1" width="80px" height="30px"/>
                         </>
                     )
             }

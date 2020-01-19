@@ -7,7 +7,7 @@ import "./styles/#generic.css";
 import Index from "./pages/Index";
 
 /**
- * Google analyitics
+ * Google analytics
  */
 ReactGA.initialize('UA-155356290-1', {
     test: process.env.NODE_ENV === 'development',

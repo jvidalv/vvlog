@@ -13,11 +13,11 @@ import useT from "../helpers/Translator";
  * Shows the floating button  that brings you to the top
  * @param {*} props
  */
-const ButtonToTop = props => {
+const ButtonToTop = ({className}) => {
     return (
         <FloatingButton
             onClick={() => smoothMove(true)}
-            className={props.className}
+            className={className}
         >
             <span>↑</span>
         </FloatingButton>
@@ -37,9 +37,7 @@ function Footer() {
             setShowToTop(false);
         }
     };
-    /**
-     * Moves back to top on click
-     */
+    // Moves back on top on click
     useScrollPosition(
         ({prevPos, currPos}) => hasToShow(prevPos, currPos),
         [],
@@ -47,7 +45,6 @@ function Footer() {
         false,
         300
     );
-
     return (
         <>
             <ButtonToTop className={showToTop ? "active" : null}/>

@@ -50,7 +50,7 @@ const useArticles = () => {
  * @returns {{loading: *, error: *, articles: *}}
  */
 const useCategories = () => {
-    const [{categories}, dispatch] = useGlobals();
+    const [{}, dispatch] = useGlobals();
     const {data, loading, error} = useFetcher(api_calls.categories.all);
 
     const setCategories = (categories) => {
@@ -74,7 +74,7 @@ const useCategories = () => {
  * @returns {{loading: *, error: *, articles: *}}
  */
 const useAuthors = () => {
-    const [{authors}, dispatch] = useGlobals();
+    const [{}, dispatch] = useGlobals();
     const {data, loading, error} = useFetcher(api_calls.authors.all);
 
     const setAuthors = (authors) => {
@@ -98,7 +98,7 @@ const useAuthors = () => {
  * @returns {{loading: *, error: *, articles: *}}
  */
 const useTags = () => {
-    const [{tags}, dispatch] = useGlobals();
+    const [{}, dispatch] = useGlobals();
     const {data, loading, error} = useFetcher(api_calls.tags.all);
 
     const setTags = (tags) => {

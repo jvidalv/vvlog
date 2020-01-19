@@ -3,14 +3,11 @@ import {THEMES} from "../constants/Themes";
 
 export const Content = styled.div`
   & p,
-  span:not(.token), ul {
+  span:not(.token), ul, ol {
     color: ${props => THEMES[props.theme.style].onBackground};
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif !important;
     font-size: 20px !important;
     font-weight: 300 !important;
-    @media only screen and (max-width: 40em) {
-      font-size: 1.25em !important;
-    }
   }
   & a,
   a > span,
@@ -25,12 +22,18 @@ export const Content = styled.div`
   h2 > a {
     color: ${props => THEMES[props.theme.style].primary};
     font-size: 2rem !important;
+    @media only screen and (max-width: 40em) {
+      font-size: 1.8em !important;
+    }
   }
   & h3,
   h3 > span,
   h3 > a {
     color: ${props => THEMES[props.theme.style].secondary};
     font-size: 1.5rem !important;
+     @media only screen and (max-width: 40em) {
+      font-size: 1.4em !important;
+    }
   }
   & h3,
   h2 {
@@ -38,8 +41,7 @@ export const Content = styled.div`
     display: flex;
     margin: 30px 0;
     @media only screen and (max-width: 40em) {
-      font-size: 1.5em !important;
-      display: block;
+      //display: block !important;
     }
   }
   & blockquote {
@@ -94,10 +96,10 @@ export const Content = styled.div`
       ${props => THEMES[props.theme.style].primary + "2e"}
     );
   }
-  & ul {
+  & ul, ol {
     list-style: none; /* Remove default bullets */
   }
-  & ul li::before {
+  & ul li::before, ol li::before {
       content: "\\2022";  /* Add content: \\2022 is the CSS Code/unicode for a bullet */
       color: ${props => THEMES[props.theme.style].onBackground};
       font-weight: bold; /* If you want it to be bold */
