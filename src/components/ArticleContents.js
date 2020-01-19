@@ -39,27 +39,27 @@ export function ReadingTopBar() {
 }
 
 /**
- *
+ * Claps circle, incrases by one on click
  * @returns {*}
  * @constructor
  */
 export function Claps() {
-    const [{aArticle}] = useGlobals();
     const clapRef = React.createRef();
 
-    // Increase number by one
     const clapped = () => {
         const clapspan = clapRef.current;
         clapspan.innerHTML = parseInt(clapspan.innerHTML) + 1;
     };
 
-
-
     return (
         <div className="d-flex align-items-center justify-content-end">
-            <SPAN fontSize="14px">{useT('claps')}<SPAN className="ml-1" ref={clapRef}>155</SPAN></SPAN>
-            <ClapSpan onClick={() => clapped()} alt={useT('hey_give_me_a_clap') + ' 😛'}
-                      title={useT('hey_give_me_a_clap') + ' 😛'}>👏</ClapSpan>
+            <SPAN fontSize="14px">
+                {useT('claps')}
+                <SPAN className="ml-1" ref={clapRef}>155</SPAN>
+            </SPAN>
+            <ClapSpan onClick={() => clapped()} alt={useT('hey_give_me_a_clap') + ' 😛'}>
+                👏
+            </ClapSpan>
         </div>
     )
 }
