@@ -9,7 +9,6 @@ import {checkValue} from "./Generics";
  * @returns {string|*}
  */
 function useT(translation, params = []) {
-
     const [{language}] = useGlobals();
     return translatorCore(translation, params, language)
 }
@@ -79,7 +78,7 @@ function multiReplace(fs, arr) {
  * @returns {string|*}
  */
 export function getNavigatorLanguage() {
-    let flang = _LANGUAGES[0];
+    const flang = _LANGUAGES[0];
     const nlang = navigator.language.substr(0, 2).toLocaleLowerCase();
 
     if (!nlang || !checkValue(nlang, _LANGUAGES)) {

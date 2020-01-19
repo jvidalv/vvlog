@@ -22,7 +22,7 @@ import {HelmetIndex} from "../constants/Helmets";
 import ReactGA from "react-ga";
 
 /**
- * Retrieve articles and set them in global context
+ * Retrieve articles and sets them in global context
  * @returns {{loading: *, error: *, articles: *}}
  */
 const useArticles = () => {
@@ -46,11 +46,11 @@ const useArticles = () => {
 };
 
 /**
- * Retrieve categrories and set them in global context
+ * Retrieve categories and set them in global context
  * @returns {{loading: *, error: *, articles: *}}
  */
 const useCategories = () => {
-    const [{categories}, dispatch] = useGlobals();
+    const [{}, dispatch] = useGlobals();
     const {data, loading, error} = useFetcher(api_calls.categories.all);
 
     const setCategories = (categories) => {
@@ -70,11 +70,11 @@ const useCategories = () => {
 };
 
 /**
- * Retrieve categrories and set them in global context
+ * Retrieve authors and set them in global context
  * @returns {{loading: *, error: *, articles: *}}
  */
 const useAuthors = () => {
-    const [{authors}, dispatch] = useGlobals();
+    const [{}, dispatch] = useGlobals();
     const {data, loading, error} = useFetcher(api_calls.authors.all);
 
     const setAuthors = (authors) => {
@@ -94,11 +94,11 @@ const useAuthors = () => {
 };
 
 /**
- * Retrieve categrories and set them in global context
+ * Retrieve tags and set them in global context
  * @returns {{loading: *, error: *, articles: *}}
  */
 const useTags = () => {
-    const [{tags}, dispatch] = useGlobals();
+    const [{}, dispatch] = useGlobals();
     const {data, loading, error} = useFetcher(api_calls.tags.all);
 
     const setTags = (tags) => {
@@ -119,7 +119,7 @@ const useTags = () => {
 
 /**
  * Google Analytics
- * Page switches listener
+ * Page switcher listener
  * @returns {null}
  * @constructor
  */
@@ -138,9 +138,9 @@ const GA = () => {
  * @returns {*}
  * @constructor
  */
-function Index(props) {
+function Index() {
     const [{theme}] = useGlobals();
-    const {loading} = useArticles();
+    const {} = useArticles();
 
     useCategories();
     useAuthors();

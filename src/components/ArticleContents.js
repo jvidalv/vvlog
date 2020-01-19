@@ -12,10 +12,12 @@ import {useScrollPosition} from "../hooks/useScrollPosition";
 import {Link} from "react-router-dom";
 import {LoadingPlaceholder, SPAN} from "../styles/GenericStyles";
 import {useGlobals} from "../contexts/Global";
-import useT from "../helpers/Translator";
+import useT, {t} from "../helpers/Translator";
 
 /**
- * Fixed bar on top that grows as user scroll
+ * Its the translucent bar on top of articles that grows as you scroll down
+ * @returns {*}
+ * @constructor
  */
 export function ReadingTopBar() {
     const [scroll, setScroll] = useState(0);
@@ -39,33 +41,41 @@ export function ReadingTopBar() {
 }
 
 /**
- * Claps circle, incrases by one on click
+ * todo make it work with clap api
  * @returns {*}
  * @constructor
  */
 export function Claps() {
+    const [{language, aArticle}] = useGlobals();
     const clapRef = React.createRef();
+    const [didClap, setDidClap] = React.useState(false);
 
     const clapped = () => {
-        const clapspan = clapRef.current;
-        clapspan.innerHTML = parseInt(clapspan.innerHTML) + 1;
+        const clapSpan = clapRef.current;
+        clapSpan.innerHTML = parseInt(clapSpan.innerHTML) + 1;
+        setDidClap(true);
     };
+
+    React.useEffect(() => {
+        setDidClap(false)
+    }, [aArticle]);
 
     return (
         <div className="d-flex align-items-center justify-content-end">
-            <SPAN fontSize="14px">
-                {useT('claps')}
-                <SPAN className="ml-1" ref={clapRef}>155</SPAN>
+            <SPAN fontSize="14px">{useT('claps')}
+                <SPAN className="ml-1" ref={clapRef}>
+                    4
+                </SPAN>
+                {didClap ? <SPAN className="d-block" themecolor="primary">{t('thanks', [], language)}!</SPAN> : null }
             </SPAN>
-            <ClapSpan onClick={() => clapped()} alt={useT('hey_give_me_a_clap') + ' 😛'}>
-                👏
+            <ClapSpan clapped={didClap} onClick={() => didClap ? null : clapped() } alt={useT('hey_give_me_a_clap') + ' 😛'}>
+                {didClap ? "😊" : "👏"}
             </ClapSpan>
         </div>
     )
 }
 
 /**
- *
  * @returns {*}
  * @constructor
  */
@@ -83,7 +93,12 @@ export function Tags() {
                         </Link>)
                     )
                     :
-                    <LoadingPlaceholder width="350px" height="34px"/>
+                    (
+                        <>
+                            <LoadingPlaceholder width="80px" height="30px"/>
+                            <LoadingPlaceholder className="ml-1 mt-1" width="80px" height="30px"/>
+                        </>
+                    )
             }
         </TagContainer>
     );

@@ -4,10 +4,6 @@ import {Container} from "react-bootstrap";
 import {borderLeft, fontsDefaults} from "./DefaultsStyles";
 import {gradient, hueRotate, pulse} from "./AnimationsStyles";
 
-/**
- * ----- Overrides defaults
- */
-
 export const H1 = styled.h1`
   color: ${props => THEMES[props.theme.style].primary};
   font-weight: 300;
@@ -82,7 +78,6 @@ export const SPAN = styled.span`
     color: ${props => THEMES[props.theme.style].onBackground};
   }
 `;
-
 
 export const Label = styled.label`
   font-weight: 300;

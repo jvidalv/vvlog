@@ -42,8 +42,7 @@ const useGetDotColor = (category) => {
  * Returns the input bar that querys de page for blog entries
  * @param {*} props
  */
-function Searcher(props) {
-    const {className, setExpanded} = props;
+const Searcher = ({className, setExpanded}) => {
     const [q, setQ] = useState('');
     const history = useHistory();
     /**
@@ -79,60 +78,63 @@ function Searcher(props) {
             />
         </Form>
     );
-}
+};
 
 /**
- * Theme switcher
- * @param {*} props
+ * @param className
+ * @param changeTheme
+ * @param theme
+ * @returns {*}
+ * @constructor
  */
-const ThemeSwitcher = props => {
-    return (
-        <Nav className={props.className}>
-            <span className="cursor-pointer text-white px-2" onClick={props.changeTheme}>
-                {props.theme === "dark" ? "🌓" : "🌗"}
+const ThemeSwitcher = ({className, changeTheme, theme}) => (
+    <Nav className={className}>
+            <span className="cursor-pointer text-white px-2" onClick={changeTheme}>
+                {theme === "dark" ? "🌓" : "🌗"}
             </span>
-        </Nav>
-    );
-};
+    </Nav>
+);
+
 
 /**
- * Language switcher
- * @param {*} props
+ * @param className
+ * @param changeLanguage
+ * @param language
+ * @returns {*}
+ * @constructor
  */
-const LanguageSwitcher = props => {
-
-    return (
-        <Nav className={props.className}>
-            <NavDropdownStyled title={useT("lang", ['👅'])}>
-                <NavDropdown.Item
-                    onClick={() => props.changeLanguage("ca")}
-                    className={props.language === "ca" ? "active" : null}
-                >
-                    {useT('catalan')}
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                    onClick={() => props.changeLanguage("es")}
-                    className={props.language === "es" ? "active" : null}
-                >
-                    {useT('spanish')}
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                    onClick={() => props.changeLanguage("en")}
-                    className={props.language === "en" ? "active" : null}
-                >
-                    {useT('english')}
-                </NavDropdown.Item>
-            </NavDropdownStyled>
-        </Nav>
-    );
-};
+const LanguageSwitcher = ({className, changeLanguage, language}) => (
+    <Nav className={className}>
+        <NavDropdownStyled title={useT("lang", ['👅'])}>
+            <NavDropdown.Item
+                onClick={() => changeLanguage("ca")}
+                className={language === "ca" ? "active" : null}
+            >
+                {useT('catalan')}
+            </NavDropdown.Item>
+            <NavDropdown.Item
+                onClick={() => changeLanguage("es")}
+                className={language === "es" ? "active" : null}
+            >
+                {useT('spanish')}
+            </NavDropdown.Item>
+            <NavDropdown.Item
+                onClick={() => changeLanguage("en")}
+                className={language === "en" ? "active" : null}
+            >
+                {useT('english')}
+            </NavDropdown.Item>
+        </NavDropdownStyled>
+    </Nav>
+);
 
 /**
- * Navigation bar
- * @param {*} props
+ * @param location
+ * @returns {*}
+ * @constructor
  */
-export function Header(props) {
-    const {pathname} = props.location;
+export function Header({location}) {
+    const {pathname} = location;
     const [{theme, language}, dispatch] = useGlobals();
     const [expanded, setExpanded] = useState(false);
     const activeStyle = {opacity: "1", transform: 'scale(1.1)'};
@@ -142,7 +144,6 @@ export function Header(props) {
             changeTheme: theme === "dark" ? "light" : "dark"
         });
     };
-
     const changeLanguage = lang => {
         dispatch({
             type: "changeLanguage",
@@ -217,15 +218,15 @@ export function Header(props) {
                     >
                         PHP
                     </LinkStyled>
-                    <LinkStyled
-                        onClick={() => setExpanded(false)}
-                        activeStyle={activeStyle}
-                        className="category my-2 my-lg-0 px-lg-4"
-                        dotcolor={useGetDotColor('yii2')}
-                        to="/yii2"
-                    >
-                        Yii2
-                    </LinkStyled>
+                    {/*<LinkStyled*/}
+                    {/*    onClick={() => setExpanded(false)}*/}
+                    {/*    activeStyle={activeStyle}*/}
+                    {/*    className="category my-2 my-lg-0 px-lg-4"*/}
+                    {/*    dotcolor={useGetDotColor('yii2')}*/}
+                    {/*    to="/yii2"*/}
+                    {/*>*/}
+                    {/*    Yii2*/}
+                    {/*</LinkStyled>*/}
                     <LinkStyled
                         onClick={() => setExpanded(false)}
                         activeStyle={activeStyle}

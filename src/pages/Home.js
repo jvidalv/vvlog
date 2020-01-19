@@ -10,7 +10,6 @@ import {Subscribe} from "../components/MyContents";
 import {CategoriesCircle} from "../components/Others";
 import {HelmetHome} from "../constants/Helmets";
 import useT from "../helpers/Translator";
-import {useHistory} from "react-router";
 
 /**
  * @returns {*}

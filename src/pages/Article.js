@@ -155,8 +155,8 @@ function Article() {
                             <ArticleContent loading={loading}
                                             content={data && data.hasOwnProperty('content') ? data.content : ''}/>
                             <Row className="my-5 py-3 align-items-center">
-                                <Col xs={8} className="d-flex align-items-center"><Tags/></Col>
-                                <Col xs={4}>
+                                <Col xs={6} md={8} className="d-flex align-items-center"><Tags/></Col>
+                                <Col xs={6} md={4}>
                                   <Claps/>
                                 </Col>
                             </Row>
@@ -194,9 +194,10 @@ function Article() {
                         ))}
                     </Row>
                 </DiagonalContainer>
-                <TexturedContainer fluid className="py-5 my-5 overflow-hidden min-height-300">
-                    <Row className="justify-content-md-center">
-                        <Col className="text-center" xs md={8} lg={6}>
+                <TexturedContainer fluid
+                                   className="d-flex justify-content-center align-items-center py-5 my-5 overflow-hidden min-height-300">
+                    <Row>
+                        <Col className="text-center">
                             <Subscribe/>
                         </Col>
                     </Row>

@@ -1,68 +1,32 @@
-This project was  bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<p align="center">
+  <img src="https://github.com/jvidalv/react-vvlog/blob/master/public/logo-github.png?raw=true">
+</p>
 
-In the project directory, you can run:
+**``https://vvlog.dev`` is a multi language programming blog about, mostly, web dev; JavaScript, React, Native, PHP, Yii2...**
 
-### `npm start`
+### Core
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Build with the power 🔥 of React.useState and React.createContext, also:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- styled-components
+- react-bootstrap
+- react-helmet  
+- react-router
 
-### `npm test`
+It has fully homemade translator that translates to Catalan, Spanish and English all the static content on the site.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+On top, there is a theme switcher that, for the moment, lets you switch between light and dark theme, using _ThemeProvider_
+component of styled-components.
 
-### `npm run build`
+Honorable mention to prismjs for making my code snippets beautiful ♥. 
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### The dynamic data
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+All the articles (Also extra data in them), categories, and authors come from my backend [VVADMIN](https://vvadmin.dev), running
+in a docker with Ubuntu and Nginx as a web server. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+It is a _Wordpress wannabe_ that lets you write articles, create categories, tags, upload media and has a user role system.
+Then the data is served trough an API REST directly into the fetches veins of my React frontend. 
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever suse `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+You can check the source code of it here [yii2-vvadmin](https://github.com/jvidalv/yii2-vvadmin). 
