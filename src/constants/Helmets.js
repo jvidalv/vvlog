@@ -16,13 +16,13 @@ export const HelmetIndex = (props) => (
         <meta name="twitter:creator" content="@vvlog"/>
         <meta property="og:site_name" content="vvlog.dev"/>
         <meta name="description"
-              content="Vvlog a programming blog made by Josep Vidal, focused mostly in Web Development, learn JavaScript, React, PHP, Yii2..."/>
-        <meta data-ue-u="twitter:title" name="twitter:title" content="Vvlog a programming blog made by Josep Vidal"/>
+              content="VVLOG is programming blog made by Josep Vidal, focused mostly in web dev, learn JavaScript, React, PHP, Yii2..."/>
+        <meta data-ue-u="twitter:title" name="twitter:title" content="VVLOG a programming blog made by Josep Vidal"/>
         <meta data-ue-u="twitter:description" name="twitter:description"
               content="Programming blog made by Josep Vidal, focused mostly in Web Development, learn JavaScript, React, PHP, Yii2..."/>
         <meta data-ue-u="description" name="description"
               content="Programming blog made by Josep Vidal, focused mostly in Web Development, learn JavaScript, React, PHP, Yii2..."/>
-        <meta data-ue-u="og:title" property="og:title" content="Vvlog a programming blog made by Josep Vidal"/>
+        <meta data-ue-u="og:title" property="og:title" content="VVLOG a programming blog made by Josep Vidal"/>
         <meta data-ue-u="og:description" property="og:description"
               content="Programming blog made by Josep Vidal, focused mostly in Web Development, learn JavaScript, React, PHP, Yii2..."/>
         <meta property="og:type" content="blog"/>
@@ -32,32 +32,32 @@ export const HelmetIndex = (props) => (
 export const HelmetHome = (props) => (
     <Helmet>
         <meta charSet="utf-8"/>
-        <title>{useT('vvlog_homepage', ['🔥'])}</title>
+        <title>{useT('vvlog_homepage')}</title>
     </Helmet>
 );
 
 export const HelmetExplore = (props) => (
     <Helmet>
-        <title>{useT('vvlog_explore', ['🔎'])}</title>
+        <title>{useT('vvlog_explore')}</title>
     </Helmet>
 );
 
 export const HelmetError = (props) => (
     <Helmet>
         <meta charSet="utf-8"/>
-        <title>{useT('vvlog_error', ['🤷‍♂'])}</title>
+        <title>{useT('vvlog_error')}</title>
     </Helmet>
 );
 
 export const HelmetContact = (props) => (
     <Helmet>
-        <title>{useT('vvlog_contact', ['🧾'])}</title>
+        <title>{useT('vvlog_contact')}</title>
     </Helmet>
 );
 
 export const HelmetCategory = (props) => (
     <Helmet>
-        <title>{props.params.category.toUpperCase() + ' ⚜ ' + useT('category')}</title>
+        <title>{props.params.category.toUpperCase() + ' ─ ' + useT('category')}</title>
     </Helmet>
 );
 

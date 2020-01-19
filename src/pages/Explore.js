@@ -29,7 +29,7 @@ function Explore() {
                     </Col>
                 </Row>
             </Container>
-            <Container className="my-3 py-5">
+            <Container className="my-3 py-4">
                 <Row className="justify-content-md-center">
                     <Col className="text-center" xs md={8} lg={6}>
                         <div className="my-4">
@@ -44,7 +44,7 @@ function Explore() {
                     </Col>
                 </Row>
             </Container>
-            <DiagonalContainer className="my-5 py-5">
+            <DiagonalContainer className="my-4 py-4">
                 <Row className="px-2">
                     {fArticles && fArticles.length ? (
                         limiter(fArticles, 12).map(snippet => (
