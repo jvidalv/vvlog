@@ -21,6 +21,10 @@ const api_calls = {
             url: `${BASE_PATH}article/related`,
             method: 'GET',
         },
+        clap: {
+            url: `${BASE_PATH}article/clap`,
+            method: 'GET',
+        },
     },
     categories: {
         all: {

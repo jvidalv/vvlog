@@ -13,6 +13,10 @@ import {Link} from "react-router-dom";
 import {LoadingPlaceholder, SPAN} from "../styles/GenericStyles";
 import {useGlobals} from "../contexts/Global";
 import useT, {t} from "../helpers/Translator";
+import vfetch from "../helpers/Vfetch";
+import api_calls from "../constants/Api";
+import vStorage from "../helpers/VStorage";
+import STORAGE_KEYS from "../constants/Storers";
 
 /**
  * Its the translucent bar on top of articles that grows as you scroll down
@@ -41,30 +45,32 @@ export function ReadingTopBar() {
 }
 
 /**
- * todo make it work with clap api
  * @returns {*}
  * @constructor
  */
 export function Claps() {
     const [{language, aArticle}] = useGlobals();
     const clapRef = React.createRef();
-    const [didClap, setDidClap] = React.useState(false);
+    const didTheyAlreadyClap = vStorage.getItem(STORAGE_KEYS.ARTICLE_CLAPPED + aArticle.translations.id);
+    const [didClap, setDidClap] = React.useState(didTheyAlreadyClap);
 
     const clapped = () => {
         const clapSpan = clapRef.current;
+        const data = {
+            slug: aArticle.slug,
+        };
+        vfetch(api_calls.articles.clap, {...data})
+            .then(() => vStorage.setItem(STORAGE_KEYS.ARTICLE_CLAPPED +  aArticle.translations.id, true));
         clapSpan.innerHTML = parseInt(clapSpan.innerHTML) + 1;
+
         setDidClap(true);
     };
-
-    React.useEffect(() => {
-        setDidClap(false)
-    }, [aArticle]);
 
     return (
         <div className="d-flex align-items-center justify-content-end">
             <SPAN fontSize="14px">{useT('claps')}
                 <SPAN className="ml-1" ref={clapRef}>
-                    4
+                    {aArticle.claps}
                 </SPAN>
                 {didClap ? <SPAN className="d-block" themecolor="primary">{t('thanks', [], language)}!</SPAN> : null }
             </SPAN>

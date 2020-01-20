@@ -10,16 +10,15 @@ export const _THEMES = ["dark", "light"];
 export const THEMES = {
 
     dark: {
-
         header: {
-            left: "#272727",
-            right: "#28313E"
+            left: "#41374e",
+            right: "#141a23"
         },
 
-        background: "#222831",
+        background: "#292737",
 
         surface: {
-            level1: "#181C22",
+            level1: "#1e202c",
             level2: "#272727",
             level3: "#353535"
         },

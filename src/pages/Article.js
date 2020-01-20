@@ -157,7 +157,7 @@ function Article() {
                             <Row className="my-5 py-3 align-items-center">
                                 <Col xs={6} md={8} className="d-flex align-items-center"><Tags/></Col>
                                 <Col xs={6} md={4}>
-                                  <Claps/>
+                                    {aArticle.fake ? null : <Claps/>}
                                 </Col>
                             </Row>
                             <AuthorWithImageExtended/>

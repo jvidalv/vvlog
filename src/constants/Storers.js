@@ -23,6 +23,13 @@ export const STORAGE_KEYS = {
      * @type {string}
      */
     CONTACT_FORM_SUBMITED: 'contact_form_submited',
+    /**
+     * If the user has clapped and article is clapped we store it like
+     * ARTICLE_CLAPPED + aArticle.slug
+     * @mustbe BOOL
+     * @type {string}
+     */
+    ARTICLE_CLAPPED: 'clapped-',
 };
 
 export default STORAGE_KEYS;
