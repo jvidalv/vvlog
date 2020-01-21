@@ -117,6 +117,7 @@ export function Tags() {
  */
 export function ArticleContent(props) {
     const {content, loading} = props;
+
     useEffect(() => {
         if (content) {
             setTimeout(function () {

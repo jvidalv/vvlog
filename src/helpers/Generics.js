@@ -81,7 +81,7 @@ export function reindexer(array, index) {
 }
 
 /**
- * Recursive dynamic function that checks for setted properties in objects
+ * Recursive dynamic function that checks for set properties in objects
  * You must pass and object and all the properties that you want to check IN ORDER 💡
  * ------- EXAMPLE ---------- |
  * We want to print the description of an item that is inside { Categories } => react.ca.name
@@ -93,14 +93,15 @@ export function reindexer(array, index) {
  * @returns {*}
  */
 export function areSet(object, properties, fallback = null) {
-    if (!object.hasOwnProperty(properties[0])) return fallback;
-    else if (properties.length > 1) {
-        let n = object[properties[0]];
+    const prop = properties[0];
+    if (!object.hasOwnProperty(prop)) return fallback;
+    if (properties.length > 1) {
+        let n = object[prop];
         properties.splice(0, 1);
         return areSet(n, properties, fallback)
     }
 
-    return object[properties[0]];
+    return object[prop];
 }
 
 /**

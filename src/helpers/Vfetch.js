@@ -1,8 +1,7 @@
 import {buildRequest} from "./Generics";
 
 /**
- * Custon vfetch that is basically sugar syntax to have a generic fetch that is not a hook and can be used
- * outside of normal flow
+ * Custom fetch that is basically sugar syntax of a generic fetch
  * @param call
  * @param params
  * @returns {Promise<Response>}
