@@ -65,7 +65,7 @@ export const HeaderLogoSvg = styled.svg`
     transform: translateY(-0.5em) rotate(-2deg) scale(1.15);
   }
   &:hover > * {
-    fill : ${props => THEMES[props.theme.style].secondary2} !important;
+    //fill : ${props => THEMES[props.theme.style].secondary2} !important;
   }
   &:hover #small-v-header {
     transform: translateY(-1.5em);
