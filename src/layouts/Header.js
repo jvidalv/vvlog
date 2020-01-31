@@ -43,6 +43,8 @@ const useGetDotColor = (category) => {
  * @param {*} props
  */
 const Searcher = ({className, setExpanded}) => {
+    const [{language}] = useGlobals();
+
     const [q, setQ] = useState('');
     const history = useHistory();
     /**
@@ -54,7 +56,7 @@ const Searcher = ({className, setExpanded}) => {
         e.preventDefault();
         if (q && q.length > 2) {
             setExpanded(false);
-            history.push("/explore", {q});
+            history.push(`/${language}/explore`, {q});
             window.scrollTo(0, 0);
         }
     };
@@ -62,7 +64,7 @@ const Searcher = ({className, setExpanded}) => {
     return (
         <Form
             inline
-            action="/explore"
+            action={`/${language}/explore`}
             onSubmit={e => navigateToExplore(e, q)}
             className={className}
         >
@@ -158,7 +160,7 @@ export function Header({location}) {
             className={!isHome(pathname) ? 'shadow' : null}
         >
             <LinkStyled
-                to="/"
+                to={`/${language}`}
                 onClick={() => setExpanded(false)}
                 className={"logo " + (isHome(pathname) ? "d-none" : "pr-3 mr-5")}
                 style={{opacity: 1}}
@@ -186,7 +188,7 @@ export function Header({location}) {
                         onClick={() => setExpanded(false)}
                         activeStyle={activeStyle}
                         className="my-2 my-lg-0 px-lg-4"
-                        to="/explore"
+                        to={`/${language}/explore`}
                         icon="💡"
                     >
                         {useT('explore')}
@@ -196,7 +198,7 @@ export function Header({location}) {
                         activeStyle={activeStyle}
                         className="category my-2 my-lg-0 px-lg-4"
                         dotcolor={useGetDotColor('javascript')}
-                        to="/javascript"
+                        to={`/${language}/javascript`}
                     >
                         JavaScript
                     </LinkStyled>
@@ -205,7 +207,7 @@ export function Header({location}) {
                         activeStyle={activeStyle}
                         className="category my-2 my-lg-0 px-lg-4"
                         dotcolor={useGetDotColor('react')}
-                        to="/react"
+                        to={`/${language}/react`}
                     >
                         React
                     </LinkStyled>
@@ -214,7 +216,7 @@ export function Header({location}) {
                         activeStyle={activeStyle}
                         className="category my-2 my-lg-0 px-lg-4"
                         dotcolor={useGetDotColor('php')}
-                        to="/php"
+                        to={`/${language}/php`}
                     >
                         PHP
                     </LinkStyled>
@@ -232,7 +234,7 @@ export function Header({location}) {
                         activeStyle={activeStyle}
                         className="category my-2 my-lg-0 px-lg-4"
                         dotcolor={useGetDotColor('css')}
-                        to="/css"
+                        to={`/${language}/css`}
                     >
                         CSS
                     </LinkStyled>

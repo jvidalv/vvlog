@@ -20,6 +20,7 @@ import api_calls from "../constants/Api";
 import {MainLoader} from "../components/Loaders";
 import {HelmetIndex} from "../constants/Helmets";
 import ReactGA from "react-ga";
+import {useParams} from "react-router";
 
 /**
  * Retrieve articles and sets them in global context
@@ -134,12 +135,39 @@ const GA = () => {
     return null;
 };
 
+const LanguageController = () => {
+    const [{language}] = useGlobals();
+    const history = useHistory();
+
+    const languageIsSet = () => {
+       const strLang =  history.location.pathname.substr(0,3);
+       return strLang.includes('ca') ||  strLang.includes('es') ||  strLang.includes('es');
+    };
+
+    /**
+     * @returns {string}
+     */
+    const getPathWithLanguageReplaced = () => {
+        const pathArray = history.location.pathname.split('/');
+        pathArray[1] = language;
+        return pathArray.join("/");
+    };
+
+    React.useEffect(() => {
+        history.push({
+            pathname: getPathWithLanguageReplaced(),
+        })
+    },[language]);
+
+    return null;
+}
+
 /**
  * @returns {*}
  * @constructor
  */
 function Index() {
-    const [{theme}] = useGlobals();
+    const [{theme, language}] = useGlobals();
     const {} = useArticles();
 
     useCategories();
@@ -154,15 +182,16 @@ function Index() {
                     {/*<Toasts />*/}
                     <GA/>
                     <UseScrollToTop/>
+                    <LanguageController />
                     <Header/>
                     <Switch>
-                        <Route exact path="/" component={Home}/>
-                        <Route path="/explore" component={Explore}/>
-                        <Route path="/contact" component={Contact}/>
-                        <Route path="/about" component={About}/>
-                        <Route path="/error" component={Error}/>
-                        <Route path="/:category/:slug" component={Article}/>
-                        <Route path="/:category" component={Category}/>
+                        <Route exact path="/:lang" component={Home}/>
+                        <Route path="/:lang/explore" component={Explore}/>
+                        <Route path="/:lang/contact" component={Contact}/>
+                        <Route path="/:lang/about" component={About}/>
+                        <Route path="/:lang/error" component={Error}/>
+                        <Route path="/:lang/:category/:slug" component={Article}/>
+                        <Route path="/:lang/:category" component={Category}/>
                     </Switch>
                     <Footer/>
                     <MainLoader/>

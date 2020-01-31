@@ -43,8 +43,9 @@ function Footer() {
         [],
         null,
         false,
-        300
+        1500
     );
+
     return (
         <>
             <ButtonToTop className={showToTop ? "active" : null}/>

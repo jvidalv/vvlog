@@ -38,7 +38,7 @@ export function ReadingTopBar() {
         [],
         null,
         false,
-        0
+        100
     );
 
     return <ReadingBarStyled scroll={scroll}/>;

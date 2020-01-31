@@ -99,7 +99,7 @@ const useAArticle = () => {
     useEffect(() => {
         if (!aArticle.fake && !loading) {
             if (aArticle.language_id !== language) {
-                history.push("/" + categories[params.category]['code'] + '/' + aArticle.translations[language]);
+                history.push("/" + language + "/" + categories[params.category]['code'] + '/' + aArticle.translations[language]);
                 setAArticle(D_AARTICLE);
                 setRefetch(Date());
                 setRelatedArticles(limiter(D_ARTICLES, 4),);

@@ -3,6 +3,8 @@
  * @param call
  * @param params
  */
+import {useGlobals} from "../contexts/Global";
+
 export function buildRequest(call, params) {
     let url = urlBuilder(call.url, params);
     let request = {
@@ -164,11 +166,12 @@ export function smoothMove(toTop = false) {
 
 /**
  * Returns the url ready to be consumed by react-router
+ * @param language
  * @param {string} category
  * @param {string} slug
  */
-export function generateLink(category, slug = "") {
-    return ("/" + category + "/" + slug).toLocaleLowerCase();
+export function generateLink(language, category, slug = "") {
+    return ("/"+ language + "/" + category + "/" + slug).toLocaleLowerCase();
 }
 
 
