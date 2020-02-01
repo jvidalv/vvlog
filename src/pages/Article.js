@@ -16,7 +16,6 @@ import api_calls from "../constants/Api";
 import useT from "../helpers/Translator";
 import {D_AARTICLE, D_ARTICLES} from "../constants/Dummy";
 import {HelmetArticle} from "../constants/Helmets";
-import {ClapSpan} from "../components/ArticleContentStyle";
 
 /**
  * Fetches current article
@@ -70,6 +69,13 @@ const useAArticle = () => {
         });
     };
 
+    const refreshArticle = () => {
+        setAArticle(D_AARTICLE);
+        setRefetch(Date());
+        setRelatedArticles(limiter(D_ARTICLES, 4),);
+        setRefetchRelated(Date());
+    }
+
     useEffect(() => {
         setAArticle(D_AARTICLE);
         if (data && data.id) {
@@ -100,15 +106,9 @@ const useAArticle = () => {
         if (!aArticle.fake && !loading) {
             if (aArticle.language_id !== language) {
                 history.push("/" + language + "/" + categories[params.category]['code'] + '/' + aArticle.translations[language]);
-                setAArticle(D_AARTICLE);
-                setRefetch(Date());
-                setRelatedArticles(limiter(D_ARTICLES, 4),);
-                setRefetchRelated(Date());
+                refreshArticle();
             } else if (params.slug !== aArticle.slug) {
-                setAArticle(D_AARTICLE);
-                setRefetch(Date());
-                setRelatedArticles(limiter(D_ARTICLES, 4),);
-                setRefetchRelated(Date());
+                refreshArticle();
             }
         }
     }, [language, history.location]);

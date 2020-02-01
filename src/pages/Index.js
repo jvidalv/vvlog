@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {useGlobals} from "../contexts/Global";
 import {ThemeProvider} from "styled-components";
-import {BrowserRouter as Router, Route, Switch, useHistory} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {Main} from "../styles/GenericStyles";
-import UseScrollToTop from "../hooks/useScrollToTop";
+import {useScrollToTop} from "../hooks/useScrollToTop";
 
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
@@ -19,8 +19,8 @@ import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
 import {MainLoader} from "../components/Loaders";
 import {HelmetIndex} from "../constants/Helmets";
-import ReactGA from "react-ga";
-import {useParams} from "react-router";
+import useLanguageController from "../hooks/useLanguageController";
+import useGA from "../hooks/useGA";
 
 /**
  * Retrieve articles and sets them in global context
@@ -118,71 +118,38 @@ const useTags = () => {
     return {tags: data, loading, error}
 };
 
-/**
- * Google Analytics
- * Page switcher listener
- * @returns {null}
+/***
+ * Call to all basic methods of blog
+ * We need them to be inside Router to have access to history and location
  * @constructor
  */
-const GA = () => {
-    const history = useHistory();
-    useEffect(() => {
-        history.listen((location) => {
-            ReactGA.set({ page: location.pathname });
-            ReactGA.pageview(location.pathname)
-        });
-    }, []);
+const AppCore = () => {
+
+    useArticles();
+    useCategories();
+    useAuthors();
+    useTags();
+    useScrollToTop();
+    useLanguageController();
+    useGA();
+
     return null;
 };
 
-const LanguageController = () => {
-    const [{language}] = useGlobals();
-    const history = useHistory();
-
-    const languageIsSet = () => {
-       const strLang =  history.location.pathname.substr(0,3);
-       return strLang.includes('ca') ||  strLang.includes('es') ||  strLang.includes('es');
-    };
-
-    /**
-     * @returns {string}
-     */
-    const getPathWithLanguageReplaced = () => {
-        const pathArray = history.location.pathname.split('/');
-        pathArray[1] = language;
-        return pathArray.join("/");
-    };
-
-    React.useEffect(() => {
-        history.push({
-            pathname: getPathWithLanguageReplaced(),
-        })
-    },[language]);
-
-    return null;
-}
 
 /**
  * @returns {*}
  * @constructor
  */
 function Index() {
-    const [{theme, language}] = useGlobals();
-    const {} = useArticles();
-
-    useCategories();
-    useAuthors();
-    useTags();
+    const [{theme}] = useGlobals();
 
     return (
         <ThemeProvider theme={{style: theme}}>
             <Main>
                 <Router>
+                    <AppCore />
                     <HelmetIndex theme={theme}/>
-                    {/*<Toasts />*/}
-                    <GA/>
-                    <UseScrollToTop/>
-                    <LanguageController />
                     <Header/>
                     <Switch>
                         <Route exact path="/:lang" component={Home}/>

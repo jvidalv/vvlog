@@ -18,7 +18,7 @@ import {HeaderLogo} from "../assets/svgs/Logo";
  * @returns {boolean}
  */
 const isHome = pathname => {
-    return pathname === "/";
+    return pathname === "/es" || pathname === "/en" || pathname === "/ca";
 };
 
 /**

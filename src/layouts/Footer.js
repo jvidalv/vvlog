@@ -8,6 +8,7 @@ import {FooterStyled} from "./FooterStyle";
 import {A, P} from "../styles/GenericStyles";
 import {Link} from "react-router-dom";
 import useT from "../helpers/Translator";
+import {useGlobals} from "../contexts/Global";
 
 /**
  * Shows the floating button  that brings you to the top
@@ -29,17 +30,18 @@ const ButtonToTop = ({className}) => {
  * @constructor
  */
 function Footer() {
+    const [{language}] = useGlobals();
     const [showToTop, setShowToTop] = useState(false);
-    const hasToShow = (prevPos, currPos) => {
+    const buttonToTopHasToShow = (prevPos, currPos) => {
         if (currPos.y < -500) {
             setShowToTop(true);
         } else if (currPos.y > -500) {
             setShowToTop(false);
         }
     };
-    // Moves back on top on click
+
     useScrollPosition(
-        ({prevPos, currPos}) => hasToShow(prevPos, currPos),
+        ({prevPos, currPos}) => buttonToTopHasToShow(prevPos, currPos),
         [],
         null,
         false,
@@ -48,7 +50,7 @@ function Footer() {
 
     return (
         <>
-            <ButtonToTop className={showToTop ? "active" : null}/>
+            <ButtonToTop className={showToTop ? "active" : ""}/>
             <Cookies/>
             <FooterStyled className="mt-3 pt-5">
                 <Container className="d-md-flex mt-5 py-5">
@@ -60,9 +62,9 @@ function Footer() {
                         </P>
                     </div>
                     <div className="right-side d-flex flex-column w-50 text-right">
-                        <Link to="/" className="ba">{useT('homepage')}</Link>
-                        <Link to="/about" className="ba">{useT('about')}</Link>
-                        <Link to="/contact" className="ba">{useT('contact')}</Link>
+                        <Link to={`/${language}`} className="ba">{useT('homepage')}</Link>
+                        <Link to={`/${language}/about`} className="ba">{useT('about')}</Link>
+                        <Link to={`/${language}/contact`} className="ba">{useT('contact')}</Link>
                         <a href="https://github.com/jvidalv/vvlog" className="fa">Github</a>
                     </div>
                 </Container>

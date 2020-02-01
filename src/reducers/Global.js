@@ -1,7 +1,6 @@
 import React from "react";
-import {checkValue, limiter, loadFromCache, reindexer} from "../helpers/Generics";
+import {limiter, loadFromCache, reindexer} from "../helpers/Generics";
 import {D_AARTICLE, D_ARTICLES, D_AUTHORS, D_CATEGORIES, D_ERROR, D_TOAST} from "../constants/Dummy";
-import {_LANGUAGES} from "../constants/Dictionary";
 import {_THEMES} from "../constants/Themes";
 import {getNavigatorLanguage} from "../helpers/Translator";
 
@@ -62,16 +61,12 @@ export const reducer = (state, action) => {
         case "changeTheme":
             return {
                 ...state,
-                theme: checkValue(action.changeTheme, _THEMES)
-                    ? loadFromCache('theme', action.changeTheme, true)
-                    : _THEMES[0]
+                theme: loadFromCache('theme', action.changeTheme, true)
             };
         case "changeLanguage":
             return {
                 ...state,
-                language: checkValue(action.changeLanguage, _LANGUAGES)
-                    ? loadFromCache('language', action.changeLanguage, true)
-                    : _LANGUAGES[0]
+                language: loadFromCache('language', action.changeLanguage, true)
             };
         case "addToast":
             return {
@@ -104,11 +99,14 @@ export const reducer = (state, action) => {
                 tags: action.setTags
             };
         case "setActiveArticle":
-            let language = checkValue(action.setActiveArticle.language_id, _LANGUAGES) ? action.setActiveArticle.language_id : state.language;
+            let language = state.language;
+            if ( action.setActiveArticle.language_id && state.language !== action.setActiveArticle.language_id) {
+                 language = action.setActiveArticle.language_id;
+            }
             return {
                 ...state,
                 aArticle: action.setActiveArticle,
-                language
+                language : language
             };
         case "setRelatedArticles":
             return {
