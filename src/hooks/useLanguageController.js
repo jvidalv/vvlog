@@ -5,6 +5,7 @@ import React from "react";
 export const useLanguageController = () => {
     const [{language}, dispatch] = useGlobals();
     const history = useHistory();
+
     /**
      * Checks if url contains any of the blog languages
      * @returns {boolean}
@@ -21,6 +22,10 @@ export const useLanguageController = () => {
     const currentUrlLanguageIsSet = () => {
         const strLang = history.location.pathname.substr(0, 3);
         return strLang.includes(language) ;
+    };
+
+    const getLanguageSetInUrl = () => {
+        return history.location.pathname.split('/')[1] ;
     };
 
     /**
@@ -45,11 +50,14 @@ export const useLanguageController = () => {
     /**
      * On language change we push to history
      */
-   /* React.useEffect(() => {
-        languageIsSet() && history.push({
-            pathname: getPathWithLanguageReplaced(),
-        })
-    }, [language]);*/
+    React.useEffect(() => {
+        if(!currentUrlLanguageIsSet()){
+            dispatch({
+                type: "changeLanguage",
+                changeLanguage: getLanguageSetInUrl()
+            });
+        }
+    }, [history.location.pathname]);
 };
 
 export default useLanguageController;

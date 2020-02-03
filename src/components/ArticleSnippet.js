@@ -16,7 +16,7 @@ export function ArticleSnippetWithImage(props) {
     const {id, fake, title, slug, category, resume, image, categorySlug} = props;
     return (
         <SnippetContainer
-            className={"d-flex mb-3 " + props.className + (fake ? " empty" : '')}
+            className={"d-flex mb-3 " + ( props.className ?? '') + (fake ? " empty" : '')}
             icon={props.icon}
             key={id}
         >

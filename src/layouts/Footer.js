@@ -54,14 +54,14 @@ function Footer() {
             <Cookies/>
             <FooterStyled className="mt-3 pt-5">
                 <Container className="d-md-flex mt-5 py-5">
-                    <div className="left-side w-50 d-flex flex-column justify-content-center">
+                    <div className="left-side w-50 d-flex flex-column align-items-center justify-content-md-center">
                         <span className="hand mb-1">👋</span>
                         <P fontSize="1rem">
                             {useT('vvlog_is_created_written_and_maintained_by')} <br/>
                             <A href="http://vidal.fun">Josep Vidal </A> {useT('and_a_team_of_contributors_on_github')}.
                         </P>
                     </div>
-                    <div className="right-side d-flex flex-column w-50 text-right">
+                    <div className="right-side d-flex flex-column w-50 text-center text-md-right">
                         <Link to={`/${language}`} className="ba">{useT('homepage')}</Link>
                         <Link to={`/${language}/about`} className="ba">{useT('about')}</Link>
                         <Link to={`/${language}/contact`} className="ba">{useT('contact')}</Link>

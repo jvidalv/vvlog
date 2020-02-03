@@ -102,28 +102,29 @@ const ThemeSwitcher = ({className, changeTheme, theme}) => (
  * @param className
  * @param changeLanguage
  * @param language
+ * @param setExpanded
  * @returns {*}
  * @constructor
  */
-const LanguageSwitcher = ({className, changeLanguage, language}) => (
+const LanguageSwitcher = ({className, changeLanguage, language, setExpanded}) => (
     <Nav className={className}>
         <NavDropdownStyled title={useT("lang", ['👅'])}>
             <LinkStyled
-                onClick={() => changeLanguage("ca")}
+                onClick={() => changeLanguage("ca") && setExpanded(false)}
                 className={language === "ca" ? "active dropdown-item" : "dropdown-item"}
                 to={`/ca`}
             >
                 {useT('catalan')}
             </LinkStyled>
             <LinkStyled
-                onClick={() => changeLanguage("es")}
+                onClick={() => changeLanguage("es") && setExpanded(false)}
                 className={language === "es" ?  "active dropdown-item" : "dropdown-item"}
                 to={`/es`}
             >
                 {useT('spanish')}
             </LinkStyled>
             <LinkStyled
-                onClick={() => changeLanguage("en")}
+                onClick={() => changeLanguage("en") && setExpanded(false)}
                 className={language === "en" ?  "active dropdown-item" : "dropdown-item"}
                 to={`/en`}
             >
@@ -152,10 +153,11 @@ export function Header({location}) {
         });
     };
     const changeLanguage = lang => {
-        dispatch({
+        /*dispatch({
             type: "changeLanguage",
             changeLanguage: lang
-        });
+        });*/
+        return true;
     };
 
     return (
@@ -245,6 +247,7 @@ export function Header({location}) {
                     </LinkStyled>
                 </Nav>
                 <LanguageSwitcher
+                    setExpanded={setExpanded}
                     changeLanguage={changeLanguage}
                     language={language}
                     className="text-center"

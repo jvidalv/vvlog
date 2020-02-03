@@ -90,7 +90,7 @@ export function CategoriesCircle() {
                             className={"d-flex justify-content-center align-items-center " + (categories[category].fake ? "loading" : "")}>
                             {
                                 !categories[category].fake ?
-                                    <Link to={generateLink(category)}>
+                                    <Link to={generateLink(language, category)}>
                                         <img alt={categories[category][language].name}
                                              src={BASE_IMAGE + categories[category].image}/>
                                         <label>{categories[category][language].name}</label>

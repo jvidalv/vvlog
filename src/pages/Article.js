@@ -137,7 +137,7 @@ function Article() {
                                                                                        height="95px"/>)}
                                 overtitle={areSet(aArticle, ['category_nice'], <LoadingPlaceholder width="100px"
                                                                                                    height="35px"/>)}
-                                urlOvertitle={'/' + aArticle.category_code}
+                                urlOvertitle={'/' + language + '/' + aArticle.category_code}
                             />
                         </Col>
                     </Row>
