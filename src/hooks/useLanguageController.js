@@ -36,7 +36,6 @@ export const useLanguageController = () => {
      * If language is not set we force it to be
      */
     React.useEffect(() => {
-
         !languageIsSet() && history.push({
             pathname: getPathWithLanguageReplaced(),
         });
@@ -46,11 +45,11 @@ export const useLanguageController = () => {
     /**
      * On language change we push to history
      */
-    React.useEffect(() => {
+   /* React.useEffect(() => {
         languageIsSet() && history.push({
             pathname: getPathWithLanguageReplaced(),
         })
-    }, [language]);
+    }, [language]);*/
 };
 
 export default useLanguageController;

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useGlobals} from "../contexts/Global";
-import {Form, Nav, NavDropdown} from "react-bootstrap";
+import {Form, Nav} from "react-bootstrap";
 import {
     FormControlStyled,
     LinkStyled,
@@ -108,24 +108,27 @@ const ThemeSwitcher = ({className, changeTheme, theme}) => (
 const LanguageSwitcher = ({className, changeLanguage, language}) => (
     <Nav className={className}>
         <NavDropdownStyled title={useT("lang", ['👅'])}>
-            <NavDropdown.Item
+            <LinkStyled
                 onClick={() => changeLanguage("ca")}
-                className={language === "ca" ? "active" : null}
+                className={language === "ca" ? "active dropdown-item" : "dropdown-item"}
+                to={`/ca`}
             >
                 {useT('catalan')}
-            </NavDropdown.Item>
-            <NavDropdown.Item
+            </LinkStyled>
+            <LinkStyled
                 onClick={() => changeLanguage("es")}
-                className={language === "es" ? "active" : null}
+                className={language === "es" ?  "active dropdown-item" : "dropdown-item"}
+                to={`/es`}
             >
                 {useT('spanish')}
-            </NavDropdown.Item>
-            <NavDropdown.Item
+            </LinkStyled>
+            <LinkStyled
                 onClick={() => changeLanguage("en")}
-                className={language === "en" ? "active" : null}
+                className={language === "en" ?  "active dropdown-item" : "dropdown-item"}
+                to={`/en`}
             >
                 {useT('english')}
-            </NavDropdown.Item>
+            </LinkStyled>
         </NavDropdownStyled>
     </Nav>
 );
@@ -140,6 +143,8 @@ export function Header({location}) {
     const [{theme, language}, dispatch] = useGlobals();
     const [expanded, setExpanded] = useState(false);
     const activeStyle = {opacity: "1", transform: 'scale(1.1)'};
+    const history = useHistory();
+
     const changeTheme = () => {
         dispatch({
             type: "changeTheme",

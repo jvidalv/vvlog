@@ -90,6 +90,7 @@ export const NavDropdownStyled = styled(NavDropdown)`
   }
   & .dropdown-menu a {
     color: ${props => THEMES[props.theme.style].onSurface} !important;
+    opacity: 1 !important;
   }
   & .dropdown-menu {
     border: none;
@@ -98,6 +99,7 @@ export const NavDropdownStyled = styled(NavDropdown)`
   }
   & .dropdown-menu a:hover {
     background: ${props => THEMES[props.theme.style].surface.level3};
+    transform: unset !important;
   }
   & .dropdown-menu a.active {
     background: ${props => THEMES[props.theme.style].primary2};

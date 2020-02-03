@@ -102,7 +102,7 @@ const useAArticle = () => {
      * Here we control the switches between language and back and forth, so the data always stays veridic
      * with the current language and current slug
      */
-    useEffect(() => {
+    /*useEffect(() => {
         if (!aArticle.fake && !loading) {
             if (aArticle.language_id !== language) {
                 history.push("/" + language + "/" + categories[params.category]['code'] + '/' + aArticle.translations[language]);
@@ -111,7 +111,7 @@ const useAArticle = () => {
                 refreshArticle();
             }
         }
-    }, [language, history.location]);
+    }, [language, history.location]);*/
 
     return {data, loading, dataRelated}
 };
