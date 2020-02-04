@@ -65,7 +65,13 @@ function Footer() {
                         <Link to={`/${language}`} className="ba">{useT('homepage')}</Link>
                         <Link to={`/${language}/about`} className="ba">{useT('about')}</Link>
                         <Link to={`/${language}/contact`} className="ba">{useT('contact')}</Link>
+                        <hr/>
                         <a href="https://github.com/jvidalv/vvlog" className="fa">Github</a>
+                        <hr/>
+                        <Link to={`/ca`} className="ba">{useT('catalan')}</Link>
+                        <Link to={`/es`} className="ba">{useT('spanish')}</Link>
+                        <Link to={`/en`} className="ba">{useT('english')}</Link>
+
                     </div>
                 </Container>
             </FooterStyled>

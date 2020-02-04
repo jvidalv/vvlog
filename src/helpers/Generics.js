@@ -171,7 +171,7 @@ export function smoothMove(toTop = false) {
  * @param {string} slug
  */
 export function generateLink(language, category, slug = "") {
-    return ("/"+ language + "/" + category + "/" + slug).toLocaleLowerCase();
+    return ("/"+ language + "/" + category + ( slug ? "/" + slug : "" )).toLocaleLowerCase();
 }
 
 
