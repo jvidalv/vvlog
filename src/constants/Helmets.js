@@ -16,7 +16,7 @@ export const HelmetIndex = (props) => (
         <meta name="twitter:creator" content="@vvlog"/>
         <meta property="og:site_name" content="vvlog.dev"/>
         <meta name="description"
-              content="VVLOG is programming blog made by Josep Vidal, focused mostly in web dev, learn JavaScript, React, PHP, Yii2..."/>
+              content="VVLOG is a programming blog made by Josep Vidal, focused mostly in web dev, learn JavaScript, React, PHP, Yii2..."/>
         <meta data-ue-u="twitter:title" name="twitter:title" content="VVLOG a programming blog made by Josep Vidal"/>
         <meta data-ue-u="twitter:description" name="twitter:description"
               content="Programming blog made by Josep Vidal, focused mostly in Web Development, learn JavaScript, React, PHP, Yii2..."/>
