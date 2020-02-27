@@ -60,7 +60,7 @@ export function Claps() {
             slug: aArticle.slug,
         };
         vfetch(api_calls.articles.clap, {...data})
-            .then(() => vStorage.setItem(STORAGE_KEYS.ARTICLE_CLAPPED +  aArticle.translations.id, true));
+            .then(() => vStorage.setItem(STORAGE_KEYS.ARTICLE_CLAPPED + aArticle.translations.id, true));
         clapSpan.innerHTML = parseInt(clapSpan.innerHTML) + 1;
 
         setDidClap(true);
@@ -72,9 +72,10 @@ export function Claps() {
                 <SPAN className="ml-1" ref={clapRef}>
                     {aArticle.claps}
                 </SPAN>
-                {didClap ? <SPAN className="d-block" themecolor="primary">{t('thanks', [], language)}!</SPAN> : null }
+                {didClap ? <SPAN className="d-block" themecolor="primary">{t('thanks', [], language)}!</SPAN> : null}
             </SPAN>
-            <ClapSpan clapped={didClap} onClick={() => didClap ? null : clapped() } alt={useT('hey_give_me_a_clap') + ' 😛'}>
+            <ClapSpan clapped={didClap} onClick={() => didClap ? null : clapped()}
+                      alt={useT('hey_give_me_a_clap') + ' 😛'}>
                 {didClap ? "😊" : "👏"}
             </ClapSpan>
         </div>
@@ -92,11 +93,12 @@ export function Tags() {
             {
                 tags.length && aArticle.id ?
                     tags.filter(tag => aArticle.tags.map(ta => ta.tag_id).includes(tag.id)).map(tag => (
-                        <Link
-                            key={tag.id} to={{pathname: '/explore', state: {q: tag[language]}}}
-                            className="align-self-baseline mt-1 small">
-                            {tag[language]}
-                        </Link>)
+                            <Link
+                                key={tag.id} to={{pathname: `/${language}/explore`, state: {q: tag[language]}}}
+                                className="align-self-baseline mt-1 small">
+                                {tag[language]}
+                            </Link>
+                        )
                     )
                     :
                     (
