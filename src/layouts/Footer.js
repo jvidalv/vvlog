@@ -69,9 +69,9 @@ function Footer() {
                         <a href="https://github.com/jvidalv/vvlog" className="fa">Github</a>
                         <hr/>
                         <div className="d-flex justify-content-end">
-                            <Link to={`/ca`} className="ba">{useT('catalan')}</Link>
-                            <Link to={`/es`} className="ba mx-2">{useT('spanish')}</Link>
-                            <Link to={`/en`} className="ba">{useT('english')}</Link>
+                            <Link to={`/ca`}>{useT('catalan')}</Link>
+                            <Link to={`/es`} className="mx-2">{useT('spanish')}</Link>
+                            <Link to={`/en`}>{useT('english')}</Link>
                         </div>
                     </div>
                 </Container>
