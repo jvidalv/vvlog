@@ -58,7 +58,7 @@ function Footer() {
                         <span className="hand mb-1">👋</span>
                         <P fontSize="1rem">
                             {useT('vvlog_is_created_written_and_maintained_by')} <br/>
-                            <A href="http://vidal.fun">Josep Vidal </A> {useT('and_a_team_of_contributors_on_github')}.
+                            <A href="https://josepvidal.dev/">Josep Vidal </A> {useT('and_a_team_of_contributors_on_github')}.
                         </P>
                     </div>
                     <div className="right-side d-flex flex-column w-50 text-center text-md-right">

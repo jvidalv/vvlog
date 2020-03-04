@@ -72,7 +72,7 @@ export function MyNetworks(props) {
                 icon={<FaLinkedinIn/>}
             />
             <Network
-                url="http://www.vidal.fun"
+                url="https://josepvidal.dev"
                 title="My personal page!"
                 icon={<FaGlobe/>}
             />
