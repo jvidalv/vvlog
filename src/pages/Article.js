@@ -42,10 +42,9 @@ const useFetchRelatedArticles = () => {
  * @returns {{aArticle: *}}
  */
 const useAArticle = () => {
-    const [{aArticle, language, categories}, dispatch] = useGlobals();
+    const [{language}, dispatch] = useGlobals();
     const {data, error, loading, setRefetch} = useFetchArticle();
     const {dataRelated, setRefetchRelated} = useFetchRelatedArticles();
-    const params = useParams();
     const history = useHistory();
 
     const setAArticle = (aArticle) => {
@@ -69,13 +68,6 @@ const useAArticle = () => {
         });
     };
 
-    const refreshArticle = () => {
-        setAArticle(D_AARTICLE);
-        setRefetch(Date());
-        setRelatedArticles(limiter(D_ARTICLES, 4),);
-        setRefetchRelated(Date());
-    }
-
     useEffect(() => {
         setAArticle(D_AARTICLE);
         if (data && data.id) {
@@ -88,7 +80,7 @@ const useAArticle = () => {
                 message: 'article_does_not_exist',
                 description: 'article_does_not_exist_or_it_is_no_longer_public'
             });
-            history.push("/error");
+            history.replace(`/${language}/error`);
         }
     }, [data, error]);
 
@@ -97,21 +89,6 @@ const useAArticle = () => {
             setRelatedArticles(dataRelated);
         }
     }, [dataRelated]);
-
-    /**
-     * Here we control the switches between language and back and forth, so the data always stays veridic
-     * with the current language and current slug
-     */
-    /*useEffect(() => {
-        if (!aArticle.fake && !loading) {
-            if (aArticle.language_id !== language) {
-                history.push("/" + language + "/" + categories[params.category]['code'] + '/' + aArticle.translations[language]);
-                refreshArticle();
-            } else if (params.slug !== aArticle.slug) {
-                refreshArticle();
-            }
-        }
-    }, [language, history.location]);*/
 
     return {data, loading, dataRelated}
 };

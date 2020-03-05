@@ -1,7 +1,7 @@
 import React, {createContext, useContext, useReducer} from "react";
 
 /**
- * @type {React.Context<any>}
+ * @type {React.Context}
  */
 export const StateContext = createContext();
 
