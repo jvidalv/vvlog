@@ -2,6 +2,9 @@ import {useGlobals} from "../contexts/Global";
 import {useHistory} from "react-router-dom";
 import React from "react";
 
+/**
+ * Takes care of all language related problems and to give the right path and params to both routing object and user
+ */
 export const useLanguageController = () => {
     const [{language}, dispatch] = useGlobals();
     const history = useHistory();

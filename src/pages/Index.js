@@ -136,14 +136,12 @@ const AppCore = () => {
     return null;
 };
 
-
 /**
  * @returns {*}
  * @constructor
  */
 function Index() {
     const [{theme}] = useGlobals();
-
     return (
         <ThemeProvider theme={{style: theme}}>
             <Main>

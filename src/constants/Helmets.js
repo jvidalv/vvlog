@@ -15,6 +15,13 @@ export const HelmetIndex = (props) => (
         <meta name="twitter:site" content="@vvlog"/>
         <meta name="twitter:creator" content="@vvlog"/>
         <meta property="og:site_name" content="vvlog.dev"/>
+    </Helmet>
+);
+
+export const HelmetHome = (props) => (
+    <Helmet>
+        <meta charSet="utf-8"/>
+        <title>{useT('vvlog_homepage')}</title>
         <meta name="description"
               content="VVLOG is a programming blog made by Josep Vidal, focused mostly in web dev, learn JavaScript, React, PHP, Yii2..."/>
         <meta data-ue-u="twitter:title" name="twitter:title" content="VVLOG a programming blog made by Josep Vidal"/>
@@ -26,13 +33,6 @@ export const HelmetIndex = (props) => (
         <meta data-ue-u="og:description" property="og:description"
               content="Programming blog made by Josep Vidal, focused mostly in Web Development, learn JavaScript, React, PHP, Yii2..."/>
         <meta property="og:type" content="blog"/>
-    </Helmet>
-);
-
-export const HelmetHome = (props) => (
-    <Helmet>
-        <meta charSet="utf-8"/>
-        <title>{useT('vvlog_homepage')}</title>
     </Helmet>
 );
 
@@ -57,7 +57,9 @@ export const HelmetContact = (props) => (
 
 export const HelmetCategory = (props) => (
     <Helmet>
-        <title>{props.params.category.toUpperCase() + ' ─ ' + useT('category')}</title>
+        <title>{props.params.category.toUpperCase()}</title>
+        <meta name="description"
+              content={props.category.joke}/>
     </Helmet>
 );
 

@@ -53,7 +53,7 @@ function Category() {
 
     return (
         <>
-            <HelmetCategory params={params}/>
+            <HelmetCategory params={params} joke={areSet(categories, [params.category, language, 'description'])}/>
             <Container className="pt-5 text-center">
                 <Row>
                     <Col>
