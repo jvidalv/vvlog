@@ -58,8 +58,6 @@ export const HelmetContact = (props) => (
 export const HelmetCategory = (props) => (
     <Helmet>
         <title>{props.params.category.toUpperCase()}</title>
-        <meta name="description"
-              content={props.category.joke}/>
     </Helmet>
 );
 
