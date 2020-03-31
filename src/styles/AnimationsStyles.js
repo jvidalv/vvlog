@@ -4,7 +4,7 @@ import {THEMES} from "../constants/Themes";
 export const pulse = keyframes`
     0% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 ${props => THEMES[props.theme.style].secondary};
+        box-shadow: 0 0 0 0 ${({theme}) => theme.secondary};
     }
 
     70% {

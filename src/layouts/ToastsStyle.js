@@ -10,14 +10,14 @@ export const ToastsContainer = styled.div`
     overflow: unset;
   
     & .toast {
-      color : ${props => THEMES[props.theme.style].onSurface};
-      background : ${props => THEMES[props.theme.style].surface.level2};
+      color : ${({theme}) => theme.onSurface};
+      background : ${({theme}) => theme.surface.level2};
       & .toast-header{
-            background : ${props => THEMES[props.theme.style].surface.level1};
-            color : ${props => THEMES[props.theme.style].onSurface};
+            background : ${({theme}) => theme.surface.level1};
+            color : ${({theme}) => theme.onSurface};
       }
       & .close {
-           color : ${props => THEMES[props.theme.style].onSurface};
+           color : ${({theme}) => theme.onSurface};
       }
     }
 `;

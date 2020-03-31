@@ -48,7 +48,7 @@ export const LogoSvg = styled.svg`
 `;
 
 export const HeaderLogoSvg = styled.svg`
-  background: ${props => THEMES[props.theme.style].header.right} !important;
+  background: ${({theme}) => theme.header.right} !important;
   position: absolute;
   border-radius: 10px;
   box-shadow: 0 0 10px 3px #00000040;
@@ -65,7 +65,7 @@ export const HeaderLogoSvg = styled.svg`
     transform: translateY(-0.5em) rotate(-2deg) scale(1.15);
   }
   &:hover > * {
-    //fill : ${props => THEMES[props.theme.style].secondary2} !important;
+    //fill : ${({theme}) => theme.secondary2} !important;
   }
   &:hover #small-v-header {
     transform: translateY(-1.5em);

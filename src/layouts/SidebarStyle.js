@@ -9,7 +9,7 @@ export const SourceDiv = styled.div`
 `;
 
 export const SidebarElement = styled.div`
-  background: ${props => THEMES[props.theme.style].surface.level1};
+  background: ${({theme}) => theme.surface.level1};
   box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15);
   border: none;
   margin-bottom: 25px;
@@ -25,7 +25,7 @@ export const SidebarElement = styled.div`
     justify-content: center;
     position: absolute;
     right: -0.9rem;
-    background: ${props => THEMES[props.theme.style].surface.level1};
+    background: ${({theme}) => theme.surface.level1};
     border-radius: 50%;
     align-items: center;
     top: -0.8rem;

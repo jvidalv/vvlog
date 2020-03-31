@@ -3,10 +3,10 @@ import {THEMES} from "../constants/Themes";
 import {backArrows, gradient} from "../styles/AnimationsStyles";
 
 export const H5Category = styled.h5`
-  color: ${props => THEMES[props.theme.style].secondary};
+  color: ${({theme}) => theme.secondary};
   font-weight: 300;
   & > a {
-    color: ${props => THEMES[props.theme.style].secondary};
+    color: ${({theme}) => theme.secondary};
     position: relative;
     transition: all 2s ease-in-out;
   }
@@ -22,11 +22,11 @@ export const ImageSnippet = styled.div`
   margin: 10px;
   height: 200px;
   width: 200px;
-  background: url(${props => props.url ?? THEMES[props.theme.style].surface.level2});
+  background: url(${props => props.url ?? props.theme.surface.level2});
 `;
 
 export const SnippetContainer = styled.div`
-  background: ${props => THEMES[props.theme.style].surface.level1};
+  background: ${({theme}) => theme.surface.level1};
   box-shadow: 1px 1px 15px rgba(0,0,0,0.15);
   position: relative;
   transition: 0.25s ease-in;
@@ -49,7 +49,7 @@ export const SnippetContainer = styled.div`
     justify-content: center;
     position: absolute;
     right: -0.9rem;
-    background: ${props => THEMES[props.theme.style].surface.level1};
+    background: ${({theme}) => theme.surface.level1};
     border-radius: 50%;
     align-items: center;
     top: -0.8rem;
@@ -69,7 +69,7 @@ export const SnippetContainer = styled.div`
   
   &::after{
     content: ${props => props.trianglecolor ? "⭐" : ""};
-    background: ${props => props.trianglecolor ? props.trianglecolor : THEMES[props.theme.style].primary};
+    background: ${props => props.trianglecolor ? props.trianglecolor : props.theme.primary};
     width: 25px;
     height: 25px;
     transform: scale(1.5);
@@ -84,7 +84,7 @@ export const SnippetContainer = styled.div`
     flex-grow: 1;
     pointer-events: none;
     & h5, .image-snippet, h3, p {
-        background: linear-gradient(90deg,  ${props => THEMES[props.theme.style].header.right} , ${props => THEMES[props.theme.style].surface.level1}, ${props => THEMES[props.theme.style].surface.level2}, ${props => THEMES[props.theme.style].surface.level3}, ${props => THEMES[props.theme.style].header.right});
+        background: linear-gradient(90deg,  ${({theme}) => theme.header.right} , ${({theme}) => theme.surface.level1}, ${({theme}) => theme.surface.level2}, ${({theme}) => theme.surface.level3}, ${({theme}) => theme.header.right});
         background-size: 300% 300%;
         animation: ${gradient} 5s ease-in-out infinite;
     }

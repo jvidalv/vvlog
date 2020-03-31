@@ -3,7 +3,7 @@ import {THEMES} from "../constants/Themes";
 import {dissapearToRight, growBig} from "../styles/AnimationsStyles";
 
 export const IconA = styled.a`
-  color: ${props => THEMES[props.theme.style].primary};
+  color: ${({theme}) => theme.primary};
   font-size: 2rem;
   padding: 0 20px;
   transition: all 0.15s ease;
@@ -16,7 +16,7 @@ export const IconA = styled.a`
     opacity: 1;
   }
   &:hover {
-    color: ${props => THEMES[props.theme.style].secondary};
+    color: ${({theme}) => theme.secondary};
   }
 `;
 
@@ -34,7 +34,7 @@ export const SharerStyled = styled.div`
 `;
 
 export const ShareA = styled.a`
-  color: ${props => THEMES[props.theme.style].secondary};
+  color: ${({theme}) => theme.secondary};
   font-size: 1.5rem;
   padding: 0 20px;
   transition: all 0.15s ease;
@@ -48,8 +48,8 @@ export const ShareA = styled.a`
     margin-right: 20px;
     background: linear-gradient(
       to right,
-      ${props => THEMES[props.theme.style].primary},
-      ${props => THEMES[props.theme.style].secondary}
+      ${({theme}) => theme.primary},
+      ${({theme}) => theme.secondary}
     );
     vertical-align: middle;
     @media (max-width: 850px) {
@@ -65,8 +65,8 @@ export const ShareA = styled.a`
     margin-left: 20px;
     background: linear-gradient(
       to right,
-      ${props => THEMES[props.theme.style].secondary},
-      ${props => THEMES[props.theme.style].primary}
+      ${({theme}) => theme.secondary},
+      ${({theme}) => theme.primary}
     );
     vertical-align: middle;
     @media (max-width: 850px) {

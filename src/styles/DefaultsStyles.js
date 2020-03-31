@@ -7,7 +7,7 @@ import {THEMES} from "../constants/Themes";
  */
 export const fontsDefaults = props => `
     ${props.color ? `color : ${props.color}` : ''};
-    ${props.themecolor ? `color : ${THEMES[props.theme.style][props.themecolor]}` : ''};
+    ${props.themecolor ? `color : ${props.theme[props.themecolor]}` : ''};
     ${props.fontSize ? `font-size : ${props.fontSize}` : ''};
     ${props.fontWeight ? `font-weight : ${props.fontWeight}` : ''};
     font-style : ${props.italic ? 'italic' : 'unset'};
@@ -23,7 +23,7 @@ export const fontsDefaults = props => `
 export const borderLeft = props => `
     margin-bottom: 1em;
     margin-top: 1.2em;
-    border-left: 4px solid ${THEMES[props.theme.style][props.borderLeft]};
+    border-left: 4px solid ${props.theme[props.borderLeft]};
     padding-left: .8em;
     text-align: justify;
 `;

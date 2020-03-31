@@ -4,9 +4,9 @@ import {arrowsLeft, backArrows, handWave} from "../styles/AnimationsStyles";
 
 export const FloatingButton = styled.div`
   z-index: 1100;
-  color: ${props => THEMES[props.theme.style].secondary};
-  border: 2px solid ${props => THEMES[props.theme.style].secondary};
-  background: ${props => THEMES[props.theme.style].surface.level2};
+  color: ${({theme}) => theme.secondary};
+  border: 2px solid ${({theme}) => theme.secondary};
+  background: ${({theme}) => theme.surface.level2};
   width: 50px;
   height: 50px;
   font-weight: 700;
@@ -56,7 +56,7 @@ export const FooterStyled = styled.footer`
        }
   & .right-side{
       & a{
-        color: ${props => THEMES[props.theme.style].onSurface};
+        color: ${({theme}) => theme.onSurface};
         position: relative;
         font-family: Recursive, 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
       }

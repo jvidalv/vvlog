@@ -34,14 +34,14 @@ export const NavStyled = styled(Navbar)`
   ${props => props.className && props.className.shadow ? "box-shadow: 0 2px 20px 0 #0000005c" : ""};
   background: linear-gradient(
     to right,
-    ${props => THEMES[props.theme.style].header.left},
-    ${props => THEMES[props.theme.style].header.right}
+    ${({theme}) => theme.header.left},
+    ${({theme}) => theme.header.right}
   );
 `;
 
 export const NavbarToggleStyled = styled(Navbar.Toggle)`
   color: white !important;
-  background-color: ${props => THEMES[props.theme.style].primary} !important;
+  background-color: ${({theme}) => theme.primary} !important;
   &:focus {
     outline: none !important;
   }
@@ -65,19 +65,19 @@ export const FormControlStyled = styled.input`
   -webkit-appearance: none;
   border-style: solid;
   border-width: 1px;
-  border-color: ${props => THEMES[props.theme.style].surface.level2};
+  border-color: ${({theme}) => theme.surface.level2};
   display: block;
   padding: 0.5rem;
   transition: 0.25s ease-in-out;
-  background: ${props => THEMES[props.theme.style].surface.level1};
-  color: ${props => THEMES[props.theme.style].onSurface};
+  background: ${({theme}) => theme.surface.level1};
+  color: ${({theme}) => theme.onSurface};
   border-radius: 5px;
   &:focus {
     width: 150px !important;
-    color: ${props => THEMES[props.theme.style].onSurface};
-    background: ${props => THEMES[props.theme.style].surface.level1};
+    color: ${({theme}) => theme.onSurface};
+    background: ${({theme}) => theme.surface.level1};
     box-shadow: none;
-    border-color: ${props => THEMES[props.theme.style].primary2};
+    border-color: ${({theme}) => theme.primary2};
     @media (max-width: 700px) {
       width: 100px !important;
     }
@@ -89,20 +89,20 @@ export const NavDropdownStyled = styled(NavDropdown)`
     color: white !important;
   }
   & .dropdown-menu a {
-    color: ${props => THEMES[props.theme.style].onSurface} !important;
+    color: ${({theme}) => theme.onSurface} !important;
     opacity: 1 !important;
   }
   & .dropdown-menu {
     border: none;
-    background: ${props => THEMES[props.theme.style].surface.level2};
+    background: ${({theme}) => theme.surface.level2};
     box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15);
   }
   & .dropdown-menu a:hover {
-    background: ${props => THEMES[props.theme.style].surface.level3};
+    background: ${({theme}) => theme.surface.level3};
     transform: unset !important;
   }
   & .dropdown-menu a.active {
-    background: ${props => THEMES[props.theme.style].primary2};
+    background: ${({theme}) => theme.primary2};
     color: white !important;
   }
   & .dropdown-menu a.active::after {

@@ -17,7 +17,7 @@ export const showToTop = keyframes`
 export const CookiesDiv = styled.div`
   width: 500px;
   & > div {
-    background: ${props => THEMES[props.theme.style].surface.level1};
+    background: ${({theme}) => theme.surface.level1};
     padding: 15px;
     animation: ${showToTop} 1s forwards;
     transform : translateX(-1em);
@@ -26,14 +26,14 @@ export const CookiesDiv = styled.div`
     box-shadow: 0 0 5px 5px #00000030;
   }
   & .btn {
-    background : ${props => THEMES[props.theme.style].primary};
+    background : ${({theme}) => theme.primary};
     border : unset;
-    color: ${props => THEMES[props.theme.style].onSecondary};
+    color: ${({theme}) => theme.onSecondary};
   }
   & .btn:hover {
-     background : ${props => THEMES[props.theme.style].secondary2};
+     background : ${({theme}) => theme.secondary2};
      border : unset;
-     color: ${props => THEMES[props.theme.style].onSecondary2};
+     color: ${({theme}) => theme.onSecondary2};
   }
   &.hideToBottom {
         transition: 1s ease-in;
@@ -61,11 +61,11 @@ export const CategoryCircle = styled(ContentDiv)`
     opacity:0;
     height:0;
     margin:0;
-    color: ${props => THEMES[props.theme.style].primary};
+    color: ${({theme}) => theme.primary};
     font-size:1.3rem;
   }
   &.loading {
-    background: linear-gradient(90deg,  ${props => THEMES[props.theme.style].header.right} , ${props => THEMES[props.theme.style].surface.level1}, ${props => THEMES[props.theme.style].surface.level2}, ${props => THEMES[props.theme.style].surface.level3}, ${props => THEMES[props.theme.style].header.right});
+    background: linear-gradient(90deg,  ${({theme}) => theme.header.right} , ${({theme}) => theme.surface.level1}, ${({theme}) => theme.surface.level2}, ${({theme}) => theme.surface.level3}, ${({theme}) => theme.header.right});
     background-size: 300% 300%;
     animation: ${gradient} 5s ease-in-out infinite;
   }

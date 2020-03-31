@@ -4,7 +4,7 @@ import {THEMES} from "../constants/Themes";
 export const Content = styled.div`
   & p,
   span:not(.token), ul, ol {
-    color: ${props => THEMES[props.theme.style].onBackground};
+    color: ${({theme}) => theme.onBackground};
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif !important;
     font-size: 20px !important;
     font-weight: 300 !important;
@@ -12,7 +12,7 @@ export const Content = styled.div`
   & a,
   a > span,
   strong {
-    color: ${props => THEMES[props.theme.style].error};
+    color: ${({theme}) => theme.error};
   }
   & a {
     text-decoration: underline;
@@ -20,7 +20,7 @@ export const Content = styled.div`
   & h2,
   h2 > span,
   h2 > a {
-    color: ${props => THEMES[props.theme.style].primary};
+    color: ${({theme}) => theme.primary};
     font-size: 2rem !important;
     @media only screen and (max-width: 40em) {
       font-size: 1.8em !important;
@@ -29,7 +29,7 @@ export const Content = styled.div`
   & h3,
   h3 > span,
   h3 > a {
-    color: ${props => THEMES[props.theme.style].secondary};
+    color: ${({theme}) => theme.secondary};
     font-size: 1.5rem !important;
      @media only screen and (max-width: 40em) {
       font-size: 1.4em !important;
@@ -48,15 +48,15 @@ export const Content = styled.div`
     margin: 30px 0;
   }
   & blockquote > p {
-    border-left: 4px solid ${props => THEMES[props.theme.style].primary};
-    background: ${props => THEMES[props.theme.style].infoBox};
+    border-left: 4px solid ${({theme}) => theme.primary};
+    background: ${({theme}) => theme.infoBox};
     font-size: 1.2rem !important;
     position: relative;
     clear: both;
     padding: 0.8em 1em;
   }
   & img {
-      background: ${props => THEMES[props.theme.style].surface.level3};
+      background: ${({theme}) => theme.surface.level3};
   }
   & pre {
     background: #181C22 !important;
@@ -67,7 +67,7 @@ export const Content = styled.div`
     }
   }
   & > p:first-child {
-    border-left: 4px solid ${props => THEMES[props.theme.style].primary};
+    border-left: 4px solid ${({theme}) => theme.primary};
     padding-left: 0.8em;
   }
   & h2::after,
@@ -75,8 +75,8 @@ export const Content = styled.div`
     content: " ";
     background: linear-gradient(
       to right,
-      ${props => THEMES[props.theme.style].primary},
-      ${props => THEMES[props.theme.style].secondary + "2e"}
+      ${({theme}) => theme.primary},
+      ${({theme}) => theme.secondary + "2e"}
     );
     height: 3px;
     position: relative;
@@ -92,8 +92,8 @@ export const Content = styled.div`
   & h3::after {
     background: linear-gradient(
       to right,
-      ${props => THEMES[props.theme.style].secondary},
-      ${props => THEMES[props.theme.style].primary + "2e"}
+      ${({theme}) => theme.secondary},
+      ${({theme}) => theme.primary + "2e"}
     );
   }
   & ul, ol {
@@ -101,7 +101,7 @@ export const Content = styled.div`
   }
   & ul li::before, ol li::before {
       content: "\\2022";  /* Add content: \\2022 is the CSS Code/unicode for a bullet */
-      color: ${props => THEMES[props.theme.style].onBackground};
+      color: ${({theme}) => theme.onBackground};
       font-weight: bold; /* If you want it to be bold */
       display: inline-block; /* Needed to add space between the bullet and the text */
       width: 1em; /* Also needed for space (tweak if needed) */
@@ -115,7 +115,7 @@ export const TagContainer = styled.div`
     border-radius: 3px;
     margin-right: 5px;
     box-shadow: 0 0 1px 1px #c7c7c7;
-    color: ${props => THEMES[props.theme.style].onSurface};
+    color: ${({theme}) => theme.onSurface};
   }
   & > a:hover{
     background: #1d2124;
@@ -132,7 +132,7 @@ export const ReadingBarStyled = styled.div`
   transition: 0.25s;
   background: linear-gradient(
     to right,
-    ${props => THEMES[props.theme.style].primary + "50"}
+    ${({theme}) => theme.primary + "50"}
     ${props => props.scroll + "%"},
     transparent 0
   );

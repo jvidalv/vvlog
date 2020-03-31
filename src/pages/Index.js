@@ -21,6 +21,7 @@ import {MainLoader} from "../components/Loaders";
 import {HelmetIndex} from "../constants/Helmets";
 import useLanguageController from "../hooks/useLanguageController";
 import useGA from "../hooks/useGA";
+import {THEMES} from "../constants/Themes";
 
 /**
  * Retrieve articles and sets them in global context
@@ -143,7 +144,7 @@ const AppCore = () => {
 function Index() {
     const [{theme}] = useGlobals();
     return (
-        <ThemeProvider theme={{style: theme}}>
+        <ThemeProvider theme={THEMES[theme]}>
             <Main>
                 <Router>
                     <AppCore />

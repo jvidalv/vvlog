@@ -5,13 +5,13 @@ import {borderLeft, fontsDefaults} from "./DefaultsStyles";
 import {gradient, hueRotate, pulse} from "./AnimationsStyles";
 
 export const H1 = styled.h1`
-  color: ${props => THEMES[props.theme.style].primary};
+  color: ${({theme}) => theme.primary};
   font-weight: 300;
   ${props => fontsDefaults(props)}
 `;
 
 export const H2 = styled.h2`
-  color: ${props => THEMES[props.theme.style].primary};
+  color: ${({theme}) => theme.primary};
   font-weight: 300;
   ${props => fontsDefaults(props)}
   &.separator {
@@ -21,8 +21,8 @@ export const H2 = styled.h2`
     content: " ";
     background: linear-gradient(
       to right,
-      ${props => THEMES[props.theme.style].primary},
-      ${props => THEMES[props.theme.style].secondary}
+      ${({theme}) => theme.primary},
+      ${({theme}) => theme.secondary}
     );
     height: 3px;
     position: relative;
@@ -38,44 +38,44 @@ export const H2 = styled.h2`
 `;
 
 export const H3 = styled.h3`
-  color: ${props => THEMES[props.theme.style].primary};
+  color: ${({theme}) => theme.primary};
   font-weight: 300;
   ${props => fontsDefaults(props)}
 `;
 
 export const H4 = styled.h4`
-  color: ${props => THEMES[props.theme.style].primary};
+  color: ${({theme}) => theme.primary};
   font-weight: 300;
   ${props => fontsDefaults(props)}
 `;
 
 export const H5 = styled.h5`
-  color: ${props => THEMES[props.theme.style].secondary};
+  color: ${({theme}) => theme.secondary};
   font-weight: 300;
   ${props => fontsDefaults(props)}
 `;
 
 export const P = styled.p`
-  color: ${props => THEMES[props.theme.style].onSurface};
+  color: ${({theme}) => theme.onSurface};
   font-weight: 300;
   ${props => fontsDefaults(props)}
   ${props => props.borderLeft ? borderLeft(props) : null}
   ${props => ("big" in props ? "font-size:1.3rem" : "")}
   &.on-background {
-    color: ${props => THEMES[props.theme.style].onBackground};
+    color: ${({theme}) => theme.onBackground};
   }
   &:last-child {
     margin-bottom: 0;
   }
 `;
 export const SPAN = styled.span`
-  color: ${props => THEMES[props.theme.style].onSurface};
+  color: ${({theme}) => theme.onSurface};
   font-weight: 300;
   ${props => fontsDefaults(props)}
   ${props => props.borderLeft ? borderLeft(props) : null}
   ${props => ("big" in props ? "font-size:1.3rem" : "")}
   &.on-background {
-    color: ${props => THEMES[props.theme.style].onBackground};
+    color: ${({theme}) => theme.onBackground};
   }
 `;
 
@@ -85,11 +85,11 @@ export const Label = styled.label`
 `;
 
 export const A = styled.a`
-  color: ${props => THEMES[props.theme.style].primary};
+  color: ${({theme}) => theme.primary};
   font-weight: 300;
   ${props => fontsDefaults(props)}
   &:hover {
-    color: ${props => props.hasOwnProperty('color') ? props.color : THEMES[props.theme.style].secondary};
+    color: ${props => props.hasOwnProperty('color') ? props.color : props.theme.secondary};
   }
   &::after {
     ${
@@ -98,7 +98,7 @@ export const A = styled.a`
             `
           width: 2.5rem;
           height: 2px;
-          background: ${THEMES[props.theme.style].secondary};
+          background: ${props.theme.secondary};
           content: '  ';
           display: block;
           margin: 0px auto;
@@ -110,12 +110,12 @@ export const A = styled.a`
 `;
 
 export const S = styled.strong`
-  color: ${props => THEMES[props.theme.style].onSurface};
+  color: ${({theme}) => theme.onSurface};
   ${props => fontsDefaults(props)}
 `;
 
 export const HR = styled.hr`
-    border-top: 10px dotted ${props => props.borderColor ?? THEMES[props.theme.style].secondary};
+    border-top: 10px dotted ${props => props.borderColor ?? props.theme.secondary};
     padding-top: 40px;
     transform: scaleX(1.2);
     @media (max-width: 700px) {
@@ -127,8 +127,8 @@ export const HR = styled.hr`
  */
 export const ButtonStyled = styled.button`
   transition: 0.5s;
-  color: ${props => props.themecolor ? THEMES[props.theme.style][props.themecolor] : THEMES[props.theme.style].primary};
-  background: ${props => props.themebackground ? THEMES[props.theme.style][props.themebackground] : THEMES[props.theme.style].surface.level1};
+  color: ${props => props.themecolor ? props.theme[props.themecolor] : props.theme.primary};
+  background: ${props => props.themebackground ? props.theme[props.themebackground] : props.theme.surface.level1};
   letter-spacing: 1px;
   box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15) !important;
   border: none;
@@ -137,23 +137,23 @@ export const ButtonStyled = styled.button`
   border-radius:5px;
   &:hover {
     transform: translateY(-5px);
-    background: ${props => THEMES[props.theme.style].secondary2};
-    color : ${props => THEMES[props.theme.style].onSecondary2};
+    background: ${({theme}) => theme.secondary2};
+    color : ${({theme}) => theme.onSecondary2};
   }
   &:focus {
-    background: ${props => THEMES[props.theme.style].surface.level3} !important;
+    background: ${({theme}) => theme.surface.level3} !important;
     border-color: #ffffff00 !important;
   }
   &:active {
     border-color: #ffffff00 !important;
-    background: ${props => THEMES[props.theme.style].surface.level3} !important;
+    background: ${({theme}) => theme.surface.level3} !important;
   }
 `;
 
 export const InputStyled = styled.input`
-  border: 2px solid ${props => props.themeborder ? THEMES[props.theme.style][props.themeborder] : THEMES[props.theme.style].secondary};
-  background: ${props => THEMES[props.theme.style].surface.level1};
-  color: ${props => THEMES[props.theme.style].onSurface};
+  border: 2px solid ${props => props.themeborder ? props.theme[props.themeborder] : props.theme.secondary};
+  background: ${({theme}) => theme.surface.level1};
+  color: ${({theme}) => theme.onSurface};
   font-size : ${props => props.big ? '1.6rem' : 'inherit'};
   width: ${props => props.width ? props.width : '100%'};
   height: calc(1.5em + .75rem + 2px);
@@ -163,19 +163,19 @@ export const InputStyled = styled.input`
   transition: .25s;
   border-radius:5px;
   &.pulse {
-    box-shadow: 0 0 0 0 ${props => THEMES[props.theme.style].secondary};
+    box-shadow: 0 0 0 0 ${({theme}) => theme.secondary};
     transform: scale(1);
     animation: ${pulse} 2s forwards;
   }
   &:disabled{
-    background: ${props => THEMES[props.theme.style].surface.level2};
+    background: ${({theme}) => theme.surface.level2};
   }
   &:active,
   &:focus {
-    color: ${props => THEMES[props.theme.style].onSurface};
-    border-color: ${props => THEMES[props.theme.style].primary2} !important;
+    color: ${({theme}) => theme.onSurface};
+    border-color: ${({theme}) => theme.primary2} !important;
     box-shadow: none;
-    background: ${props => THEMES[props.theme.style].surface.level2};
+    background: ${({theme}) => theme.surface.level2};
   }
   @media (max-width: 700px) {
     width: 100%;
@@ -188,7 +188,7 @@ export const DiagonalContainer = styled(Container)`
   background: linear-gradient(
     to bottom,
     transparent,
-    ${props => THEMES[props.theme.style].primary}
+    ${({theme}) => theme.primary}
   );
   transform: skewY(6deg);
   & > * {
@@ -200,7 +200,7 @@ export const DiagonalContainer = styled(Container)`
 `;
 
 export const TexturedContainer = styled(Container)`
-  background: repeating-linear-gradient(45deg,  ${props => THEMES[props.theme.style].primary + '3d'}, transparent 100px);
+  background: repeating-linear-gradient(45deg,  ${({theme}) => theme.primary + '3d'}, transparent 100px);
   border-radius: 5px;
   background-size: 500% 500%;
   background-position: 0 2% !important;
@@ -211,28 +211,28 @@ export const TexturedContainer = styled(Container)`
 
 export const FormStyled = styled.div`
   .form-label {
-    color: ${props => THEMES[props.theme.style].onSurface};
+    color: ${({theme}) => theme.onSurface};
     font-weight: 300;
     font-size: 1.3rem;
   }
   input,
   textarea {
     transition: 0.5s;
-    border: 2px solid ${props => THEMES[props.theme.style].secondary};
-    background: ${props => THEMES[props.theme.style].surface.level1};
-    color: ${props => THEMES[props.theme.style].onSurface};
+    border: 2px solid ${({theme}) => theme.secondary};
+    background: ${({theme}) => theme.surface.level1};
+    color: ${({theme}) => theme.onSurface};
     &:active,
     &:focus {
-      color: ${props => THEMES[props.theme.style].onSurface};
-      border-color: ${props => THEMES[props.theme.style].primary2};
+      color: ${({theme}) => theme.onSurface};
+      border-color: ${({theme}) => theme.primary2};
       box-shadow: none;
-      background: ${props => THEMES[props.theme.style].surface.level2};
+      background: ${({theme}) => theme.surface.level2};
     }
   }
 `;
 
 export const LoadingPlaceholder = styled.div`
-   background: linear-gradient(90deg,  ${props => THEMES[props.theme.style].header.right} , ${props => THEMES[props.theme.style].surface.level1}, ${props => THEMES[props.theme.style].surface.level2}, ${props => THEMES[props.theme.style].surface.level3}, ${props => THEMES[props.theme.style].header.right});
+   background: linear-gradient(90deg,  ${({theme}) => theme.header.right} , ${({theme}) => theme.surface.level1}, ${({theme}) => theme.surface.level2}, ${({theme}) => theme.surface.level3}, ${({theme}) => theme.header.right});
    background-size: 300% 300%;
    animation: ${gradient} 5s ease-in-out infinite;
    width: ${props => props.width ? props.width : '150px'};
@@ -241,7 +241,7 @@ export const LoadingPlaceholder = styled.div`
 `;
 
 export const ContentDiv = styled.div`
-  background: ${props => THEMES[props.theme.style].surface.level1};
+  background: ${({theme}) => theme.surface.level1};
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   border: none;
@@ -258,7 +258,7 @@ export const ContentDiv = styled.div`
     justify-content: center;
     position: absolute;
     right: -0.9rem;
-    background: ${props => THEMES[props.theme.style].surface.level1};
+    background: ${({theme}) => theme.surface.level1};
     border-radius: 50%;
     align-items: center;
     top: -0.8rem;
@@ -272,7 +272,7 @@ export const ContentDiv = styled.div`
 
 export const Main = styled.div`
   min-height: 100vh;
-  background-color: ${props => THEMES[props.theme.style].background};
+  background-color: ${({theme}) => theme.background};
 `;
 
 export const Me = styled.div`
@@ -282,7 +282,7 @@ export const Me = styled.div`
   transition: 0.5s;
   & > img {
     transform: scale(1.1);
-    box-shadow: 5px 5px 0 ${props => THEMES[props.theme.style].secondary};
+    box-shadow: 5px 5px 0 ${({theme}) => theme.secondary};
     @media (max-width: 650px) {
       transform: scale(1);
     }
