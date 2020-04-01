@@ -22,7 +22,7 @@ export const ImageSnippet = styled.div`
   margin: 10px;
   height: 200px;
   width: 200px;
-  background: url(${props => props.url ?? props.theme.surface.level2});
+  background: url(${({url, theme}) => url ?? theme.surface.level2});
 `;
 
 export const SnippetContainer = styled.div`
@@ -41,9 +41,9 @@ export const SnippetContainer = styled.div`
      flex-grow: 1;
   }
   &::before {
-    content: '${props => (props.icon ? props.icon : null)}';
-    width: ${props => (props.icon ? "45px" : null)};
-    height: ${props => (props.icon ? "45px" : null)};
+    content: '${({icon}) => (icon ? props.icon : null)}';
+    width: ${({icon}) => (icon ? "45px" : null)};
+    height: ${({icon}) => (icon ? "45px" : null)};
     font-size: 1.5rem;
     display: inline-flex;
     justify-content: center;
@@ -68,8 +68,8 @@ export const SnippetContainer = styled.div`
   }
   
   &::after{
-    content: ${props => props.trianglecolor ? "⭐" : ""};
-    background: ${props => props.trianglecolor ? props.trianglecolor : props.theme.primary};
+    content: ${({trianglecolor}) => trianglecolor ? "⭐" : ""};
+    background: ${({trianglecolor, theme}) => trianglecolor ? trianglecolor : theme.primary};
     width: 25px;
     height: 25px;
     transform: scale(1.5);
