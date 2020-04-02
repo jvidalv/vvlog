@@ -139,7 +139,7 @@ export const ReadingBarStyled = styled.div`
 `;
 
 export const ClapSpan = styled.span`
-  filter: ${props => props.clapped ? `unset` : `grayscale(1)` };
+  filter: ${({clapped}) => clapped ? `unset` : `grayscale(1)` };
   border-radius: 50%;
   box-shadow: 0 0 1px 1px #c7c7c7;
   text-align: center;
