@@ -23,7 +23,7 @@ export const fade = keyframes`
 `;
 
 export const LoadersWrapperDiv = styled.div`
-  opacity: ${props => props.showLoaders ? 1 : 0};
+  opacity: ${({showLoaders}) => showLoaders ? 1 : 0};
 `;
 
 export const HomeLoaderDiv = styled.div`
