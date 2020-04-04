@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {THEMES} from "../constants/Themes";
 
 export const ToastsContainer = styled.div`
     position: fixed;

@@ -1,5 +1,4 @@
 import styled, {keyframes} from "styled-components";
-import {THEMES} from "../../constants/Themes";
 
 /**
  * ----- Animations -----

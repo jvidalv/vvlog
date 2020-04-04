@@ -24,11 +24,11 @@ export const useLanguageController = () => {
      */
     const currentUrlLanguageIsSet = () => {
         const strLang = history.location.pathname.substr(0, 3);
-        return strLang.includes(language) ;
+        return strLang.includes(language);
     };
 
     const getLanguageSetInUrl = () => {
-        return history.location.pathname.split('/')[1] ;
+        return history.location.pathname.split('/')[1];
     };
 
     /**
@@ -54,7 +54,7 @@ export const useLanguageController = () => {
      * On language change we push to history
      */
     React.useEffect(() => {
-        if(!currentUrlLanguageIsSet()){
+        if (!currentUrlLanguageIsSet()) {
             dispatch({
                 type: "changeLanguage",
                 changeLanguage: getLanguageSetInUrl()

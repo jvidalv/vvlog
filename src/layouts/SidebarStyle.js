@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {THEMES} from "../constants/Themes";
 
 export const SourceDiv = styled.div`
   margin-bottom:.5rem;

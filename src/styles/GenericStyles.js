@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {THEMES} from "../constants/Themes";
 import {Container} from "react-bootstrap";
 import {borderLeft, fontsDefaults} from "./DefaultsStyles";
 import {gradient, hueRotate, pulse} from "./AnimationsStyles";

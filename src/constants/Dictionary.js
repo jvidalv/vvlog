@@ -76,9 +76,9 @@ const DICTIONARY = {
         source: 'Font',
         so: 'Sistema operatiu',
         other: 'Altre',
-        hey_give_me_a_clap : 'Ei! Donam un aplaudiment',
-        claps : 'Aplaudiments',
-        thanks : 'Gràcies',
+        hey_give_me_a_clap: 'Ei! Donam un aplaudiment',
+        claps: 'Aplaudiments',
+        thanks: 'Gràcies',
 
     },
     es: {
@@ -146,9 +146,9 @@ const DICTIONARY = {
         source: 'Fuente',
         so: 'Sistema operativo',
         other: 'Otro',
-        hey_give_me_a_clap : 'Ei! Dame un aplauso',
-        claps : 'Aplausos',
-        thanks : 'Grácias',
+        hey_give_me_a_clap: 'Ei! Dame un aplauso',
+        claps: 'Aplausos',
+        thanks: 'Grácias',
     },
     en: {
         explore: 'Explore',
@@ -215,9 +215,9 @@ const DICTIONARY = {
         source: 'Source',
         so: 'OS',
         other: 'other',
-        hey_give_me_a_clap : 'Hey! Give me a clap',
-        claps : 'Claps',
-        thanks : 'Thanks',
+        hey_give_me_a_clap: 'Hey! Give me a clap',
+        claps: 'Claps',
+        thanks: 'Thanks',
     }
 };
 

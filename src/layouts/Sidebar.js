@@ -181,9 +181,9 @@ export const HomeSidebar = () => {
  */
 function Sidebar(props) {
     const {params} = props.match;
-    if(params.article) return <ArticleSidebar/>;
-    if(params.category) return <CategorySidebar/>;
-    return <HomeSidebar />
+    if (params.article) return <ArticleSidebar/>;
+    if (params.category) return <CategorySidebar/>;
+    return <HomeSidebar/>
 }
 
 export default withRouter(Sidebar);

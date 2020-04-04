@@ -3,18 +3,18 @@ import {Col, Container, Row} from "react-bootstrap";
 
 import {HeroSimple} from "../components/HeroSection";
 import {Sharer, Subscribe} from "../components/MyContents";
-import {DiagonalContainer, H3, HR, LoadingPlaceholder, SPAN, TexturedContainer} from "../styles/GenericStyles";
+import {DiagonalContainer, H3, HR, LoadingPlaceholder, TexturedContainer} from "../styles/GenericStyles";
 import {AuthorWithImage, AuthorWithImageExtended} from "../components/AuthorSection";
 import {ArticleContent, Claps, ReadingTopBar, Tags} from "../components/ArticleContents";
 import {ArticleSidebar} from "../layouts/Sidebar";
 import {ArticleSnippet} from "../components/ArticleSnippet";
 import {useHistory, useParams} from "react-router";
-import {areSet, limiter} from "../helpers/Generics";
+import {areSet} from "../helpers/Generics";
 import {useGlobals} from "../contexts/Global";
 import {useFetcher} from "../hooks/useFetcher";
 import api_calls from "../constants/Api";
 import useT from "../helpers/Translator";
-import {D_AARTICLE, D_ARTICLES} from "../constants/Dummy";
+import {D_AARTICLE} from "../constants/Dummy";
 import {HelmetArticle} from "../constants/Helmets";
 
 /**

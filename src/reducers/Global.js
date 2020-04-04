@@ -100,13 +100,13 @@ export const reducer = (state, action) => {
             };
         case "setActiveArticle":
             let language = state.language;
-            if ( action.setActiveArticle.language_id && state.language !== action.setActiveArticle.language_id) {
-                 language = action.setActiveArticle.language_id;
+            if (action.setActiveArticle.language_id && state.language !== action.setActiveArticle.language_id) {
+                language = action.setActiveArticle.language_id;
             }
             return {
                 ...state,
                 aArticle: action.setActiveArticle,
-                language : language
+                language: language
             };
         case "setRelatedArticles":
             return {

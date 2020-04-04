@@ -1,5 +1,4 @@
 import {keyframes} from "styled-components";
-import {THEMES} from "../constants/Themes";
 
 export const pulse = keyframes`
     0% {

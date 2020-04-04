@@ -2,7 +2,6 @@ import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
 
 import {ArticleSnippetWithImage} from "../components/ArticleSnippet";
-import Sidebar from "../layouts/Sidebar";
 import {HeroSimple} from "../components/HeroSection";
 import {useGlobals} from "../contexts/Global";
 import {useHistory, useParams} from "react-router";

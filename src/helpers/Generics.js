@@ -3,7 +3,6 @@
  * @param call
  * @param params
  */
-import {useGlobals} from "../contexts/Global";
 
 export function buildRequest(call, params) {
     let url = urlBuilder(call.url, params);
@@ -171,7 +170,7 @@ export function smoothMove(toTop = false) {
  * @param {string} slug
  */
 export function generateLink(language, category, slug = "") {
-    return ("/"+ language + "/" + category + ( slug ? "/" + slug : "" )).toLocaleLowerCase();
+    return ("/" + language + "/" + category + (slug ? "/" + slug : "")).toLocaleLowerCase();
 }
 
 

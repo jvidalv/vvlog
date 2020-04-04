@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {THEMES} from "../constants/Themes";
 
 export const Content = styled.div`
   & p,
@@ -133,13 +132,13 @@ export const ReadingBarStyled = styled.div`
   background: linear-gradient(
     to right,
     ${({theme}) => theme.primary + "50"}
-    ${props => props.scroll + "%"},
+    ${({scroll}) => scroll + "%"},
     transparent 0
   );
 `;
 
 export const ClapSpan = styled.span`
-  filter: ${({clapped}) => clapped ? `unset` : `grayscale(1)` };
+  filter: ${({clapped}) => clapped ? `unset` : `grayscale(1)`};
   border-radius: 50%;
   box-shadow: 0 0 1px 1px #c7c7c7;
   text-align: center;

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {THEMES} from "../constants/Themes";
 import {arrowsLeft, backArrows, handWave} from "../styles/AnimationsStyles";
 
 export const FloatingButton = styled.div`

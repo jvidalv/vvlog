@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {THEMES} from "../constants/Themes";
 import {backArrows, gradient} from "../styles/AnimationsStyles";
 
 export const H5Category = styled.h5`

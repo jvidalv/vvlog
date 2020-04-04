@@ -1,5 +1,4 @@
 import styled, {keyframes} from "styled-components";
-import {THEMES} from "../constants/Themes";
 import {ContentDiv} from "../styles/GenericStyles";
 import {gradient} from "../styles/AnimationsStyles";
 

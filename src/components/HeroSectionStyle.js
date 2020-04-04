@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {THEMES} from "../constants/Themes";
 import {arrowsLeft} from "../styles/AnimationsStyles";
 
 export const HeroSectionStyled = styled.div`

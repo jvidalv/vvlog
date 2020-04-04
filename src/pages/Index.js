@@ -147,7 +147,7 @@ function Index() {
         <ThemeProvider theme={THEMES[theme]}>
             <Main>
                 <Router>
-                    <AppCore />
+                    <AppCore/>
                     <HelmetIndex theme={theme}/>
                     <Header/>
                     <Switch>

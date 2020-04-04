@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {THEMES} from "../constants/Themes";
 
 export const AuthorPhoto = styled.img`
   background : ${({theme}) => theme.header.right};

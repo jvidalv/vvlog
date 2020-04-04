@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {THEMES} from "../constants/Themes";
 import {dissapearToRight, growBig} from "../styles/AnimationsStyles";
 
 export const IconA = styled.a`

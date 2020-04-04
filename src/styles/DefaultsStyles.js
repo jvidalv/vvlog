@@ -1,5 +1,3 @@
-import {THEMES} from "../constants/Themes";
-
 /**
  * Fonts defaults
  * @param props

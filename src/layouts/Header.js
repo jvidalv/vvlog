@@ -118,14 +118,14 @@ const LanguageSwitcher = ({className, changeLanguage, language, setExpanded}) =>
             </LinkStyled>
             <LinkStyled
                 onClick={() => changeLanguage("es") && setExpanded(false)}
-                className={language === "es" ?  "active dropdown-item" : "dropdown-item"}
+                className={language === "es" ? "active dropdown-item" : "dropdown-item"}
                 to={`/es`}
             >
                 {useT('spanish')}
             </LinkStyled>
             <LinkStyled
                 onClick={() => changeLanguage("en") && setExpanded(false)}
-                className={language === "en" ?  "active dropdown-item" : "dropdown-item"}
+                className={language === "en" ? "active dropdown-item" : "dropdown-item"}
                 to={`/en`}
             >
                 {useT('english')}

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {NavLink} from "react-router-dom";
-import {THEMES} from "../constants/Themes";
 import {Navbar, NavDropdown} from "react-bootstrap";
 
 export const LinkStyled = styled(NavLink)`
