@@ -74,7 +74,7 @@ export function Claps() {
                 </SPAN>
                 {didClap ? <SPAN className="d-block" themecolor="primary">{t('thanks', [], language)}!</SPAN> : null}
             </SPAN>
-            <ClapSpan clapped={didClap} onClick={() => didClap ? null : clapped()}
+            <ClapSpan clapped={didClap} onClick={didClap ? null : clapped}
                       alt={useT('hey_give_me_a_clap') + ' 😛'}>
                 {didClap ? "😊" : "👏"}
             </ClapSpan>
