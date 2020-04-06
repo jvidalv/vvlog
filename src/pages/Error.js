@@ -1,6 +1,5 @@
 import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
-
 import {HeroSimple} from "../components/HeroSection";
 import {useGlobals} from "../contexts/Global";
 import useT from "../helpers/Translator";
