@@ -14,7 +14,7 @@ const useIsHome = () => {
 /**
  * @returns {*}
  * @constructor
- * todo its better to split in diferent components and check for home path in other place
+ * todo its better to split in different components and check for home path in other place
  */
 export function MainLoader(props) {
 
