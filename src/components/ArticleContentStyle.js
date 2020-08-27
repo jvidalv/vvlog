@@ -1,17 +1,19 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Content = styled.div`
   & p,
-  span:not(.token), ul, ol {
-    color: ${({theme}) => theme.onBackground};
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif !important;
+  span:not(.token),
+  ul,
+  ol {
+    color: ${({ theme }) => theme.onBackground};
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, serif !important;
     font-size: 20px !important;
     font-weight: 300 !important;
   }
   & a,
   a > span,
   strong {
-    color: ${({theme}) => theme.error};
+    color: ${({ theme }) => theme.error};
   }
   & a {
     text-decoration: underline;
@@ -19,7 +21,7 @@ export const Content = styled.div`
   & h2,
   h2 > span,
   h2 > a {
-    color: ${({theme}) => theme.primary};
+    color: ${({ theme }) => theme.primary};
     font-size: 2rem !important;
     @media only screen and (max-width: 40em) {
       font-size: 1.8em !important;
@@ -28,9 +30,9 @@ export const Content = styled.div`
   & h3,
   h3 > span,
   h3 > a {
-    color: ${({theme}) => theme.secondary};
+    color: ${({ theme }) => theme.secondary};
     font-size: 1.5rem !important;
-     @media only screen and (max-width: 40em) {
+    @media only screen and (max-width: 40em) {
       font-size: 1.4em !important;
     }
   }
@@ -47,35 +49,35 @@ export const Content = styled.div`
     margin: 30px 0;
   }
   & blockquote > p {
-    border-left: 4px solid ${({theme}) => theme.primary};
-    background: ${({theme}) => theme.infoBox};
+    border-left: 4px solid ${({ theme }) => theme.primary};
+    background: ${({ theme }) => theme.infoBox};
     font-size: 1.2rem !important;
     position: relative;
     clear: both;
     padding: 0.8em 1em;
   }
   & img {
-      background: ${({theme}) => theme.surface.level3};
+    background: ${({ theme }) => theme.surface.level3};
   }
   & pre {
-    background: #181C22 !important;
+    background: #181c22 !important;
     box-shadow: 5px 5px 10px 2px #00000029;
     margin: 1.8em 0 !important;
-    @media (max-width: 10000px) and (min-width: 1550px){
-       margin-left: -3rem !important;
+    @media (max-width: 10000px) and (min-width: 1550px) {
+      margin-left: -3rem !important;
     }
   }
   & > p:first-child {
-    border-left: 4px solid ${({theme}) => theme.primary};
+    border-left: 4px solid ${({ theme }) => theme.primary};
     padding-left: 0.8em;
   }
   & h2::after,
   h3::after {
-    content: " ";
+    content: ' ';
     background: linear-gradient(
       to right,
-      ${({theme}) => theme.primary},
-      ${({theme}) => theme.secondary + "2e"}
+      ${({ theme }) => theme.primary},
+      ${({ theme }) => theme.secondary + '2e'}
     );
     height: 3px;
     position: relative;
@@ -91,21 +93,23 @@ export const Content = styled.div`
   & h3::after {
     background: linear-gradient(
       to right,
-      ${({theme}) => theme.secondary},
-      ${({theme}) => theme.primary + "2e"}
+      ${({ theme }) => theme.secondary},
+      ${({ theme }) => theme.primary + '2e'}
     );
   }
-  & ul, ol {
+  & ul,
+  ol {
     list-style: none; /* Remove default bullets */
   }
-  & ul li::before, ol li::before {
-      content: "\\2022";  /* Add content: \\2022 is the CSS Code/unicode for a bullet */
-      color: ${({theme}) => theme.onBackground};
-      font-weight: bold; /* If you want it to be bold */
-      display: inline-block; /* Needed to add space between the bullet and the text */
-      width: 1em; /* Also needed for space (tweak if needed) */
-      margin-left: -1em; /* Also needed for space (tweak if needed) */
-   }
+  & ul li::before,
+  ol li::before {
+    content: '\\2022'; /* Add content: \\2022 is the CSS Code/unicode for a bullet */
+    color: ${({ theme }) => theme.onBackground};
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+  }
 `;
 
 export const TagContainer = styled.div`
@@ -114,11 +118,11 @@ export const TagContainer = styled.div`
     border-radius: 3px;
     margin-right: 5px;
     box-shadow: 0 0 1px 1px #c7c7c7;
-    color: ${({theme}) => theme.onSurface};
+    color: ${({ theme }) => theme.onSurface};
   }
-  & > a:hover{
+  & > a:hover {
     background: #1d2124;
-    color:white;
+    color: white;
   }
 `;
 
@@ -131,28 +135,27 @@ export const ReadingBarStyled = styled.div`
   transition: 0.25s;
   background: linear-gradient(
     to right,
-    ${({theme}) => theme.primary + "50"}
-    ${({scroll}) => scroll + "%"},
+    ${({ theme }) => theme.primary + '50'} ${({ scroll }) => scroll + '%'},
     transparent 0
   );
 `;
 
 export const ClapSpan = styled.span`
-  filter: ${({clapped}) => clapped ? `unset` : `grayscale(1)`};
+  filter: ${({ clapped }) => (clapped ? `unset` : `grayscale(1)`)};
   border-radius: 50%;
   box-shadow: 0 0 1px 1px #c7c7c7;
   text-align: center;
-  line-height:58px;
-  width:58px;
-  height:58px;
+  line-height: 58px;
+  width: 58px;
+  height: 58px;
   font-size: 1.5rem;
-  margin-left:16px;
-  cursor:pointer;
-  transition: .25s !important;
-  user-select: none; 
-  &:hover{
+  margin-left: 16px;
+  cursor: pointer;
+  transition: 0.25s !important;
+  user-select: none;
+  &:hover {
     filter: unset;
     box-shadow: 0 0 7px 4px #c7c7c7;
-    transition: .25s !important;
+    transition: 0.25s !important;
   }
 `;

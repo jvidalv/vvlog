@@ -3,20 +3,20 @@
   <img src="https://github.com/jvidalv/react-vvlog/blob/master/public/logo-github.png?raw=true">
 </p>
 
-**``https://vvlog.dev`` is a multi language programming blog about, mostly, web dev; JavaScript, React, Native, PHP, Yii2...**
+**``https://vvlog.dev`` is a multi language programming blog about, mostly, web dev; JavaScript, React, Native, PHP, Yii2... Build from scratch using React.** 
 
 ### Core
 
-Build with the power 🔥 of React.useState and React.createContext, also:
+Build with the power 🔥 of React.useState and React.createContext, includes:
 
 - styled-components
 - react-bootstrap
 - react-helmet  
 - react-router
 
-It has fully homemade translator that translates to Catalan, Spanish and English all the static content on the site.
+It has fully homemade translator that translates to Catalan, Spanish and English all the static content in the site.
 
-On top, there is a theme switcher that, for the moment, lets you switch between light and dark theme, using _ThemeProvider_
+On top, there is a theme switcher that permits the switch between light and dark theme, using _ThemeProvider_
 component of styled-components.
 
 Honorable mention to prismjs for making my code snippets beautiful ♥. 

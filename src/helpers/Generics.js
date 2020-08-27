@@ -5,26 +5,26 @@
  */
 
 export function buildRequest(call, params) {
-    let url = urlBuilder(call.url, params);
-    let request = {
-        method: call.method,
-    };
+  let url = urlBuilder(call.url, params);
+  let request = {
+    method: call.method,
+  };
 
-    switch (call.method) {
-        case 'POST':
-            request.headers = {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            };
-            request.body = JSON.stringify(params);
-            break;
-        default:
-        case 'GET':
-            url = urlBuilder(call.url, params);
-            break;
-    }
+  switch (call.method) {
+    case 'POST':
+      request.headers = {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      };
+      request.body = JSON.stringify(params);
+      break;
+    default:
+    case 'GET':
+      url = urlBuilder(call.url, params);
+      break;
+  }
 
-    return {url, request};
+  return { url, request };
 }
 
 /**
@@ -34,11 +34,13 @@ export function buildRequest(call, params) {
  * @returns {*}
  */
 export function urlBuilder(url, params) {
-    const ourl = new URL(url);
-    if (params) {
-        Object.keys(params).forEach(key => ourl.searchParams.append(key, params[key]))
-    }
-    return ourl;
+  const ourl = new URL(url);
+  if (params) {
+    Object.keys(params).forEach((key) =>
+      ourl.searchParams.append(key, params[key])
+    );
+  }
+  return ourl;
 }
 
 /**
@@ -50,12 +52,12 @@ export function urlBuilder(url, params) {
  * @returns {*}
  */
 export function limiter(array, limit, numToSkip) {
-    let bs = 0;
-    if (numToSkip) array = skipper(array, numToSkip);
-    return array.filter(() => {
-        bs++;
-        return bs <= limit;
-    })
+  let bs = 0;
+  if (numToSkip) array = skipper(array, numToSkip);
+  return array.filter(() => {
+    bs++;
+    return bs <= limit;
+  });
 }
 
 /**
@@ -65,7 +67,7 @@ export function limiter(array, limit, numToSkip) {
  * @returns {any[]}
  */
 export function skipper(array, steps) {
-    return array.splice(0, steps);
+  return array.splice(0, steps);
 }
 
 /**
@@ -74,11 +76,11 @@ export function skipper(array, steps) {
  * @param index
  */
 export function reindexer(array, index) {
-    let newArr = {};
-    for (let data of array) {
-        newArr[data[index].toString()] = data;
-    }
-    return newArr;
+  let newArr = {};
+  for (let data of array) {
+    newArr[data[index].toString()] = data;
+  }
+  return newArr;
 }
 
 /**
@@ -94,15 +96,15 @@ export function reindexer(array, index) {
  * @returns {*}
  */
 export function areSet(object, properties, fallback = null) {
-    const prop = properties[0];
-    if (!object.hasOwnProperty(prop)) return fallback;
-    if (properties.length > 1) {
-        let n = object[prop];
-        properties.splice(0, 1);
-        return areSet(n, properties, fallback)
-    }
+  const prop = properties[0];
+  if (!object.hasOwnProperty(prop)) return fallback;
+  if (properties.length > 1) {
+    let n = object[prop];
+    properties.splice(0, 1);
+    return areSet(n, properties, fallback);
+  }
 
-    return object[prop];
+  return object[prop];
 }
 
 /**
@@ -114,15 +116,17 @@ export function areSet(object, properties, fallback = null) {
  * @returns {*}
  */
 export function multiFilter(array, properties, filter = '', nest = false) {
+  return array.filter((obj) => {
+    let fobj = nest ? obj[nest] : obj;
+    for (let prop of properties) {
+      if (
+        fobj[prop].toString().toLowerCase().search(filter.toLowerCase()) !== -1
+      )
+        return true;
+    }
 
-    return array.filter(obj => {
-        let fobj = nest ? obj[nest] : obj;
-        for (let prop of properties) {
-            if (fobj[prop].toString().toLowerCase().search(filter.toLowerCase()) !== -1) return true
-        }
-
-        return false;
-    })
+    return false;
+  });
 }
 
 /**
@@ -133,13 +137,13 @@ export function multiFilter(array, properties, filter = '', nest = false) {
  * @returns {string|*}
  */
 export function loadFromCache(key, fallback, override = false) {
-    const value = localStorage.getItem(key);
-    if (value && !override) {
-        return value;
-    } else {
-        localStorage.setItem(key, fallback);
-        return fallback;
-    }
+  const value = localStorage.getItem(key);
+  if (value && !override) {
+    return value;
+  } else {
+    localStorage.setItem(key, fallback);
+    return fallback;
+  }
 }
 
 /**
@@ -148,7 +152,7 @@ export function loadFromCache(key, fallback, override = false) {
  * @param {*} values
  */
 export function checkValue(value, values) {
-    return values.includes(value);
+  return values.includes(value);
 }
 
 /**
@@ -156,11 +160,14 @@ export function checkValue(value, values) {
  * @param toTop boolean
  */
 export function smoothMove(toTop = false) {
-    document.getElementsByTagName('html')[0].style.scrollBehavior = "smooth";
-    if (toTop) {
-        setTimeout(() => window.scrollTo(0, 0), 50);
-    }
-    setTimeout(() => document.getElementsByTagName('html')[0].removeAttribute('style'), 150);
+  document.getElementsByTagName('html')[0].style.scrollBehavior = 'smooth';
+  if (toTop) {
+    setTimeout(() => window.scrollTo(0, 0), 50);
+  }
+  setTimeout(
+    () => document.getElementsByTagName('html')[0].removeAttribute('style'),
+    150
+  );
 }
 
 /**
@@ -169,9 +176,12 @@ export function smoothMove(toTop = false) {
  * @param {string} category
  * @param {string} slug
  */
-export function generateLink(language, category, slug = "") {
-    return ("/" + language + "/" + category + (slug ? "/" + slug : "")).toLocaleLowerCase();
+export function generateLink(language, category, slug = '') {
+  return (
+    '/' +
+    language +
+    '/' +
+    category +
+    (slug ? '/' + slug : '')
+  ).toLocaleLowerCase();
 }
-
-
-

@@ -1,9 +1,9 @@
-import {keyframes} from "styled-components";
+import { keyframes } from 'styled-components';
 
 export const pulse = keyframes`
     0% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 ${({theme}) => theme.secondary};
+        box-shadow: 0 0 0 0 ${({ theme }) => theme.secondary};
     }
 
     70% {
@@ -113,7 +113,6 @@ export const handWave = keyframes`
     transform: rotate(0);
     }
 `;
-
 
 export const dissapearToRight = keyframes`
     from {

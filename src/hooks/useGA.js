@@ -1,6 +1,6 @@
-import {useHistory} from "react-router-dom";
-import {useEffect} from "react";
-import ReactGA from "react-ga";
+import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
+import ReactGA from 'react-ga';
 
 /**
  * Google Analytics
@@ -9,14 +9,14 @@ import ReactGA from "react-ga";
  * @constructor
  */
 export const useGA = () => {
-    const history = useHistory();
+  const history = useHistory();
 
-    useEffect(() => {
-        history.listen((location) => {
-            ReactGA.set({page: location.pathname});
-            ReactGA.pageview(location.pathname)
-        });
-    }, []);
+  useEffect(() => {
+    history.listen((location) => {
+      ReactGA.set({ page: location.pathname });
+      ReactGA.pageview(location.pathname);
+    });
+  }, []);
 };
 
-export default useGA
+export default useGA;

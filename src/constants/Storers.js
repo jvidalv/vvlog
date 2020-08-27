@@ -5,31 +5,31 @@
  *  -------------------------------------------------------
  */
 export const STORAGE_KEYS = {
-    /**
-     * If the user has agreed with our cookie policie
-     * @mustbe BOOL
-     * @type {string}
-     */
-    BASIC_COOKIES: 'basic_cookies',
-    /**
-     * If the user has subscribed to our newsletter
-     * @mustbe BOOL
-     * @type {string}
-     */
-    NEWSLETTER_SUBSCRIBED: 'newsletter_subscribed',
-    /**
-     * If the user has submited the contact form, it is deleted after checked
-     * @mustbe BOOL
-     * @type {string}
-     */
-    CONTACT_FORM_SUBMITED: 'contact_form_submited',
-    /**
-     * If the user has clapped and article is clapped we store it like
-     * ARTICLE_CLAPPED + aArticle.slug
-     * @mustbe BOOL
-     * @type {string}
-     */
-    ARTICLE_CLAPPED: 'clapped-',
+  /**
+   * If the user has agreed with our cookie policie
+   * @mustbe BOOL
+   * @type {string}
+   */
+  BASIC_COOKIES: 'basic_cookies',
+  /**
+   * If the user has subscribed to our newsletter
+   * @mustbe BOOL
+   * @type {string}
+   */
+  NEWSLETTER_SUBSCRIBED: 'newsletter_subscribed',
+  /**
+   * If the user has submited the contact form, it is deleted after checked
+   * @mustbe BOOL
+   * @type {string}
+   */
+  CONTACT_FORM_SUBMITED: 'contact_form_submited',
+  /**
+   * If the user has clapped and article is clapped we store it like
+   * ARTICLE_CLAPPED + aArticle.slug
+   * @mustbe BOOL
+   * @type {string}
+   */
+  ARTICLE_CLAPPED: 'clapped-',
 };
 
 export default STORAGE_KEYS;

@@ -1,4 +1,4 @@
-import {buildRequest} from "./Generics";
+import { buildRequest } from './Generics';
 
 /**
  * Custom fetch that is basically sugar syntax of a generic fetch
@@ -7,8 +7,8 @@ import {buildRequest} from "./Generics";
  * @returns {Promise<Response>}
  */
 function vfetch(call, params) {
-    const request = buildRequest(call, params);
-    return fetch(request.url, request.request);
+  const request = buildRequest(call, params);
+  return fetch(request.url, request.request);
 }
 
 export default vfetch;
