@@ -61,7 +61,7 @@ const useAArticle = () => {
  * @constructor
  */
 function Article() {
-  const [{ language, articles, aArticle, relatedArticles }] = useGlobals()
+  const [{ language, aArticle, relatedArticles }] = useGlobals()
   useAArticle()
 
   return (
