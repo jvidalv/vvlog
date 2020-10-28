@@ -42,7 +42,7 @@ export const D_ARTICLES = [
     fake: true,
   },
   { id: 18, featured: 0, fake: true },
-];
+]
 
 export const D_AUTHORS = [
   { id: false, fake: true },
@@ -53,7 +53,7 @@ export const D_AUTHORS = [
     id: false,
     fake: true,
   },
-];
+]
 
 export const D_CATEGORIES = {
   general: { id: 1, fake: true },
@@ -63,19 +63,19 @@ export const D_CATEGORIES = {
   'react-native': { id: 5, fake: true },
   javascript: { id: 6, fake: true },
   css: { id: 7, fake: true },
-};
+}
 
 export const D_AARTICLE = {
   time_to_read: 'X',
   date_nice: 'Feb. 30 ' + new Date().getFullYear(),
   fake: true,
-};
+}
 
 export const D_ERROR = {
   code: 200,
   message: 'nothing_is_wrong',
   description: 'why_would_you_come_here',
-};
+}
 
 export const D_TOAST = {
   id: 0,
@@ -83,4 +83,4 @@ export const D_TOAST = {
   header: 'Language switch',
   content: 'You changed the language to Catalan',
   date: '11 min ago',
-};
+}

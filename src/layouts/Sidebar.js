@@ -1,10 +1,10 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { A, H4, Label, LoadingPlaceholder } from '../styles/GenericStyles';
-import { useGlobals } from '../contexts/Global';
-import { smoothMove } from '../helpers/Generics';
-import { SidebarElement, SourceDiv } from './SidebarStyle';
-import useT, { t } from '../helpers/Translator';
+import React from 'react'
+import { withRouter } from 'react-router-dom'
+import { A, H4, Label, LoadingPlaceholder } from '../styles/GenericStyles'
+import { useGlobals } from '../contexts/Global'
+import { smoothMove } from '../helpers/Generics'
+import { SidebarElement, SourceDiv } from './SidebarStyle'
+import useT, { t } from '../helpers/Translator'
 
 /**
  * Sidebar container that contains all elements
@@ -13,13 +13,13 @@ import useT, { t } from '../helpers/Translator';
  * @constructor
  */
 const Element = (props) => {
-  const { icon } = props;
+  const { icon } = props
   return (
     <SidebarElement className="p-4 text-center with-icon" icon={icon}>
       {props.content}
     </SidebarElement>
-  );
-};
+  )
+}
 
 /**
  * @returns {*}
@@ -28,19 +28,13 @@ const Element = (props) => {
 const AboutMe = () => {
   return (
     <>
-      <A
-        href="https://github.com/jvidalv/vvlog"
-        italic
-        fontPlex
-        fontSize="1.6rem"
-        target="_blank"
-      >
+      <A href="https://github.com/jvidalv/vvlog" italic fontPlex fontSize="1.6rem" target="_blank">
         On Github
         <br /> @vvlog
       </A>
     </>
-  );
-};
+  )
+}
 
 /**
  * @param props
@@ -50,17 +44,11 @@ const AboutMe = () => {
 function MoreOfMe(props) {
   const Project = (props) => {
     return (
-      <A
-        className="my-3"
-        bottomBar
-        fontSize="1.3rem"
-        href={props.url}
-        target="_blank"
-      >
+      <A className="my-3" bottomBar fontSize="1.3rem" href={props.url} target="_blank">
         {props.name}
       </A>
-    );
-  };
+    )
+  }
 
   return (
     <>
@@ -72,7 +60,7 @@ function MoreOfMe(props) {
       <Project name="ColorShop" url="https://jvidalv.github.io/colorshop/" />
       <Project name="Emojindex" url="https://jvidalv.github.io/emojindex/" />
     </>
-  );
+  )
 }
 
 /**
@@ -81,7 +69,7 @@ function MoreOfMe(props) {
  * @constructor
  */
 export const ArticleSidebar = () => {
-  const [{ aArticle, language }] = useGlobals();
+  const [{ aArticle, language }] = useGlobals()
   const Anchors = () => {
     return (
       <>
@@ -93,14 +81,13 @@ export const ArticleSidebar = () => {
             bottomBar
             fontSize="1rem"
             href={`#${an.anchor_id}`}
-            onClick={() => smoothMove()}
-          >
+            onClick={() => smoothMove()}>
             {`${i + 1}. ${an.content}`}
           </A>
         ))}{' '}
       </>
-    );
-  };
+    )
+  }
   const Sources = () => {
     return (
       <>
@@ -117,18 +104,17 @@ export const ArticleSidebar = () => {
                   href={data.url ?? '#'}
                   onClick={() => smoothMove()}
                   target="_blank"
-                  rel="noopener"
-                >
+                  rel="noopener">
                   <span>{data.name}</span>
                   <span className="float-right">{data.version}</span>
                 </A>
               ))}
             </SourceDiv>
-          ) : null
+          ) : null,
         )}{' '}
       </>
-    );
-  };
+    )
+  }
 
   return (
     <>
@@ -149,8 +135,8 @@ export const ArticleSidebar = () => {
         )}
       </aside>
     </>
-  );
-};
+  )
+}
 
 /**
  * @returns {*}
@@ -162,8 +148,8 @@ export const CategorySidebar = () => {
       <div className="mt-3 d-md-none" />
       <Element content={<AboutMe />} icon="🚀" />
     </aside>
-  );
-};
+  )
+}
 
 /**
  *
@@ -177,8 +163,8 @@ export const HomeSidebar = () => {
       <Element content={<MoreOfMe />} icon="📚" />
       <Element content={<AboutMe />} icon="🚀" />
     </aside>
-  );
-};
+  )
+}
 
 /**
  * @param props
@@ -186,10 +172,10 @@ export const HomeSidebar = () => {
  * @constructor
  */
 function Sidebar(props) {
-  const { params } = props.match;
-  if (params.article) return <ArticleSidebar />;
-  if (params.category) return <CategorySidebar />;
-  return <HomeSidebar />;
+  const { params } = props.match
+  if (params.article) return <ArticleSidebar />
+  if (params.category) return <CategorySidebar />
+  return <HomeSidebar />
 }
 
-export default withRouter(Sidebar);
+export default withRouter(Sidebar)

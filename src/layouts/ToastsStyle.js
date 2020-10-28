@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const ToastsContainer = styled.div`
   position: fixed;
@@ -19,4 +19,4 @@ export const ToastsContainer = styled.div`
       color: ${({ theme }) => theme.onSurface};
     }
   }
-`;
+`

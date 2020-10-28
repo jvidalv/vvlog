@@ -1,4 +1,4 @@
-import { keyframes } from 'styled-components';
+import { keyframes } from 'styled-components'
 
 export const pulse = keyframes`
     0% {
@@ -15,7 +15,7 @@ export const pulse = keyframes`
         transform: scale(0.95);
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     }
-`;
+`
 
 export const gradient = keyframes`
     0% {
@@ -27,7 +27,7 @@ export const gradient = keyframes`
     100% {
         background-position: 0 2%;
     }
-`;
+`
 
 export const backArrows = keyframes`
     0% {
@@ -51,7 +51,7 @@ export const backArrows = keyframes`
     100% {
       content : ''
     }
-`;
+`
 
 export const arrowsLeft = keyframes`
     0% {
@@ -75,7 +75,7 @@ export const arrowsLeft = keyframes`
     100% {
       content : ''
     }
-`;
+`
 
 export const gradientToRight = keyframes`
     0% {
@@ -87,7 +87,7 @@ export const gradientToRight = keyframes`
     100% {
         background-position: 0 50%;
     }
-`;
+`
 
 export const hueRotate = keyframes`
     0% {
@@ -96,7 +96,7 @@ export const hueRotate = keyframes`
     50% {
         filter: hue-rotate(360deg);
     }
-`;
+`
 export const handWave = keyframes`
     0% {
     -webkit-transform: rotate(0);
@@ -112,7 +112,7 @@ export const handWave = keyframes`
     -webkit-transform: rotate(0);
     transform: rotate(0);
     }
-`;
+`
 
 export const dissapearToRight = keyframes`
     from {
@@ -122,7 +122,7 @@ export const dissapearToRight = keyframes`
        transform: translateX(500px);
        opacity: 0;
     }
-`;
+`
 
 export const growBig = keyframes`
     0% {
@@ -136,4 +136,4 @@ export const growBig = keyframes`
        transform: scale(1.7);
        opacity: 1;
     }
-`;
+`

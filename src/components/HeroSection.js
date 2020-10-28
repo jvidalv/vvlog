@@ -1,10 +1,10 @@
-import React from 'react';
-import { HeroH1, HeroH4, HeroSectionStyled } from './HeroSectionStyle';
-import { Link } from 'react-router-dom';
-import Logo from '../assets/svgs/Logo';
-import useT from '../helpers/Translator';
-import BASE_IMAGE from '../constants/Images';
-import { LoadingPlaceholder, P } from '../styles/GenericStyles';
+import React from 'react'
+import { HeroH1, HeroH4, HeroSectionStyled } from './HeroSectionStyle'
+import { Link } from 'react-router-dom'
+import Logo from '../assets/svgs/Logo'
+import useT from '../helpers/Translator'
+import BASE_IMAGE from '../constants/Images'
+import { LoadingPlaceholder, P } from '../styles/GenericStyles'
 
 /**
  * Home banner "/"
@@ -20,7 +20,7 @@ export function HeroHome() {
         {useT('react_powered_blog_for_web_development')}
       </P>
     </HeroSectionStyled>
-  );
+  )
 }
 
 /**
@@ -29,18 +29,14 @@ export function HeroHome() {
  * @constructor
  */
 export function HeroSimple(props) {
-  const { title, subtitle, overtitle, image, urlOvertitle } = props;
+  const { title, subtitle, overtitle, image, urlOvertitle } = props
   return (
     <div className="d-flex flex-column justify-content-center align-items-center mt-4">
       {image ? (
         image === 'loading' ? (
           <LoadingPlaceholder rounded width="100px" height="100px" />
         ) : (
-          <img
-            alt={title}
-            src={BASE_IMAGE + image}
-            style={{ width: '100px', height: '100px' }}
-          />
+          <img alt={title} src={BASE_IMAGE + image} style={{ width: '100px', height: '100px' }} />
         )
       ) : null}
       {overtitle ? (
@@ -51,5 +47,5 @@ export function HeroSimple(props) {
       <HeroH1 className="my-3">{title}</HeroH1>
       <HeroH4 className="my-3">{subtitle}</HeroH4>
     </div>
-  );
+  )
 }

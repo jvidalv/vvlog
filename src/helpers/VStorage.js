@@ -7,8 +7,8 @@ export class vStorage {
    * @returns {boolean}
    */
   static getItem(key) {
-    const data = localStorage.getItem(key);
-    return data ? JSON.parse(data) : false;
+    const data = localStorage.getItem(key)
+    return data ? JSON.parse(data) : false
   }
 
   /**
@@ -16,15 +16,15 @@ export class vStorage {
    * @param data
    */
   static setItem(key, data) {
-    localStorage.setItem(key, JSON.stringify(data));
+    localStorage.setItem(key, JSON.stringify(data))
   }
 
   /**
    * @param key
    */
   static removeItem(key) {
-    localStorage.removeItem(key);
+    localStorage.removeItem(key)
   }
 }
 
-export default vStorage;
+export default vStorage

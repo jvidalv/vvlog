@@ -2,7 +2,7 @@
  * Accepted themes
  * @type {Array}
  */
-export const _THEMES = ['dark', 'light'];
+export const _THEMES = ['dark', 'light']
 
 /**
  * THEMES OBJECT
@@ -69,4 +69,4 @@ export const THEMES = {
 
     infoBox: '#ebf3f9',
   },
-};
+}

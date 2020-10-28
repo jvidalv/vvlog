@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 
 export const fadeToTop = keyframes`
    0% {
@@ -10,7 +10,7 @@ export const fadeToTop = keyframes`
         display: none; 
         z-index:-1;
    }
-`;
+`
 
 export const fade = keyframes`
    0% {
@@ -19,11 +19,11 @@ export const fade = keyframes`
    100% {
         opacity: 0
    }
-`;
+`
 
 export const LoadersWrapperDiv = styled.div`
   opacity: ${({ showLoaders }) => (showLoaders ? 1 : 0)};
-`;
+`
 
 export const HomeLoaderDiv = styled.div`
   padding-top: 56px;
@@ -39,7 +39,7 @@ export const HomeLoaderDiv = styled.div`
   z-index: 1400;
   animation: ${fadeToTop} 2s ease-in-out forwards;
   transition: 0.25s;
-`;
+`
 
 export const OtherPagesLoaderDiv = styled.div`
   padding-top: 56px;
@@ -65,11 +65,11 @@ export const OtherPagesLoaderDiv = styled.div`
     animation-delay: 2s;
     overflow-y: hidden;
   }
-`;
+`
 
 export const LettersDiv = styled.div`
   color: white;
   font-size: 2em;
-  font-family: Recursive, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto,
-    'Open Sans', FreeSans, sans-serif;
-`;
+  font-family: Recursive, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, 'Open Sans', FreeSans,
+    sans-serif;
+`

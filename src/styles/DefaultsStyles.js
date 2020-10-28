@@ -15,7 +15,7 @@ export const fontsDefaults = (props) => `
         ? 'Recursive, "Segoe UI", "Helvetica Neue", Helvetica, Roboto, "Open Sans", FreeSans, sans-serif;'
         : 'inherit'
     }
-`;
+`
 
 /**
  * Custom border left
@@ -28,4 +28,4 @@ export const borderLeft = (props) => `
     border-left: 4px solid ${props.theme[props.borderLeft]};
     padding-left: .8em;
     text-align: justify;
-`;
+`

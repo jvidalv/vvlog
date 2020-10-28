@@ -1,25 +1,23 @@
-import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import React from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
 
-import {
-  ArticleSnippet,
-  ArticleSnippetWithImage,
-} from '../components/ArticleSnippet';
-import { HeroHome } from '../components/HeroSection';
-import { useGlobals } from '../contexts/Global';
-import { limiter, multiFilter } from '../helpers/Generics';
-import { H3, TexturedContainer } from '../styles/GenericStyles';
-import { Subscribe } from '../components/MyContents';
-import { CategoriesCircle } from '../components/Others';
-import { HelmetHome } from '../constants/Helmets';
-import useT from '../helpers/Translator';
+import { ArticleSnippet, ArticleSnippetWithImage } from '../components/ArticleSnippet'
+import { HeroHome } from '../components/HeroSection'
+import { useGlobals } from '../contexts/Global'
+import { limiter, multiFilter } from '../helpers/Generics'
+import { H3, TexturedContainer } from '../styles/GenericStyles'
+import { Subscribe } from '../components/MyContents'
+import { CategoriesCircle } from '../components/Others'
+import { HelmetHome } from '../constants/Helmets'
+import useT from '../helpers/Translator'
 
 /**
  * @returns {*}
  * @constructor
  */
 const FeaturedSection = () => {
-  const [{ articles, language }] = useGlobals();
+  const [{ articles, language }] = useGlobals()
+  console.log(articles)
   return (
     <>
       {limiter(multiFilter(articles, ['featured'], '1'), 4).map((snippet) => (
@@ -31,15 +29,15 @@ const FeaturedSection = () => {
         />
       ))}
     </>
-  );
-};
+  )
+}
 
 /**
  * @returns {*}
  * @constructor
  */
 const AllArticlesSection = () => {
-  const [{ articles, language }] = useGlobals();
+  const [{ articles, language }] = useGlobals()
   return (
     <>
       {limiter(multiFilter(articles, ['featured'], '0'), 9).map((snippet) => (
@@ -53,8 +51,8 @@ const AllArticlesSection = () => {
         </Col>
       ))}
     </>
-  );
-};
+  )
+}
 
 /**
  * @returns {*}
@@ -89,8 +87,7 @@ function Home() {
       </Container>
       <TexturedContainer
         fluid
-        className="d-flex justify-content-center align-items-center py-5 my-5 overflow-hidden min-height-300"
-      >
+        className="d-flex justify-content-center align-items-center py-5 my-5 overflow-hidden min-height-300">
         <Row>
           <Col className="text-center">
             <Subscribe />
@@ -113,7 +110,7 @@ function Home() {
         </Row>
       </Container>
     </>
-  );
+  )
 }
 
-export default Home;
+export default Home

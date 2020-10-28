@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Container } from 'react-bootstrap';
-import { useScrollPosition } from '../hooks/useScrollPosition';
-import { FloatingButton } from './FooterStyle.js';
-import { smoothMove } from '../helpers/Generics';
-import { Cookies } from '../components/Others';
-import { FooterStyled } from './FooterStyle';
-import { A, P } from '../styles/GenericStyles';
-import { Link } from 'react-router-dom';
-import useT from '../helpers/Translator';
-import { useGlobals } from '../contexts/Global';
+import React, { useState } from 'react'
+import { Container } from 'react-bootstrap'
+import { useScrollPosition } from '../hooks/useScrollPosition'
+import { FloatingButton } from './FooterStyle.js'
+import { smoothMove } from '../helpers/Generics'
+import { Cookies } from '../components/Others'
+import { FooterStyled } from './FooterStyle'
+import { A, P } from '../styles/GenericStyles'
+import { Link } from 'react-router-dom'
+import useT from '../helpers/Translator'
+import { useGlobals } from '../contexts/Global'
 
 /**
  * Shows the floating button  that brings you to the top
@@ -19,31 +19,31 @@ const ButtonToTop = ({ className }) => {
     <FloatingButton onClick={() => smoothMove(true)} className={className}>
       <span>↑</span>
     </FloatingButton>
-  );
-};
+  )
+}
 
 /**
  * @returns {*}
  * @constructor
  */
 function Footer() {
-  const [{ language }] = useGlobals();
-  const [showToTop, setShowToTop] = useState(false);
+  const [{ language }] = useGlobals()
+  const [showToTop, setShowToTop] = useState(false)
   const buttonToTopHasToShow = (prevPos, currPos) => {
     if (currPos.y < -500) {
-      setShowToTop(true);
+      setShowToTop(true)
     } else if (currPos.y > -500) {
-      setShowToTop(false);
+      setShowToTop(false)
     }
-  };
+  }
 
   useScrollPosition(
     ({ prevPos, currPos }) => buttonToTopHasToShow(prevPos, currPos),
     [],
     null,
     false,
-    1500
-  );
+    1500,
+  )
 
   return (
     <>
@@ -85,7 +85,7 @@ function Footer() {
         </Container>
       </FooterStyled>
     </>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

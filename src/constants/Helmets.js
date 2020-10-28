@@ -1,8 +1,8 @@
-import Helmet from 'react-helmet/es/Helmet';
-import React from 'react';
-import useT from '../helpers/Translator';
-import { areSet } from '../helpers/Generics';
-import BASE_IMAGE from './Images';
+import Helmet from 'react-helmet/es/Helmet'
+import React from 'react'
+import useT from '../helpers/Translator'
+import { areSet } from '../helpers/Generics'
+import BASE_IMAGE from './Images'
 
 export const HelmetIndex = (props) => (
   <Helmet>
@@ -19,7 +19,7 @@ export const HelmetIndex = (props) => (
     <meta name="twitter:creator" content="@vvlog" />
     <meta property="og:site_name" content="vvlog.dev" />
   </Helmet>
-);
+)
 
 export const HelmetHome = (props) => (
   <Helmet>
@@ -56,88 +56,62 @@ export const HelmetHome = (props) => (
     />
     <meta property="og:type" content="blog" />
   </Helmet>
-);
+)
 
 export const HelmetExplore = (props) => (
   <Helmet>
     <title>{useT('vvlog_explore')}</title>
   </Helmet>
-);
+)
 
 export const HelmetError = (props) => (
   <Helmet>
     <meta charSet="utf-8" />
     <title>{useT('vvlog_error')}</title>
   </Helmet>
-);
+)
 
 export const HelmetContact = (props) => (
   <Helmet>
     <title>{useT('vvlog_contact')}</title>
   </Helmet>
-);
+)
 
 export const HelmetCategory = (props) => (
   <Helmet>
     <title>{props.params.category.toUpperCase()}</title>
   </Helmet>
-);
+)
 
 export const HelmetAbout = () => (
   <Helmet>
     <title>{useT('vvlog_about', ['🤠'])}</title>
   </Helmet>
-);
+)
 
 export const HelmetArticle = (props) => (
   <Helmet>
     <title>{areSet(props.aArticle, ['title'])}</title>
     <meta name="description" content={props.aArticle.resume} />
-    <meta
-      property="article:published_time"
-      content={Date(Date.now()).toLocaleString()}
-    />
-    <meta
-      property="article:modified_time"
-      content={Date(Date.now()).toLocaleString()}
-    />
+    <meta property="article:published_time" content={Date(Date.now()).toLocaleString()} />
+    <meta property="article:modified_time" content={Date(Date.now()).toLocaleString()} />
     <meta property="article:category" content={props.aArticle.category_nice} />
     {props.aArticle && props.aArticle.tags
       ? props.aArticle.tags.map((tag) => (
           <meta property="article:tag" content={tag[props.language]} />
         ))
       : null}
-    <meta
-      data-ue-u="twitter:title"
-      name="twitter:title"
-      content={props.aArticle.title}
-    />
+    <meta data-ue-u="twitter:title" name="twitter:title" content={props.aArticle.title} />
     <meta
       data-ue-u="twitter:description"
       name="twitter:description"
       content={props.aArticle.resume}
     />
-    <meta
-      data-ue-u="description"
-      name="description"
-      content={props.aArticle.resume}
-    />
-    <meta
-      data-ue-u="og:title"
-      property="og:title"
-      content={props.aArticle.title}
-    />
-    <meta
-      data-ue-u="og:description"
-      property="og:description"
-      content={props.aArticle.resume}
-    />
+    <meta data-ue-u="description" name="description" content={props.aArticle.resume} />
+    <meta data-ue-u="og:title" property="og:title" content={props.aArticle.title} />
+    <meta data-ue-u="og:description" property="og:description" content={props.aArticle.resume} />
     <meta property="og:url" content={window.location.href} />
-    <meta
-      data-ue-u="og:image"
-      property="og:image"
-      content={BASE_IMAGE + props.aArticle.image}
-    />
+    <meta data-ue-u="og:image" property="og:image" content={BASE_IMAGE + props.aArticle.image} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       data-ue-u="twitter:image"
@@ -146,4 +120,4 @@ export const HelmetArticle = (props) => (
     />
     <meta property="og:type" content="article" />
   </Helmet>
-);
+)

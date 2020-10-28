@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { backArrows, gradient } from '../styles/AnimationsStyles';
+import styled from 'styled-components'
+import { backArrows, gradient } from '../styles/AnimationsStyles'
 
 export const H5Category = styled.h5`
   color: ${({ theme }) => theme.secondary};
@@ -15,14 +15,14 @@ export const H5Category = styled.h5`
     position: absolute;
     margin-left: 10px;
   }
-`;
+`
 
 export const ImageSnippet = styled.div`
   margin: 10px;
   height: 200px;
   width: 200px;
   background: url(${({ url, theme }) => url ?? theme.surface.level2});
-`;
+`
 
 export const SnippetContainer = styled.div`
   background: ${({ theme }) => theme.surface.level1};
@@ -67,8 +67,7 @@ export const SnippetContainer = styled.div`
 
   &::after {
     content: ${({ trianglecolor }) => (trianglecolor ? '⭐' : '')};
-    background: ${({ trianglecolor, theme }) =>
-      trianglecolor ? trianglecolor : theme.primary};
+    background: ${({ trianglecolor, theme }) => (trianglecolor ? trianglecolor : theme.primary)};
     width: 25px;
     height: 25px;
     transform: scale(1.5);
@@ -122,4 +121,4 @@ export const SnippetContainer = styled.div`
       height: 160px;
     }
   }
-`;
+`

@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 
 /**
  * Accepted languages
  * @type {Array}
  */
-export const _LANGUAGES = ['en', 'ca', 'es'];
+export const _LANGUAGES = ['en', 'ca', 'es']
 
 /**
  * Translations by language
@@ -29,14 +29,12 @@ const DICTIONARY = {
     subscribe_and_stay_in_touch: 'Subscriu-te i manté el contacte',
     subscribe: "Subscriure's",
     fullstack_development: 'Fullstack development',
-    if_you_are_not_a_ill_check_you_back:
-      'Si no ets un {param} et tornare el missatge {param}',
+    if_you_are_not_a_ill_check_you_back: 'Si no ets un {param} et tornare el missatge {param}',
     vvlog_explore: 'Explora',
     your_name: 'El teu nom',
     we_use_cookies_to_personalise_content_and_ads_to_provide_social_media_features_and_to_analyse_our_traffic:
       'Utilitzem cookies per a personalitzar el contingut i la publicitat, així com les xarxes socials, a més per analitzar el nostre tràfic',
-    vvlog_homepage:
-      "Blog multi idioma sobre programació i desenvolupament d'apps",
+    vvlog_homepage: "Blog multi idioma sobre programació i desenvolupament d'apps",
     i_agree: "Estic d'acord",
     this_website_uses_cookies: 'Aquesta pàgina web utilitza cookies',
     email_is_invalid: 'El email es invàlid',
@@ -51,10 +49,8 @@ const DICTIONARY = {
     vvlog_about: 'Sobre nosaltres',
     category: 'Categoria',
     homepage: 'Inici',
-    vvlog_is_created_written_and_maintained_by:
-      'VVLOG està creat, escrit i mantingut per',
-    and_a_team_of_contributors_on_github:
-      'i un equip de col·laboradors a github',
+    vvlog_is_created_written_and_maintained_by: 'VVLOG està creat, escrit i mantingut per',
+    and_a_team_of_contributors_on_github: 'i un equip de col·laboradors a github',
     category_does_not_exist: 'La categoria no existeix',
     category_does_not_exist_or_it_is_no_longer_public:
       'La categoria no existeix o ja no és pública',
@@ -66,22 +62,19 @@ const DICTIONARY = {
     featured: 'Destacats',
     do_you_have_any_suggestions_any_topic_you_need_help_with_or_code_youd_like_to_see_together:
       "Tens algun suggeriment? Qualsevol tema amb el qual necessitis ajuda, o codi que t'agradaria veure junts",
-    an_introduction_to_me_and_vvlogs_philosophy:
-      'Una introducció a mi hi ha la filosofia de VVLOG',
+    an_introduction_to_me_and_vvlogs_philosophy: 'Una introducció a mi hi ha la filosofia de VVLOG',
     about_p_1:
       "VVLOG neix de la passió pel desenvolupament web, del neguit personal per a compartir coneixements, d'intentar ensenyar amb paraules senzilles allò que de primeres pareix molt complex.",
     about_p_2:
       "Durant aquest procés espero aprendre encara més i poder explicar encara millor allò que m'agrada.",
     about_p_3: 'Espero de veritat que us agradi i sobretot que us sigui útil.',
-    about_p_4:
-      'Com hauràs endevinat, el nom de VVLOG ve dels meus cognoms repetits {param}.',
+    about_p_4: 'Com hauràs endevinat, el nom de VVLOG ve dels meus cognoms repetits {param}.',
     about_p_5:
       "Sóc un programador que estima el desenvolupament web, m'agrada molt CREAR {param} literalment, inventar coses que passen pel meu cap. El disseny i la programació de funcionalitat dura i UX són les coses que m'apassionen.",
     about_p_6:
       'Pots posar-te en contacte amb mi en una de les meves xarxes socials a baix o per correu {param}.',
     article_does_not_exist: "L'article no existeix",
-    article_does_not_exist_or_it_is_no_longer_public:
-      "L'article no existeix o ja no és públic",
+    article_does_not_exist_or_it_is_no_longer_public: "L'article no existeix o ja no és públic",
     vvlog_error: 'Error, algúna cosa ha passat!',
     react_powered_blog_for_web_development:
       "Blog sobre programació i desenvolupament d'apps fet amb React",
@@ -114,8 +107,7 @@ const DICTIONARY = {
     subscribe_and_stay_in_touch: 'Subscríbete y mantén el contacto',
     subscribe: 'Subscribirse',
     fullstack_development: 'Fullstack development',
-    if_you_are_not_a_ill_check_you_back:
-      'Si no eres un {param} te devolvere el mensaje {param}',
+    if_you_are_not_a_ill_check_you_back: 'Si no eres un {param} te devolvere el mensaje {param}',
     vvlog_explore: 'Explora',
     your_name: 'Tu nombre',
     we_use_cookies_to_personalise_content_and_ads_to_provide_social_media_features_and_to_analyse_our_traffic:
@@ -135,13 +127,10 @@ const DICTIONARY = {
     vvlog_about: 'vvblog {param} Sobre nosotros',
     category: 'Categoria',
     homepage: 'Inicio',
-    vvlog_is_created_written_and_maintained_by:
-      'VVLOG ha sido creado, escrito y mantenido por',
-    and_a_team_of_contributors_on_github:
-      'y un equipo de colaboradores en github',
+    vvlog_is_created_written_and_maintained_by: 'VVLOG ha sido creado, escrito y mantenido por',
+    and_a_team_of_contributors_on_github: 'y un equipo de colaboradores en github',
     category_does_not_exist: 'La categoria no existe',
-    category_does_not_exist_or_it_is_no_longer_public:
-      'La categoría no existe o ya no és pública',
+    category_does_not_exist_or_it_is_no_longer_public: 'La categoría no existe o ya no és pública',
     nothing_is_wrong: 'No esta pasando nada',
     why_would_you_come_here: '¿Porque vendrias aquí?',
     contact_me_ill_try_to_answer_as_soon_as_possible:
@@ -150,8 +139,7 @@ const DICTIONARY = {
     featured: 'Destacados',
     do_you_have_any_suggestions_any_topic_you_need_help_with_or_code_youd_like_to_see_together:
       '¿Tiene alguna sugerencia? Cualquier tema con el que necesites ayuda, o código que te gustaría ver juntos',
-    an_introduction_to_me_and_vvlogs_philosophy:
-      'Una introducción a mi y a la filosofía de VVLOG',
+    an_introduction_to_me_and_vvlogs_philosophy: 'Una introducción a mi y a la filosofía de VVLOG',
     about_p_1:
       'VVLOG nace de la pasión por el desarrollo web, de la desazón personal para compartir conocimientos, de intentar enseñar con palabras sencillas aquello que de primeras pare muy complejo.',
     about_p_2:
@@ -164,8 +152,7 @@ const DICTIONARY = {
     about_p_6:
       'Puedes ponerte en contacto conmigo en una de mis redes sociales abajo o por correo {param}.',
     article_does_not_exist: 'El articulo no existe',
-    article_does_not_exist_or_it_is_no_longer_public:
-      'El articulo no existe o ya no és público',
+    article_does_not_exist_or_it_is_no_longer_public: 'El articulo no existe o ya no és público',
     vvlog_error: 'VVLOG ─ Error',
     react_powered_blog_for_web_development:
       'Blog sobre programación y desarrollo de apps hecho con React',
@@ -198,8 +185,7 @@ const DICTIONARY = {
     subscribe_and_stay_in_touch: 'Subscribe and stay in touch',
     subscribe: 'Subscribe',
     fullstack_development: 'Fullstack development',
-    if_you_are_not_a_ill_check_you_back:
-      "If you are not a {param} i'll check you back {param}",
+    if_you_are_not_a_ill_check_you_back: "If you are not a {param} i'll check you back {param}",
     vvlog_explore: 'Explore',
     your_name: 'Your name',
     we_use_cookies_to_personalise_content_and_ads_to_provide_social_media_features_and_to_analyse_our_traffic:
@@ -219,10 +205,8 @@ const DICTIONARY = {
     vvlog_about: 'About',
     category: 'Category',
     homepage: 'Homepage',
-    vvlog_is_created_written_and_maintained_by:
-      'VVLOG is created, written, and maintained by',
-    and_a_team_of_contributors_on_github:
-      'and a team of contributors on github',
+    vvlog_is_created_written_and_maintained_by: 'VVLOG is created, written, and maintained by',
+    and_a_team_of_contributors_on_github: 'and a team of contributors on github',
     category_does_not_exist: "Category doesn't exist",
     category_does_not_exist_or_it_is_no_longer_public:
       "Category doesn't exist or it is no longer public",
@@ -234,26 +218,21 @@ const DICTIONARY = {
     featured: 'Featured',
     do_you_have_any_suggestions_any_topic_you_need_help_with_or_code_youd_like_to_see_together:
       "Do you have any suggestions? Any topic you need help with, or code you'd like to see together",
-    an_introduction_to_me_and_vvlogs_philosophy:
-      "An introduction to me and VVLOG's philosophy",
+    an_introduction_to_me_and_vvlogs_philosophy: "An introduction to me and VVLOG's philosophy",
     about_p_1:
       'VVLOG was born from the passion for web development, from the personal desire to share knowledge, from trying to teach with simple words that which at first seems very complex.',
     about_p_2:
       'During this process I hope to learn even more and be able to explain even better what I like.',
-    about_p_3:
-      'I really hope you like it and above all that it is useful to you.',
-    about_p_4:
-      "As you might have guessed, VVLOG's name comes from my repeated surnames {param}.",
+    about_p_3: 'I really hope you like it and above all that it is useful to you.',
+    about_p_4: "As you might have guessed, VVLOG's name comes from my repeated surnames {param}.",
     about_p_5:
       "I'm a fullstack programmer who loves web development, I really like CREATING {param} literally, inventing things that go through my head. Design and UX and hard functionality programming are the things that im passionate about.",
-    about_p_6:
-      'You can contact me in one of my social networks below or by mail {param}.',
+    about_p_6: 'You can contact me in one of my social networks below or by mail {param}.',
     article_does_not_exist: 'Article does not exist',
     article_does_not_exist_or_it_is_no_longer_public:
       'Article does not exist or it is no longer public',
     vvlog_error: 'VVLOG ─ Error',
-    react_powered_blog_for_web_development:
-      'Programming and app development blog build with React',
+    react_powered_blog_for_web_development: 'Programming and app development blog build with React',
     language: 'Language',
     library: 'Library',
     framework: 'Framework',
@@ -265,6 +244,6 @@ const DICTIONARY = {
     claps: 'Claps',
     thanks: 'Thanks',
   },
-};
+}
 
-export default DICTIONARY;
+export default DICTIONARY

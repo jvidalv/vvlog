@@ -1,13 +1,13 @@
-import styled from 'styled-components';
-import { Container } from 'react-bootstrap';
-import { borderLeft, fontsDefaults } from './DefaultsStyles';
-import { gradient, hueRotate, pulse } from './AnimationsStyles';
+import styled from 'styled-components'
+import { Container } from 'react-bootstrap'
+import { borderLeft, fontsDefaults } from './DefaultsStyles'
+import { gradient, hueRotate, pulse } from './AnimationsStyles'
 
 export const H1 = styled.h1`
   color: ${({ theme }) => theme.primary};
   font-weight: 300;
   ${(props) => fontsDefaults(props)}
-`;
+`
 
 export const H2 = styled.h2`
   color: ${({ theme }) => theme.primary};
@@ -34,25 +34,25 @@ export const H2 = styled.h2`
     flex-grow: 1;
     border-radius: 2px;
   }
-`;
+`
 
 export const H3 = styled.h3`
   color: ${({ theme }) => theme.primary};
   font-weight: 300;
   ${(props) => fontsDefaults(props)}
-`;
+`
 
 export const H4 = styled.h4`
   color: ${({ theme }) => theme.primary};
   font-weight: 300;
   ${(props) => fontsDefaults(props)}
-`;
+`
 
 export const H5 = styled.h5`
   color: ${({ theme }) => theme.secondary};
   font-weight: 300;
   ${(props) => fontsDefaults(props)}
-`;
+`
 
 export const P = styled.p`
   color: ${({ theme }) => theme.onSurface};
@@ -67,7 +67,7 @@ export const P = styled.p`
   &:last-child {
     margin-bottom: 0;
   }
-`;
+`
 export const SPAN = styled.span`
   color: ${({ theme }) => theme.onSurface};
   font-weight: 300;
@@ -78,20 +78,19 @@ export const SPAN = styled.span`
   &.on-background {
     color: ${({ theme }) => theme.onBackground};
   }
-`;
+`
 
 export const Label = styled.label`
   font-weight: 300;
   ${(props) => fontsDefaults(props)}
-`;
+`
 
 export const A = styled.a`
   color: ${({ theme }) => theme.primary};
   font-weight: 300;
   ${(props) => fontsDefaults(props)}
   &:hover {
-    color: ${(props) =>
-      props.hasOwnProperty('color') ? props.color : props.theme.secondary};
+    color: ${(props) => (props.hasOwnProperty('color') ? props.color : props.theme.secondary)};
   }
   &::after {
     ${(props) =>
@@ -108,33 +107,29 @@ export const A = styled.a`
           `
         : ``}
   }
-`;
+`
 
 export const S = styled.strong`
   color: ${({ theme }) => theme.onSurface};
   ${(props) => fontsDefaults(props)}
-`;
+`
 
 export const HR = styled.hr`
-  border-top: 10px dotted
-    ${(props) => props.borderColor ?? props.theme.secondary};
+  border-top: 10px dotted ${(props) => props.borderColor ?? props.theme.secondary};
   padding-top: 40px;
   transform: scaleX(1.2);
   @media (max-width: 700px) {
     transform: scaleX(1);
   }
-`;
+`
 /**
  *  Overrides defaults boostraps
  */
 export const ButtonStyled = styled.button`
   transition: 0.5s;
-  color: ${(props) =>
-    props.themecolor ? props.theme[props.themecolor] : props.theme.primary};
+  color: ${(props) => (props.themecolor ? props.theme[props.themecolor] : props.theme.primary)};
   background: ${(props) =>
-    props.themebackground
-      ? props.theme[props.themebackground]
-      : props.theme.surface.level1};
+    props.themebackground ? props.theme[props.themebackground] : props.theme.surface.level1};
   letter-spacing: 1px;
   box-shadow: 1px 1px 15px rgba(67, 38, 100, 0.15) !important;
   border: none;
@@ -154,14 +149,11 @@ export const ButtonStyled = styled.button`
     border-color: #ffffff00 !important;
     background: ${({ theme }) => theme.surface.level3} !important;
   }
-`;
+`
 
 export const InputStyled = styled.input`
   border: 2px solid
-    ${(props) =>
-      props.themeborder
-        ? props.theme[props.themeborder]
-        : props.theme.secondary};
+    ${(props) => (props.themeborder ? props.theme[props.themeborder] : props.theme.secondary)};
   background: ${({ theme }) => theme.surface.level1};
   color: ${({ theme }) => theme.onSurface};
   font-size: ${(props) => (props.big ? '1.6rem' : 'inherit')};
@@ -190,16 +182,12 @@ export const InputStyled = styled.input`
   @media (max-width: 700px) {
     width: 100%;
   }
-`;
+`
 
 export const DiagonalContainer = styled(Container)`
   min-height: 250px;
   padding-bottom: 50px;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    ${({ theme }) => theme.primary}
-  );
+  background: linear-gradient(to bottom, transparent, ${({ theme }) => theme.primary});
   transform: skewY(6deg);
   & > * {
     transform: skewY(-6deg);
@@ -207,7 +195,7 @@ export const DiagonalContainer = styled(Container)`
   @media (max-width: 650px) {
     min-height: 250px;
   }
-`;
+`
 
 export const TexturedContainer = styled(Container)`
   background: repeating-linear-gradient(
@@ -221,7 +209,7 @@ export const TexturedContainer = styled(Container)`
   &:hover {
     animation: ${hueRotate} 15s linear infinite;
   }
-`;
+`
 
 export const FormStyled = styled.div`
   .form-label {
@@ -243,7 +231,7 @@ export const FormStyled = styled.div`
       background: ${({ theme }) => theme.surface.level2};
     }
   }
-`;
+`
 
 export const LoadingPlaceholder = styled.div`
   background: linear-gradient(
@@ -259,7 +247,7 @@ export const LoadingPlaceholder = styled.div`
   width: ${(props) => (props.width ? props.width : '150px')};
   height: ${(props) => (props.height ? props.height : '40px')};
   ${(props) => (props.hasOwnProperty('rounded') ? `border-radius: 50%` : ``)};
-`;
+`
 
 export const ContentDiv = styled.div`
   background: ${({ theme }) => theme.surface.level1};
@@ -285,7 +273,7 @@ export const ContentDiv = styled.div`
     top: -0.8rem;
     box-shadow: 0 0 10px rgba(67, 38, 100, 0.15);
   }
-`;
+`
 
 /**
  * ----- UNIQUES
@@ -294,7 +282,7 @@ export const ContentDiv = styled.div`
 export const Main = styled.div`
   min-height: 100vh;
   background-color: ${({ theme }) => theme.background};
-`;
+`
 
 export const Me = styled.div`
   margin-top: 4rem;
@@ -330,4 +318,4 @@ export const Me = styled.div`
       right: 10px;
     }
   }
-`;
+`

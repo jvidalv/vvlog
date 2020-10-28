@@ -1,15 +1,15 @@
-import React from 'react';
-import { HomeLoaderDiv, LoadersWrapperDiv } from './LoadersStyle';
-import { HeroHome } from './HeroSection';
-import { useLocation } from 'react-router';
+import React from 'react'
+import { HomeLoaderDiv, LoadersWrapperDiv } from './LoadersStyle'
+import { HeroHome } from './HeroSection'
+import { useLocation } from 'react-router'
 
 /**
  * @returns {boolean}
  */
 const useIsHome = () => {
-  const location = useLocation();
-  return location.pathname === '/';
-};
+  const location = useLocation()
+  return location.pathname === '/'
+}
 
 /**
  * @returns {*}
@@ -34,5 +34,5 @@ export function MainLoader(props) {
         </>
       )}
     </LoadersWrapperDiv>
-  );
+  )
 }

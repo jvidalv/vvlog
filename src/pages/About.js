@@ -1,12 +1,12 @@
-import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import React from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
 
-import { HeroSimple } from '../components/HeroSection';
-import { H2, Me, P } from '../styles/GenericStyles';
-import me from '../assets/images/me-finland.jpg';
-import { HelmetAbout } from '../constants/Helmets';
-import { MyNetworks } from '../components/MyContents';
-import useT from '../helpers/Translator';
+import { HeroSimple } from '../components/HeroSection'
+import { H2, Me, P } from '../styles/GenericStyles'
+import me from '../assets/images/me-finland.jpg'
+import { HelmetAbout } from '../constants/Helmets'
+import { MyNetworks } from '../components/MyContents'
+import useT from '../helpers/Translator'
 
 function About() {
   return (
@@ -17,9 +17,7 @@ function About() {
           <Col>
             <HeroSimple
               title={useT('about')}
-              subtitle={
-                useT('an_introduction_to_me_and_vvlogs_philosophy') + ' ⚖'
-              }
+              subtitle={useT('an_introduction_to_me_and_vvlogs_philosophy') + ' ⚖'}
             />
           </Col>
         </Row>
@@ -68,7 +66,7 @@ function About() {
         </Row>
       </Container>
     </>
-  );
+  )
 }
 
-export default About;
+export default About

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import { Navbar, NavDropdown } from 'react-bootstrap';
+import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
+import { Navbar, NavDropdown } from 'react-bootstrap'
 
 export const LinkStyled = styled(NavLink)`
   color: white !important;
@@ -24,22 +24,20 @@ export const LinkStyled = styled(NavLink)`
     border-radius: 50%;
     margin-right: 7px;
   }
-`;
+`
 
 export const NavStyled = styled(Navbar)`
   z-index: 1500;
   transition: 0s;
   font-weight: 300 !important;
   ${(props) =>
-    props.className && props.className.shadow
-      ? 'box-shadow: 0 2px 20px 0 #0000005c'
-      : ''};
+    props.className && props.className.shadow ? 'box-shadow: 0 2px 20px 0 #0000005c' : ''};
   background: linear-gradient(
     to right,
     ${({ theme }) => theme.header.left},
     ${({ theme }) => theme.header.right}
   );
-`;
+`
 
 export const NavbarToggleStyled = styled(Navbar.Toggle)`
   color: white !important;
@@ -47,7 +45,7 @@ export const NavbarToggleStyled = styled(Navbar.Toggle)`
   &:focus {
     outline: none !important;
   }
-`;
+`
 
 export const NavbarCollapseStyled = styled(Navbar.Collapse)`
   & a:hover {
@@ -59,7 +57,7 @@ export const NavbarCollapseStyled = styled(Navbar.Collapse)`
       margin-bottom: 10px;
     }
   }
-`;
+`
 
 export const FormControlStyled = styled.input`
   height: 30px;
@@ -84,7 +82,7 @@ export const FormControlStyled = styled.input`
       width: 100px !important;
     }
   }
-`;
+`
 
 export const NavDropdownStyled = styled(NavDropdown)`
   & a {
@@ -111,4 +109,4 @@ export const NavDropdownStyled = styled(NavDropdown)`
     content: '✔';
     float: right;
   }
-`;
+`

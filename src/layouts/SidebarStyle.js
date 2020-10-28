@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const SourceDiv = styled.div`
   margin-bottom: 0.5rem;
   &:last-child {
     margin-bottom: unset;
   }
-`;
+`
 
 export const SidebarElement = styled.div`
   background: ${({ theme }) => theme.surface.level1};
@@ -31,4 +31,4 @@ export const SidebarElement = styled.div`
     transition: 1s;
     box-shadow: 0 0 10px rgba(67, 38, 100, 0.15);
   }
-`;
+`

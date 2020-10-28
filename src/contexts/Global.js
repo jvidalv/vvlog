@@ -1,9 +1,9 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer } from 'react'
 
 /**
  * @type {React.Context}
  */
-export const StateContext = createContext();
+export const StateContext = createContext()
 
 /**
  * @param reducer
@@ -16,6 +16,6 @@ export const StateProvider = ({ reducer, initialState, children }) => (
   <StateContext.Provider value={useReducer(reducer, initialState)}>
     {children}
   </StateContext.Provider>
-);
+)
 
-export const useGlobals = () => useContext(StateContext);
+export const useGlobals = () => useContext(StateContext)

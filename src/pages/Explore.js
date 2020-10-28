@@ -1,34 +1,31 @@
-import React, { useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import React, { useState } from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
 
-import { HeroSimple } from '../components/HeroSection';
-import { ArticleSnippet } from '../components/ArticleSnippet';
+import { HeroSimple } from '../components/HeroSection'
+import { ArticleSnippet } from '../components/ArticleSnippet'
 
-import { DiagonalContainer, InputStyled } from '../styles/GenericStyles';
-import { useLocation } from 'react-router';
-import useT from '../helpers/Translator';
-import { useGlobals } from '../contexts/Global';
-import { limiter } from '../helpers/Generics';
-import { useFilterArticles } from '../hooks/useFilterArticles';
-import { EmptyList } from '../components/Others';
-import { HelmetExplore } from '../constants/Helmets';
+import { DiagonalContainer, InputStyled } from '../styles/GenericStyles'
+import { useLocation } from 'react-router'
+import useT from '../helpers/Translator'
+import { useGlobals } from '../contexts/Global'
+import { limiter } from '../helpers/Generics'
+import { useFilterArticles } from '../hooks/useFilterArticles'
+import { EmptyList } from '../components/Others'
+import { HelmetExplore } from '../constants/Helmets'
 
 function Explore() {
-  const [{ language }] = useGlobals();
-  const location = useLocation();
-  const { state } = location;
-  const [q, setQ] = useState(state ? state.q : '');
-  const [fArticles] = useFilterArticles(['title', 'category'], q, language);
+  const [{ language }] = useGlobals()
+  const location = useLocation()
+  const { state } = location
+  const [q, setQ] = useState(state ? state.q : '')
+  const [fArticles] = useFilterArticles(['title', 'category'], q, language)
   return (
     <>
       <HelmetExplore />
       <Container className="my-5 text-center">
         <Row>
           <Col>
-            <HeroSimple
-              title={useT('explore')}
-              subtitle={useT('but_dont_get_lost', ['😜'])}
-            />
+            <HeroSimple title={useT('explore')} subtitle={useT('but_dont_get_lost', ['😜'])} />
           </Col>
         </Row>
       </Container>
@@ -69,7 +66,7 @@ function Explore() {
         </Row>
       </DiagonalContainer>
     </>
-  );
+  )
 }
 
-export default Explore;
+export default Explore

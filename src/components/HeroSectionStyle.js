@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { arrowsLeft } from '../styles/AnimationsStyles';
+import styled from 'styled-components'
+import { arrowsLeft } from '../styles/AnimationsStyles'
 
 export const HeroSectionStyled = styled.div`
   text-align: center;
@@ -16,12 +16,12 @@ export const HeroSectionStyled = styled.div`
   @media (max-width: 600px) {
     padding-bottom: 9.5em;
   }
-`;
+`
 
 export const HeroH1 = styled.h1`
   color: ${({ theme }) => theme.primary};
-  font-family: Recursive, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto,
-    'Open Sans', FreeSans, sans-serif;
+  font-family: Recursive, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, 'Open Sans', FreeSans,
+    sans-serif;
   font-weight: 300;
   font-size: 3em;
   &.extra {
@@ -34,7 +34,7 @@ export const HeroH1 = styled.h1`
   @media (max-width: 650px) {
     font-size: 1.8rem;
   }
-`;
+`
 
 export const HeroH4 = styled.h4`
   color: ${({ theme }) => theme.onBackground};
@@ -50,7 +50,7 @@ export const HeroH4 = styled.h4`
     position: absolute;
     left: -55px;
   }
-`;
+`
 
 export const HeroP = styled.p`
   color: #fff;
@@ -60,4 +60,4 @@ export const HeroP = styled.p`
   @media (max-width: 600px) {
     font-size: 1em;
   }
-`;
+`

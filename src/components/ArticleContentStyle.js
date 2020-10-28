@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Content = styled.div`
   & p,
@@ -110,7 +110,7 @@ export const Content = styled.div`
     width: 1em; /* Also needed for space (tweak if needed) */
     margin-left: -1em; /* Also needed for space (tweak if needed) */
   }
-`;
+`
 
 export const TagContainer = styled.div`
   > a {
@@ -124,7 +124,7 @@ export const TagContainer = styled.div`
     background: #1d2124;
     color: white;
   }
-`;
+`
 
 export const ReadingBarStyled = styled.div`
   top: 0;
@@ -138,7 +138,7 @@ export const ReadingBarStyled = styled.div`
     ${({ theme }) => theme.primary + '50'} ${({ scroll }) => scroll + '%'},
     transparent 0
   );
-`;
+`
 
 export const ClapSpan = styled.span`
   filter: ${({ clapped }) => (clapped ? `unset` : `grayscale(1)`)};
@@ -158,4 +158,4 @@ export const ClapSpan = styled.span`
     box-shadow: 0 0 7px 4px #c7c7c7;
     transition: 0.25s !important;
   }
-`;
+`

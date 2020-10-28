@@ -1,30 +1,30 @@
-import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import React from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
 
-import { ArticleSnippetWithImage } from '../components/ArticleSnippet';
-import { HeroSimple } from '../components/HeroSection';
-import { useGlobals } from '../contexts/Global';
-import { useHistory, useParams } from 'react-router';
-import { areSet } from '../helpers/Generics';
-import { LoadingPlaceholder } from '../styles/GenericStyles';
-import { useFilterArticles } from '../hooks/useFilterArticles';
-import { HelmetCategory } from '../constants/Helmets';
+import { ArticleSnippetWithImage } from '../components/ArticleSnippet'
+import { HeroSimple } from '../components/HeroSection'
+import { useGlobals } from '../contexts/Global'
+import { useHistory, useParams } from 'react-router'
+import { areSet } from '../helpers/Generics'
+import { LoadingPlaceholder } from '../styles/GenericStyles'
+import { useFilterArticles } from '../hooks/useFilterArticles'
+import { HelmetCategory } from '../constants/Helmets'
 
 /**
  * @returns {{fArticles: *}}
  */
 const useCategory = () => {
-  const [{}, dispatch] = useGlobals();
-  const history = useHistory();
-  const params = useParams();
-  const [fArticles] = useFilterArticles(['category'], params.category);
+  const [{}, dispatch] = useGlobals()
+  const history = useHistory()
+  const params = useParams()
+  const [fArticles] = useFilterArticles(['category'], params.category)
 
   const setError = (error) => {
     dispatch({
       type: 'setError',
       setError: error,
-    });
-  };
+    })
+  }
 
   React.useEffect(() => {
     if (fArticles && !fArticles.length) {
@@ -32,13 +32,13 @@ const useCategory = () => {
         code: 404,
         message: 'category_does_not_exist',
         description: 'category_does_not_exist_or_it_is_no_longer_public',
-      });
-      history.push('/error');
+      })
+      history.push('/error')
     }
-  }, [fArticles]);
+  }, [fArticles])
 
-  return { fArticles };
-};
+  return { fArticles }
+}
 
 /**
  *
@@ -46,9 +46,9 @@ const useCategory = () => {
  * @constructor
  */
 function Category() {
-  const [{ categories, language }] = useGlobals();
-  const params = useParams();
-  const { fArticles } = useCategory();
+  const [{ categories, language }] = useGlobals()
+  const params = useParams()
+  const { fArticles } = useCategory()
 
   return (
     <>
@@ -64,12 +64,12 @@ function Category() {
               title={areSet(
                 categories,
                 [params.category, language, 'name'],
-                <LoadingPlaceholder width="250px" height="35px" />
+                <LoadingPlaceholder width="250px" height="35px" />,
               )}
               subtitle={areSet(
                 categories,
                 [params.category, language, 'description'],
-                <LoadingPlaceholder width="350px" height="35px" />
+                <LoadingPlaceholder width="350px" height="35px" />,
               )}
             />
           </Col>
@@ -91,7 +91,7 @@ function Category() {
         </Row>
       </Container>
     </>
-  );
+  )
 }
 
-export default Category;
+export default Category

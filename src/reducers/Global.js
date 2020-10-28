@@ -1,5 +1,5 @@
-import React from 'react';
-import { limiter, loadFromCache, reindexer } from '../helpers/Generics';
+import React from 'react'
+import { limiter, loadFromCache, reindexer } from '../helpers/Generics'
 import {
   D_AARTICLE,
   D_ARTICLES,
@@ -7,9 +7,10 @@ import {
   D_CATEGORIES,
   D_ERROR,
   D_TOAST,
-} from '../constants/Dummy';
-import { _THEMES } from '../constants/Themes';
-import { getNavigatorLanguage } from '../helpers/Translator';
+} from '../constants/Dummy'
+import { _THEMES } from '../constants/Themes'
+import { getNavigatorLanguage } from '../helpers/Translator'
+import { articlesAll } from '../helpers/data-transformations'
 
 /**
  * Globals default state
@@ -35,7 +36,7 @@ export const initialState = {
   /**
    * List of articles, with all the languages
    */
-  articles: D_ARTICLES,
+  articles: articlesAll(),
   /**
    * Categories
    */
@@ -56,7 +57,7 @@ export const initialState = {
    * Related articles of aArticle
    */
   relatedArticles: limiter(D_ARTICLES, 4),
-};
+}
 
 /**
  * @param {*} state
@@ -68,61 +69,61 @@ export const reducer = (state, action) => {
       return {
         ...state,
         theme: loadFromCache('theme', action.changeTheme, true),
-      };
+      }
     case 'changeLanguage':
       return {
         ...state,
         language: loadFromCache('language', action.changeLanguage, true),
-      };
+      }
     case 'addToast':
       return {
         ...state,
         toasts: action.addToast,
-      };
+      }
     case 'setError':
       return {
         ...state,
         error: action.setError,
-      };
+      }
     case 'setArticles':
       return {
         ...state,
         articles: action.setArticles,
-      };
+      }
     case 'setCategories':
       return {
         ...state,
         categories: reindexer(action.setCategories, 'code'),
-      };
+      }
     case 'setAuthors':
       return {
         ...state,
         authors: reindexer(action.setAuthors, 'id'),
-      };
+      }
     case 'setTags':
       return {
         ...state,
         tags: action.setTags,
-      };
+      }
     case 'setActiveArticle':
-      let language = state.language;
+      let language = state.language
       if (
         action.setActiveArticle.language_id &&
         state.language !== action.setActiveArticle.language_id
       ) {
-        language = action.setActiveArticle.language_id;
+        language = action.setActiveArticle.language_id
       }
       return {
         ...state,
         aArticle: action.setActiveArticle,
         language: language,
-      };
+      }
     case 'setRelatedArticles':
       return {
         ...state,
         relatedArticles: action.setRelatedArticles,
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}

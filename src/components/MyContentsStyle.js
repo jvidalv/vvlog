@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { dissapearToRight, growBig } from '../styles/AnimationsStyles';
+import styled from 'styled-components'
+import { dissapearToRight, growBig } from '../styles/AnimationsStyles'
 
 export const IconA = styled.a`
   color: ${({ theme }) => theme.primary};
@@ -17,7 +17,7 @@ export const IconA = styled.a`
   &:hover {
     color: ${({ theme }) => theme.secondary};
   }
-`;
+`
 
 export const SharerStyled = styled.div`
   &:hover .left-bar::before {
@@ -30,7 +30,7 @@ export const SharerStyled = styled.div`
       width: 25px;
     }
   }
-`;
+`
 
 export const ShareA = styled.a`
   color: ${({ theme }) => theme.secondary};
@@ -82,7 +82,7 @@ export const ShareA = styled.a`
   @media (max-width: 650px) {
     padding: 0 8px;
   }
-`;
+`
 
 export const SubscribeContainer = styled.div`
   &.disappearToRight > div:first-child {
@@ -94,4 +94,4 @@ export const SubscribeContainer = styled.div`
     transform: scale(0.1);
     animation: ${growBig} 1s forwards;
   }
-`;
+`

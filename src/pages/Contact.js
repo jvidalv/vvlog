@@ -1,22 +1,16 @@
-import React from 'react';
-import { Col, Container, Form, Row } from 'react-bootstrap';
-import ReCAPTCHA from 'react-google-recaptcha';
-import { HeroSimple } from '../components/HeroSection';
-import {
-  ButtonStyled,
-  ContentDiv,
-  FormStyled,
-  Label,
-  P,
-} from '../styles/GenericStyles';
-import { isEmail } from '../helpers/Validations';
-import vfetch from '../helpers/Vfetch';
-import api_calls from '../constants/Api';
-import vStorage from '../helpers/VStorage';
-import STORAGE_KEYS from '../constants/Storers';
-import useT from '../helpers/Translator';
-import { HelmetContact } from '../constants/Helmets';
-import { MyNetworks } from '../components/MyContents';
+import React from 'react'
+import { Col, Container, Form, Row } from 'react-bootstrap'
+import ReCAPTCHA from 'react-google-recaptcha'
+import { HeroSimple } from '../components/HeroSection'
+import { ButtonStyled, ContentDiv, FormStyled, Label, P } from '../styles/GenericStyles'
+import { isEmail } from '../helpers/Validations'
+import vfetch from '../helpers/Vfetch'
+import api_calls from '../constants/Api'
+import vStorage from '../helpers/VStorage'
+import STORAGE_KEYS from '../constants/Storers'
+import useT from '../helpers/Translator'
+import { HelmetContact } from '../constants/Helmets'
+import { MyNetworks } from '../components/MyContents'
 
 /**
  * @returns {*}
@@ -24,8 +18,8 @@ import { MyNetworks } from '../components/MyContents';
  */
 function Contact() {
   // 0 => Non send, 1 => Wrong email, 2 => Empty message, 3 => server error, 4 => ok
-  const [submited, setSubmited] = React.useState(0);
-  const contactForm = React.useRef();
+  const [submited, setSubmited] = React.useState(0)
+  const contactForm = React.useRef()
   /**
    * Captures de button click and submits the form after validanting the inputs
    */
@@ -34,16 +28,16 @@ function Contact() {
       name: document.getElementById('contact-name').value,
       email: document.getElementById('contact-email').value,
       message: document.getElementById('contact-message').value,
-    };
-    if (isEmail(data.email) && data.message) {
-      setSubmited(4);
-      vfetch(api_calls.data.contact_form, { ...data }).then(() =>
-        vStorage.setItem(STORAGE_KEYS.CONTACT_FORM_SUBMITED, '1')
-      );
-    } else {
-      setSubmited(isEmail(data.email) ? 2 : 1);
     }
-  };
+    if (isEmail(data.email) && data.message) {
+      setSubmited(4)
+      vfetch(api_calls.data.contact_form, { ...data }).then(() =>
+        vStorage.setItem(STORAGE_KEYS.CONTACT_FORM_SUBMITED, '1'),
+      )
+    } else {
+      setSubmited(isEmail(data.email) ? 2 : 1)
+    }
+  }
 
   return (
     <>
@@ -53,10 +47,7 @@ function Contact() {
           <Col>
             <HeroSimple
               title={useT('contact')}
-              subtitle={useT('if_you_are_not_a_ill_check_you_back', [
-                '🤖',
-                '❤',
-              ])}
+              subtitle={useT('if_you_are_not_a_ill_check_you_back', ['🤖', '❤'])}
             />
           </Col>
         </Row>
@@ -68,13 +59,11 @@ function Contact() {
               <div className="p-4">
                 <P big>
                   {useT(
-                    'do_you_have_any_suggestions_any_topic_you_need_help_with_or_code_youd_like_to_see_together'
+                    'do_you_have_any_suggestions_any_topic_you_need_help_with_or_code_youd_like_to_see_together',
                   )}
                   . 🙌
                 </P>
-                <P big>
-                  {useT('contact_me_ill_try_to_answer_as_soon_as_possible')}.
-                </P>
+                <P big>{useT('contact_me_ill_try_to_answer_as_soon_as_possible')}.</P>
               </div>
             </ContentDiv>
           </Col>
@@ -90,12 +79,7 @@ function Contact() {
                         {useT('your_name')}
                       </Label>
                     </div>
-                    <Form.Control
-                      id="contact-name"
-                      type="text"
-                      placeholder=""
-                      autoComplete="off"
-                    />
+                    <Form.Control id="contact-name" type="text" placeholder="" autoComplete="off" />
                   </Form.Group>
                   <Form.Group>
                     <div>
@@ -105,17 +89,11 @@ function Contact() {
                       <Label
                         className={'ml-2 ' + (submited !== 1 ? 'd-none' : '')}
                         themecolor="error"
-                        fontSize="1rem"
-                      >
+                        fontSize="1rem">
                         {useT('email_is_invalid')}
                       </Label>
                     </div>
-                    <Form.Control
-                      id="contact-email"
-                      type="email"
-                      placeholder=""
-                      required
-                    />
+                    <Form.Control id="contact-email" type="email" placeholder="" required />
                   </Form.Group>
                   <Form.Group>
                     <div>
@@ -125,17 +103,11 @@ function Contact() {
                       <Label
                         className={'ml-2 ' + (submited !== 2 ? 'd-none' : '')}
                         themecolor="error"
-                        fontSize="1rem"
-                      >
+                        fontSize="1rem">
                         {useT('message_cant_be_empty')}
                       </Label>
                     </div>
-                    <Form.Control
-                      id="contact-message"
-                      as="textarea"
-                      rows="3"
-                      required
-                    />
+                    <Form.Control id="contact-message" as="textarea" rows="3" required />
                   </Form.Group>
                   <ReCAPTCHA
                     sitekey="6Lci-L4UAAAAAP_EjffvxvugrVRgraSA_5LHBFXD"
@@ -147,8 +119,7 @@ function Contact() {
                   <Label
                     className={'my-2 ' + (submited !== 4 ? 'd-none' : '')}
                     themecolor="primary"
-                    fontSize="1.3rem"
-                  >
+                    fontSize="1.3rem">
                     {useT('thanks_for_contacting_us', ['😛'])}
                   </Label>
                   <ButtonStyled
@@ -157,8 +128,7 @@ function Contact() {
                     themebackground="primary2"
                     themecolor="onPrimary2"
                     type="submit"
-                    onClick={() => submit()}
-                  >
+                    onClick={() => submit()}>
                     {useT('send', ['📮'])}
                   </ButtonStyled>
                 </div>
@@ -175,7 +145,7 @@ function Contact() {
         </Row>
       </Container>
     </>
-  );
+  )
 }
 
-export default Contact;
+export default Contact

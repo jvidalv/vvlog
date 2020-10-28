@@ -30,6 +30,6 @@ export const STORAGE_KEYS = {
    * @type {string}
    */
   ARTICLE_CLAPPED: 'clapped-',
-};
+}
 
-export default STORAGE_KEYS;
+export default STORAGE_KEYS

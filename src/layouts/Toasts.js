@@ -1,7 +1,7 @@
-import React from 'react';
-import { useGlobals } from '../contexts/Global';
-import Toast from 'react-bootstrap/Toast';
-import { ToastsContainer } from './ToastsStyle';
+import React from 'react'
+import { useGlobals } from '../contexts/Global'
+import Toast from 'react-bootstrap/Toast'
+import { ToastsContainer } from './ToastsStyle'
 
 /**
  *
@@ -9,11 +9,11 @@ import { ToastsContainer } from './ToastsStyle';
  * @constructor
  */
 function Toasts() {
-  const [{ toasts }] = useGlobals();
+  const [{ toasts }] = useGlobals()
 
   const removeToast = (id) => {
-    console.log(id);
-  };
+    console.log(id)
+  }
 
   return (
     <ToastsContainer>
@@ -28,7 +28,7 @@ function Toasts() {
         </Toast>
       ))}
     </ToastsContainer>
-  );
+  )
 }
 
-export default Toasts;
+export default Toasts

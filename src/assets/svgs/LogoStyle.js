@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 
 /**
  * ----- Animations -----
@@ -12,7 +12,7 @@ const toTop = keyframes`
        transform: translateY(-0.5em);
        fill: red !important;
    }
-`;
+`
 
 const shrink = keyframes`
     from {
@@ -21,7 +21,7 @@ const shrink = keyframes`
     to {
         transform: scale(1.0);
     }
-`;
+`
 
 export const LogoSvg = styled.svg`
   transform: scale(1.5);
@@ -42,7 +42,7 @@ export const LogoSvg = styled.svg`
   }
   &:hover #small-v {
   }
-`;
+`
 
 export const HeaderLogoSvg = styled.svg`
   background: ${({ theme }) => theme.header.right} !important;
@@ -70,4 +70,4 @@ export const HeaderLogoSvg = styled.svg`
   @media (max-width: 700px) {
     left: 15px;
   }
-`;
+`

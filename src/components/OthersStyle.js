@@ -1,6 +1,6 @@
-import styled, { keyframes } from 'styled-components';
-import { ContentDiv } from '../styles/GenericStyles';
-import { gradient } from '../styles/AnimationsStyles';
+import styled, { keyframes } from 'styled-components'
+import { ContentDiv } from '../styles/GenericStyles'
+import { gradient } from '../styles/AnimationsStyles'
 
 export const showToTop = keyframes`
     from {
@@ -11,7 +11,7 @@ export const showToTop = keyframes`
         opacity: 1;
         transform: translateY(1em);
     }
-`;
+`
 
 export const CookiesDiv = styled.div`
   width: 500px;
@@ -43,7 +43,7 @@ export const CookiesDiv = styled.div`
     z-index: 9000;
     width: inherit;
   }
-`;
+`
 
 export const CategoryCircle = styled(ContentDiv)`
   height: 120px;
@@ -79,4 +79,4 @@ export const CategoryCircle = styled(ContentDiv)`
     opacity: 1;
     margin: 5px 0;
   }
-`;
+`

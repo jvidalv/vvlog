@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { arrowsLeft, backArrows, handWave } from '../styles/AnimationsStyles';
+import styled from 'styled-components'
+import { arrowsLeft, backArrows, handWave } from '../styles/AnimationsStyles'
 
 export const FloatingButton = styled.div`
   z-index: 1100;
@@ -38,7 +38,7 @@ export const FloatingButton = styled.div`
     height: 25px;
     font-size: 1rem;
   }
-`;
+`
 
 export const FooterStyled = styled.footer`
   & .container {
@@ -57,8 +57,8 @@ export const FooterStyled = styled.footer`
     & a {
       color: ${({ theme }) => theme.onSurface};
       position: relative;
-      font-family: Recursive, 'Menlo', 'DejaVu Sans Mono',
-        'Bitstream Vera Sans Mono', Courier, monospace;
+      font-family: Recursive, 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier,
+        monospace;
     }
     & .ba:hover::before {
       animation: ${arrowsLeft} 2s infinite;
@@ -83,4 +83,4 @@ export const FooterStyled = styled.footer`
       margin-bottom: 25px;
     }
   }
-`;
+`

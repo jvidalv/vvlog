@@ -1,6 +1,6 @@
-import { useGlobals } from '../contexts/Global';
-import DICTIONARY, { _LANGUAGES } from '../constants/Dictionary';
-import { checkValue } from './Generics';
+import { useGlobals } from '../contexts/Global'
+import DICTIONARY, { _LANGUAGES } from '../constants/Dictionary'
+import { checkValue } from './Generics'
 
 /**
  * Translation hook
@@ -9,8 +9,8 @@ import { checkValue } from './Generics';
  * @returns {string|*}
  */
 function useT(translation, params = []) {
-  const [{ language }] = useGlobals();
-  return translatorCore(translation, params, language);
+  const [{ language }] = useGlobals()
+  return translatorCore(translation, params, language)
 }
 
 /**
@@ -20,7 +20,7 @@ function useT(translation, params = []) {
  * @param language
  */
 export function t(translation, params = [], language) {
-  return translatorCore(translation, params, language);
+  return translatorCore(translation, params, language)
 }
 
 /**
@@ -31,31 +31,29 @@ export function t(translation, params = [], language) {
  * @returns {string|*}
  */
 function translatorCore(translation, params = [], language) {
-  let fs = translation;
+  let fs = translation
 
   try {
     if (!DICTIONARY[language]) {
-      console.error(`🧨 Missing language -> ${language}`);
-      return `@@ ${fs} @@`;
+      console.error(`🧨 Missing language -> ${language}`)
+      return `@@ ${fs} @@`
     }
 
     if (!DICTIONARY[language][translation]) {
-      console.error(
-        `🧨 Missing translation -> ${translation} ${params} for -> ${language}`
-      );
-      return `@@ ${fs} @@`;
+      console.error(`🧨 Missing translation -> ${translation} ${params} for -> ${language}`)
+      return `@@ ${fs} @@`
     }
 
-    fs = DICTIONARY[language][translation];
+    fs = DICTIONARY[language][translation]
 
     if (fs.includes('{param}')) {
-      fs = multiReplace(fs, params);
+      fs = multiReplace(fs, params)
     }
   } catch (error) {
-    fs = '@@ translation_error @@';
+    fs = '@@ translation_error @@'
   }
 
-  return fs;
+  return fs
 }
 
 /**
@@ -66,10 +64,10 @@ function translatorCore(translation, params = [], language) {
  */
 function multiReplace(fs, arr) {
   for (let element of arr) {
-    fs = fs.replace('{param}', element);
+    fs = fs.replace('{param}', element)
   }
 
-  return fs;
+  return fs
 }
 
 /**
@@ -77,14 +75,14 @@ function multiReplace(fs, arr) {
  * @returns {string|*}
  */
 export function getNavigatorLanguage() {
-  const flang = _LANGUAGES[0];
-  const nlang = navigator.language.substr(0, 2).toLocaleLowerCase();
+  const flang = _LANGUAGES[0]
+  const nlang = navigator.language.substr(0, 2).toLocaleLowerCase()
 
   if (!nlang || !checkValue(nlang, _LANGUAGES)) {
-    return flang;
+    return flang
   }
 
-  return nlang;
+  return nlang
 }
 
-export default useT;
+export default useT

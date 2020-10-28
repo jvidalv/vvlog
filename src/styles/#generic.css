@@ -1,57 +1,57 @@
 body {
-    min-height: 100vh;
-    overflow-x: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 body * {
-    transition: 0.75s;
+  transition: 0.75s;
 }
 
 img,
 svg {
-    height: auto;
-    display: inline-block;
-    max-width: 100%;
-    vertical-align: middle;
-    border: 0;
+  height: auto;
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+  border: 0;
 }
 
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 button:focus,
 textarea:focus,
 input:focus {
-    outline: none !important;
+  outline: none !important;
 }
 
 /** Custom CSS */
 .highlight {
-    background: #e0b0343b;
-    border: 1px solid;
-    border-radius: 5px;
+  background: #e0b0343b;
+  border: 1px solid;
+  border-radius: 5px;
 }
 
 .is-sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 20px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
 }
 
 /** Helpers  */
 .min-height-250 {
-    min-height: 250px;
+  min-height: 250px;
 }
 
 .min-height-300 {
-    min-height: 300px;
+  min-height: 300px;
 }
 
 .min-height-500 {
-    min-height: 500px;
+  min-height: 500px;
 }
 
 .cursor-pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
