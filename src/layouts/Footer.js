@@ -16,7 +16,9 @@ import { useGlobals } from '../contexts/Global'
  */
 const ButtonToTop = ({ className }) => {
   return (
-    <FloatingButton onClick={() => smoothMove(true)} className={className}>
+    <FloatingButton
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      className={className}>
       <span>↑</span>
     </FloatingButton>
   )

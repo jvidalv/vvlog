@@ -4,10 +4,10 @@ import useT from '../helpers/Translator'
 import { areSet } from '../helpers/Generics'
 import BASE_IMAGE from './Images'
 
-export const HelmetIndex = (props) => (
+export const HelmetIndex = () => (
   <Helmet>
     <meta charSet="utf-8" />
-    <link href={'f' + props.theme + '.jpg'} rel="shortcut icon" />
+    <link href={`fdark.jpg`} rel="shortcut icon" />
     <meta name="date" content={Date.now()} />
     <meta
       content="Programming blog made by Josep Vidal, focused mostly in Web Development"
@@ -21,7 +21,7 @@ export const HelmetIndex = (props) => (
   </Helmet>
 )
 
-export const HelmetHome = (props) => (
+export const HelmetHome = () => (
   <Helmet>
     <meta charSet="utf-8" />
     <title>{useT('vvlog_homepage')}</title>

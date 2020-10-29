@@ -12,6 +12,8 @@ import {
 import { useHistory, withRouter } from 'react-router-dom'
 import useT from '../helpers/Translator'
 import { HeaderLogo } from '../assets/svgs/Logo'
+import { useScrollToTop } from '../hooks/useScrollToTop'
+import useLanguageController from '../hooks/useLanguageController'
 
 /**
  * @param pathname
@@ -35,11 +37,11 @@ const isExplore = (pathname) => {
  */
 const useGetDotColor = (category) => {
   const [{ categories }] = useGlobals()
-  return categories[category] ? categories[category]['color_hex'] : '#ffffff'
+  return categories?.find(({ code }) => code === category)?.color_hex ?? '#ffffff'
 }
 
 /**
- * Returns the input bar that querys de page for blog entries
+ * Returns the input bar that queries de page for blog entries
  * @param {*} props
  */
 const Searcher = ({ className, setExpanded }) => {
@@ -139,7 +141,8 @@ export function Header({ location }) {
   const [{ theme, language }, dispatch] = useGlobals()
   const [expanded, setExpanded] = useState(false)
   const activeStyle = { opacity: '1', transform: 'scale(1.1)' }
-  const history = useHistory()
+  useScrollToTop()
+  useLanguageController()
 
   const changeTheme = () => {
     dispatch({
@@ -147,13 +150,8 @@ export function Header({ location }) {
       changeTheme: theme === 'dark' ? 'light' : 'dark',
     })
   }
-  const changeLanguage = (lang) => {
-    /*dispatch({
-            type: "changeLanguage",
-            changeLanguage: lang
-        });*/
-    return true
-  }
+
+  const changeLanguage = () => true
 
   return (
     <NavStyled expand="lg" expanded={expanded} className={!isHome(pathname) ? 'shadow' : null}>

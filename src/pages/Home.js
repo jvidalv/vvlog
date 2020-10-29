@@ -17,7 +17,6 @@ import useT from '../helpers/Translator'
  */
 const FeaturedSection = () => {
   const [{ articles, language }] = useGlobals()
-  console.log(articles)
   return (
     <>
       {limiter(multiFilter(articles, ['featured'], '1'), 4).map((snippet) => (

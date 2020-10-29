@@ -10,7 +10,7 @@ import {
 } from '../constants/Dummy'
 import { _THEMES } from '../constants/Themes'
 import { getNavigatorLanguage } from '../helpers/Translator'
-import { articlesAll } from '../helpers/data-transformations'
+import { articlesAll, categoriesAll, tagsAll } from '../helpers/data-transformations'
 
 /**
  * Globals default state
@@ -40,7 +40,7 @@ export const initialState = {
   /**
    * Categories
    */
-  categories: D_CATEGORIES,
+  categories: categoriesAll(),
   /**
    * All authors with articles
    */
@@ -48,7 +48,7 @@ export const initialState = {
   /**
    * Tags
    */
-  tags: [],
+  tags: tagsAll(),
   /**
    * Current active article
    */

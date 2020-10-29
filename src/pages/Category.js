@@ -49,7 +49,7 @@ function Category() {
   const [{ categories, language }] = useGlobals()
   const params = useParams()
   const { fArticles } = useCategory()
-
+  const category = categories?.find(({ code }) => code === params.category)
   return (
     <>
       <HelmetCategory
@@ -60,17 +60,9 @@ function Category() {
         <Row>
           <Col>
             <HeroSimple
-              image={areSet(categories, [params.category, 'image'], 'loading')}
-              title={areSet(
-                categories,
-                [params.category, language, 'name'],
-                <LoadingPlaceholder width="250px" height="35px" />,
-              )}
-              subtitle={areSet(
-                categories,
-                [params.category, language, 'description'],
-                <LoadingPlaceholder width="350px" height="35px" />,
-              )}
+              image={category.image}
+              title={category[language].name}
+              subtitle={category[language].description}
             />
           </Col>
         </Row>

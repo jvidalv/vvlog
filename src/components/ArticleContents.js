@@ -92,6 +92,7 @@ export function Claps() {
  */
 export function Tags() {
   const [{ tags, language, aArticle }] = useGlobals()
+  console.log(tags, aArticle)
   return (
     <TagContainer className="d-flex align-items-center flex-wrap">
       {tags.length && aArticle.id ? (

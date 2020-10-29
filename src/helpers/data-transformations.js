@@ -1,62 +1,33 @@
-// {
-//     "id": 17,
-//     "ca": {
-//     "id": 18,
-//         "title": "Fer la nostra aplicació multillenguatge utilitzant la potència dels hooks i React.createContext",
-//         "resume": "Com fer, amb molt poques línies de codi, el nostre traductor per tenir l'aplicació disponible en més d'un idioma sense necessitat de paquets de tercers.",
-//         "slug": "fer-la-nostra-aplicacio-multillenguatge-utilitzant-la-potencia-dels-hooks-i-reactcreatecontext",
-//         "category": "React",
-//         "date": "d'oct.28, 2020",
-//         "image": "uploads/2020/01/article/200200article-23.jpg"
-// },
-//     "es": {
-//     "id": 16,
-//         "title": "Hacer nuestra aplicación multilenguaje utilizando la potencia de los hooks y React.createContext",
-//         "resume": "Como hacer, con muy pocas líneas de código, nuestro propio traductor para tener nuestra aplicación disponible en más de un idioma sin necesidad de paquetes de terceros.",
-//         "slug": "hacer-nuestra-aplicacion-multilenguaje-utilizando-la-potencia-de-los-hooks-y-reactcreatecontext",
-//         "category": "React",
-//         "date": "oct28, 2020",
-//         "image": "uploads/2020/01/article/200200article-21.jpg"
-// },
-//     "en": {
-//     "id": 17,
-//         "title": "Make our application multilingual using the power of hooks and React.createContext",
-//         "resume": "How to make, with very few lines of code, our own translator to have our application available in more than one language without the need for third party packages.",
-//         "slug": "make-our-application-multilingual-using-the-power-of-hooks-and-reactcreatecontext",
-//         "category": "React",
-//         "date": "oct28, 2020",
-//         "image": "uploads/2020/01/article/200200article-22.jpg"
-// },
-//     "featured": 1,
-//     "date": "2020-01-16 19:30:00",
-//     "category": "react"
-// }
 import ArticleHasTranslations from '../data/ArticleHasTranslations'
 import Articles from '../data/Articles'
 import Categories from '../data/Categories'
+import ArticlesHasTags from '../data/ArticlesHasTags'
+import ArticleHasAnchors from '../data/ArticleHasAnchors'
+import ArticlesHasSources from '../data/ArticlesHasSources'
+import Tags from '../data/Tags'
 
 export const articlesAll = () => {
   const translations = ArticleHasTranslations
   return translations.map(
     ({ id, article_ca, article_es, article_en, category_id, date, featured }) => {
       const articles = Articles
-      const categories = Categories
+      const category = Categories.find(({ id }) => id === category_id)
       return {
         id,
         featured,
         date,
-        category: categories.find(({ id }) => id === category_id)?.code,
+        category: category?.code,
         ca: {
           ...articles.find(({ id, language_id }) => id === article_ca && language_id === 'ca'),
-          category: categories.find(({ id }) => id === category_id)?.name_ca,
+          category: category?.name_ca,
         },
         es: {
           ...articles.find(({ id, language_id }) => id === article_es && language_id === 'es'),
-          category: categories.find(({ id }) => id === category_id)?.name_es,
+          category: category?.name_es,
         },
         en: {
           ...articles.find(({ id, language_id }) => id === article_en && language_id === 'en'),
-          category: categories.find(({ id }) => id === category_id)?.name_en,
+          category: category?.name_en,
         },
       }
     },
@@ -64,102 +35,92 @@ export const articlesAll = () => {
 }
 
 export const articlesOne = (slugOfArticle) => {
-  const articles = Articles
-  const categories = Categories
+  const article = Articles.find(({ slug }) => slug === slugOfArticle)
+  const translation = ArticleHasTranslations.find(
+    (props) => props[`article_${article?.language_id}`] === article?.id,
+  )
+  const category = Categories.find(({ id }) => id === translation?.category_id)
+  const tags = ArticlesHasTags.filter(({ article_id }) => article_id === article?.id)
+  const anchors = ArticleHasAnchors.filter(({ article_id }) => article_id === article?.id)
+
   return {
-    ...articles.find(({ slug }) => slug === slugOfArticle),
+    ...article,
+    ...translation,
     state: 1,
     word_count: 1173,
     image: 'uploads/2020/01/article/200200article-23.jpg',
-    category_nice: 'React',
-    category_code: 'react',
-    time_to_read: 7,
+    category_nice: category?.[`name_${article.language_id}`],
+    category_code: category?.code,
     claps: 8,
-    date_nice: 'de gen. 16, 2020',
-    tags: [
-      {
-        id: 432,
-        article_id: 18,
-        tag_id: 12,
-      },
-      {
-        id: 431,
-        article_id: 18,
-        tag_id: 3,
-      },
-      {
-        id: 430,
-        article_id: 18,
-        tag_id: 2,
-      },
-      {
-        id: 429,
-        article_id: 18,
-        tag_id: 1,
-      },
-    ],
-    anchors: [
-      {
-        id: 296,
-        article_id: 18,
-        anchor_id: 'a0',
-        content: 'El diccionari',
-      },
-      {
-        id: 297,
-        article_id: 18,
-        anchor_id: 'a1',
-        content: 'És un núvol? És un avió? No! És el context!',
-      },
-      {
-        id: 298,
-        article_id: 18,
-        anchor_id: 'a2',
-        content: "Modificar i accedir a l'idioma",
-      },
-      {
-        id: 299,
-        article_id: 18,
-        anchor_id: 'a3',
-        content: 'El divertit, el hook que tradueix',
-      },
-      {
-        id: 300,
-        article_id: 18,
-        anchor_id: 'a4',
-        content: 'Utilizar el hook useT() en els nostres components',
-      },
-    ],
+    tags,
+    anchors,
     sources: {
-      language: [],
-      so: [],
-      library: [
-        {
-          name: 'React',
-          version: '16.12.0',
-          url: 'https://es.reactjs.org/',
-        },
-      ],
-      framework: [],
-      package: [],
-      source: [],
-      other: [],
+      language: ArticlesHasSources.filter(
+        ({ article_id, type }) => article_id === article?.id && type === 'language',
+      ),
+      so: ArticlesHasSources.filter(
+        ({ article_id, type }) => article_id === article?.id && type === 'so',
+      ),
+      library: ArticlesHasSources.filter(
+        ({ article_id, type }) => article_id === article?.id && type === 'library',
+      ),
+      framework: ArticlesHasSources.filter(
+        ({ article_id, type }) => article_id === article?.id && type === 'framework',
+      ),
+      package: ArticlesHasSources.filter(
+        ({ article_id, type }) => article_id === article?.id && type === 'package',
+      ),
+      source: ArticlesHasSources.filter(
+        ({ article_id, type }) => article_id === article?.id && type === 'source',
+      ),
+      other: ArticlesHasSources.filter(
+        ({ article_id, type }) => article_id === article?.id && type === 'other',
+      ),
     },
     translations: {
-      id: 5,
-      ca:
-        'fer-la-nostra-aplicacio-multillenguatge-utilitzant-la-potencia-dels-hooks-i-reactcreatecontext',
-      es:
-        'hacer-nuestra-aplicacion-multilenguaje-utilizando-la-potencia-de-los-hooks-y-reactcreatecontext',
-      en: 'make-our-application-multilingual-using-the-power-of-hooks-and-reactcreatecontext',
+      id: translation.id,
+      ca: Articles.find(({ id }) => id === translation?.article_ca)?.slug,
+      es: Articles.find(({ id }) => id === translation?.article_es)?.slug,
+      en: Articles.find(({ id }) => id === translation?.article_en)?.slug,
     },
   }
 }
 
-const articlesRelated = () => []
+export const articlesRelated = () => []
 
-const categoriesAll = () => []
+export const categoriesAll = () =>
+  Categories.map(
+    ({
+      id,
+      code,
+      name_ca,
+      name_es,
+      name_en,
+      description_ca,
+      description_es,
+      description_en,
+      color_hex,
+      image,
+    }) => ({
+      id,
+      code,
+      color_hex,
+      ca: {
+        name: name_ca,
+        description: description_ca,
+      },
+      es: {
+        name: name_es,
+        description: description_es,
+      },
+      en: {
+        name: name_en,
+        description: description_en,
+      },
+      image,
+    }),
+  )
 
-const authorsAll = () => []
+export const authorsAll = () => []
 
-const tagsAll = () => []
+export const tagsAll = () => Tags

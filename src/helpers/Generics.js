@@ -154,13 +154,7 @@ export function checkValue(value, values) {
  * Makes the scroll to anchors or to top smooth instead of automatic
  * @param toTop boolean
  */
-export function smoothMove(toTop = false) {
-  document.getElementsByTagName('html')[0].style.scrollBehavior = 'smooth'
-  if (toTop) {
-    setTimeout(() => window.scrollTo(0, 0), 50)
-  }
-  setTimeout(() => document.getElementsByTagName('html')[0].removeAttribute('style'), 150)
-}
+export function smoothMove(toTop = false) {}
 
 /**
  * Returns the url ready to be consumed by react-router

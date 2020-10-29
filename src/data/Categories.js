@@ -11,6 +11,7 @@ const Categories = [
     color_hex: '#00ffff',
     priority: 2,
     slug: 'react',
+    image: 'https://i.imgur.com/8XzdVWs.png',
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ const Categories = [
     color_hex: '#ffec00',
     priority: 1,
     slug: 'javascript',
+    image: 'https://i.imgur.com/EOphBq3.png',
   },
   {
     id: 3,
@@ -39,6 +41,7 @@ const Categories = [
     color_hex: '#8080ff',
     priority: 3,
     slug: 'php',
+    image: 'https://i.imgur.com/FRfFrCT.png',
   },
   {
     id: 5,
@@ -52,6 +55,7 @@ const Categories = [
     color_hex: '#0059ff',
     priority: 5,
     slug: 'css',
+    image: 'https://i.imgur.com/hcs7sB7.png',
   },
 ]
 

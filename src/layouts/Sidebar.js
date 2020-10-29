@@ -73,7 +73,6 @@ export const ArticleSidebar = () => {
   const Anchors = () => {
     return (
       <>
-        {' '}
         {aArticle.anchors.map((an, i) => (
           <A
             key={i}
@@ -81,17 +80,21 @@ export const ArticleSidebar = () => {
             bottomBar
             fontSize="1rem"
             href={`#${an.anchor_id}`}
-            onClick={() => smoothMove()}>
+            onClick={() =>
+              window.scrollTo({
+                top: document.getElementById(an.anchor_id).getBoundingClientRect().top,
+                behavior: 'smooth',
+              })
+            }>
             {`${i + 1}. ${an.content}`}
           </A>
-        ))}{' '}
+        ))}
       </>
     )
   }
   const Sources = () => {
     return (
       <>
-        {' '}
         {Object.keys(aArticle.sources).map((source, i) =>
           aArticle.sources[source].length ? (
             <SourceDiv key={i} className="text-left">
@@ -102,7 +105,6 @@ export const ArticleSidebar = () => {
                   className="d-block"
                   fontSize="1rem"
                   href={data.url ?? '#'}
-                  onClick={() => smoothMove()}
                   target="_blank"
                   rel="noopener">
                   <span>{data.name}</span>
@@ -111,7 +113,7 @@ export const ArticleSidebar = () => {
               ))}
             </SourceDiv>
           ) : null,
-        )}{' '}
+        )}
       </>
     )
   }
