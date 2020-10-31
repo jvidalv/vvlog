@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 
 const isBrowser = typeof window !== `undefined`
 
@@ -26,23 +26,23 @@ function getScrollPosition({ element, useWindow }) {
  * @param useWindow
  * @param wait
  */
-export function useScrollPosition(effect, deps, element, useWindow, wait) {
+export function useScrollPosition(effect, deps = [], element, useWindow, wait) {
   const position = useRef(getScrollPosition({ useWindow }))
 
-  let throttleTimeout = null
+  const throttleTimeout = React.useRef()
 
   const callBack = () => {
     const currPos = getScrollPosition({ element, useWindow })
     effect({ prevPos: position.current, currPos })
     position.current = currPos
-    throttleTimeout = null
+    throttleTimeout.current = null
   }
 
   useLayoutEffect(() => {
     const handleScroll = () => {
       if (wait) {
-        if (throttleTimeout === null) {
-          throttleTimeout = setTimeout(callBack, wait)
+        if (throttleTimeout.current === null) {
+          throttleTimeout.current = setTimeout(callBack, wait)
         }
       } else {
         callBack()

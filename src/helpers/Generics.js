@@ -115,9 +115,10 @@ export function areSet(object, properties, fallback = null) {
  */
 export function multiFilter(array, properties, filter = '', nest = false) {
   return array.filter((obj) => {
-    let fobj = nest ? obj[nest] : obj
+    const copyOfObject = nest ? obj[nest] : obj
     for (let prop of properties) {
-      if (fobj[prop].toString().toLowerCase().search(filter.toLowerCase()) !== -1) return true
+      if (copyOfObject[prop].toString().toLowerCase().search(filter.toLowerCase()) !== -1)
+        return true
     }
 
     return false

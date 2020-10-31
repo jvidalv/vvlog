@@ -1,16 +1,8 @@
-import React from 'react'
-import { limiter, loadFromCache, reindexer } from '../helpers/Generics'
-import {
-  D_AARTICLE,
-  D_ARTICLES,
-  D_AUTHORS,
-  D_CATEGORIES,
-  D_ERROR,
-  D_TOAST,
-} from '../constants/Dummy'
+import { limiter, loadFromCache } from '../helpers/Generics'
+import { D_AARTICLE, D_ARTICLES, D_ERROR, D_TOAST } from '../constants/Dummy'
 import { _THEMES } from '../constants/Themes'
 import { getNavigatorLanguage } from '../helpers/Translator'
-import { articlesAll, categoriesAll, tagsAll } from '../helpers/data-transformations'
+import { articlesAll, authorsAll, categoriesAll, tagsAll } from '../helpers/data-transformations'
 
 /**
  * Globals default state
@@ -44,7 +36,7 @@ export const initialState = {
   /**
    * All authors with articles
    */
-  authors: D_AUTHORS,
+  authors: authorsAll(),
   /**
    * Tags
    */
@@ -84,26 +76,6 @@ export const reducer = (state, action) => {
       return {
         ...state,
         error: action.setError,
-      }
-    case 'setArticles':
-      return {
-        ...state,
-        articles: action.setArticles,
-      }
-    case 'setCategories':
-      return {
-        ...state,
-        categories: reindexer(action.setCategories, 'code'),
-      }
-    case 'setAuthors':
-      return {
-        ...state,
-        authors: reindexer(action.setAuthors, 'id'),
-      }
-    case 'setTags':
-      return {
-        ...state,
-        tags: action.setTags,
       }
     case 'setActiveArticle':
       let language = state.language

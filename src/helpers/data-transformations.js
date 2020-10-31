@@ -5,11 +5,12 @@ import ArticlesHasTags from '../data/ArticlesHasTags'
 import ArticleHasAnchors from '../data/ArticleHasAnchors'
 import ArticlesHasSources from '../data/ArticlesHasSources'
 import Tags from '../data/Tags'
+import Authors from '../data/Authors'
 
 export const articlesAll = () => {
   const translations = ArticleHasTranslations
   return translations.map(
-    ({ id, article_ca, article_es, article_en, category_id, date, featured }) => {
+    ({ id, article_ca, article_es, article_en, category_id, date, featured, image, date_nice }) => {
       const articles = Articles
       const category = Categories.find(({ id }) => id === category_id)
       return {
@@ -20,14 +21,20 @@ export const articlesAll = () => {
         ca: {
           ...articles.find(({ id, language_id }) => id === article_ca && language_id === 'ca'),
           category: category?.name_ca,
+          image,
+          date_nice,
         },
         es: {
           ...articles.find(({ id, language_id }) => id === article_es && language_id === 'es'),
           category: category?.name_es,
+          image,
+          date_nice,
         },
         en: {
           ...articles.find(({ id, language_id }) => id === article_en && language_id === 'en'),
           category: category?.name_en,
+          image,
+          date_nice,
         },
       }
     },
@@ -36,6 +43,10 @@ export const articlesAll = () => {
 
 export const articlesOne = (slugOfArticle) => {
   const article = Articles.find(({ slug }) => slug === slugOfArticle)
+  if (!article) {
+    return null
+  }
+
   const translation = ArticleHasTranslations.find(
     (props) => props[`article_${article?.language_id}`] === article?.id,
   )
@@ -121,6 +132,6 @@ export const categoriesAll = () =>
     }),
   )
 
-export const authorsAll = () => []
+export const authorsAll = () => Authors
 
 export const tagsAll = () => Tags

@@ -59,8 +59,7 @@ export const P = styled.p`
   font-weight: 300;
   ${(props) => fontsDefaults(props)}
   ${(props) => (props.borderLeft ? borderLeft(props) : null)}
-  ${(props) =>
-    'big' in props ? 'font-size:1.3rem' : ''}
+  ${(props) => ('big' in props ? 'font-size:1.3rem' : '')}
   &.on-background {
     color: ${({ theme }) => theme.onBackground};
   }
@@ -73,8 +72,7 @@ export const SPAN = styled.span`
   font-weight: 300;
   ${(props) => fontsDefaults(props)}
   ${(props) => (props.borderLeft ? borderLeft(props) : null)}
-  ${(props) =>
-    'big' in props ? 'font-size:1.3rem' : ''}
+  ${(props) => ('big' in props ? 'font-size:1.3rem' : '')}
   &.on-background {
     color: ${({ theme }) => theme.onBackground};
   }

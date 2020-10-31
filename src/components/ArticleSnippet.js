@@ -13,7 +13,6 @@ import { useGlobals } from '../contexts/Global'
 export function ArticleSnippetWithImage(props) {
   const [{ language }] = useGlobals()
   const { id, fake, title, slug, category, resume, image, categorySlug } = props
-  console.log(props)
   return (
     <SnippetContainer
       className={'d-flex mb-3 ' + (props.className ?? '') + (fake ? ' empty' : '')}
@@ -50,7 +49,7 @@ export function ArticleSnippet(props) {
   useEffect(() => {
     const element = snippetRef.current.getElementsByTagName('h3')[0]
     let content = element.textContent
-    if (props.q && props.q.length > 1) {
+    if (props?.q?.length > 1) {
       let position = content.toLowerCase().search(props.q.toLowerCase())
       if (position !== -1) {
         element.innerHTML = [

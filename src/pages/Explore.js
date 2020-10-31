@@ -17,8 +17,8 @@ function Explore() {
   const [{ language }] = useGlobals()
   const location = useLocation()
   const { state } = location
-  const [q, setQ] = useState(state ? state.q : '')
-  const [fArticles] = useFilterArticles(['title', 'category'], q, language)
+  const [q, setQ] = useState(state?.q ?? '')
+  const fArticles = useFilterArticles(['title', 'category'], q, language)
   return (
     <>
       <HelmetExplore />

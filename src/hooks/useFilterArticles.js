@@ -1,5 +1,4 @@
 import { useGlobals } from '../contexts/Global'
-import { useEffect, useState } from 'react'
 import { multiFilter } from '../helpers/Generics'
 
 /**
@@ -11,13 +10,5 @@ import { multiFilter } from '../helpers/Generics'
  */
 export const useFilterArticles = (properties, q = false, nested = false) => {
   const [{ articles }] = useGlobals()
-  const [fArticles, setFArticles] = useState(articles)
-
-  useEffect(() => {
-    setFArticles(
-      articles && !articles[0].fake ? multiFilter(articles, properties, q, nested) : articles,
-    )
-  }, [articles, q])
-
-  return [fArticles, setFArticles]
+  return multiFilter(articles, properties, q, nested)
 }

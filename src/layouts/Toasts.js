@@ -12,7 +12,7 @@ function Toasts() {
   const [{ toasts }] = useGlobals()
 
   const removeToast = (id) => {
-    console.log(id)
+    //console.log(id)
   }
 
   return (

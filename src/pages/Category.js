@@ -6,7 +6,6 @@ import { HeroSimple } from '../components/HeroSection'
 import { useGlobals } from '../contexts/Global'
 import { useHistory, useParams } from 'react-router'
 import { areSet } from '../helpers/Generics'
-import { LoadingPlaceholder } from '../styles/GenericStyles'
 import { useFilterArticles } from '../hooks/useFilterArticles'
 import { HelmetCategory } from '../constants/Helmets'
 
@@ -14,28 +13,24 @@ import { HelmetCategory } from '../constants/Helmets'
  * @returns {{fArticles: *}}
  */
 const useCategory = () => {
-  const [{}, dispatch] = useGlobals()
+  const dispatch = useGlobals()[1]
   const history = useHistory()
   const params = useParams()
-  const [fArticles] = useFilterArticles(['category'], params.category)
-
-  const setError = (error) => {
-    dispatch({
-      type: 'setError',
-      setError: error,
-    })
-  }
+  const fArticles = useFilterArticles(['category'], params.category)
 
   React.useEffect(() => {
     if (fArticles && !fArticles.length) {
-      setError({
-        code: 404,
-        message: 'category_does_not_exist',
-        description: 'category_does_not_exist_or_it_is_no_longer_public',
+      dispatch({
+        type: 'setError',
+        setError: {
+          code: 404,
+          message: 'category_does_not_exist',
+          description: 'category_does_not_exist_or_it_is_no_longer_public',
+        },
       })
       history.push('/error')
     }
-  }, [fArticles])
+  }, [fArticles, history, dispatch])
 
   return { fArticles }
 }

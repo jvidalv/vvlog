@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "license": "MIT",
   "private": false,
-  "homepage": "https://vvlog.dev",
+  "homepage": "https://jvidalv.github.io/vvlog/",
   "dependencies": {
     "@svgr/cli": "^4.3.3",
     "@types/react": "^16.9.13",

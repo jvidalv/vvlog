@@ -1,6 +1,6 @@
+import React from 'react'
 import { useGlobals } from '../contexts/Global'
 import { useHistory } from 'react-router-dom'
-import React from 'react'
 
 /**
  * Takes care of all language related problems and to give the right path and params to both routing object and user
@@ -13,32 +13,32 @@ export const useLanguageController = () => {
    * Checks if url contains any of the blog languages
    * @returns {boolean}
    */
-  const languageIsSet = () => {
+  const languageIsSet = React.useCallback(() => {
     const strLang = history.location.pathname.substr(0, 3)
     return strLang.includes('ca') || strLang.includes('es') || strLang.includes('en')
-  }
+  }, [history.location.pathname])
 
   /**
    * Checks if the current language in url is the same that is set in the session
    * @returns {boolean}
    */
-  const currentUrlLanguageIsSet = () => {
+  const currentUrlLanguageIsSet = React.useCallback(() => {
     const strLang = history.location.pathname.substr(0, 3)
     return strLang.includes(language)
-  }
+  }, [history.location.pathname, language])
 
-  const getLanguageSetInUrl = () => {
+  const getLanguageSetInUrl = React.useCallback(() => {
     return history.location.pathname.split('/')[1]
-  }
+  }, [history.location.pathname])
 
   /**
    * @returns {string}
    */
-  const getPathWithLanguageReplaced = () => {
+  const getPathWithLanguageReplaced = React.useCallback(() => {
     const pathArray = history.location.pathname.split('/')
     pathArray[1] = language
     return pathArray.join('/')
-  }
+  }, [history.location.pathname, language])
 
   /**
    * If language is not set we force it to be
@@ -48,7 +48,7 @@ export const useLanguageController = () => {
       history.push({
         pathname: getPathWithLanguageReplaced(),
       })
-  }, [history.location.pathname])
+  }, [history.location.pathname, languageIsSet, getPathWithLanguageReplaced, history])
 
   /**
    * On language change we push to history
@@ -60,7 +60,7 @@ export const useLanguageController = () => {
         changeLanguage: getLanguageSetInUrl(),
       })
     }
-  }, [history.location.pathname])
+  }, [history.location.pathname, getLanguageSetInUrl, dispatch, currentUrlLanguageIsSet])
 }
 
 export default useLanguageController

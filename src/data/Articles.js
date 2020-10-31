@@ -4,7 +4,7 @@ const Articles = [
     language_id: 'es',
     user_id: 1,
     category_id: 1,
-    date: '2020-01-02 17:26:00',
+    date: '2020-01-02',
     title:
       'El menú movil de Bootstrap no se cierra cuando se combina con React Router, solución con solo Hooks',
     resume:
@@ -23,7 +23,7 @@ const Articles = [
     language_id: 'ca',
     user_id: 1,
     category_id: 1,
-    date: '2020-01-02 17:26:00',
+    date: '2020-01-02',
     title:
       'El menú movil de bootstrap no es tanca quan es combina amb React Router, soluciona-ho amb només hooks',
     resume:
@@ -42,7 +42,7 @@ const Articles = [
     language_id: 'ca',
     user_id: 1,
     category_id: 3,
-    date: '2020-01-04 19:21:00',
+    date: '2020-01-04',
     title:
       "Fer funcionar setlocale i strftime en l'idioma desitjat en un servidor nou Ubuntu / CentOS",
     resume:
@@ -60,7 +60,7 @@ const Articles = [
     language_id: 'en',
     user_id: 1,
     category_id: 1,
-    date: '2020-01-02 17:26:00',
+    date: '2020-01-02',
     title:
       "Bootstrap's mobile menu does not close when combined with React Router, simple fix with just Hooks",
     resume:
@@ -79,7 +79,7 @@ const Articles = [
     language_id: 'es',
     user_id: 1,
     category_id: 5,
-    date: '2020-01-03 23:14:00',
+    date: '2020-01-03',
     title: 'Tener el menú de herramientas de TinyMCE fijo con solo CSS y sin JavaScript',
     resume:
       'Cuando el contenido dentro del plugin de texto enriquecido empieza a crecer, se vuelve engorroso hacer scroll para arriba cada vez que queremos insertar algún elemento especial.',
@@ -96,7 +96,7 @@ const Articles = [
     language_id: 'ca',
     user_id: 1,
     category_id: 5,
-    date: '2020-01-03 23:14:00',
+    date: '2020-01-03',
     title: "Tenir el menú d'eines de TinyMCE fix amb sol CSS i sense JavaScript",
     resume:
       'Quan el contingut dins del plugin de text enriquit comença a créixer, es torna molest fer scroll cap amunt cada vegada que volem inserir algun element especial.',
@@ -113,7 +113,7 @@ const Articles = [
     language_id: 'en',
     user_id: 1,
     category_id: 5,
-    date: '2020-01-03 23:14:00',
+    date: '2020-01-03',
     title: 'Have the TinyMCE toolbar fixed with only CSS and without JavaScript',
     resume:
       'When the content inside the rich text plugin starts to grow, it becomes cumbersome to scroll up every time we want to insert some special element.',
@@ -130,7 +130,7 @@ const Articles = [
     language_id: 'es',
     user_id: 1,
     category_id: 3,
-    date: '2020-01-04 19:21:00',
+    date: '2020-01-04',
     title:
       'Hacer funcionar setlocale y strftime en el idioma deseado en un servidor nuevo corriendo Ubuntu/CentOS',
     resume:
@@ -149,7 +149,7 @@ const Articles = [
     language_id: 'es',
     user_id: 1,
     category_id: 2,
-    date: '2020-01-09 19:25:00',
+    date: '2020-01-09',
     title: 'Cómo publicar un paquete propio en npm',
     resume:
       'Si tienes curiosidad o necesidad por saber cómo publicar un paquete en el gestor de librerías de JavaScript, aquí una guía.',
@@ -166,7 +166,7 @@ const Articles = [
     language_id: 'en',
     user_id: 1,
     category_id: 3,
-    date: '2020-01-04 19:21:00',
+    date: '2020-01-04',
     title:
       'Run setlocale and strftime in the desired language on a new server running Ubuntu/CentOS',
     resume:
@@ -184,7 +184,7 @@ const Articles = [
     language_id: 'en',
     user_id: 1,
     category_id: 2,
-    date: '2020-01-09 19:25:00',
+    date: '2020-01-09',
     title: 'How to publish your own package in npm',
     resume:
       'If you are curious or need to know how to publish a package in the JavaScript library manager, here is a guide.',
@@ -201,7 +201,7 @@ const Articles = [
     language_id: 'ca',
     user_id: 1,
     category_id: 2,
-    date: '2020-01-09 19:25:00',
+    date: '2020-01-09',
     title: 'Com publicar un paquet propi a npm',
     resume:
       'Si tens curiositat o necessitat per saber com publicar un paquet en el gestor de llibreries de JavaScript, aquí una guia.',
@@ -218,7 +218,7 @@ const Articles = [
     language_id: 'en',
     user_id: 1,
     category_id: 1,
-    date: '2020-01-16 19:30:00',
+    date: '2020-01-16',
     title: 'Make our application multilingual using the power of hooks and React.createContext',
     resume:
       'How to make, with very few lines of code, our own translator to have our application available in more than one language without the need for third party packages.',
@@ -235,7 +235,7 @@ const Articles = [
     language_id: 'es',
     user_id: 1,
     category_id: 1,
-    date: '2020-01-16 19:30:00',
+    date: '2020-01-16',
     title:
       'Hacer nuestra aplicación multilenguaje utilizando la potencia de los hooks y React.createContext',
     resume:
@@ -254,7 +254,7 @@ const Articles = [
     language_id: 'ca',
     user_id: 1,
     category_id: 1,
-    date: '2020-01-16 19:30:00',
+    date: '2020-01-16',
     title:
       'Fer la nostra aplicació multillenguatge utilitzant la potència dels hooks i React.createContext',
     resume:
@@ -273,7 +273,7 @@ const Articles = [
     language_id: 'es',
     user_id: 1,
     category_id: 1,
-    date: '2020-01-14 21:45:00',
+    date: '2020-01-14',
     title: 'Utilizar Prismjs para dar estilos a los snippets de código en una aplicación con React',
     resume:
       'Transforma fácilmente trozos de código en HTML plano a estilizados divs llenos de color como si de tu IDE favorito se tratara.',
@@ -290,7 +290,7 @@ const Articles = [
     language_id: 'en',
     user_id: 1,
     category_id: 1,
-    date: '2020-01-14 21:45:00',
+    date: '2020-01-14',
     title: 'Using Prismjs to stylize our code snippets in a React app',
     resume:
       'Easily transform plain HTML code into stylish, colorful divs like it is your favorite IDE.',
@@ -307,7 +307,7 @@ const Articles = [
     language_id: 'ca',
     user_id: 1,
     category_id: 1,
-    date: '2020-01-14 21:45:00',
+    date: '2020-01-14',
     title: 'Utilitzar Prism per donar estils als snippets de codi en una aplicació amb React',
     resume:
       'Transforma fàcilment trossos de codi en HTML pla a estilitzats divs plens de color com si del teu IDE favorit es tractés.',

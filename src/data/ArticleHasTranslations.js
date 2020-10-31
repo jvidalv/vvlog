@@ -12,6 +12,8 @@ const ArticleHasTranslations = [
     claps: 3,
     updated_at: 1582805738,
     created_at: 1577986015,
+    image: 'https://i.imgur.com/9oxaDBN.jpg',
+    date_nice: '',
   },
   {
     id: 2,
@@ -26,6 +28,8 @@ const ArticleHasTranslations = [
     claps: 5,
     updated_at: 1583437615,
     created_at: 1578093299,
+    image: 'https://i.imgur.com/dQob3S9.jpg',
+    date_nice: '',
   },
   {
     id: 3,
@@ -40,6 +44,8 @@ const ArticleHasTranslations = [
     claps: 2,
     updated_at: 1578688122,
     created_at: 1578165673,
+    image: 'https://i.imgur.com/l1Pz14Q.jpg',
+    date_nice: '',
   },
   {
     id: 4,
@@ -54,6 +60,8 @@ const ArticleHasTranslations = [
     claps: 2,
     updated_at: 1582805730,
     created_at: 1578597912,
+    image: 'https://i.imgur.com/W8ccVsz.jpg',
+    date_nice: '',
   },
   {
     id: 5,
@@ -68,6 +76,8 @@ const ArticleHasTranslations = [
     claps: 8,
     updated_at: 1588406458,
     created_at: 1579428310,
+    image: 'https://i.imgur.com/qqf2u64.jpg',
+    date_nice: '',
   },
   {
     id: 6,
@@ -82,6 +92,8 @@ const ArticleHasTranslations = [
     claps: 5,
     updated_at: 1583437655,
     created_at: 1579634490,
+    image: 'https://i.imgur.com/BR785mM.jpg',
+    date_nice: '',
   },
 ]
 

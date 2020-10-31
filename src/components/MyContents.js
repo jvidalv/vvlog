@@ -14,11 +14,8 @@ import {
 import { IconA, ShareA, SharerStyled, SubscribeContainer } from './MyContentsStyle'
 import { ButtonStyled, H3, InputStyled, Label } from '../styles/GenericStyles'
 import useT from '../helpers/Translator'
-import { useGlobals } from '../contexts/Global'
 import { isEmail } from '../helpers/Validations'
-import vfetch from '../helpers/Vfetch'
 import vStorage from '../helpers/VStorage'
-import api_calls from '../constants/Api'
 import STORAGE_KEYS from '../constants/Storers'
 
 /**
@@ -142,7 +139,6 @@ export function Sharer(props) {
  * @constructor
  */
 export function Subscribe(props) {
-  const [{ language }] = useGlobals()
   // 0 => yet has to subscribe, 1 => email is invalid, 3 => ok
   const [subscribed, setSubscribed] = React.useState(0)
   const emailInput = React.useRef()
@@ -153,13 +149,8 @@ export function Subscribe(props) {
     const user_email = emailInput.current.value
     if (isEmail(user_email)) {
       setSubscribed(3)
-      const data = {
-        email: user_email,
-        language_id: language,
-      }
-      vfetch(api_calls.data.newsletter_subscriber, { ...data }).then(() =>
-        vStorage.setItem(STORAGE_KEYS.NEWSLETTER_SUBSCRIBED, user_email),
-      )
+      console.log('This is no longer working, but thanks!')
+      vStorage.setItem(STORAGE_KEYS.NEWSLETTER_SUBSCRIBED, user_email)
     } else {
       setSubscribed(1)
     }
@@ -196,7 +187,11 @@ export function Subscribe(props) {
       <div
         className={'position-absolute w-100 ' + (subscribed !== 3 ? 'd-none' : 'growBig')}
         style={{ top: '40%' }}>
-        <div>👍</div>
+        <div>
+          <span role="img" aria-label="Thanks">
+            👍
+          </span>
+        </div>
         <Label themecolor="primary">{useT('thanks_for_subscribing')}!!</Label>
       </div>
     </SubscribeContainer>

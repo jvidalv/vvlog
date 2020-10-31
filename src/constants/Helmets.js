@@ -4,10 +4,13 @@ import useT from '../helpers/Translator'
 import { areSet } from '../helpers/Generics'
 import BASE_IMAGE from './Images'
 
+/**
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const HelmetIndex = () => (
   <Helmet>
     <meta charSet="utf-8" />
-    <link href={`fdark.jpg`} rel="shortcut icon" />
     <meta name="date" content={Date.now()} />
     <meta
       content="Programming blog made by Josep Vidal, focused mostly in Web Development"
@@ -21,6 +24,10 @@ export const HelmetIndex = () => (
   </Helmet>
 )
 
+/**
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const HelmetHome = () => (
   <Helmet>
     <meta charSet="utf-8" />
@@ -58,37 +65,66 @@ export const HelmetHome = () => (
   </Helmet>
 )
 
-export const HelmetExplore = (props) => (
+/**
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
+export const HelmetExplore = () => (
   <Helmet>
     <title>{useT('vvlog_explore')}</title>
   </Helmet>
 )
 
-export const HelmetError = (props) => (
+/**
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
+export const HelmetError = () => (
   <Helmet>
     <meta charSet="utf-8" />
     <title>{useT('vvlog_error')}</title>
   </Helmet>
 )
 
-export const HelmetContact = (props) => (
+/**
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
+export const HelmetContact = () => (
   <Helmet>
     <title>{useT('vvlog_contact')}</title>
   </Helmet>
 )
 
+/**
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const HelmetCategory = (props) => (
   <Helmet>
     <title>{props.params.category.toUpperCase()}</title>
   </Helmet>
 )
 
+/**
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const HelmetAbout = () => (
   <Helmet>
     <title>{useT('vvlog_about', ['🤠'])}</title>
   </Helmet>
 )
 
+/**
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const HelmetArticle = (props) => (
   <Helmet>
     <title>{areSet(props.aArticle, ['title'])}</title>
@@ -97,8 +133,8 @@ export const HelmetArticle = (props) => (
     <meta property="article:modified_time" content={Date(Date.now()).toLocaleString()} />
     <meta property="article:category" content={props.aArticle.category_nice} />
     {props.aArticle && props.aArticle.tags
-      ? props.aArticle.tags.map((tag) => (
-          <meta property="article:tag" content={tag[props.language]} />
+      ? props.aArticle.tags.map((tag, i) => (
+          <meta key={i} property="article:tag" content={tag[props.language]} />
         ))
       : null}
     <meta data-ue-u="twitter:title" name="twitter:title" content={props.aArticle.title} />

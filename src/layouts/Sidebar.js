@@ -2,7 +2,6 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { A, H4, Label, LoadingPlaceholder } from '../styles/GenericStyles'
 import { useGlobals } from '../contexts/Global'
-import { smoothMove } from '../helpers/Generics'
 import { SidebarElement, SourceDiv } from './SidebarStyle'
 import useT, { t } from '../helpers/Translator'
 

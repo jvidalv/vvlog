@@ -1,5 +1,3 @@
-import React from 'react'
-
 /**
  * Accepted languages
  * @type {Array}

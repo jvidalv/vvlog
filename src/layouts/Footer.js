@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Container } from 'react-bootstrap'
 import { useScrollPosition } from '../hooks/useScrollPosition'
 import { FloatingButton } from './FooterStyle.js'
-import { smoothMove } from '../helpers/Generics'
 import { Cookies } from '../components/Others'
 import { FooterStyled } from './FooterStyle'
 import { A, P } from '../styles/GenericStyles'
@@ -19,7 +18,9 @@ const ButtonToTop = ({ className }) => {
     <FloatingButton
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       className={className}>
-      <span>↑</span>
+      <span role="img" aria-label="Go back to top">
+        ↑
+      </span>
     </FloatingButton>
   )
 }
@@ -54,7 +55,9 @@ function Footer() {
       <FooterStyled className="mt-3 pt-5">
         <Container className="d-md-flex mt-5 py-5">
           <div className="left-side w-50 d-flex flex-column align-items-center justify-content-md-center">
-            <span className="hand mb-1">👋</span>
+            <span className="hand mb-1" role="img" aria-label="Cheers">
+              👋
+            </span>
             <P fontSize="1rem">
               {useT('vvlog_is_created_written_and_maintained_by')} <br />
               <A href="https://josepvidal.dev/">Josep Vidal </A>{' '}

@@ -14,15 +14,12 @@ import { AuthorWithImage, AuthorWithImageExtended } from '../components/AuthorSe
 import { ArticleContent, Claps, ReadingTopBar, Tags } from '../components/ArticleContents'
 import { ArticleSidebar } from '../layouts/Sidebar'
 import { ArticleSnippet } from '../components/ArticleSnippet'
-import { useHistory, useParams } from 'react-router'
+import { useParams, useHistory } from 'react-router'
 import { areSet } from '../helpers/Generics'
 import { useGlobals } from '../contexts/Global'
-import { useFetcher } from '../hooks/useFetcher'
-import api_calls from '../constants/Api'
 import useT from '../helpers/Translator'
-import { D_AARTICLE } from '../constants/Dummy'
 import { HelmetArticle } from '../constants/Helmets'
-import { articlesOne } from '../helpers/data-transformations'
+import { articlesAll, articlesOne } from '../helpers/data-transformations'
 
 /**
  * Sets active article
@@ -31,6 +28,7 @@ import { articlesOne } from '../helpers/data-transformations'
 const useAArticle = () => {
   const [{ language }, dispatch] = useGlobals()
   const { slug } = useParams()
+  const history = useHistory()
 
   const setAArticle = (aArticle) => {
     dispatch({
@@ -46,12 +44,26 @@ const useAArticle = () => {
     })
   }
 
-  useEffect(() => {
-    setAArticle(articlesOne(slug))
-  }, [])
+  const setError = (error) => {
+    dispatch({
+      type: 'setError',
+      setError: error,
+    })
+  }
 
   useEffect(() => {
-    //setRelatedArticles(dataRelated)
+    const article = articlesOne(slug)
+    if (article) {
+      setAArticle(article)
+      setRelatedArticles(articlesAll())
+    } else {
+      setError({
+        code: 404,
+        message: 'article_does_not_exist',
+        description: 'article_does_not_exist_or_it_is_no_longer_public',
+      })
+      history.replace(`/${language}/error`)
+    }
   }, [])
 }
 
@@ -131,18 +143,21 @@ function Article() {
               <H3> {useT('more_of_vvlog', ['👀'])} </H3>
             </Col>
           </Row>
-          {/*<Row className="my-5">*/}
-          {/*  {relatedArticles.map((snippet) => (*/}
-          {/*    <Col key={snippet.id} className="d-flex px-1" sm={6} md={6}>*/}
-          {/*      <ArticleSnippet*/}
-          {/*        className="justify-content-center mb-2"*/}
-          {/*        {...snippet[language]}*/}
-          {/*        categorySlug={snippet.category}*/}
-          {/*        fake={snippet.fake}*/}
-          {/*      />*/}
-          {/*    </Col>*/}
-          {/*  ))}*/}
-          {/*</Row>*/}
+          <Row className="my-5">
+            {relatedArticles
+              .filter((article, i) => i < 4)
+              .sort(() => 0.5 - Math.random())
+              .map((snippet) => (
+                <Col key={snippet.id} className="d-flex px-1" sm={6} md={6}>
+                  <ArticleSnippet
+                    className="justify-content-center mb-2"
+                    {...snippet[language]}
+                    categorySlug={snippet.category}
+                    fake={snippet.fake}
+                  />
+                </Col>
+              ))}
+          </Row>
         </DiagonalContainer>
         <TexturedContainer
           fluid

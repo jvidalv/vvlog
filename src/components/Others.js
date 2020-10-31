@@ -4,8 +4,6 @@ import useT from '../helpers/Translator'
 import { CategoryCircle, CookiesDiv } from './OthersStyle'
 import Col from 'react-bootstrap/Col'
 import STORAGE_KEYS from '../constants/Storers'
-import api_calls from '../constants/Api'
-import vfetch from '../helpers/Vfetch'
 import vStorage from '../helpers/VStorage'
 import { useGlobals } from '../contexts/Global'
 import { Link } from 'react-router-dom'
@@ -37,14 +35,10 @@ export function EmptyList(props) {
 export function Cookies() {
   const [show, setShow] = React.useState(false)
   const cookiesRef = React.createRef()
-  /**
-   * Hide component, store data in DB and remove it from dom
-   */
+
   const accept = () => {
     cookiesRef.current.classList.add('hideToBottom')
-    vfetch(api_calls.data.user_cookies).then(() =>
-      vStorage.setItem(STORAGE_KEYS.BASIC_COOKIES, '1'),
-    )
+    vStorage.setItem(STORAGE_KEYS.BASIC_COOKIES, '1')
     setTimeout(() => setShow(false), 1000)
   }
 
@@ -70,7 +64,7 @@ export function Cookies() {
           .
         </P>
         <ButtonStyled
-          onClick={() => accept()}
+          onClick={accept}
           themebackground="secondary"
           themecolor="onSecondary"
           className="w-100 mb-3">

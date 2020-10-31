@@ -13,8 +13,6 @@ import { Link } from 'react-router-dom'
 import { LoadingPlaceholder, SPAN } from '../styles/GenericStyles'
 import { useGlobals } from '../contexts/Global'
 import useT, { t } from '../helpers/Translator'
-import vfetch from '../helpers/Vfetch'
-import api_calls from '../constants/Api'
 import vStorage from '../helpers/VStorage'
 import STORAGE_KEYS from '../constants/Storers'
 
@@ -51,15 +49,13 @@ export function Claps() {
   const [didClap, setDidClap] = React.useState(didTheyAlreadyClap)
 
   const clapped = () => {
-    const clapSpan = clapRef.current
-    const data = {
-      slug: aArticle.slug,
+    if (didClap) {
+      return null
     }
-    vfetch(api_calls.articles.clap, { ...data }).then(() =>
-      vStorage.setItem(STORAGE_KEYS.ARTICLE_CLAPPED + aArticle.translations.id, true),
-    )
-    clapSpan.innerHTML = parseInt(clapSpan.innerHTML) + 1
 
+    const clapSpan = clapRef.current
+    vStorage.setItem(STORAGE_KEYS.ARTICLE_CLAPPED + aArticle.translations.id, true)
+    clapSpan.innerHTML = parseInt(clapSpan.innerHTML) + 1
     setDidClap(true)
   }
 
@@ -76,10 +72,7 @@ export function Claps() {
           </SPAN>
         ) : null}
       </SPAN>
-      <ClapSpan
-        clapped={didClap}
-        onClick={didClap ? null : clapped}
-        alt={useT('hey_give_me_a_clap') + ' 😛'}>
+      <ClapSpan clapped={didClap} onClick={clapped} alt={useT('hey_give_me_a_clap') + ' 😛'}>
         {didClap ? '😊' : '👏'}
       </ClapSpan>
     </div>
@@ -92,7 +85,6 @@ export function Claps() {
  */
 export function Tags() {
   const [{ tags, language, aArticle }] = useGlobals()
-  console.log(tags, aArticle)
   return (
     <TagContainer className="d-flex align-items-center flex-wrap">
       {tags.length && aArticle.id ? (

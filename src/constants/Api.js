@@ -2,12 +2,8 @@
  * Check for environment to pick a base
  * @type {string}
  */
-const BASE_PATH =
-  process.env.NODE_ENV !== 'development' ? 'http://localhost:8080/api/' : 'https://vvadmin.dev/api/'
+const BASE_PATH = process.env.NODE_ENV !== 'development' ? 'http://localhost:8080/api/' : ''
 
-/**
- * @type {{categories: {all: {method: string, url: string}}, articles: {all: {method: string, url: string}, related: {method: string, url: string}, one: {method: string, url: string}}, authors: {all: {method: string, url: string}}, tags: {all: {method: string, url: string}}}}
- */
 const api_calls = {
   articles: {
     all: {
