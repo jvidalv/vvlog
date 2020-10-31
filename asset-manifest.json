@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.645fd4cf.chunk.css",
-    "main.js": "/static/js/main.c334b547.chunk.js",
-    "main.js.map": "/static/js/main.c334b547.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.e10d3098.js",
-    "runtime-main.js.map": "/static/js/runtime-main.e10d3098.js.map",
-    "static/css/2.85244a98.chunk.css": "/static/css/2.85244a98.chunk.css",
-    "static/js/2.bd9e0dcc.chunk.js": "/static/js/2.bd9e0dcc.chunk.js",
-    "static/js/2.bd9e0dcc.chunk.js.map": "/static/js/2.bd9e0dcc.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.e1f4ec2652d8e933a5b0f0d684452081.js": "/precache-manifest.e1f4ec2652d8e933a5b0f0d684452081.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.85244a98.chunk.css.map": "/static/css/2.85244a98.chunk.css.map",
-    "static/css/main.645fd4cf.chunk.css.map": "/static/css/main.645fd4cf.chunk.css.map",
-    "static/js/2.bd9e0dcc.chunk.js.LICENSE": "/static/js/2.bd9e0dcc.chunk.js.LICENSE",
-    "static/media/me-finland.jpg": "/static/media/me-finland.c958a80d.jpg"
+    "main.css": "/vvlog/static/css/main.4897ad69.chunk.css",
+    "main.js": "/vvlog/static/js/main.8db9cad3.chunk.js",
+    "main.js.map": "/vvlog/static/js/main.8db9cad3.chunk.js.map",
+    "runtime-main.js": "/vvlog/static/js/runtime-main.f5739195.js",
+    "runtime-main.js.map": "/vvlog/static/js/runtime-main.f5739195.js.map",
+    "static/css/2.253e202c.chunk.css": "/vvlog/static/css/2.253e202c.chunk.css",
+    "static/js/2.bb708e24.chunk.js": "/vvlog/static/js/2.bb708e24.chunk.js",
+    "static/js/2.bb708e24.chunk.js.map": "/vvlog/static/js/2.bb708e24.chunk.js.map",
+    "index.html": "/vvlog/index.html",
+    "precache-manifest.82cb617e1ed15a76d2600c32a39a2d9b.js": "/vvlog/precache-manifest.82cb617e1ed15a76d2600c32a39a2d9b.js",
+    "service-worker.js": "/vvlog/service-worker.js",
+    "static/css/2.253e202c.chunk.css.map": "/vvlog/static/css/2.253e202c.chunk.css.map",
+    "static/css/main.4897ad69.chunk.css.map": "/vvlog/static/css/main.4897ad69.chunk.css.map",
+    "static/js/2.bb708e24.chunk.js.LICENSE.txt": "/vvlog/static/js/2.bb708e24.chunk.js.LICENSE.txt",
+    "static/media/me-finland.jpg": "/vvlog/static/media/me-finland.c958a80d.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.e10d3098.js",
-    "static/css/2.85244a98.chunk.css",
-    "static/js/2.bd9e0dcc.chunk.js",
-    "static/css/main.645fd4cf.chunk.css",
-    "static/js/main.c334b547.chunk.js"
+    "static/js/runtime-main.f5739195.js",
+    "static/css/2.253e202c.chunk.css",
+    "static/js/2.bb708e24.chunk.js",
+    "static/css/main.4897ad69.chunk.css",
+    "static/js/main.8db9cad3.chunk.js"
   ]
 }
