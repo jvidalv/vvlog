@@ -26,7 +26,7 @@ function Index() {
   return (
     <ThemeProvider theme={THEMES[theme]}>
       <Main>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL + '/'}>
           <HelmetIndex theme={theme} />
           <Header />
           <Switch>
